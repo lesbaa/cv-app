@@ -1,0 +1,41 @@
+#!/usr/bin/env node
+
+const fs = require('fs')
+const args = process.argv
+  .filter((arg, i) => {
+    if (i === 0 || i === 1) return false
+    return true
+  })
+  .reduce((acc, arg) => {
+    const [ key, value ] = arg.split('=')
+    acc[key] = value
+    return acc
+  },{})
+  
+console.log('creating config...\nemail: les@lesmoffat.co.uk\ndomain: les.cv')
+
+const httpsConf = fs.readFileSync('bin/ssl-cert.conf', 'utf-8')
+
+const confOut = httpsConf
+  .replace('<<email>>', args.email)
+  .replace('<<domain>>', args.domain)
+
+fs.writeFileSync('server/dev-https/lescv.dev.conf', confOut, 'utf-8', (err) => {
+  if (err){
+    console.log(err)
+  } else {
+    console.log('config written, now execute `npm run https:gen-dev-cert`')
+  }
+})
+
+/*
+- create a folder within /server called dev-https
+- npm run https:gen-dev-conf email=<youremail> domain=stv.<you>, this will generate a config file within the above folder
+- npm run https:gen-dev-cert, this will ask you some questions and then generate a certificate and key in the dev-https folder, the default values should suffice.
+- restart the app and visit the site (make sure your are visiting it in https)
+- dev tools > security > overview > view certificate
+- drag the certificate icon to the desktop and doubleclick on it, this will open up keychain access.
+- drag the certificate icon to login, open up log-in and double click on the certificate (it should be named stv.les / stv.jon or similar)
+- open up the trust dropdown and select always trust
+- close the window, restart the app using npm run dev:https, close the browser tab and re-open it with the app running (again, make sure it's https in the url), you should now have full local https
+*/

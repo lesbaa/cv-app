@@ -4,7 +4,9 @@
   "description": "The Digital Curriculum Vitae of Les Moffat Esq | A Universal PWA built using react, redux, express and next.js. Because, well, why not, I wanted to see if I could do it.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "https:gen-dev-conf": "cd ~/Sites/cv-v2/app/; chmod 777 bin/get-https; bin/get-https",
+    "https:gen-dev-cert": "cd ~/Sites/cv-v2/app/server/dev-https; openssl req -config lescv.dev.conf -new -sha256 -newkey rsa:2048 -nodes -keyout lescv.dev.key -x509 -days 365 -out lescv.dev.crt"
   },
   "repository": {
     "type": "git",
@@ -14,12 +16,17 @@
   "author": "",
   "license": "ISC",
   "homepage": "https://bitbucket.org/lesbaa/les-cv#readme",
+  "devDependencies": {
+    "babel-eslint": "8.2.3",
+    "eslint": "^4.19.1",
+    "spdy-keys": "0.0.0"
+  },
   "dependencies": {
     "@babel/core": "7.0.0-beta.42",
-    "babel-eslint": "8.2.3",
     "compression": "1.7.2",
-    "express": "4.16.3",
     "isomorphic-fetch": "2.2.1",
+    "micro": "9.3.1",
+    "micro-route": "2.5.0",
     "next": "6.0.3",
     "react": "16.4.0",
     "react-dom": "16.4.0",
