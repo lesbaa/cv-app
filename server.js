@@ -77,10 +77,13 @@ server.use(
 // })
 
 app.prepare().then(() => {
+  server.get('/cv', (req, res, next) => {
+    app.render(req, res, '/CVSlide', { ...req.query, slidename: 'hello' })
+  })
 
-  server.get('/:section', (req, res, next) => {
-    const { section } = req.params
-    app.render(req, res, `/${section}`, { ...req.query, section })
+  server.get('/cv/:slidename', (req, res, next) => {
+    const { slidename } = req.params
+    app.render(req, res, '/CVSlide', { ...req.query, slidename })
   })
 
   console.log(`Server running on ** ${process.env.NODE_ENV} ** environment and on port: ${PORT}`)

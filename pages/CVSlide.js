@@ -7,28 +7,30 @@ import Content from '~/components/Content'
 import AnimatedScene from '~/components/AnimatedScene'
 import Gradient from '~/components/Gradient'
 
-class Section extends Component {
+class CVSlide extends Component {
   static getInitialProps = ({ query }) => {
-    const { section } = query
+    const { slidename = 'hello' } = query
 
     return {
-      section,
+      slidename,
     }
   }
 
   render = () => {
     const {
-      section,
+      slidename,
     } = this.props
 
     return (
       <PageWrapper>
-        <Gradient section={section} />
-        <AnimatedScene section={section} />
-        <Content section={section} />
+        <Gradient slideName={slidename} />
+        <AnimatedScene slideName={slidename} />
+        <Content slideName={slidename} />
       </PageWrapper>
     )
   }
 }
 
-export default Section
+// TODO default props
+
+export default CVSlide

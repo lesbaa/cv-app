@@ -1,13 +1,10 @@
 {
-  "sections": {
+  "slides": {
     "hello": {
-      "title": "Hi this is some filler text for things in the meantime",
-      "items": [
-        "I’m a human based in Glasgow, Scotland. I have experience __solving__ a wide variety of __problems__ in both front-end and back-end domains.",
-        "Day to day, I’m a *__JavaScript Developer.__*",
-        "But really, I just like making cool stuff with just about anything",
-        "Let me show you what I do and why I do it"
-      ]
+      "title": "",
+      "prevSlide": "",
+      "nextSlide": "",
+      "blurb": ""
     }
   }
 }
