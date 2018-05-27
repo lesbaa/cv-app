@@ -7,11 +7,12 @@ import styles from './Content.styles'
 
 const Content = ({
   slideName,
+  title,
 }) => (
   <div
     className="Content"
   >
-    <Title title="this is some title text in here by the way" />
+    <Title title={title} />
     <Main>
       {getBlurbContent(slideName)}
     </Main>
