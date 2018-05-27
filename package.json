@@ -4,6 +4,9 @@
   "description": "The Digital Curriculum Vitae of Les Moffat Esq | A Universal PWA built using react, redux, express and next.js. Because, well, why not, I wanted to see if I could do it.",
   "main": "index.js",
   "scripts": {
+    "dev": "NODE_ENV=dev LES_ENV=dev nodemon --watch server.js --watch next.config.js --watch .babelrc --watch server/ --watch package.json server.js",
+    "start": "NODE_ENV=production LES_ENV=live node server.js",
+    "build": "next build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "https:gen-dev-conf": "cd ~/Sites/cv-v2/app/; chmod 777 bin/get-https; bin/get-https",
     "https:gen-dev-cert": "cd ~/Sites/cv-v2/app/server/dev-https; openssl req -config lescv.dev.conf -new -sha256 -newkey rsa:2048 -nodes -keyout lescv.dev.key -x509 -days 365 -out lescv.dev.crt"
@@ -18,12 +21,19 @@
   "homepage": "https://bitbucket.org/lesbaa/les-cv#readme",
   "devDependencies": {
     "babel-eslint": "8.2.3",
+    "babel-plugin-module-resolver": "^3.1.1",
     "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-import-resolver-babel-module": "^4.0.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.8.2",
+    "nodemon": "^1.17.5",
     "spdy-keys": "0.0.0"
   },
   "dependencies": {
-    "@babel/core": "7.0.0-beta.42",
     "compression": "1.7.2",
+    "express": "^4.16.3",
     "isomorphic-fetch": "2.2.1",
     "micro": "9.3.1",
     "micro-route": "2.5.0",
@@ -31,6 +41,8 @@
     "react": "16.4.0",
     "react-dom": "16.4.0",
     "serve-static": "1.13.2",
+    "spdy": "3.4.7",
+    "styled-jsx": "^2.2.6",
     "webpack": "4.8.3"
   }
 }

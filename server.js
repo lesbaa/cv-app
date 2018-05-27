@@ -2,7 +2,7 @@
 const express = require('express')
 const serveStatic = require('serve-static')
 const nextApp = require('next')
-const http2 = require('http2')
+const http2 = require('spdy')
 const compression = require('compression')
 
 const logListener = require('./server/logListener')
@@ -10,25 +10,21 @@ const logListener = require('./server/logListener')
 const PORT = process.env.PORT || 8080
 process.env.PORT = PORT
 
-console.log(PORT)
-
 const dev =
-  process.env.NODE_ENV === 'dev' ||
-  process.env.NODE_ENV !== 'live'
+  process.env.LES_ENV === 'dev' ||
+  process.env.LES_ENV !== 'live'
 
 
 const useReduxDevTools = process.env.USE_REDUX_DEVTOOLS === '1'
-// const app = nextApp({ dev })
+const app = nextApp({ dev })
 
-// const handle = app.getRequestHandler()
-
-// const routeHandler = (req, res, next, pagePath) => {
-//   app.render(req, res, pagePath, additionalQueryParams)
-// }
+const handle = app.getRequestHandler()
 
 const server = express()
 
-// server.use(compression())
+server.get('*', handle)
+
+server.use(compression())
 // gzip all requests
 
 // the static assets
@@ -48,54 +44,63 @@ server.use(
   })
 )
 
-const docHead = `
-<!DOCTYPE html>
-<html>
-<head>
-</head>
-<body>
-<h1>Hiya!</h1>
-`
 
-server.get('/hey', (rq, rs, nxt) => {
-  rq.on('push', console.log)
-  rs.write(docHead)
-  const stream = rs.push('static/test.js', {
-    status: 200, // optional
-    method: 'GET', // optional
-    request: {
-      accept: '*/*',
-    },
-    response: {
-      'content-type': 'application/javascript',
-    },
-  })
+// TODO uncomment this when you've got your build set up
 
-  stream.on('error', (err) => {
-    console.log('push error!', err)
-  })
+// const docHead = `
+// <!DOCTYPE html>
+// <html>
+// <head>
+// </head>
+// <body>
+// <h1>Hiya!</h1>
+// `
 
-  stream.end('<script src="static/test.js"></script>')
+// server.get('*', (req, res, nxt) => {
+//   res.on('push', console.log)
+//   res.write(docHead)
+//   const stream = res.push('static/test.js', {
+//     status: 200, // optional
+//     method: 'GET', // optional
+//     request: {
+//       accept: '*/*',
+//     },
+//     response: {
+//       'content-type': 'application/javascript',
+//     },
+//   })
 
-  rs.end('<script src="static/test.js"></script><img src="//lorempixel.com/200/200"></body></html>')
+//   stream.on('error', (err) => {
+//     console.log('push error!')
+//   })
+  
+//   const data = fs.readFileSync('static/test.js', 'utf-8')
+//   stream.end(data)
 
-})
-
-// app.prepare().then(() => {
-console.log(`Server running on ** ${process.env.NODE_ENV} ** environment and on port: ${PORT}`)
-
-const fs = require('fs')
-
-const cert = fs.readFileSync('server/dev-https/lescv.dev.crt', 'utf-8')
-const key = fs.readFileSync('server/dev-https/lescv.dev.key', 'utf-8')
-
-const options = {
-  key,
-  cert,
-}
-
-http2
-  .createSecureServer(options, server)
-  .listen(PORT, logListener('HTTP/2'))
+//   res.end('<script src="static/test.js"></script>')
 
 // })
+
+app.prepare().then(() => {
+
+  server.get('/:section', (req, res, next) => {
+    const { section } = req.params
+    app.render(req, res, section, req.query)
+  })
+
+  console.log(`Server running on ** ${process.env.NODE_ENV} ** environment and on port: ${PORT}`)
+
+  const fs = require('fs')
+
+  const cert = fs.readFileSync('server/dev-https/lescv.dev.crt', 'utf-8')
+  const key = fs.readFileSync('server/dev-https/lescv.dev.key', 'utf-8')
+
+  const options = {
+    key,
+    cert,
+  }
+
+  http2
+    .createServer(options, server)
+    .listen(PORT, logListener('HTTP/2'))
+})
