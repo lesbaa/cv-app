@@ -2,29 +2,33 @@
 /* eslint-env browser */
 
 import React, { Component } from 'react'
-import PageHead from '~/components/PageHead'
+import PageWrapper from '~/components/PageWrapper'
+import Content from '~/components/Content'
+import AnimatedScene from '~/components/AnimatedScene'
+import Gradient from '~/components/Gradient'
 
-class Hello extends Component {
-  static getInitialProps = ({ req }) => {
-    const ua = process.browser
-      ? navigator.userAgent
-      : req.headers['user-agent']
+class Section extends Component {
+  static getInitialProps = ({ query }) => {
+    const { section } = query
 
     return {
-      ua,
+      section,
     }
   }
 
   render = () => {
+    const {
+      section,
+    } = this.props
+
     return (
-      <div>
-        <PageHead
-          title="Hey!"
-        />
-        {this.props.ua}
-      </div>
+      <PageWrapper>
+        <Gradient section={section} />
+        <AnimatedScene section={section} />
+        <Content section={section} />
+      </PageWrapper>
     )
   }
 }
 
-export default Hello
+export default Section

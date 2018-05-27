@@ -47,6 +47,7 @@
       "import/extensions": 0,
       // absolute paths resolve to /app so warnings are not needed
       "import/no-absolute-path": 0,
+      "react/no-array-index-key": 0,
       "class-methods-use-this": 0,
       "react/forbid-prop-types": 0,
       "react/require-default-props": 1,

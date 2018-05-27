@@ -1,0 +1,6 @@
+export const HELLO = 'hello'
+export const DEV_SKILLS = 'dev-skills'
+export const SOFT_SKILLS = 'soft-skills'
+export const UP_NEXT = 'up-next'
+export const HUMAN_TOO = 'human-too'
+export const HIRE_ME = 'hire-me'

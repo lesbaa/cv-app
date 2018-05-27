@@ -2,15 +2,15 @@ import css from 'styled-jsx/css'
 
 export default css`
   @font-face {
-  font-family: 'LeagueSpartan';
-  src: url('static/fonts/LeagueSpartan-Bold.subset.eot');
-  src:  local('☺'),
-        url('static/fonts/LeagueSpartan-Bold.subset.woff') format('woff'),
-        url('static/fonts/LeagueSpartan-Bold.subset.ttf') format('truetype'),
-        url('static/fonts/LeagueSpartan-Bold.subset.svg') format('svg');
-  font-weight: bold;
-  font-style: normal;
-}
+    font-family: 'LeagueSpartan';
+    src: url('static/fonts/LeagueSpartan-Bold.subset.eot');
+    src:  local('☺'),
+          url('static/fonts/LeagueSpartan-Bold.subset.woff') format('woff'),
+          url('static/fonts/LeagueSpartan-Bold.subset.ttf') format('truetype'),
+          url('static/fonts/LeagueSpartan-Bold.subset.svg') format('svg');
+    font-weight: 700;
+    font-style: normal;
+  }
 
   @font-face {
     font-family: 'RobotoMono';
@@ -19,7 +19,7 @@ export default css`
           url('static/fonts/RobotoMono-Bold.subset.woff') format('woff'),
           url('static/fonts/RobotoMono-Bold.subset.ttf') format('truetype'),
           url('static/fonts/RobotoMono-Bold.subset.svg') format('svg');
-    font-weight: bold;
+    font-weight: 700;
     font-style: normal;
   }
 
@@ -30,7 +30,7 @@ export default css`
           url('static/fonts/RobotoMono-BoldItalic.subset.woff') format('woff'),
           url('static/fonts/RobotoMono-BoldItalic.subset.ttf') format('truetype'),
           url('static/fonts/RobotoMono-BoldItalic.subset.svg') format('svg');
-    font-weight: bold;
+    font-weight: 700;
     font-style: italic;
   }
 
@@ -41,7 +41,7 @@ export default css`
           url('static/fonts/RobotoMono-Thin.subset.woff') format('woff'),
           url('static/fonts/RobotoMono-Thin.subset.ttf') format('truetype'),
           url('static/fonts/RobotoMono-Thin.subset.svg') format('svg');
-    font-weight: lighter;
+    font-weight: 200;
     font-style: normal;
   }
 
@@ -52,7 +52,29 @@ export default css`
           url('static/fonts/RobotoMono-ThinItalic.subset.woff') format('woff'),
           url('static/fonts/RobotoMono-ThinItalic.subset.ttf') format('truetype'),
           url('static/fonts/RobotoMono-ThinItalic.subset.svg') format('svg');
-    font-weight: lighter;
+    font-weight: 200;
+    font-style: italic;
+  }
+
+  @font-face {
+    font-family: 'RobotoMono';
+    src: url('static/fonts/RobotoMono-Light.subset.eot');
+    src:  local('☺'),
+          url('static/fonts/RobotoMono-Light.subset.woff') format('woff'),
+          url('static/fonts/RobotoMono-Light.subset.ttf') format('truetype'),
+          url('static/fonts/RobotoMono-Light.subset.svg') format('svg');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'RobotoMono';
+    src: url('static/fonts/RobotoMono-LightItalic.subset.eot');
+    src:  local('☺'),
+          url('static/fonts/RobotoMono-LightItalic.subset.woff') format('woff'),
+          url('static/fonts/RobotoMono-LightItalic.subset.ttf') format('truetype'),
+          url('static/fonts/RobotoMono-LightItalic.subset.svg') format('svg');
+    font-weight: 400;
     font-style: italic;
   }
 
@@ -66,26 +88,24 @@ export default css`
   }
   
   * {
-    box-sizing: border-box;
-    font-weight: lighter;
+    font-weight: 200;
     font-family: 'RobotoMono', sans-serif;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
   }
 
   body {
     width: 100%;
     height: auto;
     color: #555;
-    background-color: #FFF;
+    font-family: 'Roboto Mono', sans-serif;
+    font-size: 2vh;
   }
 
   b {
-    font-weight: bolder;
+    font-weight: 700;
   }
 
   strong {
-    font-weight: bold;
+    font-weight: 400;
   }
 
   a {
@@ -96,12 +116,6 @@ export default css`
 
   a:visited {
     color: #666;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    color: #333;
-    font-weight: 700;
-    margin: 0;
   }
 
   figure, body {

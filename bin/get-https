@@ -12,7 +12,7 @@ const args = process.argv
     return acc
   },{})
   
-console.log('creating config...\nemail: les@lesmoffat.co.uk\ndomain: les.cv')
+console.log('creating config...\nemail: les~lesmoffat.co.uk\ndomain: les.cv')
 
 const httpsConf = fs.readFileSync('bin/ssl-cert.conf', 'utf-8')
 

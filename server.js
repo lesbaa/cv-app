@@ -22,8 +22,6 @@ const handle = app.getRequestHandler()
 
 const server = express()
 
-server.get('*', handle)
-
 server.use(compression())
 // gzip all requests
 
@@ -44,9 +42,6 @@ server.use(
   })
 )
 
-
-// TODO uncomment this when you've got your build set up
-
 // const docHead = `
 // <!DOCTYPE html>
 // <html>
@@ -55,7 +50,7 @@ server.use(
 // <body>
 // <h1>Hiya!</h1>
 // `
-
+// TODO push fonts, main.js, commons.js etc
 // server.get('*', (req, res, nxt) => {
 //   res.on('push', console.log)
 //   res.write(docHead)
@@ -85,7 +80,7 @@ app.prepare().then(() => {
 
   server.get('/:section', (req, res, next) => {
     const { section } = req.params
-    app.render(req, res, section, req.query)
+    app.render(req, res, `/${section}`, { ...req.query, section })
   })
 
   console.log(`Server running on ** ${process.env.NODE_ENV} ** environment and on port: ${PORT}`)
@@ -99,6 +94,8 @@ app.prepare().then(() => {
     key,
     cert,
   }
+
+  server.get('*', handle)
 
   http2
     .createServer(options, server)
