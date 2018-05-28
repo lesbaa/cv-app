@@ -1,0 +1,89 @@
+{
+  "slides": {
+    "hello": {
+      "title": "Hi, I'm <x-lesanim width='100%' height='150px' style='position:relative; display: block;'/>",
+      "previousSlide": null,
+      "nextSlide": "dev-skills",
+      "blurbMarkup": "<p>I’m a human based in Glasgow, Scotland. I have experience <em><strong>solving</strong></em> a wide variety of <em><strong>problems</strong></em> in both front-end and back-end domains.</p><p>Day to day, I’m a <em><strong>JavaScript Developer.</strong></em></p><p>But really, I just like making cool stuff with just about anything</p><p>Let me show you what I do and why I do it</p>",
+      "palette": {
+        "gradient": "to bottom right, #eee6ee, #d9d9d9",
+        "offsetOpacity": 0.3,
+        "colors": [
+          "#eee6ee",
+          "#d9d9d9"
+        ]
+      }
+    },
+    "dev-skills": {
+      "title": "show me what you got.",
+      "previousSlide": "hello",
+      "nextSlide": "soft-skills",
+      "blurbMarkup": "<p>I would describe myself as a jack of all trades, master of some.</p><p>Whilst I mostly work day to day in JavaScript / React / Redux / CSS / HTML5, I have also gained some experience in other languages, frameworks and tech.</p><p>My real passion is the web as a platform and all the cool APIs that come along with it such as WebGL, WebAudio, WebMIDI, PWAs, and how they can all be tied together into new and awesome things.</p><p>Click on a skill for more info or click-drag to move around.</p>",
+      "palette": {
+        "gradient": "to top left, #16a085 0%, #f4d03f 100%",
+        "offsetOpacity": 0.4,
+        "colors": [
+          "#16a085",
+          "#f4d03f"
+        ]
+      }
+    },
+    "soft-skills": {
+      "title": "I'm not just about code, though.",
+      "previousSlide": "dev-skills",
+      "nextSlide": "up-next",
+      "blurbMarkup": "<p>Through work, travelling and education. I’ve accrued a variety of non-dev skills too.</p><p>Click on a skill for more info or click-drag to move around.</p>",
+      "palette": {
+        "gradient": "to bottom right, #e1eec3, #f05053",
+        "offsetOpacity": 0.3,
+        "colors": [
+          "#e1eec3",
+          "#f05053"
+        ]
+      }
+    },
+    "up-next": {
+      "title": "and it's a big 'ol internet out there.",
+      "previousSlide": "soft-skills",
+      "nextSlide": "human-too",
+      "blurbMarkup": "<p>It’s a big ‘ol internet out there. There’s still so much more I want to learn, contribute to and build upon.</p><p>Learning is a journey, not a destination, you can never know everything.  But I want to give it a damn good shot.</p>",
+      "palette": {
+        "gradient": "to bottom right, #1a2a6c, #b21f1f, #fdbb2d",
+        "offsetOpacity": 0.5,
+        "colors": [
+          "#1a2a6c",
+          "#b21f1f",
+          "#fdbb2d"
+        ]
+      }
+    },
+    "human-too": {
+      "title": "being human is good too.",
+      "previousSlide": "up-next",
+      "nextSlide": "hire-me",
+      "blurbMarkup": "<p>As an important aside, I’m also a person,<span>a user,</span><span>a vegetable grower,</span><span>a tinkerer,</span><span>a builder of things,</span><span>a jack of all trades,</span><span>a master of some,</span><span>an idealist,</span><span>a realist,</span><span>a lifelong learner,</span><span>a dog dad,</span><span>a hillwalker,</span><span>a nature enthusiast,</span><span>uma aluna de Português,</span><span>a big Led Zep Fan,</span><span>an okay musician,</span><span>a book lover,</span><span>a wannabe stoic,</span><span>a Trekkie/er,</span><span>a (mostly) good guy,</span><span>a damn good cook,</span><span>an enthusiastic, but terrible, dancer</span> and <span>maker of the best god damn hot sauce in Scotland, possibly Europe</span>(yeah, you heard me).</p>",
+      "palette": {
+        "gradient": "to bottom right, #f6d365 0%, #fda085 100%",
+        "offsetOpacity": 0.3,
+        "colors": [
+          "#f6d365",
+          "#fda085"
+        ]
+      }
+    },
+    "hire-me": {
+      "title": "so, you should totally hire me.",
+      "previousSlide": "human-too",
+      "nextSlide": null,
+      "blurbMarkup": "<p>And so, we reach the end of our journey together for now. It’s been fun.</p><p>If you’re contemplating hiring me, or just want to leave some (constructive) feedback, don’t hesitate to contact me through any of the channels below.</p>",
+      "palette": {
+        "gradient": "to bottom right, #a6c0fe 0%, #f68084 100%",
+        "offsetOpacity": 0.3,
+        "colors": [
+          "#a6c0fe",
+          "#f68084"
+        ]
+      }
+    }
+  }
+}
