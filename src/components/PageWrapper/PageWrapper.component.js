@@ -5,12 +5,20 @@ import styles from './PageWrapper.styles'
 
 const PageWrapper = ({
   children,
+  palette,
+  title,
 }) => (
-  <div className="PageWrapper">
-    <PageHead
-      title="Hiya!"
+  <div
+    className="PageWrapper"
+  >
+    <div
+      className="gradient"
+      style={{ background: `linear-gradient(${palette.gradient})` }}
     />
-    {children}
+    <PageHead
+      title={`Les Moffat | ${title}`}
+    />
+    {children}    
     <style jsx>{styles}</style>
   </div>
 )
