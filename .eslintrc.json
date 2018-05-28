@@ -45,6 +45,7 @@
       "import/no-extraneous-dependencies": 0,
       // "import/no-unresolved": 0,
       "import/extensions": 0,
+      "jsx-a11y/anchor-is-valid": 0,
       // absolute paths resolve to /app so warnings are not needed
       "import/no-absolute-path": 0,
       "react/no-array-index-key": 0,
