@@ -1,159 +1,140 @@
 /* eslint-env browser */
-/* global THREE */
+/* global PIXI */
 
 // FYI, this is my first webComponent / custom element...
 
-const vertexShader = `
-varying vec2 vUv;
-void main() {
-  vUv = uv;
-  gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
-}
-`
 const fragmentShader = `
 uniform float uTime;
-  void main() {
-    float r =
-      sin(uTime) +
-      sin((gl_FragCoord.x + uTime) / 2.0) +
-      sin((gl_FragCoord.y + uTime) / 2.0) * sin(uTime)
-      ;
-    float g = 
-      cos(uTime) +
-      cos((gl_FragCoord.x + uTime) / 2.0) -
-      cos((gl_FragCoord.y + uTime) / 2.0) * cos(uTime * 4.0);
-    float b = sin((gl_FragCoord.x) / 200.0 + uTime * 3.0);
-    gl_FragColor = vec4(
-      r / 5.0,
-      g / 5.0,
-      b * 2.0,
-      0.0
-    );
-  }
+varying vec2 vTextureCoord;
+uniform sampler2D uSampler;
+
+void main(){
+  float sinT = sin(gl_FragCoord.x / 2.0 + uTime * 20.0);
+
+  vec4 pixelData = texture2D(uSampler, vTextureCoord);
+
+  float r = pixelData.r;
+  float g = pixelData.g;
+  float b = pixelData.b;
+  float a = pixelData.a;
+  
+  gl_FragColor = vec4(
+    r,
+    g,
+    b,
+    a
+  );
+  
+}
+
 `
 
 class LesAnim extends HTMLElement {
   constructor() {
     super()
-    const threeScript = document.createElement('script')
     this.init = this.init.bind(this)
     this.initCanvas = this.initCanvas.bind(this)
-    this.initThree = this.initThree.bind(this)
     this.render = this.render.bind(this)
-    threeScript.addEventListener('load', this.init)
-    threeScript.src = '//threejs.org/build/three.min.js'
+    const script = document.createElement('script')
+    script.addEventListener('load', this.init)
+    script.src = '//cdnjs.cloudflare.com/ajax/libs/pixi.js/4.8.0/pixi.min.js'
     const shadow = this.attachShadow({ mode: 'open' })
-    shadow.appendChild(threeScript)
+    shadow.appendChild(script)
   }
 
   init() {
+    this.initStyles()
     this.initCanvas()
-    this.initSvg()
-    this.initThree()
+    this.initPixi()
+    this.initShader()
+    this.initText()
+    this.initRender()
+  }
+
+  initStyles() {
+    const style = document.createElement('style')
+    style.textContent = `
+      .canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    `
+    this.shadowRoot.appendChild(style)
   }
 
   initCanvas() {
     const c = document.createElement('canvas')
-    c.classList.add('threeCanvas')
-    const style = document.createElement('style')
-    style.textContent = `
-      .threeCanvas {
-        width: 100%;
-        height: auto;
-        clip-path: url(#text);
-        position: absolute;
-        left: 0;
-      }
+    c.classList.add('canvas')
 
-    `
-    this.shadowRoot.appendChild(style)
     this.shadowRoot.appendChild(c)
+
     this.canvas = c
   }
 
-  initSvg() {
-    const svgNS = 'http://www.w3.org/2000/svg'
-    const svg = document.createElementNS(svgNS, 'svg')
-    svg.setAttribute('height', '100%')
-    svg.setAttribute('width', '100%')
-
-    const style = document.createElement('style')
-    style.textContent = `
-      #text {
-        font-family: 'LeagueSpartan'
-      }
-
-    `
-
-    this.shadowRoot.appendChild(style)
-
-    const clipPath = document.createElementNS(svgNS, 'clipPath')
-    clipPath.id = 'text'
-
-    const text = document.createElementNS(svgNS, 'text')
-
-    text.innerText = 'Les.'
-    text.setAttribute('y', '0%')
-    text.setAttribute('font-size', '200')
-
-    clipPath.appendChild(text)
-    svg.appendChild(text)
-    this.shadowRoot.appendChild(svg)
-//     <svg class="hiya" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 400 250" width="128vh" height="62vh">
-//   <clipPath id="text">
-//     <text y="62%" height="100%" font-size="200">
-//       Hiya
-//     </text>
-//   </clipPath>
-// </svg>
+  initPixi() {
+    const {
+      width,
+      height,
+    } = this.canvas.getBoundingClientRect()
+    const app = new PIXI.Application({
+      view: this.canvas,
+      antialias: true,
+      transparent: true,
+      width,
+      height,
+    })
+    app.renderer.autoResize = true
+    this.pixiApp = app
   }
 
-  initThree() {
-    this.renderer = new THREE.WebGLRenderer({
-      canvas: this.canvas,
+  initShader() {
+    this.shaderUniforms = {
+      uTime: {
+        type: 'f',
+        value: 0,
+      },
+    }
+    this.shader = new PIXI.Filter('', fragmentShader, this.shaderUniforms)
+  }
+
+  initText() {
+    const {
+      width,
+      height,
+    } = this.canvas.getBoundingClientRect()
+    const text = new PIXI.Text('Les.', {
+      fontWeight: 'bold',
+      fontSize: height,
+      fontFamily: 'LeagueSpartan',
+      fill: '#333',
+      align: 'center',
+      stroke: '#FFFFFF',
+      strokeThickness: 6,
     })
 
-    this.camera = new THREE.PerspectiveCamera(45, 1.5, 1, 1000)
+    text.anchor.set(0)
 
-    this.camera.position.z = 5
+    text.x = -11
+    text.y = (height - text.height) + 40
+    
+    text.filters = [this.shader]
+    this.text = text
+    this.pixiApp.stage.addChild(text)
+  }
 
-    this.scene = new THREE.Scene()
-
-    this.material = this.createMaterial()
-
-    this.mesh = new THREE.Mesh(
-      this.createPlane(),
-      this.material,
-    )
-
-    this.scene.add(this.mesh)
-    this.scene.add(this.camera)
-
+  initRender() {
     this.render(0)
   }
 
   render(t = 0) {
     requestAnimationFrame(this.render)
-    this.material.uniforms.uTime.value += 0.01
-    this.renderer.render(
-      this.scene,
-      this.camera,
-    )
+    this.shader.uniforms.uTime += 0.01
+    this.pixiApp.renderer.render(this.pixiApp.stage)
   }
 
-  createMaterial() {
-    return new THREE.ShaderMaterial({
-      vertexShader,
-      fragmentShader,
-      uniforms: {
-        uTime: { value: 0 },
-      }
-    })
-  }
-
-  createPlane() {
-    return new THREE.PlaneGeometry(10, 10, 1)
-  }
 }
 
 customElements.define('x-lesanim', LesAnim)

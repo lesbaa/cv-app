@@ -11,4 +11,20 @@ export default css`
     letter-spacing: -0.02em;
     font-family: 'LeagueSpartan'
   }
-`  
+
+  .Title :global(strong) {
+    position: relative;
+    padding-bottom: 50%;
+    height: 0;
+    overflow: hidden;
+    display: block;
+  }
+
+  :global(strong) :global(x-lesanim) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+`
