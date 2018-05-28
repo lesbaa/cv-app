@@ -1,16 +1,12 @@
 import React from 'react'
+import ReactHTMLParser from 'react-html-parser'
 import styles from './Title.styles'
-import TextNode from './TextNode.component'
 
-const mapSentenceToNodes = sentence => sentence
-  .split(' ')
-  .map((word, i) => <TextNode word={word} key={`${word}-${i}`} />)
-
-const Title = ({ title }) => (
+const Title = ({ title, opacity }) => (
   <h2
     className="Title"
   >
-    {mapSentenceToNodes(title)}
+    {ReactHTMLParser(title)}
     <style jsx>{styles}</style>
   </h2>
 )
