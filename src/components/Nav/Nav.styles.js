@@ -7,12 +7,18 @@ export default css`
     justify-content: space-between;
     font-size: 1.1em;
     margin-top: 0.5em;
+    mix-blend-mode: color-burn;
   }
 
   .nav-item:hover > :global(svg) {
     opacity: 0.5;
     transition: 0.5s;
     cursor: pointer;
+  }
+
+  .nav-item> :global(svg) {
+    stroke: #333;
+    stroke-width: 1.5;
   }
 
   .nav-item {

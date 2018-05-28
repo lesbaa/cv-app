@@ -8,8 +8,8 @@ import MailIcon from 'react-feather/dist/icons/mail'
 import styles from './Nav.styles'
 
 const Nav = ({
-  previousSlide = 'HELLO',
-  nextSlide = 'HELLO',
+  previousSlide,
+  nextSlide,
 }) => (
   <nav
     className="Nav"
@@ -24,28 +24,38 @@ const Nav = ({
     <div
       className="next-prev"
     >
-      <Link
-        prefetch
-        href={previousSlide}
-      >
-        <a
-          className="nav-item"
-          href={previousSlide}
+      {previousSlide &&
+        <Link
+          href={{
+            pathname: '/CVSlide',
+            query: { slidename: previousSlide },
+          }}
+          as={`/cv/${previousSlide}`}
+          prefetch
         >
-          <ArrowLeftIcon size="1em" />
-        </a>
-      </Link>
-      <Link
-        prefetch
-        href={nextSlide}
-      >
-        <a
-          className="nav-item"
-          href={nextSlide}
+          <a
+            className="nav-item"
+          >
+            <ArrowLeftIcon size="1em" />
+          </a>
+        </Link>
+      }
+      {nextSlide &&
+        <Link
+          href={{
+            pathname: '/CVSlide',
+            query: { slidename: nextSlide },
+          }}
+          as={`/cv/${nextSlide}`}
+          prefetch
         >
-          <ArrowRightIcon size="1em" />
-        </a>
-      </Link>
+          <a
+            className="nav-item"
+          >
+            <ArrowRightIcon size="1em" />
+          </a>
+        </Link>
+      }
     </div>
     <style jsx>{styles}</style>
   </nav>
