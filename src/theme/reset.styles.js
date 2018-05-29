@@ -14,28 +14,6 @@ export default css`
 
   @font-face {
     font-family: 'RobotoMono';
-    src: url('/static/fonts/RobotoMono-Bold.subset.eot');
-    src:  local('☺'),
-          url('/static/fonts/RobotoMono-Bold.subset.woff') format('woff'),
-          url('/static/fonts/RobotoMono-Bold.subset.ttf') format('truetype'),
-          url('/static/fonts/RobotoMono-Bold.subset.svg') format('svg');
-    font-weight: 700;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'RobotoMono';
-    src: url('/static/fonts/RobotoMono-BoldItalic.subset.eot');
-    src:  local('☺'),
-          url('/static/fonts/RobotoMono-BoldItalic.subset.woff') format('woff'),
-          url('/static/fonts/RobotoMono-BoldItalic.subset.ttf') format('truetype'),
-          url('/static/fonts/RobotoMono-BoldItalic.subset.svg') format('svg');
-    font-weight: 700;
-    font-style: italic;
-  }
-
-  @font-face {
-    font-family: 'RobotoMono';
     src: url('/static/fonts/RobotoMono-Thin.subset.eot');
     src:  local('☺'),
           url('/static/fonts/RobotoMono-Thin.subset.woff') format('woff'),
