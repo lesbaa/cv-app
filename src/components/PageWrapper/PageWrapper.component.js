@@ -29,6 +29,11 @@ PageWrapper.propTypes = {
 
 PageWrapper.defaultProps = {
   children: null,
+  palette: {
+    gradient: 'to bottom right, #eee6ee, #d9d9d9',
+  }
 }
+
+// TODO proptypes in here
 
 export default PageWrapper
