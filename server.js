@@ -77,6 +77,10 @@ server.use(
 // })
 
 app.prepare().then(() => {
+  server.get('/', (req, res, next) => {
+    app.render(req, res, '/index', { ...req.query })
+  })
+
   server.get('/cv', (req, res, next) => {
     app.render(req, res, '/CVSlide', { ...req.query, slidename: 'hello' })
   })
