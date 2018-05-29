@@ -9,7 +9,6 @@ import AnimatedScene from '~/components/AnimatedScene'
 import { getSlide } from '~/utils/api'
 
 class CVSlide extends Component {
-
   static pageTransitionDelayEnter = true
 
   state = {
@@ -45,7 +44,6 @@ class CVSlide extends Component {
   }
 
   render = () => {
-    if (!this.state.loaded) return null
     const {
       slidename,
       blurbMarkup,
