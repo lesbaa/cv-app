@@ -18,30 +18,30 @@ const PageHead = ({
       />
       <link
         rel="preload"
+        as="font"
+        type="font/woff"
         href="/static/fonts/RobotoMono-Thin.subset.woff"
-        as="font"
-        type="font/woff"
         crossOrigin
       />
       <link
         rel="preload"
+        as="font"
+        type="font/woff"
         href="/static/fonts/RobotoMono-ThinItalic.subset.woff"
-        as="font"
-        type="font/woff"
         crossOrigin
       />
       <link
         rel="preload"
+        as="font"
+        type="font/woff"
         href="/static/fonts/RobotoMono-Light.subset.woff"
-        as="font"
-        type="font/woff"
         crossOrigin
       />
       <link
         rel="preload"
-        href="/static/fonts/RobotoMono-LightItalic.subset.woff"
         as="font"
         type="font/woff"
+        href="/static/fonts/RobotoMono-LightItalic.subset.woff"
         crossOrigin
       />
       <meta charSet="utf-8" />

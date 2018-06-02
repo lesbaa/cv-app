@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'proptypes'
+import '~/utils/polyfills'
 import PageHead from '~/components/PageHead'
 import styles from './PageWrapper.styles'
 

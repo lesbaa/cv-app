@@ -38,7 +38,6 @@ class IndexPage extends Component {
   }
 
   render = () => {
-
     return (
       <PageWrapper
         title=""
@@ -46,17 +45,23 @@ class IndexPage extends Component {
         <main
           className="main"
         >
-          <div className="les-anim">
-            <strong><x-lesanim>Les.</x-lesanim></strong>
+          <h1 className="les-anim">
+            <strong><x-lesanim offsetY="20">LesMoffat.</x-lesanim></strong>
+          </h1>
+          <div className="job-title">
+            Level 16 Code-smuggler.
           </div>
           <div className="index-links">
             <Link
-              href="/cv"
+              href={{
+                pathname: '/cv/hello',
+                query: { slidename: 'hello' },
+              }}
+              as="/cv/hello"
               prefetch
             >
               <a
                 title="view my cv..."
-                href="/cv/hello"
               >
                 <GiftIcon />
               </a>
@@ -123,13 +128,19 @@ class IndexPage extends Component {
           }
 
           .les-anim {
-            width: 30%;
+            width: 45%;
+          }
+
+          .job-title {
             font-family: 'LeagueSpartan';
+            font-size: 1.5em;
+            text-align: center;
+            width: 30%;
           }
 
           .main :global(strong) {
             position: relative;
-            padding-bottom: 50%;
+            padding-bottom: 20%;
             height: 0;
             overflow: hidden;
             display: block;

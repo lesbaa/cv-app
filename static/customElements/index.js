@@ -9,7 +9,7 @@ varying vec2 vTextureCoord;
 uniform sampler2D uSampler;
 #define THRESH 0.2
 void main() {
-  vec2 coord = vec2(vTextureCoord.x + .25, vTextureCoord.y / 2.0 + .6) / 2.5;
+  vec2 coord = vec2(vTextureCoord.x + .25, vTextureCoord.y / 2.0 + .53) / 2.5;
   
   vec2 pointOne = vec2(0.59, sin(uTime - .5) / 15.0 + 0.25);
   vec2 pointTwo = vec2(.44, sin(uTime / 2.0 -.25) / 10.0 + 0.4);
@@ -43,9 +43,9 @@ void main() {
     distFive
   ) / 3.0;
 
-  float r = rangeR > THRESH ? 1.0 : 0.2;
-  float g = rangeG > THRESH ? 1.0 : 0.2;
-  float b = rangeB > THRESH ? 1.0 : 0.2;
+  float r = rangeR > THRESH ? 1.0 : 0.3;
+  float g = rangeG > THRESH ? 1.0 : 0.3;
+  float b = rangeB > THRESH ? 1.0 : 0.3;
   float a = pixelData.a;
   
   gl_FragColor = vec4(
@@ -98,7 +98,7 @@ class LesAnim extends HTMLElement {
 
   async init() {
     await this.loadPixiScript()
-    await this.fetchFont()
+    // await this.fetchFont()
     this.initStyles()
     this.initCanvas()
     this.initPixi()
@@ -173,7 +173,9 @@ class LesAnim extends HTMLElement {
       width,
       height,
     } = this.canvas.getBoundingClientRect()
+
     const textString = this.childNodes[0].textContent
+
     const text = new PIXI.Text(textString, {
       fontFamily: 'LeagueSpartan',
       fontWeight: 'bold',
@@ -187,7 +189,10 @@ class LesAnim extends HTMLElement {
     text.anchor.set(0)
 
     text.x = -10
-    text.y = (height - text.height) + 40
+
+    const offsetY = parseFloat(this.getAttribute('offsetY'), 10)
+
+    if (offsetY) text.y = (height - text.height) + offsetY
 
     text.filters = [this.shader]
     this.text = text
@@ -202,6 +207,7 @@ class LesAnim extends HTMLElement {
     requestAnimationFrame(this.render)
     this.shader.uniforms.uTime += 0.01
     this.pixiApp.renderer.render(this.pixiApp.stage)
+    if (t > 1000 && t < 2000) this.text.dirty = true // hack for pixi font-loading carryon 
   }
 
   disconnectedCallback() {

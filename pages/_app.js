@@ -1,28 +1,49 @@
 import App, { Container } from 'next/app'
 import React from 'react'
+import withReduxStore from '~/HOCs/withReduxStore'
 import { PageTransition } from 'next-page-transitions'
+import { Provider } from 'react-redux'
 
-export default class MyApp extends App {
+class LesCV extends App {
   static async getInitialProps({ Component, router, ctx }) {
+    const { store } = ctx
     if (Component.getInitialProps) {
       const pageProps = await Component.getInitialProps(ctx)
-      return { pageProps }
+
+      return {
+        pageProps,
+        store,
+      }
+
     }
 
-    return { pageProps: {} }
+    return {
+      pageProps: {},
+      store,
+    }
   }
 
   render() {
-    const { Component, pageProps } = this.props
+
+    const {
+      Component,
+      pageProps,
+      store,
+    } = this.props
+
     return (
       <Container>
         <PageTransition
           timeout={500}
           classNames="page-transition"
         >
-          <Component {...pageProps} />
+          <Provider store={store}>
+            <Component {...pageProps} />
+          </Provider>
         </PageTransition>
       </Container>
     )
   }
 }
+
+export default withReduxStore(LesCV)

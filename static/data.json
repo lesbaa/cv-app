@@ -1,7 +1,7 @@
 {
   "slides": {
     "hello": {
-      "title": "Hi, I'm <strong><x-lesanim>Les.</x-lesanim></strong>",
+      "title": "Hi, I'm <strong><x-lesanim offsetY=40>Les.</x-lesanim></strong>",
       "previousSlide": null,
       "nextSlide": "dev-skills",
       "blurbMarkup": "<p>I’m a human based in Glasgow, Scotland. I have experience <em><strong>solving</strong></em> a wide variety of <em><strong>problems</strong></em> in both front-end and back-end domains.</p><p>Day to day, I’m a <em><strong>JavaScript Developer.</strong></em></p><p>But really, I just like making cool stuff with just about anything.</p><p>Let me show you what I do and why I do it.</p>",
@@ -18,7 +18,7 @@
       "title": "show me what you got.",
       "previousSlide": "hello",
       "nextSlide": "soft-skills",
-      "blurbMarkup": "<p>I would describe myself as a jack of all trades, master of some.</p><p>Whilst I mostly work day to day in JavaScript / React / Redux / CSS / HTML5, I have also gained some experience in other languages, frameworks and tech.</p><p>My real passion is the web as a platform and all the cool APIs that come along with it such as WebGL, WebAudio, WebMIDI, PWAs, and how they can all be tied together into new and awesome things.</p><p>Click on a skill for more info or click-drag to move around.</p>",
+      "blurbMarkup": "<p>I would describe myself as a jack of all trades, master of some.</p><p>Whilst I mostly work day to day in <em><strong>JavaScript</strong></em> / <em><strong>React</strong></em> / <em><strong>Redux</strong></em> / <em><strong>CSS</strong></em> / <em><strong>HTML5</strong></em>, I have also gained some experience in other languages, frameworks and tech.</p><p>My real passion is the <em><strong>web as a platform</strong></em> and all the cool APIs that come along with it such as WebGL, WebAudio, WebMIDI, PWAs, and how they can all be tied together into new and awesome things.</p><p>Click on a skill for more info or click-drag to move around.</p>",
       "palette": {
         "gradient": "to top left, #16a085 0%, #f4d03f 100%",
         "offsetOpacity": 0.4,
@@ -60,7 +60,7 @@
     "human-too": {
       "title": "being human is good too.",
       "previousSlide": "up-next",
-      "nextSlide": "hire-me",
+      "nextSlide": "social-proof",
       "blurbMarkup": "<p>As an important aside, I’m also a person,<span>a user,</span><span>a vegetable grower,</span><span>a tinkerer,</span><span>a builder of things,</span><span>a jack of all trades,</span><span>a master of some,</span><span>an idealist,</span><span>a realist,</span><span>a lifelong learner,</span><span>a dog dad,</span><span>a hillwalker,</span><span>a nature enthusiast,</span><span>uma aluna de Português,</span><span>a big Led Zep Fan,</span><span>an okay musician,</span><span>a book lover,</span><span>a wannabe stoic,</span><span>a Trekkie/er,</span><span>a (mostly) good guy,</span><span>a damn good cook,</span><span>an enthusiastic, but terrible, dancer</span> and <span>maker of the best god damn hot sauce in Scotland, possibly Europe</span>(yeah, you heard me).</p>",
       "palette": {
         "gradient": "to bottom right, #f6d365 0%, #fda085 100%",
@@ -71,9 +71,23 @@
         ]
       }
     },
+    "social-proof": {
+      "title": "but don't take my word for it.",
+      "previousSlide": "human-too",
+      "nextSlide": "hire-me",
+      "blurbMarkup": "<p>See what the people I've worked with have to say.</p>",
+      "palette": {
+        "gradient": "to bottom right, #a8edea 0%, #fed6e3 100%",
+        "offsetOpacity": 0.3,
+        "colors": [
+          "#a8edea",
+          "#fed6e3"
+        ]
+      }
+    },
     "hire-me": {
       "title": "so, you should totally hire me.",
-      "previousSlide": "human-too",
+      "previousSlide": "social-proof",
       "nextSlide": null,
       "blurbMarkup": "<p>And so, we reach the end of our journey together for now. It’s been fun.</p><p>If you’re contemplating hiring me, or just want to leave some (constructive) feedback, don’t hesitate to contact me through any of the channels below.</p>",
       "palette": {
@@ -84,6 +98,143 @@
           "#f68084"
         ]
       }
+    }
+  },
+  "devSkills": {
+    "js": {
+      "name": "JS / ECMA",
+      "points": 8,
+      "desc": "Used in both client and serverside applications, JavaScript is the language of the web.  I use javascript on a daily basis both for work and personal projects and have experience on building both client and serverside apps. Knowing the platform is more important that knowing any framework."
+    },
+    "react": {
+      "name": "ReactJS",
+      "points": 7,
+      "desc": "ReactJS is the most popular javascript view library currently in use and component based architecture isn't going anywhere fast.  I have several years experience using react on both client and server side envs. React 16 is the current iteration and I'm looking forward to getting stuck into things like portals, suspense, server side streaming etc."
+    },
+    "redux": {
+      "name": "Redux",
+      "points": 6,
+      "desc": "Redux is the goto library for state management in React apps.  Despite the learning curve, it's minimal API makes state management so much easier and gives the developer awesome \"time-travelling\" tools for debugging.  It's, like, my favourite thing ever."
+    },
+    "functional": {
+      "name": "Functional Programming / Recompose / Ramda",
+      "points": 4,
+      "desc": "Functional programming in JS is a big deal these days. Whilst it's not the best choice for <em>every</em> scenario.  It does make things more deterministic and testable and is ideal for using alongside React / Redux in UI development.  I try to write in a functional style where it's applicable. Recompose and Ramda are two libraries that help greatly in doing so, i've used both in personal and work projects."
+    },
+    "angular": {
+      "name": "Angular 1",
+      "points": 2,
+      "desc": "I've worked on products that use Angular 1, It's been...interesting.  It's not ideal and the Angular project has changed a lot since but, push come to shove I could pick it up again."
+    },
+    "jquery": {
+      "name": "jQuery",
+      "points": 4,
+      "desc": "Good 'ol jquery, still in use today.  Any JS dev has almost certainly worked with jQuery at some point.  It's easy no-nonsense API has inspired many features commonly in use on the web today including DOM stuff like querySelector and classList to server side markup traversers like Cheerio and the like."
+    },
+    "ssr": {
+      "name": "SSR / Next.js",
+      "points": 8,
+      "desc": "Server side rendering and universal Javascript apps are a big deal and can save on time, money and dev resources.  I've experience in using SSR frameworks such as Next.js for react"
+    },
+    "express": {
+      "name": "ExpressJS",
+      "points": 5,
+      "desc": "Express is the current defacto routing library for node servers.  I've used Express, among others, for both personal an professional projects."
+    },
+    "node": {
+      "name": "NodeJS",
+      "points": 5,
+      "desc": "Node is one of the biggest things to happen to web devlopment in the past ten years and has paved the way for universal javascript apps, build pipelines and heavy concurrency. Ryan Dhal, you have changed the world.  Again, being a JS dev I use node on a daily basis.  At some point I'd like to get deeper down into the lower level stuff surrounding node."
+    },
+    "pwa": {
+      "name": "PWAs",
+      "points": 5,
+      "desc": "Progressive web app encompass a suite of technologies and, once fully adopted across browsers, are likely to change the way we use and develop apps.  I've experience in building PWAs and the assorted engineering problems that arise.  In fact, this CV is a PWA."
+    },
+    "webgl": {
+      "name": "ThreeJS / WebGL / Pixi / StackGL / GSL",
+      "points": 6,
+      "desc": "Aw man, I love this stuff.  WebGL is just great for smooth 3D / 2D Graphics in the browser.  As part of a presentation in work, and to understand the API a bit better, I built my own WebGl library from the ground up.  But I tend to use tried and tested libraries like Three.js, Pixi or the more modular StackGL.  Although graphics programming is <em>hard</em>, I've been learning GSL, and it's been fun."
+    },
+    "p5": {
+      "name": "p5JS / toxiclibs / matter-js",
+      "points": 3,
+      "desc": "I love code-as-art. And have experience of using the above libraries as part of my own creative projects.  Some of them are used in this CV, have a look at the <strong><em>code</em><strong> if you're interested"
+    },
+    "mongo": {
+      "name": "MongoDB / Mongoose",
+      "points": 3.5,
+      "desc": "Through personal projects I've implemented and used MongoDB and Mongoose."
+    },
+    "webpack": {
+      "name": "Webpack",
+      "points": 4,
+      "desc": "I'd say I'm comfortable setting up a webpack config from scratch."
+    },
+    "gulp": {
+      "name": "Gulp",
+      "points": 3,
+      "desc": "Various projects I've worked on have used Gulp as part of the build pipeline"
+    },
+    "test": {
+      "name": "TDD / Jest / Enzyme",
+      "points": 5,
+      "desc": "I've gained experince using Jest and Enzyme for unit / snapshot testing.  Writing tests beforehand can be helpful in determining"
+    },
+    "npm": {
+      "name": "NPM / Yarn",
+      "points": 4,
+      "desc": "Again, working with node means using NPM on a daily basis, although tbh, I prefer Yarn as it tends to be faster and, dare I say it, more reliable."
+    },
+    "git": {
+      "name": "git",
+      "points": 4,
+      "desc": "I've always used git for version control and am comfortable pushing, pulling, merging, cherry-picking and all that jazz."
+    },
+    "cli": {
+      "name": "Bash / Zsh / CLI / Linux",
+      "points": 4,
+      "desc": "Again, the terminal is something I use on a daily basis.  I have some experience in SSH and Linux, I'm still trying to pick up the finer points of bash."
+    },
+    "html5": {
+      "name": "HTML5",
+      "points": 6,
+      "desc": "HTML5 Brings to the table loads of new APIs, elements etc.  I have experience in working with HTML5 "
+    },
+    "css": {
+      "name": "CSS / SASS / Styled-JSX",
+      "points": 6,
+      "desc": "As front-end I have been using CSS for almost all of my career. SASS (original syntax :P) was a big help in organising styles.  What I really into at the moment, however, is CSS-in-JS style solutions for React.  My favourite currently being <a target=_blank href='//zeit.co'>Zeit's</a> Styled-JSX."
+    },
+    "seo": {
+      "name": "Structured Data / LD + JSON",
+      "points": 4,
+      "desc": "Search engines prefer pages to be structured correctly and using the correct semantics.  Working as part of a new platform, SEO is important and structired data and correct semantics help in getting content out there.  "
+    },
+    "processing": {
+      "name": "Processing | (Java)",
+      "points": 2,
+      "desc": "I love playing about with processing and have picked up a little bit of Java in doing so."
+    },
+    "of": {
+      "name": "Open Frameworks | (C++)",
+      "points": 2,
+      "desc": "Similar to Processing, I've used Open Frameworks for creative coding experiments.  C++ is a different kettle of fish altogether. But it's been fun having lower level access to the environment"
+    },
+    "aws": {
+      "name": "AWS",
+      "points": 2,
+      "desc": "I have deployed various bits and bobs to AWS over the past couple of years.  Mostly using EC2 instances. It's one thing I think would be valuable and would like to learn more about, especially CloudFront for scaling apps."
+    },
+    "svg": {
+      "name": "SVG",
+      "points": 3,
+      "desc": "SVG is great for creating visual content with JS.  I've learned a few tricks reagrding manipulating SVGs programmatically."
+    },
+    "platform": {
+      "name": "The Web Platform",
+      "points": 6,
+      "desc": "The browser now comes with so many cool APIs and features.  The best thing about the web as a platform is being able to connect all these things together easily and seemlessly. My new favourite is WebAudio and WebMidi.  But i've had play with most of them at some point. The sky is the limit."
     }
   }
 }

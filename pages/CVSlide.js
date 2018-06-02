@@ -6,16 +6,15 @@ import PropTypes from 'proptypes'
 import PageWrapper from '~/components/PageWrapper'
 import Content from '~/components/Content'
 import AnimatedScene from '~/components/AnimatedScene'
+import DetailModal from '~/components/DetailModal'
 import { getSlide } from '~/utils/api'
 
 class CVSlide extends Component {
+
   static pageTransitionDelayEnter = true
 
-  state = {
-    loaded: false,
-  }
+  static getInitialProps = async ({ query, store }) => {
 
-  static getInitialProps = async ({ query }) => {
     const {
       slidename,
     } = query
@@ -40,7 +39,6 @@ class CVSlide extends Component {
 
   componentDidMount = () => {
     this.props.pageTransitionReadyToEnter()
-    this.setState({ loaded: true })
   }
 
   render = () => {
@@ -58,7 +56,10 @@ class CVSlide extends Component {
         palette={palette}
         title={title}
       >
-        <AnimatedScene slideName={slidename} />
+        <AnimatedScene
+          palette={palette}
+          slidename={slidename}
+        />
         <Content
           title={title}
           blurbMarkup={blurbMarkup}
@@ -66,9 +67,11 @@ class CVSlide extends Component {
           previousSlide={previousSlide}
           palette={palette}
         />
+        <DetailModal />
       </PageWrapper>
     )
   }
+
 }
 
 CVSlide.propTypes = {
@@ -80,6 +83,5 @@ CVSlide.defaultProps = {
 }
 
 // TODO more proptypes!
-
 
 export default CVSlide
