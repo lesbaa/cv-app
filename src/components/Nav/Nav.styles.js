@@ -16,7 +16,7 @@ export default css`
     cursor: pointer;
   }
 
-  .nav-item> :global(svg) {
+  .nav-item > :global(svg) {
     stroke: #333;
     stroke-width: 1.5;
   }

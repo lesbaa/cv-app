@@ -15,4 +15,8 @@ export const getDevSkills = async ({ params }) => {
   return data.devSkills
 }
 
+export const getDevSkill = async ({ params, skillId }) => {
+  return data.devSkills[skillId]
+}
+
 // TODO tests for this

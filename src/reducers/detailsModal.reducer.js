@@ -17,6 +17,7 @@ export default function (state = defaultState, {
   const {
     modalTitle,
     modalContent,
+    skillId,
     originX,
     originY,
   } = payload
@@ -27,6 +28,7 @@ export default function (state = defaultState, {
         ...state,
         modalIsVisible: true,
         modalTitle,
+        skillId,
         modalContent,
         originX,
         originY,

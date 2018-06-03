@@ -11,6 +11,7 @@ const mapStateToProps = ({
     modalIsVisible,
     modalTitle,
     modalContent,
+    skillId,
     originX,
     originY,
   },

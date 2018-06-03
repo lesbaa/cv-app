@@ -61,9 +61,9 @@ class DevSkillsScene extends Component {
     this.h = window.innerHeight
 
     this.ctx = this.canvasRef.getContext('2d')
-    this.ctx.lineWidth = 2
-    this.ctx.globalAlpha = 0.5
-    this.ctx.fillStyle = '#444'
+    this.ctx.lineWidth = 1
+    this.ctx.globalAlpha = 1
+    this.ctx.strokeStyle = '#333'
 
     this.physicsEngine = this.physicsEngine
       ? Engine.clear(this.physicsEngine)
@@ -135,10 +135,9 @@ class DevSkillsScene extends Component {
 
     Events.on(mouseConstraint, 'mouseup', ({ mouse: { mousedownPosition } }) => {
       try {
-        if ((performance.now() - lastClickedTime) < 500) {
+        if ((performance.now() - lastClickedTime) < 300) {
           this.props.showSkillDetailModal({
-            title: 'hiya!', // TODO this will not be posted, only the sprite id
-            content: 'well some mad content will go in here for the sheer fuck of it, yesh boiii',
+            skillId: lastClickedBody.render.sprite.key,
             x: mousedownPosition.x,
             y: mousedownPosition.y,
           })

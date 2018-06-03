@@ -4,26 +4,32 @@ import {
   SHOW_SKILL_DETAIL_MODAL,
   HIDE_SKILL_DETAIL_MODAL,
 } from '~/constants/actionTypes'
+import { getDevSkill } from '~/utils/api'
 
 export const hideSkillDetailModal = () => ({ type: HIDE_SKILL_DETAIL_MODAL })
 
 export const hideInfoModal = () => ({ type: HIDE_INFO_MODAL })
 
 export const showSkillDetailModal = ({
-  title,
-  content,
+  skillId,
   x,
   y,
-}) => (dispatch) => {
+}) => async (dispatch) => {
 
   dispatch(hideSkillDetailModal())
   dispatch(hideInfoModal())
 
+  const {
+    name: modalTitle,
+    desc: modalContent,
+  } = await getDevSkill({ skillId })
+
   dispatch({
     type: SHOW_SKILL_DETAIL_MODAL,
     payload: {
-      title,
-      content,
+      modalTitle,
+      modalContent,
+      skillId,
       originX: x,
       originY: y,
     },
