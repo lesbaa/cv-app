@@ -91,7 +91,6 @@ export const fetchSkills = ({
     const skills = await getSkills({
       params: { type },
     })
-    console.log(skills)
     dispatch({
       type: RECEIVE_SKILLS,
       payload: {
