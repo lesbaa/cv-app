@@ -3,20 +3,25 @@ import { bindActionCreators } from 'redux'
 import {
   hideSkillDetailModal,
   showSkillDetailModal,
-} from '~/actionCreators/modals'
+  fetchSkills,
+} from '~/actionCreators'
+import { SOFT_SKILLS } from '~/constants/skillTypes'
 import DevSkillsScene from './SoftSkillsScene.component'
 
 const mapStateToProps = ({
   detailsModal: {
     modalIsVisible,
   },
+  skills,
 }) => ({
   modalIsVisible,
+  skills: skills[SOFT_SKILLS],
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   hideSkillDetailModal,
   showSkillDetailModal,
+  fetchSkills,
 }, dispatch)
 
 export default connect(

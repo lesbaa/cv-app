@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux'
 import {
   showSkillDetailModal,
   hideSkillDetailModal,
-} from '~/actionCreators/modals.js'
+} from '~/actionCreators'
 import DetailModal from './DetailModal.component'
 
 const mapStateToProps = ({

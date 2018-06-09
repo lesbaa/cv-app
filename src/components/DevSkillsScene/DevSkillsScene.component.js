@@ -10,7 +10,6 @@ import Matter, {
   MouseConstraint,
 } from 'matter-js'
 import MatterAttractors from 'matter-attractors'
-import { getDevSkills } from '~/utils/api'
 import { loadImg } from '~/utils/imgHelpers'
 import styles from './DevSkillsScene.styles'
 
@@ -19,6 +18,7 @@ Matter.use(MatterAttractors)
 class DevSkillsScene extends Component {
 
   componentDidMount = async () => {
+    await this.props.fetchSkills({ type: 'DEV_SKILLS' })
     await this.init()
   }
 
@@ -30,8 +30,9 @@ class DevSkillsScene extends Component {
   }
 
   getSprites = async () => {
+    // debugger
     const sprites = Object
-      .keys(this.skills)
+      .keys(this.props.skills)
       .reduce((acc, key) => {
         acc.sprites.push(loadImg(`/static/img/skill-icons/${key}.svg`)) // TODO load correct img
         acc.keys.push(key)
@@ -40,7 +41,7 @@ class DevSkillsScene extends Component {
         sprites: [],
         keys: [],
       })
-
+    // debugger
     const images = await Promise.all(sprites.sprites)
 
     return sprites.keys.reduce((acc, key, i) => {
@@ -86,12 +87,10 @@ class DevSkillsScene extends Component {
       },
     })
 
-    this.skills = await getDevSkills({}) // TODO this should be moved to props / actions
-
     this.sprites = await this.getSprites()
-
     const bodies = Object
-      .entries(this.skills)
+      .entries(this.props.skills)
+      .filter(([ , { type }]) => type === 'DEV_SKILLS')
       .map(([key, { points }]) => {
         const mass = points * 10
 

@@ -11,20 +11,14 @@ export const getSlide = async ({ params, slidename }) => {
   return data.slides[slidename]
 }
 
-export const getDevSkills = async ({ params }) => {
-  return data.devSkills
+export const getSkills = async ({ params = {} }) => {
+  return params.type
+    ? data.skills.filter(skill => skill.type === params.type)
+    : data.skills
 }
 
-export const getDevSkill = async ({ params, skillId }) => {
-  return data.devSkills[skillId]
-}
+export const getSkill = async ({ params, id }) =>
+  data.skills.filter(skill => skill.id === id)
 
-export const getSoftSkills = async ({ params }) => {
-  return data.softSkills
-}
-
-export const getSoftSkill = async ({ params, skillId }) => {
-  return data.softSkills[skillId]
-}
 
 // TODO tests for this

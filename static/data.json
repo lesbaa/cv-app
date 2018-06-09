@@ -99,163 +99,223 @@
       }
     }
   },
-  "devSkills": {
-    "js": {
+  "skills": [
+    {
+      "id": "js",
+      "type": "DEV_SKILLS",
       "name": "JS / ECMA.",
       "points": 8,
       "desc": "<p>Used in both client and serverside applications, JavaScript is the language of the web.  I use javascript on a daily basis both for work and personal projects and have experience on building both client and serverside apps. Knowing the platform is more important that knowing any framework.</p>"
     },
-    "react": {
+    {
+      "id": "react",
+      "type": "DEV_SKILLS",
       "name": "ReactJS.",
       "points": 7,
       "desc": "<p>ReactJS is the most popular javascript view library currently in use and component based architecture isn't going anywhere anytime soon.  I have several years experience using react on both client and server side envs. React 16 is the current iteration and I'm looking forward to getting stuck into things like portals, suspense, server side streaming etc.</p>"
     },
-    "redux": {
+    {
+      "id": "redux",
+      "type": "DEV_SKILLS",
       "name": "Redux.",
       "points": 6,
       "desc": "<p>Redux is the goto library for state management in React apps.  Despite the learning curve, it's minimal API makes state management so much easier and gives the developer awesome \"time-travelling\" tools for debugging.  It's, like, my favourite thing ever.</p>"
     },
-    "functional": {
+    {
+      "id": "functional",
+      "type": "DEV_SKILLS",
       "name": "Functional Programming / Recompose / Ramda",
       "points": 4,
       "desc": "<p>Functional programming in JS is a big deal these days. Whilst it's not the best choice for <em>every</em> scenario.  It does make things more deterministic and testable and is ideal for using alongside React / Redux in UI development.  I try to write in a functional style where it's applicable. Recompose and Ramda are two libraries that help greatly in doing so, i've used both in personal and work projects.</p>"
     },
-    "angular": {
+    {
+      "id": "angular",
+      "type": "DEV_SKILLS",
       "name": "Angular 1.",
       "points": 2,
       "desc": "<p>I've worked on products that use Angular 1, It's been...interesting.  It's not ideal and the Angular project has changed a lot since but, push come to shove I could pick it up again.</p>"
     },
-    "jquery": {
+    {
+      "id": "jquery",
+      "type": "DEV_SKILLS",
       "name": "jQuery.",
       "points": 4,
       "desc": "<p>Good 'ol jquery, still in use today.  Any JS dev has almost certainly worked with jQuery at some point.  It's easy no-nonsense API has inspired many features commonly in use on the web today including DOM stuff like querySelector and classList to server side markup traversers like Cheerio and the like.</p>"
     },
-    "ssr": {
+    {
+      "id": "ssr",
+      "type": "DEV_SKILLS",
       "name": "SSR / Next.js.",
       "points": 8,
       "desc": "<p>Server side rendering and universal Javascript apps are a big deal and can save on time, money and dev resources.  I've experience in using SSR frameworks such as Next.js for react</p>"
     },
-    "express": {
+    {
+      "id": "express",
+      "type": "DEV_SKILLS",
       "name": "ExpressJS.",
       "points": 5,
       "desc": "<p>Express is the current defacto routing library for node servers.  I've used Express, among others, for both personal an professional projects.</p>"
     },
-    "node": {
+    {
+      "id": "node",
+      "type": "DEV_SKILLS",
       "name": "NodeJS.",
       "points": 5,
       "desc": "<p>Node is one of the biggest things to happen to web devlopment in the past ten years and has paved the way for universal javascript apps, build pipelines and heavy concurrency. Ryan Dhal, you have changed the world.  Again, being a JS dev I use node on a daily basis.  At some point I'd like to get deeper down into the lower level stuff surrounding node.</p>"
     },
-    "pwa": {
+    {
+      "id": "pwa",
+      "type": "DEV_SKILLS",
       "name": "PWAs.",
       "points": 5,
       "desc": "<p>Progressive web app encompass a suite of technologies and, once fully adopted across browsers, are likely to change the way we use and develop apps.  I've experience in building PWAs and the assorted engineering problems that arise.  In fact, this CV is a PWA.</p>"
     },
-    "webgl": {
+    {
+      "id": "webgl",
+      "type": "DEV_SKILLS",
       "name": "ThreeJS / WebGL / Pixi / StackGL / GSL.",
       "points": 6,
       "desc": "<p>Aw man, I love this stuff.  WebGL is just great for smooth 3D / 2D Graphics in the browser.  As part of a presentation in work, and to understand the API a bit better, I built my own WebGl library from the ground up.  But I tend to use tried and tested libraries like Three.js, Pixi or the more modular StackGL.  Although graphics programming is <em>hard</em>, I've been learning GSL, and it's been fun.</p>"
     },
-    "p5": {
+    {
+      "id": "p5",
+      "type": "DEV_SKILLS",
       "name": "p5JS / toxiclibs / matter-js.",
       "points": 3,
       "desc": "<p>I love code-as-art. And have experience of using the above libraries as part of my own creative projects.  Some of them are used in this CV, have a look at the <strong><em>code</em><strong> if you're interested</p>"
     },
-    "mongo": {
+    {
+      "id": "mongo",
+      "type": "DEV_SKILLS",
       "name": "MongoDB / Mongoose.",
       "points": 3.5,
       "desc": "<p>Through personal projects I've implemented and used MongoDB and Mongoose.</p>"
     },
-    "webpack": {
+    {
+      "id": "webpack",
+      "type": "DEV_SKILLS",
       "name": "Webpack.",
       "points": 4,
       "desc": "<p>I'd say I'm comfortable setting up a webpack config from scratch.</p>"
     },
-    "gulp": {
+    {
+      "id": "gulp",
+      "type": "DEV_SKILLS",
       "name": "Gulp.",
       "points": 3,
       "desc": "<p>Various projects I've worked on have used Gulp as part of the build pipeline</p>"
     },
-    "test": {
+    {
+      "id": "test",
+      "type": "DEV_SKILLS",
       "name": "TDD / Jest / Enzyme.",
       "points": 5,
       "desc": "<p>I've gained experince using Jest and Enzyme for unit / snapshot testing.  Writing tests beforehand can be helpful in determining</p>"
     },
-    "npm": {
+    {
+      "id": "npm",
+      "type": "DEV_SKILLS",
       "name": "NPM / Yarn.",
       "points": 4,
       "desc": "<p>Again, working with node means using NPM on a daily basis, although tbh, I prefer Yarn as it tends to be faster and, dare I say it, more reliable.</p>"
     },
-    "git": {
+    {
+      "id": "git",
+      "type": "DEV_SKILLS",
       "name": "git jiggy with it.",
       "points": 4,
       "desc": "<p>I've always used git for version control and am comfortable pushing, pulling, merging, cherry-picking and all that jazz.</p>"
     },
-    "cli": {
+    {
+      "id": "cli",
+      "type": "DEV_SKILLS",
       "name": "Bash / Zsh / CLI / Linux.",
       "points": 4,
       "desc": "<p>Again, the terminal is something I use on a daily basis.  I have some experience in SSH and Linux, I'm still trying to pick up the finer points of bash.</p>"
     },
-    "html5": {
+    {
+      "id": "html5",
+      "type": "DEV_SKILLS",
       "name": "HTML5",
       "points": 6,
       "desc": "<p>HTML5 Brings to the table loads of new APIs, elements etc.  I have experience in working with HTML5 </p>"
     },
-    "css": {
+    {
+      "id": "css",
+      "type": "DEV_SKILLS",
       "name": "CSS / SASS / Styled-JSX.",
       "points": 6,
       "desc": "<p>As front-end I have been using CSS for almost all of my career. SASS (original syntax :P) was a big help in organising styles.  What I'm really into at the moment, however, is CSS-in-JS style solutions for React.  My favourite currently being <a target=_blank href='//zeit.co'>Zeit's</a> Styled-JSX.</p>"
     },
-    "seo": {
+    {
+      "id": "seo",
+      "type": "DEV_SKILLS",
       "name": "Structured Data / LD + JSON.",
       "points": 4,
       "desc": "<p>Search engines prefer pages to be structured correctly and using the correct semantics.  Working as part of a new platform, SEO is important and structired data and correct semantics help in getting content out there.  </p>"
     },
-    "processing": {
+    {
+      "id": "processing",
+      "type": "DEV_SKILLS",
       "name": "Processing | (Java).",
       "points": 2,
       "desc": "<p>I love playing about with processing and have picked up a little bit of Java in doing so.</p>"
     },
-    "of": {
+    {
+      "id": "of",
+      "type": "DEV_SKILLS",
       "name": "Open Frameworks | (C++).",
       "points": 2,
       "desc": "<p>Similar to Processing, I've used Open Frameworks for creative coding experiments.  C++ is a different kettle of fish altogether. But it's been fun having lower level access to the environment</p>"
     },
-    "aws": {
+    {
+      "id": "aws",
+      "type": "DEV_SKILLS",
       "name": "AWS.",
       "points": 2,
       "desc": "<p>I have deployed various bits and bobs to AWS over the past couple of years.  Mostly using EC2 instances. It's one thing I think would be valuable and would like to learn more about, especially CloudFront for scaling apps.</p>"
     },
-    "svg": {
+    {
+      "id": "svg",
+      "type": "DEV_SKILLS",
       "name": "SVG.",
       "points": 3,
       "desc": "<p>SVG is great for creating visual content with JS.  I've learned a few tricks reagrding manipulating SVGs programmatically.</p>"
     },
-    "platform": {
+    {
+      "id": "platform",
+      "type": "DEV_SKILLS",
       "name": "The Web Platform.",
       "points": 6,
       "desc": "<p>The browser now comes with so many cool APIs and features.  The best thing about the web as a platform is being able to connect all these things together easily and seemlessly. My new favourite is WebAudio and WebMidi.  But i've had play with most of them at some point. The sky is the limit.</p>"
+    },
+    {
+      "id": "team",
+      "type": "SOFT_SKILLS",
+      "name": "The team player hat.",
+      "points": 6,
+      "desc": "<p>I like to work as part of a team."
+    },
+    {
+      "id": "comms",
+      "type": "SOFT_SKILLS",
+      "name": "The team player hat.",
+      "points": 6,
+      "desc": "<p>I like to work as part of a team."
+    },
+    {
+      "id": "self-init",
+      "type": "SOFT_SKILLS",
+      "name": "The team player hat.",
+      "points": 6,
+      "desc": "<p>I like to work as part of a team."
+    },
+    {
+      "id": "problem-solving",
+      "type": "SOFT_SKILLS",
+      "name": "The team player hat.",
+      "points": 6,
+      "desc": "<p>I like to work as part of a team."
     }
-  },
-  "softSkills": {
-    "team": {
-      "name": "The team player hat.",
-      "points": 6,
-      "desc": "<p>I like to work as part of a team."
-    },
-    "comms": {
-      "name": "The team player hat.",
-      "points": 6,
-      "desc": "<p>I like to work as part of a team."
-    },
-    "self-init": {
-      "name": "The team player hat.",
-      "points": 6,
-      "desc": "<p>I like to work as part of a team."
-    },
-    "problem-solving": {
-      "name": "The team player hat.",
-      "points": 6,
-      "desc": "<p>I like to work as part of a team."
-    }
-  }
+  ]
 }

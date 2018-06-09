@@ -10,13 +10,13 @@ import {
   MouseConstraint,
   Body,
 } from 'matter-js'
-import { getSoftSkills } from '~/utils/api'
 import { loadImg } from '~/utils/imgHelpers'
 import styles from './SoftSkillsScene.styles'
 
 class DevSkillsScene extends Component {
 
   componentDidMount = async () => {
+    await this.props.fetchSkills({ type: 'SOFT_SKILLS' })
     await this.init()
   }
 
@@ -29,7 +29,7 @@ class DevSkillsScene extends Component {
 
   getSprites = async () => {
     const sprites = Object
-      .keys(this.skills)
+      .keys(this.props.skills)
       .reduce((acc, key) => {
         acc.sprites.push(loadImg(`/static/img/soft-skills/${key}.svg`)) // TODO load correct img
         acc.keys.push(key)
@@ -69,12 +69,11 @@ class DevSkillsScene extends Component {
 
     this.bounds = this.createBounds()
 
-    this.skills = await getSoftSkills({}) // TODO this should be moved to props / actions
-
     this.sprites = await this.getSprites()
 
     const bodies = Object
-      .entries(this.skills)
+      .entries(this.props.skills)
+      .filter(([ , { type }]) => type === 'SOFT_SKILLS')
       .map(([key, { points }]) => {
         const mass = points * 15
 
@@ -245,7 +244,7 @@ class DevSkillsScene extends Component {
         for (let j = 1; j < vertices.length; j += 1) {
           this.ctx.lineTo(vertices[j].x, vertices[j].y)
         }
-        
+
         this.ctx.lineTo(vertices[0].x, vertices[0].y)
         this.ctx.stroke()
 
@@ -263,7 +262,7 @@ class DevSkillsScene extends Component {
       }
 
     }
-    if (this.bounds) Body.rotate(this.bounds, -0.01)
+    if (this.bounds) Body.rotate(this.bounds, -0.005)
     Engine.update(this.physicsEngine)
   }
 

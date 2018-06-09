@@ -7,7 +7,7 @@ import {
   HUMAN_TOO,
   SOCIAL_PROOF,
   HIRE_ME,
-} from '~/constants/slideNames.js'
+} from '~/constants/slideNames'
 
 import HelloScene from '~/components/HelloScene'
 import DevSkillsScene from '~/components/DevSkillsScene'
