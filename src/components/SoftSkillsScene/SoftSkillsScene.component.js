@@ -8,8 +8,9 @@ import {
   Mouse,
   Events,
   MouseConstraint,
+  Body,
 } from 'matter-js'
-import { getDevSkills } from '~/utils/api'
+import { getSoftSkills } from '~/utils/api'
 import { loadImg } from '~/utils/imgHelpers'
 import styles from './SoftSkillsScene.styles'
 
@@ -30,7 +31,7 @@ class DevSkillsScene extends Component {
     const sprites = Object
       .keys(this.skills)
       .reduce((acc, key) => {
-        acc.sprites.push(loadImg(`/static/img/skill-icons/${key}.svg`)) // TODO load correct img
+        acc.sprites.push(loadImg(`/static/img/soft-skills/${key}.svg`)) // TODO load correct img
         acc.keys.push(key)
         return acc
       }, {
@@ -68,7 +69,7 @@ class DevSkillsScene extends Component {
 
     this.bounds = this.createBounds()
 
-    this.skills = await getDevSkills({}) // TODO this should be moved to props / actions
+    this.skills = await getSoftSkills({}) // TODO this should be moved to props / actions
 
     this.sprites = await this.getSprites()
 
@@ -77,14 +78,14 @@ class DevSkillsScene extends Component {
       .map(([key, { points }]) => {
         const mass = points * 15
 
-        const x = Math.random() * (this.w / 2) + this.w / 2
-        const y = Math.random() * -2000 - this.h
+        const x = this.w * 0.66
+        const y = this.h / 2
 
         const img = this.sprites[key]
         img.width = mass
         img.height = mass
 
-        return Bodies.rectangle(
+        const body = Bodies.rectangle(
           x,
           y,
           mass,
@@ -99,6 +100,10 @@ class DevSkillsScene extends Component {
             },
           }
         )
+        Body.rotate(body, 2 * Math.random())
+
+        return body
+
       })
 
     const mouse = Mouse.create(this.canvasRef)
@@ -144,34 +149,81 @@ class DevSkillsScene extends Component {
   }
 
   createBounds = () => {
-    const composite = Composite.create({ isStatic: true })
     const boundsMargin = this.w * 0.075
-    const bodies = [
-      Bodies.rectangle(
-        this.w / 2,
-        this.h - (this.h / 4),
-        this.w,
-        30,
-        { isStatic: true }
-      ),
 
-      Bodies.rectangle(
-        (this.w / 2) - boundsMargin,
-        this.h / 3,
-        boundsMargin,
-        this.h - (this.h / 4),
-        { isStatic: true }
-      ),
+    return Body.create({
+      isStatic: true,
+      parts: [
+        Bodies.rectangle(
+          this.w / 3 * 2,
+          boundsMargin,
+          this.h,
+          boundsMargin,
+          { isStatic: true }
+        ),
+        Bodies.rectangle(
+          this.w / 3 * 2,
+          this.h - boundsMargin,
+          this.h,
+          boundsMargin,
+          { isStatic: true }
+        ),
+  
+        Bodies.rectangle(
+          (this.w / 2) - boundsMargin,
+          this.h / 2,
+          boundsMargin,
+          this.h,
+          { isStatic: true }
+        ),
+  
+        Bodies.rectangle(
+          this.w - boundsMargin / 2,
+          this.h / 2,
+          boundsMargin,
+          this.h,
+          { isStatic: true }
+        ),
+      ],
+    })
+  }
 
-      Bodies.rectangle(
-        this.w - boundsMargin / 2,
-        this.h / 3,
-        boundsMargin,
-        this.h - (this.h / 4),
-        { isStatic: true }
-      ),
-    ]
-    return Composite.add(composite, bodies)
+  createBoundsy = () => {
+    const boundsMargin = this.w * 0.075
+    return Body.create({
+      isStatic: true,
+      parts: [
+        Bodies.rectangle(
+          this.w / 2,
+          this.h - boundsMargin / 2,
+          this.w,
+          boundsMargin,
+          { isStatic: true }
+        ),
+        Bodies.rectangle(
+          this.w / 2,
+          boundsMargin / 2,
+          this.w,
+          boundsMargin,
+          { isStatic: true }
+        ),
+        Bodies.rectangle(
+          (this.w / 2) - boundsMargin,
+          this.h / 2,
+          boundsMargin,
+          this.h,
+          { isStatic: true }
+        ),
+        Bodies.rectangle(
+          this.w - boundsMargin / 2,
+          this.h / 2,
+          boundsMargin,
+          this.h,
+          { isStatic: true }
+        ),
+      ],
+    })
+  
   }
 
   animate = (t) => {
@@ -183,9 +235,8 @@ class DevSkillsScene extends Component {
 
       const body = bodies[i]
       const sprite = body.render.sprite // eslint-disable-line
-      const mass = body.mass * 0.95
-
       if (sprite.img) {
+
         this.ctx.beginPath()
         const vertices = bodies[i].vertices // eslint-disable-line
 
@@ -194,8 +245,9 @@ class DevSkillsScene extends Component {
         for (let j = 1; j < vertices.length; j += 1) {
           this.ctx.lineTo(vertices[j].x, vertices[j].y)
         }
-
+        
         this.ctx.lineTo(vertices[0].x, vertices[0].y)
+        this.ctx.stroke()
 
         this.ctx.translate(body.position.x, body.position.y)
         this.ctx.rotate(body.angle)
@@ -209,10 +261,9 @@ class DevSkillsScene extends Component {
         this.ctx.rotate(-body.angle)
         this.ctx.translate(-body.position.x, -body.position.y)
       }
-      this.ctx.stroke()
 
     }
-
+    if (this.bounds) Body.rotate(this.bounds, -0.01)
     Engine.update(this.physicsEngine)
   }
 
