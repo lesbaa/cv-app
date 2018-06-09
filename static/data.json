@@ -29,7 +29,7 @@
       }
     },
     "soft-skills": {
-      "title": "I'm not just about code, though.",
+      "title": "I wear many hats, though.",
       "previousSlide": "dev-skills",
       "nextSlide": "up-next",
       "blurbMarkup": "<p>Through work, travelling and education. I’ve accrued a variety of non-dev skills too.</p><p>Click on a skill for more info or click-drag to move around.</p>",
@@ -234,6 +234,28 @@
       "name": "The Web Platform.",
       "points": 6,
       "desc": "<p>The browser now comes with so many cool APIs and features.  The best thing about the web as a platform is being able to connect all these things together easily and seemlessly. My new favourite is WebAudio and WebMidi.  But i've had play with most of them at some point. The sky is the limit.</p>"
+    }
+  },
+  "softSkills": {
+    "team": {
+      "name": "The team player hat.",
+      "points": 6,
+      "desc": "<p>I like to work as part of a team."
+    },
+    "comms": {
+      "name": "The team player hat.",
+      "points": 6,
+      "desc": "<p>I like to work as part of a team."
+    },
+    "self-init": {
+      "name": "The team player hat.",
+      "points": 6,
+      "desc": "<p>I like to work as part of a team."
+    },
+    "problem-solving": {
+      "name": "The team player hat.",
+      "points": 6,
+      "desc": "<p>I like to work as part of a team."
     }
   }
 }
