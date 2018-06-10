@@ -3376,6 +3376,10 @@ matter-js@^0.14.1:
   version "0.14.1"
   resolved "https://registry.yarnpkg.com/matter-js/-/matter-js-0.14.1.tgz#71d967f2de858b1616bfccc1002ab38aab9e350a"
 
+matter-wrap@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/matter-wrap/-/matter-wrap-0.2.0.tgz#690f4ed1e8ff29c61e8618fc6452da33dd40b2f6"
+
 maximatch@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/maximatch/-/maximatch-0.1.0.tgz#86cd8d6b04c9f307c05a6b9419906d0360fb13a2"
