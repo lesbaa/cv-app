@@ -17,7 +17,7 @@ import styles from './SoftSkillsScene.styles'
 class DevSkillsScene extends Component {
 
   componentDidMount = async () => {
-    await this.props.fetchSkills({ type: 'SOFT_SKILLS' })
+    await this.props.fetchSkills({ type: SOFT_SKILLS })
     await this.init()
   }
 

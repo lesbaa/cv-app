@@ -19,7 +19,7 @@ Matter.use(MatterAttractors)
 class DevSkillsScene extends Component {
 
   componentDidMount = async () => {
-    await this.props.fetchSkills({ type: 'DEV_SKILLS' })
+    await this.props.fetchSkills({ type: DEV_SKILLS })
     await this.init()
   }
 
