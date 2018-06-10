@@ -292,30 +292,65 @@
     {
       "id": "team",
       "type": "SOFT_SKILLS",
-      "name": "The team player hat.",
+      "name": "I've got your back.",
       "points": 6,
-      "desc": "<p>I like to work as part of a team."
+      "desc": "<p>A team is only as strong as it's weakest member. I believe you should never pass up an opportunity to help out someone who needs it. Besides, you never know when you might need help.</p>"
     },
     {
       "id": "comms",
       "type": "SOFT_SKILLS",
-      "name": "The team player hat.",
+      "name": "Let's talk about it.",
       "points": 6,
-      "desc": "<p>I like to work as part of a team."
+      "desc": "<p>Honesty is the best way to prevent problems from becoming bigger problems.  I believe in being honest when it comes to time, effort and estimation.  If something is going to be difficult.</p>"
     },
     {
       "id": "self-init",
       "type": "SOFT_SKILLS",
-      "name": "The team player hat.",
+      "name": "Working Alone.",
       "points": 6,
-      "desc": "<p>I like to work as part of a team."
+      "desc": "<p>It's good working with other people. But it's important to be self-motivated. I just like building things.  Money's good, but it's making stuff that makes me tick.</p>"
+    },
+    {
+      "id": "adobe",
+      "type": "SOFT_SKILLS",
+      "name": "Adobe Illustrator / Illustration / Vector Art / SVG.",
+      "points": 4,
+      "desc": "<p>I doodle.  Through freelance (and personal) projects I've used Adobe illustrator.  I've made illustrations for various projects / clients through out the years. I'm hardly Leonardo DaVinci, but it's another string to my bow and comes in handy.</p>"
+    },
+    {
+      "id": "agile",
+      "type": "SOFT_SKILLS",
+      "name": "Agile Methodology.",
+      "points": 4,
+      "desc": "<p>I have experience of working in an agile software dev environment and, more importantly, understand the benefits it brings. Transparency, planning, </p>"
+    },
+    {
+      "id": "design",
+      "type": "SOFT_SKILLS",
+      "name": "Design / UX / UI.",
+      "points": 5,
+      "desc": "<p>Having worked on front end for a while, I understand the importance of user journies and always consider UI / UX when building something. Design are not infalable (sayyyy whaaaat!?) and it's important to talk about UI / UX issues openly.</p>"
+    },
+    {
+      "id": "learner",
+      "type": "SOFT_SKILLS",
+      "name": "Lifelong Learner.",
+      "points": 4,
+      "desc": "<p>I have never studied computer science, web development or telecommunications at university.  I'm self taught, everything I've learned it;s been through reading, doing and listening to other people. I think that gives me a unique perspective in terms of learning.  I learn because I love doing it, not to tick a box or get a certificate. It's an ongoing journey</p>"
+    },
+    {
+      "id": "bad-dancing",
+      "type": "SOFT_SKILLS",
+      "name": "Awesome Dancer",
+      "points": 4,
+      "desc": "<p>I'm, like, the best dancer out there, don't listen to my girlfriend, or my friends, parents, relatives, acquaintences, neighbours, dog or the entire internet they don't know know what they're talking about.  Seriously, my moves are UN-BEE-LIEVABLE.  Seriously, just ask I'll send you a video.</p>"
     },
     {
       "id": "problem-solving",
       "type": "SOFT_SKILLS",
-      "name": "The team player hat.",
-      "points": 6,
-      "desc": "<p>I like to work as part of a team."
+      "name": "For fixes sake.",
+      "points": 5,
+      "desc": "<p>Whilst coding obviously involves a high degree of problem solving, it's a skill that I also try to apply outwith programming. I like making stuff to solve new and interesting problems.  Life is all about dealing with challenges.</p>"
     }
   ]
 }
