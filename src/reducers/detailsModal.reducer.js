@@ -17,9 +17,7 @@ export default function (state = defaultState, {
   const {
     modalTitle,
     modalContent,
-    skillId,
-    originX,
-    originY,
+    id,
   } = payload
 
   switch (type) {
@@ -28,10 +26,8 @@ export default function (state = defaultState, {
         ...state,
         modalIsVisible: true,
         modalTitle,
-        skillId,
+        id,
         modalContent,
-        originX,
-        originY,
       }
     }
 
