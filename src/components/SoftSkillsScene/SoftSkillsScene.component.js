@@ -11,6 +11,7 @@ import {
   Body,
 } from 'matter-js'
 import { loadImg } from '~/utils/imgHelpers'
+import { SOFT_SKILLS } from '~/constants/skillTypes'
 import styles from './SoftSkillsScene.styles'
 
 class DevSkillsScene extends Component {
@@ -65,29 +66,28 @@ class DevSkillsScene extends Component {
 
     this.physicsEngine = this.physicsEngine
       ? Engine.clear(this.physicsEngine)
-      : Engine.create({ enableSleeping: true })
+      : Engine.create()
 
     this.bounds = this.createBounds()
 
     this.sprites = await this.getSprites()
-
     const bodies = Object
       .entries(this.props.skills)
-      .filter(([ , { type }]) => type === 'SOFT_SKILLS')
+      .filter(([ , { type }]) => type === SOFT_SKILLS)
       .map(([key, { points }]) => {
-        const mass = points * 15
+        const mass = points * (this.h / 60)
 
         const x = this.w * 0.66
         const y = this.h / 2
 
         const img = this.sprites[key]
-        img.width = mass
-        img.height = mass
+        img.width = mass * 1.2
+        img.height = mass * 1.2
 
-        const body = Bodies.rectangle(
+        const body = Bodies.polygon(
           x,
           y,
-          mass,
+          ~~(Math.random() * 5) + 3, // eslint-disable-line no-bitwise
           mass,
           {
             restitution: 0.3,
@@ -127,10 +127,8 @@ class DevSkillsScene extends Component {
     Events.on(mouseConstraint, 'mouseup', ({ mouse: { mousedownPosition } }) => {
       try {
         if ((performance.now() - lastClickedTime) < 300) {
-          this.props.showSkillDetailModal({
-            skillId: lastClickedBody.render.sprite.key,
-            x: mousedownPosition.x,
-            y: mousedownPosition.y,
+          this.props.showDetailModal({
+            id: lastClickedBody.render.sprite.key,
           })
         }
       } catch (err) {
@@ -150,19 +148,19 @@ class DevSkillsScene extends Component {
   createBounds = () => {
     const boundsMargin = this.w * 0.075
 
-    return Body.create({
+    const bounds = Body.create({
       isStatic: true,
       parts: [
         Bodies.rectangle(
           this.w / 3 * 2,
-          boundsMargin,
+          boundsMargin * 2,
           this.h,
           boundsMargin,
           { isStatic: true }
         ),
         Bodies.rectangle(
           this.w / 3 * 2,
-          this.h - boundsMargin,
+          this.h - boundsMargin * 2,
           this.h,
           boundsMargin,
           { isStatic: true }
@@ -185,47 +183,15 @@ class DevSkillsScene extends Component {
         ),
       ],
     })
-  }
-
-  createBoundsy = () => {
-    const boundsMargin = this.w * 0.075
-    return Body.create({
-      isStatic: true,
-      parts: [
-        Bodies.rectangle(
-          this.w / 2,
-          this.h - boundsMargin / 2,
-          this.w,
-          boundsMargin,
-          { isStatic: true }
-        ),
-        Bodies.rectangle(
-          this.w / 2,
-          boundsMargin / 2,
-          this.w,
-          boundsMargin,
-          { isStatic: true }
-        ),
-        Bodies.rectangle(
-          (this.w / 2) - boundsMargin,
-          this.h / 2,
-          boundsMargin,
-          this.h,
-          { isStatic: true }
-        ),
-        Bodies.rectangle(
-          this.w - boundsMargin / 2,
-          this.h / 2,
-          boundsMargin,
-          this.h,
-          { isStatic: true }
-        ),
-      ],
-    })
-  
+    Body.translate(bounds, { x: 0, y: -100 })
+    return bounds
   }
 
   animate = (t) => {
+    const scaledT = t / 2000
+    this.physicsEngine.world.gravity.x = Math.sin(scaledT) / 5
+    this.physicsEngine.world.gravity.y = Math.cos(scaledT) / 5
+
     this.frameId = requestAnimationFrame(this.animate)
     this.ctx.clearRect(0, 0, this.canvasRef.width, this.canvasRef.height)
     const bodies = Composite.allBodies(this.physicsEngine.world)
@@ -237,7 +203,7 @@ class DevSkillsScene extends Component {
       if (sprite.img) {
 
         this.ctx.beginPath()
-        const vertices = bodies[i].vertices // eslint-disable-line
+        const vertices = body.vertices // eslint-disable-line
 
         this.ctx.moveTo(vertices[0].x, vertices[0].y)
 
@@ -249,7 +215,6 @@ class DevSkillsScene extends Component {
         this.ctx.stroke()
 
         this.ctx.translate(body.position.x, body.position.y)
-        this.ctx.rotate(body.angle)
         this.ctx.drawImage(
           sprite.img,
           sprite.img.width / -2,
@@ -257,12 +222,11 @@ class DevSkillsScene extends Component {
           sprite.img.width,
           sprite.img.height
         )
-        this.ctx.rotate(-body.angle)
         this.ctx.translate(-body.position.x, -body.position.y)
       }
 
     }
-    if (this.bounds) Body.rotate(this.bounds, -0.005)
+    if (this.bounds) Body.rotate(this.bounds, 0.005)
     Engine.update(this.physicsEngine)
   }
 
@@ -276,5 +240,7 @@ class DevSkillsScene extends Component {
   )
 
 }
+
+// TODO proptypes / default props tests
 
 export default DevSkillsScene

@@ -20,7 +20,10 @@ const mapStateToProps = ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   hideSkillDetailModal,
-  showSkillDetailModal,
+  showDetailModal: ({ id }) => showSkillDetailModal({
+    id,
+    skillType: SOFT_SKILLS,
+  }),
   fetchSkills,
 }, dispatch)
 

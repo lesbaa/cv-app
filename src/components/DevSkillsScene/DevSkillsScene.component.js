@@ -10,6 +10,7 @@ import Matter, {
   MouseConstraint,
 } from 'matter-js'
 import MatterAttractors from 'matter-attractors'
+import { DEV_SKILLS } from '~/constants/skillTypes'
 import { loadImg } from '~/utils/imgHelpers'
 import styles from './DevSkillsScene.styles'
 
@@ -90,7 +91,7 @@ class DevSkillsScene extends Component {
     this.sprites = await this.getSprites()
     const bodies = Object
       .entries(this.props.skills)
-      .filter(([ , { type }]) => type === 'DEV_SKILLS')
+      .filter(([ , { type }]) => type === DEV_SKILLS)
       .map(([key, { points }]) => {
         const mass = points * 10
 
@@ -135,10 +136,8 @@ class DevSkillsScene extends Component {
     Events.on(mouseConstraint, 'mouseup', ({ mouse: { mousedownPosition } }) => {
       try {
         if ((performance.now() - lastClickedTime) < 300) {
-          this.props.showSkillDetailModal({
-            skillId: lastClickedBody.render.sprite.key,
-            x: mousedownPosition.x,
-            y: mousedownPosition.y,
+          this.props.showDetailModal({
+            id: lastClickedBody.render.sprite.key,
           })
         }
       } catch (err) {

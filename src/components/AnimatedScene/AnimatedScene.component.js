@@ -12,6 +12,7 @@ import {
 import HelloScene from '~/components/HelloScene'
 import DevSkillsScene from '~/components/DevSkillsScene'
 import SoftSkillsScene from '~/components/SoftSkillsScene'
+import UpNextScene from '~/components/UpNextScene'
 
 const AnimatedScene = ({
   slidename,
@@ -28,7 +29,7 @@ const AnimatedScene = ({
       return <SoftSkillsScene colors={colors} />
     }
     case UP_NEXT: {
-      return <div className="UpNextScene">up next</div>
+      return <UpNextScene colors={colors} />
     }
     case HUMAN_TOO: {
       return <div className="HumanTooScene">human too</div>
