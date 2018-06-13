@@ -6,7 +6,11 @@ import Matter, {
   Body,
   Bodies,
   Composite,
-  Composites,
+  Mouse,
+  MouseConstraint,
+  Events,
+  Constraint,
+  Vector,
 } from 'matter-js'
 import MatterWrap from 'matter-wrap'
 import styles from './UpNextScene.styles'
@@ -48,35 +52,73 @@ class DevSkillsScene extends Component {
       : Engine.create()
 
     this.addPlatforms()
-    this.addCar()
-    // set up in here
+
+    Array(...Array(10)).forEach(this.addCar)
+
+    const mouse = Mouse.create(this.canvasRef)
+    const mouseConstraint = MouseConstraint.create(this.physicsEngine, {
+      mouse,
+      constraint: {
+        stiffness: 0.2,
+        render: {
+          visible: false,
+        },
+      },
+    })
+
+    let lastClickedTime // TODO look into a way of doing this without let.
+    let lastClickedBody
+
+    Events.on(mouseConstraint, 'mousedown', ({ source: { body } }) => {
+      lastClickedTime = performance.now()
+      lastClickedBody = body
+    })
+
+    Events.on(mouseConstraint, 'mouseup', ({ mouse: { mousedownPosition } }) => {
+      try {
+        if ((performance.now() - lastClickedTime) < 300) {
+          this.props.showDetailModal({
+            id: lastClickedBody.render.sprite.key,
+          })
+        }
+      } catch (err) {
+        //
+      }
+    })
+
+    World.add(this.physicsEngine.world, [
+      mouseConstraint,
+    ])
     this.animate(0)
   }
 
-  addCar = () => {
-    const car = Composites.car(
-      this.w / 4 * 2.5,
-      0,
-      100,
-      20,
-      23,
-    )
+  addCar = (e, i, arr) => {
 
-    car.plugin.wrap = {
-      min: { x: 0, y: 0 },
-      max: { x: this.w, y: this.h },
-    }
+    const circle = Bodies.circle(
+      this.w * 0.8,
+      (this.h / arr.length) * (i + 1),
+      30,
+      {
+        plugin: {
+          wrap: {
+            min: { x: 0, y: 0 },
+            max: { x: this.w, y: this.h },
+          },
+        },
+        mass: 100,
+      }
+    )
 
     World.add(
       this.physicsEngine.world,
-      car
+      circle,
     )
   }
 
   addPlatforms = () => {
+    const widthUnit = this.w / 4
 
     const bodies = Array(...Array(4)).map((el, i, arr) => {
-      const widthUnit = this.w / 4
 
       const indexIsEven = i % 2 === 0
 
@@ -102,8 +144,19 @@ class DevSkillsScene extends Component {
       Body.rotate(body, rotation)
       return body
     })
+    const buffer = Bodies.rectangle(
+      this.w / 2 - widthUnit / 4,
+      this.h / 2,
+      this.h,
+      10,
+      {
+        isStatic: true,
+      }
+    )
 
-    World.add(this.physicsEngine.world, bodies)
+    Body.rotate(buffer, Math.PI / 2)
+
+    World.add(this.physicsEngine.world, [...bodies, buffer])
   }
 
   animate = (t) => {
@@ -130,7 +183,25 @@ class DevSkillsScene extends Component {
 
     }
 
-    if (this.bounds) Body.rotate(this.bounds, 0.005)
+    // const constraints = Composite.allConstraints(this.physicsEngine.world)
+
+    // for (let i = 0; i < constraints.length; i += 1) {
+
+    //   const constraint = constraints[i]
+    //   const { bodyA, bodyB, pointA, pointB } = constraint
+
+    //   const start = Vector.add(bodyA.position, pointA)
+    //   this.ctx.beginPath()
+    //   this.ctx.moveTo(start.x, start.y)
+
+    //   const end = Vector.add(bodyB.position, pointB)
+    //   this.ctx.lineTo(end.x, end.y)
+
+    //   this.ctx.stroke()
+    // }
+
+    // Body.rotate(this.spindleOne, 0.01)
+    // Body.rotate(this.spindleTwo, 0.01)
     Engine.update(this.physicsEngine)
   }
 

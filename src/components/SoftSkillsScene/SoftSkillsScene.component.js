@@ -68,6 +68,11 @@ class DevSkillsScene extends Component {
       ? Engine.clear(this.physicsEngine)
       : Engine.create()
 
+    window.addEventListener('deviceorientation', ({ alpha, beta, gamma }) => {
+      this.physicsEngine.world.gravity.x = Math.sin(gamma * Math.PI / 180)
+      this.physicsEngine.world.gravity.y = Math.cos(beta * Math.PI / 180)
+    })
+
     this.bounds = this.createBounds()
 
     this.sprites = await this.getSprites()
@@ -153,19 +158,18 @@ class DevSkillsScene extends Component {
       parts: [
         Bodies.rectangle(
           this.w / 3 * 2,
-          boundsMargin * 2,
+          boundsMargin,
           this.h,
           boundsMargin,
           { isStatic: true }
         ),
         Bodies.rectangle(
           this.w / 3 * 2,
-          this.h - boundsMargin * 2,
+          this.h - boundsMargin,
           this.h,
           boundsMargin,
           { isStatic: true }
         ),
-  
         Bodies.rectangle(
           (this.w / 2) - boundsMargin,
           this.h / 2,
@@ -173,7 +177,6 @@ class DevSkillsScene extends Component {
           this.h,
           { isStatic: true }
         ),
-  
         Bodies.rectangle(
           this.w - boundsMargin / 2,
           this.h / 2,
@@ -188,9 +191,6 @@ class DevSkillsScene extends Component {
   }
 
   animate = (t) => {
-    const scaledT = t / 2000
-    this.physicsEngine.world.gravity.x = Math.sin(scaledT) / 5
-    this.physicsEngine.world.gravity.y = Math.cos(scaledT) / 5
 
     this.frameId = requestAnimationFrame(this.animate)
     this.ctx.clearRect(0, 0, this.canvasRef.width, this.canvasRef.height)
@@ -226,7 +226,7 @@ class DevSkillsScene extends Component {
       }
 
     }
-    if (this.bounds) Body.rotate(this.bounds, 0.005)
+    // if (this.bounds) Body.rotate(this.bounds, 0.005)
     Engine.update(this.physicsEngine)
   }
 
