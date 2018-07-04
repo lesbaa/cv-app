@@ -1,13 +1,17 @@
 /* eslint-env browser */
 import React, { Component } from 'react'
+import customShader from '~/shaders/hatch'
 
-import Box from '~/utils/graphicsClasses/MovingBox.class'
-import createGridLoader from '~/utils/imgHelpers'
 import styles from './HelloScene.styles'
+
+let PIXI
 
 class HelloScene extends Component {
 
-  componentDidMount = () => {
+  componentDidMount = async () => {
+    // this is because PIXI contains polyfills that crash in node
+    // TODO wrap this in a try catch
+    PIXI = await import('pixi.js')
     this.init()
   }
 
@@ -15,54 +19,64 @@ class HelloScene extends Component {
     cancelAnimationFrame(this.frameId)
     this.ctx = null
     this.canvasRef = null
+    this.app.ticker.stop()
   }
 
   setCanvasRef = (ref) => {
     this.canvasRef = ref
   }
 
-  boxes = []
-
   init = async () => {
     this.canvasRef.width = window.innerWidth
     this.canvasRef.height = window.innerHeight
-    this.ctx = this.canvasRef.getContext('2d')
-    this.ctx.lineWidth = 2
-    this.ctx.globalAlpha = 0.5
-    this.ctx.fillStyle = '#444'
-
-    const gridLoader = createGridLoader({
-      position: {
-        x: (this.canvasRef.width / 3) * 2,
-        y: this.canvasRef.height / 2,
-      },
-      density: 0.5,
-      scale: 7,
+    this.app = new PIXI.Application({
+      view: this.canvasRef,
+      width: this.canvasRef.width,
+      height: this.canvasRef.height,
+      transparent: true,
     })
-    const emitterGrid = await gridLoader('/static/img/hello.png')
-    for (let i = 0; i < emitterGrid.length; i += 1) {
-      const { x, y } = emitterGrid[i]
-      this.boxes.push(new Box({
-        x,
-        y,
-        ctx: this.ctx,
-        dy: -0.7,
-        dx: 0,
-        lifeSpan: 70 * Math.random(),
-      }))
+
+    this.app.renderer.autoResize = true
+    this.app.renderer.resize(window.innerWidth, window.innerHeight)
+
+    const w = this.app.screen.width
+    const h = this.app.screen.height
+
+    this.dims = {
+      w,
+      h,
+      wUnit: w / 6,
+      hUnit: h / 6,
     }
+    this.initFilter()
+    this.initSprite()
+    this.animate()
+  }
 
-    this.animate(0)
+  initFilter = () => {
+    this.filter = new PIXI.Filter('', customShader.fragment, customShader.uniforms)
+    this.app.stage.filters = [
+      this.filter,
+    ]
+  }
 
+  initSprite = () => {
+    const sprite = new PIXI.Sprite.fromImage('/static/img/hello.png')
+
+    sprite.anchor.set(0.5)
+
+    sprite.x = this.dims.wUnit * 4
+    sprite.y = this.dims.hUnit * 3
+    sprite.scale.x = 2
+    sprite.scale.y = 2
+    this.app.stage.addChild(sprite)
+
+    this.sprite = sprite
   }
 
   animate = (t) => {
-    this.frameId = requestAnimationFrame(this.animate)
-    this.ctx.clearRect(0, 0, this.canvasRef.width, this.canvasRef.height)
-    for (let i = 0; i < this.boxes.length; i += 1) {
-      const box = this.boxes[i]
-      box.update(t)
-    }
+    requestAnimationFrame(this.animate)
+    this.filter.uniforms.uTime += 0.005
   }
 
   render = () => (

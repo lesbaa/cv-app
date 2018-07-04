@@ -211,6 +211,7 @@ class LesAnim extends HTMLElement {
   }
 
   disconnectedCallback() {
+    this.pixiApp.ticker.stop()
     cancelAnimationFrame(this.render)
   }
 }

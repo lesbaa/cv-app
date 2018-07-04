@@ -32,7 +32,7 @@
       "title": "I wear many hats, though.",
       "previousSlide": "dev-skills",
       "nextSlide": "up-next",
-      "blurbMarkup": "<p>Through work, travelling and education. I’ve accrued a variety of non-dev skills too.</p><p>Click on a skill for more info or click-drag to move around.</p>",
+      "blurbMarkup": "<p>Through work, travelling and education. I’ve accrued a variety of non-dev skills too.</p><p>Click on a skill for more info or click-drag to move around.</p><p>On a MacBook? try tilting to the left or right</p>",
       "palette": {
         "gradient": "to bottom right, #eee6ee, #d9d9d9",
         "offsetOpacity": 0.3,
@@ -287,7 +287,7 @@
       "type": "DEV_SKILLS",
       "name": "The Web Platform.",
       "points": 6,
-      "desc": "<p>The browser now comes with so many cool APIs and features.  The best thing about the web as a platform is being able to connect all these things together easily and seemlessly. My new favourite is WebAudio and WebMidi.  But i've had play with most of them at some point. The sky is the limit.</p>"
+      "desc": "<p>The browser now comes with so many cool APIs and features.  The best thing about the web as a platform is being able to connect all these things together easily and seamlessly. My new favourite is WebAudio and WebMidi.  But i've had play with most of them at some point. The sky is the limit.</p>"
     },
     {
       "id": "team",

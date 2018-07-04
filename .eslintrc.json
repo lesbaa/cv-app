@@ -54,7 +54,8 @@
       "react/require-default-props": 1,
       "no-use-before-define": 0,
       "no-mixed-operators": 0,
-      "padded-blocks": 0
+      "padded-blocks": 0,
+      "react/sort-comp": 0
     },
     "settings": {
       "import/resolver": {

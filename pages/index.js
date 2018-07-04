@@ -48,7 +48,7 @@ class IndexPage extends Component {
           <h1 className="les-anim">
             <strong><x-lesanim offsetY="20">LesMoffat.</x-lesanim></strong>
           </h1>
-          <div className="job-title">
+          <div className="job-title fade-in">
             Level 16 Code-smuggler.
           </div>
           <div className="index-links">
@@ -133,6 +133,7 @@ class IndexPage extends Component {
 
           .job-title {
             font-family: 'LeagueSpartan';
+            z-index: 1;
             font-size: 1.5em;
             text-align: center;
             width: 30%;
