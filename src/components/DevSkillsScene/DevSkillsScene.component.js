@@ -19,6 +19,7 @@ Matter.use(MatterAttractors)
 let PIXI
 
 class DevSkillsScene extends Component {
+  sprites = {}
 
   componentDidMount = async () => {
     PIXI = await import('pixi.js')
@@ -36,12 +37,13 @@ class DevSkillsScene extends Component {
   init = async () => {
     this.canvasRef.width = window.innerWidth
     this.canvasRef.height = window.innerHeight
-
     this.app = new PIXI.Application({
       view: this.canvasRef,
       width: this.canvasRef.width,
       height: this.canvasRef.height,
       transparent: true,
+      antialias: true,
+      forceCanvas: true,
     })
 
     this.app.renderer.autoResize = true
@@ -63,10 +65,11 @@ class DevSkillsScene extends Component {
 
     this.physicsEngine.world.gravity.scale = 0
 
-    this.centerOfGravity = Bodies.circle((this.w / 3) * 2, this.h / 2, 0, {
+    this.centerOfGravity = Bodies.circle((this.dims.w / 3) * 2, this.dims.h / 2, 0, {
       mass: 400,
       isStatic: true,
       plugin: {
+        isCenterOfGravity: true,
         attractors: [
           (bodyA, bodyB) => ({
             x: (bodyA.position.x - bodyB.position.x) * 0.5e-4,
@@ -78,34 +81,31 @@ class DevSkillsScene extends Component {
 
     const {
       Sprite,
-      Container,
       Graphics,
     } = PIXI
+
+    const g = new Graphics({ nativeLines: true })
+    this.graphicsContext = g
+    this.app.stage.addChild(g)
 
     const bodies = Object
       .entries(this.props.skills)
       .filter(([ , { type }]) => type === DEV_SKILLS)
       .map(([key, { points }]) => {
         const mass = points * 10
-
-        const x = Math.random() * this.w
-        const y = Math.random() * this.h
-
-        const g = new Graphics()
-        g.beginFill(0x000000, 0)
-        g.lineStyle(0x333333, 1)
-        g.drawCircle(0, 0, 20)
-        g.endFill()
+        const imageScaleAmount = mass / 175
+        const x = Math.random() * this.dims.w
+        const y = Math.random() * this.dims.h
 
         const sprite = new Sprite.fromImage(`/static/img/skill-icons/${key}.svg`)
-        sprite.scale.x = 0.01
-        sprite.scale.y = 0.01
-        // const sprite = new Container()
-        // sprite.addChild(g)
-        // sprite.addChild(image)
+        sprite.transform.scale.x = imageScaleAmount
+        sprite.transform.scale.y = imageScaleAmount
+        sprite.anchor.set(0.5)
+        sprite.addChild(sprite)
+        sprite.key = key
 
         this.app.stage.addChild(sprite)
-
+        this.sprites[key] = sprite
         return Bodies.circle(x, y, mass, {
           mass,
           restitution: 1,
@@ -115,47 +115,40 @@ class DevSkillsScene extends Component {
         })
       })
 
-    const g = new Graphics()
-    g.beginFill(0x000000, 0)
-    g.lineStyle(0x333333, 1)
-    g.drawCircle(30, 30, 2)
-    g.endFill()
-    this.app.stage.addChild(g)
-    debugger
-    // const mouse = Mouse.create(this.canvasRef)
-    // const mouseConstraint = MouseConstraint.create(this.physicsEngine, {
-    //   mouse,
-    //   constraint: {
-    //     stiffness: 0.2,
-    //     render: {
-    //       visible: false,
-    //     },
-    //   },
-    // })
+    const mouse = Mouse.create(this.canvasRef)
+    const mouseConstraint = MouseConstraint.create(this.physicsEngine, {
+      mouse,
+      constraint: {
+        stiffness: 0.2,
+        render: {
+          visible: false,
+        },
+      },
+    })
 
     let lastClickedTime // TODO look into a way of doing this without let.
     let lastClickedBody
 
-    // Events.on(mouseConstraint, 'mousedown', ({ source: { body } }) => {
-    //   lastClickedTime = performance.now()
-    //   lastClickedBody = body
-    // })
+    Events.on(mouseConstraint, 'mousedown', ({ source: { body } }) => {
+      lastClickedTime = performance.now()
+      lastClickedBody = body
+    })
 
-    // Events.on(mouseConstraint, 'mouseup', ({ mouse: { mousedownPosition } }) => {
-    //   try {
-    //     if ((performance.now() - lastClickedTime) < 300) {
-    //       this.props.showDetailModal({
-    //         id: lastClickedBody.render.sprite.key,
-    //       })
-    //     }
-    //   } catch (err) {
-    //     //
-    //   }
-    // })
+    Events.on(mouseConstraint, 'mouseup', ({ mouse: { mousedownPosition } }) => {
+      try {
+        if ((performance.now() - lastClickedTime) < 300) {
+          this.props.showDetailModal({
+            id: lastClickedBody.render.sprite.key,
+          })
+        }
+      } catch (err) {
+        //
+      }
+    })
 
     World.add(this.physicsEngine.world, [
       this.centerOfGravity,
-      // mouseConstraint,
+      mouseConstraint,
       ...bodies,
     ])
 
@@ -169,13 +162,25 @@ class DevSkillsScene extends Component {
   animate = (t) => {
     this.frameId = requestAnimationFrame(this.animate)
     const bodies = Composite.allBodies(this.physicsEngine.world)
+    const g = this.graphicsContext
+    g.clear()
+    g.lineStyle(1, 0x333333)
+    g.beginFill(0x000000, 0)
 
     for (let i = 0; i < bodies.length; i += 1) {
-
       const body = bodies[i]
+      if (body.plugin.isCenterOfGravity) continue
+      this.graphicsContext.drawCircle(
+        body.position.x,
+        body.position.y,
+        body.mass,
+      )
+
       body.render.sprite.x = body.position.x
       body.render.sprite.y = body.position.y
     }
+
+    this.graphicsContext.endFill()
 
     Engine.update(this.physicsEngine)
   }
