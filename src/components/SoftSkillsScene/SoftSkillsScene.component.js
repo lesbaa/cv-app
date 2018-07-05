@@ -1,15 +1,6 @@
 /* eslint-env browser */
 import React, { Component } from 'react'
-import {
-  Engine,
-  World,
-  Bodies,
-  Composite,
-  Mouse,
-  Events,
-  MouseConstraint,
-  Body,
-} from 'matter-js'
+
 import { loadImg } from '~/utils/imgHelpers'
 import { SOFT_SKILLS } from '~/constants/skillTypes'
 import styles from './SoftSkillsScene.styles'
@@ -23,7 +14,6 @@ class DevSkillsScene extends Component {
 
   componentWillUnmount = async () => {
     cancelAnimationFrame(this.frameId)
-    Engine.clear(this.physicsEngine)
     this.ctx = null
     this.canvasRef = null
   }
@@ -59,175 +49,13 @@ class DevSkillsScene extends Component {
     this.w = window.innerWidth
     this.h = window.innerHeight
 
-    this.ctx = this.canvasRef.getContext('2d')
-    this.ctx.lineWidth = 1
-    this.ctx.globalAlpha = 1
-    this.ctx.strokeStyle = '#333'
-
-    this.physicsEngine = this.physicsEngine
-      ? Engine.clear(this.physicsEngine)
-      : Engine.create()
-
-    window.addEventListener('deviceorientation', ({ alpha, beta, gamma }) => {
-      this.physicsEngine.world.gravity.x = Math.sin(gamma * Math.PI / 180)
-      this.physicsEngine.world.gravity.y = Math.cos(beta * Math.PI / 180)
-    })
-
-    this.bounds = this.createBounds()
-
-    this.sprites = await this.getSprites()
-    const bodies = Object
-      .entries(this.props.skills)
-      .filter(([ , { type }]) => type === SOFT_SKILLS)
-      .map(([key, { points }]) => {
-        const mass = points * (this.h / 60)
-
-        const x = this.w * 0.66
-        const y = this.h / 2
-
-        const img = this.sprites[key]
-        img.width = mass * 1.2
-        img.height = mass * 1.2
-
-        const body = Bodies.polygon(
-          x,
-          y,
-          ~~(Math.random() * 5) + 3, // eslint-disable-line no-bitwise
-          mass,
-          {
-            restitution: 0.3,
-            render: {
-              sprite: {
-                img,
-                key,
-              },
-            },
-          }
-        )
-        Body.rotate(body, 2 * Math.random())
-
-        return body
-
-      })
-
-    const mouse = Mouse.create(this.canvasRef)
-    const mouseConstraint = MouseConstraint.create(this.physicsEngine, {
-      mouse,
-      constraint: {
-        stiffness: 0.2,
-        render: {
-          visible: false,
-        },
-      },
-    })
-
-    let lastClickedTime // TODO look into a way of doing this without let.
-    let lastClickedBody
-
-    Events.on(mouseConstraint, 'mousedown', ({ source: { body } }) => {
-      lastClickedTime = performance.now()
-      lastClickedBody = body
-    })
-
-    Events.on(mouseConstraint, 'mouseup', ({ mouse: { mousedownPosition } }) => {
-      try {
-        if ((performance.now() - lastClickedTime) < 300) {
-          this.props.showDetailModal({
-            id: lastClickedBody.render.sprite.key,
-          })
-        }
-      } catch (err) {
-        //
-      }
-    })
-
-    World.add(this.physicsEngine.world, [
-      this.bounds,
-      mouseConstraint,
-      ...bodies,
-    ])
-
     this.animate(0)
-  }
-
-  createBounds = () => {
-    const boundsMargin = this.w * 0.075
-
-    const bounds = Body.create({
-      isStatic: true,
-      parts: [
-        Bodies.rectangle(
-          this.w / 3 * 2,
-          boundsMargin,
-          this.h,
-          boundsMargin,
-          { isStatic: true }
-        ),
-        Bodies.rectangle(
-          this.w / 3 * 2,
-          this.h - boundsMargin,
-          this.h,
-          boundsMargin,
-          { isStatic: true }
-        ),
-        Bodies.rectangle(
-          (this.w / 2) - boundsMargin,
-          this.h / 2,
-          boundsMargin,
-          this.h,
-          { isStatic: true }
-        ),
-        Bodies.rectangle(
-          this.w - boundsMargin / 2,
-          this.h / 2,
-          boundsMargin,
-          this.h,
-          { isStatic: true }
-        ),
-      ],
-    })
-    Body.translate(bounds, { x: 0, y: -100 })
-    return bounds
   }
 
   animate = (t) => {
 
     this.frameId = requestAnimationFrame(this.animate)
-    this.ctx.clearRect(0, 0, this.canvasRef.width, this.canvasRef.height)
-    const bodies = Composite.allBodies(this.physicsEngine.world)
-
-    for (let i = 0; i < bodies.length; i += 1) {
-
-      const body = bodies[i]
-      const sprite = body.render.sprite // eslint-disable-line
-      if (sprite.img) {
-
-        this.ctx.beginPath()
-        const vertices = body.vertices // eslint-disable-line
-
-        this.ctx.moveTo(vertices[0].x, vertices[0].y)
-
-        for (let j = 1; j < vertices.length; j += 1) {
-          this.ctx.lineTo(vertices[j].x, vertices[j].y)
-        }
-
-        this.ctx.lineTo(vertices[0].x, vertices[0].y)
-        this.ctx.stroke()
-
-        this.ctx.translate(body.position.x, body.position.y)
-        this.ctx.drawImage(
-          sprite.img,
-          sprite.img.width / -2,
-          sprite.img.height / -2.01,
-          sprite.img.width,
-          sprite.img.height
-        )
-        this.ctx.translate(-body.position.x, -body.position.y)
-      }
-
-    }
-    // if (this.bounds) Body.rotate(this.bounds, 0.005)
-    Engine.update(this.physicsEngine)
+   
   }
 
   render = () => (
