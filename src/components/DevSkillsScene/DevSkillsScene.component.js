@@ -10,8 +10,8 @@ import Matter, {
   MouseConstraint,
 } from 'matter-js'
 import MatterAttractors from 'matter-attractors'
-import { DEV_SKILLS } from '~/constants/skillTypes'
 import { loadImg } from '~/utils/imgHelpers'
+import { DEV_SKILLS } from '~/constants/skillTypes'
 import styles from './DevSkillsScene.styles'
 
 Matter.use(MatterAttractors)
@@ -19,11 +19,17 @@ Matter.use(MatterAttractors)
 let PIXI
 
 class DevSkillsScene extends Component {
-  sprites = {}
-
+  state = { ready: false }
   componentDidMount = async () => {
     PIXI = await import('pixi.js')
     await this.props.fetchSkills({ type: DEV_SKILLS })
+
+    await Promise.all(Object
+      .entries(this.props.skills)
+      .filter(([ , { type }]) => type === DEV_SKILLS)
+      .map(([key]) => loadImg(`/static/img/skill-icons/${key}.svg`))
+    )
+
     await this.init()
   }
 
@@ -43,7 +49,7 @@ class DevSkillsScene extends Component {
       height: this.canvasRef.height,
       transparent: true,
       antialias: true,
-      forceCanvas: true,
+      forceCanvas: false,
     })
 
     this.app.renderer.autoResize = true
@@ -82,35 +88,53 @@ class DevSkillsScene extends Component {
     const {
       Sprite,
       Graphics,
+      Container,
     } = PIXI
-
-    const g = new Graphics({ nativeLines: true })
-    this.graphicsContext = g
-    this.app.stage.addChild(g)
 
     const bodies = Object
       .entries(this.props.skills)
       .filter(([ , { type }]) => type === DEV_SKILLS)
-      .map(([key, { points }]) => {
+      .map(([key, { points }], i) => {
+        loadImg(`/static/img/skill-icons/${key}.svg`)
         const mass = points * 10
-        const imageScaleAmount = mass / 175
+        const imageScaleAmount = mass / 170
+
+        const heightModifier = (i % 2 === 0) ? -1 : 1
+
         const x = Math.random() * this.dims.w
-        const y = Math.random() * this.dims.h
+        const y = Math.random() * this.dims.h + (heightModifier * this.dims.h)
 
         const sprite = new Sprite.fromImage(`/static/img/skill-icons/${key}.svg`)
         sprite.transform.scale.x = imageScaleAmount
         sprite.transform.scale.y = imageScaleAmount
         sprite.anchor.set(0.5)
         sprite.addChild(sprite)
-        sprite.key = key
 
-        this.app.stage.addChild(sprite)
-        this.sprites[key] = sprite
+        const g = new Graphics({ nativeLines: true })
+        g.clear()
+        g.lineStyle(1, 0x333333)
+        g.beginFill(0x000000, 0)
+        g.drawCircle(
+          0,
+          0,
+          mass * 0.99,
+        )
+        g.endFill()
+
+        const container = new Container()
+        container.x = x
+        container.y = y
+        container.addChild(g)
+        container.addChild(sprite)
+        container.key = key
+
+        this.app.stage.addChild(container)
+        
         return Bodies.circle(x, y, mass, {
           mass,
           restitution: 1,
           render: {
-            sprite,
+            sprite: container,
           },
         })
       })
@@ -162,37 +186,35 @@ class DevSkillsScene extends Component {
   animate = (t) => {
     this.frameId = requestAnimationFrame(this.animate)
     const bodies = Composite.allBodies(this.physicsEngine.world)
-    const g = this.graphicsContext
-    g.clear()
-    g.lineStyle(1, 0x333333)
-    g.beginFill(0x000000, 0)
 
     for (let i = 0; i < bodies.length; i += 1) {
       const body = bodies[i]
       if (body.plugin.isCenterOfGravity) continue
-      this.graphicsContext.drawCircle(
-        body.position.x,
-        body.position.y,
-        body.mass,
-      )
 
       body.render.sprite.x = body.position.x
       body.render.sprite.y = body.position.y
     }
 
-    this.graphicsContext.endFill()
-
     Engine.update(this.physicsEngine)
   }
 
-  render = () => (
-    <canvas
-      className="DevSkillsScene anim-scene"
-      ref={this.setCanvasRef}
-    >
-      <style jsx>{styles}</style>
-    </canvas>
-  )
+  render = () => {
+    const canvasClassName = [
+      'DevSkillsScene',
+      'anim-scene',
+    ]
+      .filter(Boolean)
+      .join(' ')
+
+    return (
+      <canvas
+        className={canvasClassName}
+        ref={this.setCanvasRef}
+      >
+        <style jsx>{styles}</style>
+      </canvas>
+    )
+  }
 
 }
 
