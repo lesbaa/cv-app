@@ -111,7 +111,6 @@ class DevSkillsScene extends Component {
         sprite.addChild(sprite)
 
         const g = new Graphics({ nativeLines: true })
-        g.clear()
         g.lineStyle(1, 0x333333)
         g.beginFill(0x000000, 0)
         g.drawCircle(
@@ -129,7 +128,7 @@ class DevSkillsScene extends Component {
         container.key = key
 
         this.app.stage.addChild(container)
-        
+
         return Bodies.circle(x, y, mass, {
           mass,
           restitution: 1,
