@@ -1,3 +1,3 @@
-import UpNextScene from './UpNextScene.component'
+import UpNextScene from './UpNextScene.container'
 
 export default UpNextScene

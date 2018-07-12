@@ -11,6 +11,7 @@ class DevSkillsScene extends Component {
     PIXI = await import('pixi.js')
     await this.props.fetchSkills({ type: UP_NEXT })
     this.init()
+    console.log(this.context, this.props)
   }
 
   componentWillUnmount = () => {
