@@ -1,11 +1,15 @@
 import withStateTransition from './withStateTransition'
-const threeConnect = (
-  store,
-) => (
+
+const clone = obj => Object.create(
+  Object.getPrototypeOf(obj),
+  Object.getOwnPropertyDescriptors(obj)
+)
+
+const threeConnect = store => (
   mapStateToObj3D,
   mapDispatchToObj3D,
-) => (obj3D) => { 
-  const clonedObject = withStateTransition(obj3D.clone())
+) => (obj3D) => {
+  const clonedObject = withStateTransition(clone(obj3D))
 
   store.subscribe(() => {
     const state = store.getState()
