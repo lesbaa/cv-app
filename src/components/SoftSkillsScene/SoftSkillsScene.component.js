@@ -18,7 +18,7 @@ import styles from './SoftSkillsScene.styles'
 let PIXI
 
 class DevSkillsScene extends Component {
-
+  // TODO refactor some of this out into a higher order component
   componentDidMount = async () => {
     PIXI = await import('pixi.js')
     await this.props.fetchSkills({ type: SOFT_SKILLS })
@@ -97,7 +97,6 @@ class DevSkillsScene extends Component {
 
     window.addEventListener('deviceorientation', ({ alpha, beta, gamma }) => {
       this.physicsEngine.world.gravity.x = Math.sin(gamma * Math.PI / 180)
-      // this.physicsEngine.world.gravity.y = Math.sin(beta * Math.PI / 180)
     })
 
     this.bounds = this.createBounds()
@@ -131,6 +130,7 @@ class DevSkillsScene extends Component {
           frictionAir: 0,
           render: {
             sprite: {
+              key,
               container,
               sprite,
             },
@@ -191,6 +191,7 @@ class DevSkillsScene extends Component {
         if ((performance.now() - lastClickedTime) < 200) {
           this.props.showDetailModal({
             id: lastClickedBody.render.sprite.key,
+            skillType: SOFT_SKILLS,
           })
         }
       } catch (err) {

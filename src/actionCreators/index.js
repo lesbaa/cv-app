@@ -34,18 +34,16 @@ export const hideSkillDetailModal = () => ({ type: HIDE_SKILL_DETAIL_MODAL })
 export const hideInfoModal = () => ({ type: HIDE_INFO_MODAL })
 
 export const showSkillDetailModal = ({
-  // TODO get soft softskill
   id,
   skillType,
 }) => async (dispatch, getState) => {
 
   dispatch(hideSkillDetailModal())
   dispatch(hideInfoModal())
-
   const {
     name: modalTitle,
     desc: modalContent,
-  } = await getState().skills[skillType][id]
+  } = getState().skills[skillType][id]
 
   dispatch({
     type: SHOW_SKILL_DETAIL_MODAL,
