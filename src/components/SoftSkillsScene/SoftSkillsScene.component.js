@@ -10,7 +10,6 @@ import {
   MouseConstraint,
   Body,
 } from 'matter-js'
-import { once } from 'ramda'
 import { loadImg } from '~/utils/imgHelpers'
 import { SOFT_SKILLS } from '~/constants/skillTypes'
 import styles from './SoftSkillsScene.styles'

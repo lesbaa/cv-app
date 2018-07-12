@@ -351,6 +351,106 @@
       "name": "For fixes sake.",
       "points": 5,
       "desc": "<p>Whilst coding obviously involves a high degree of problem solving, it's a skill that I also try to apply outwith programming. I like making stuff to solve new and interesting problems.  Life is all about dealing with challenges.</p>"
+    },
+    {
+      "id": "more-aws",
+      "type": "UP_NEXT",
+      "name": "get more infra experience."
+    },
+    {
+      "id": "graphql",
+      "type": "UP_NEXT",
+      "name": "Build a GraphQl endpoint."
+    },
+    {
+      "id": "python",
+      "type": "UP_NEXT",
+      "name": "Wrestle with some Python."
+    },
+    {
+      "id": "ai",
+      "type": "UP_NEXT",
+      "name": "Dive into machine Learning."
+    },
+    {
+      "id": "more-js",
+      "type": "UP_NEXT",
+      "name": "Become Awesome at JS."
+    },
+    {
+      "id": "web-components",
+      "type": "UP_NEXT",
+      "name": "Stockpile homegrown web-components."
+    },
+    {
+      "id": "podcast",
+      "type": "UP_NEXT",
+      "name": "Start / contribute to a podcast."
+    },
+    {
+      "id": "game-dev",
+      "type": "UP_NEXT",
+      "name": "Build a browser game."
+    },
+    {
+      "id": "unreal-cpp",
+      "type": "UP_NEXT",
+      "name": "Build a game with UE4 / C++ game."
+    },
+    {
+      "id": "unity",
+      "type": "UP_NEXT",
+      "name": "Build a game with Unity."
+    },
+    {
+      "id": "open-source",
+      "type": "UP_NEXT",
+      "name": "Contribute more to OS."
+    },
+    {
+      "id": "design",
+      "type": "UP_NEXT",
+      "name": "Learn more about Design theory."
+    },
+    {
+      "id": "code-art",
+      "type": "UP_NEXT",
+      "name": "Collaborate on a coding / art project."
+    },
+    {
+      "id": "more-node",
+      "type": "UP_NEXT",
+      "name": "Get awesome at node."
+    },
+    {
+      "id": "build-computer",
+      "type": "UP_NEXT",
+      "name": "Build my own server / rig."
+    },
+    {
+      "id": "whisky",
+      "type": "UP_NEXT",
+      "name": "Buy a cask of whisky and sample it each year."
+    },
+    {
+      "id": "live-abroad",
+      "type": "UP_NEXT",
+      "name": "Live in another country."
+    },
+    {
+      "id": "climb",
+      "type": "UP_NEXT",
+      "name": "Climb more hills."
+    },
+    {
+      "id": "portuguese",
+      "type": "UP_NEXT",
+      "name": "Apprenders mais Português."
+    },
+    {
+      "id": "more",
+      "type": "UP_NEXT",
+      "name": "So much more..."
     }
   ]
 }
