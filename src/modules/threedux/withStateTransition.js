@@ -3,33 +3,33 @@ import clone3DAttributes from './clone3DAttributes'
 import applyStateToObj3D from './applyStateToObj3D'
 import tweenState from './tweenState'
 import removeProperties from './removeProperties'
-import {
-  Style3DList,
-} from './Style3D'
+import { Style3DList } from './Style3D'
 
 const clone3DAttr = clone3DAttributes([
   'x',
   'y',
   'rotation',
   'scale',
+  'position',
   'color',
   'uniforms',
   'attributes',
 ])
 
-const withStateTransition = inputObj => {
-  const subject = inputObj.clone()
-  
+const withStateTransition = (inputObj) => {
+
+  const subject = inputObj
+
   subject.handleClassListChange = handleClassListChange.bind(subject)
-  subject.handleStateChange = handleStateChange.bind(subject) 
+  subject.handleStateChange = handleStateChange.bind(subject)
   subject.setState = setState.bind(subject)
   subject.tick = tick.bind(subject)
-  
+
   subject.classList = new Style3DList(subject.handleClassListChange, clone3DAttr(subject))
   subject.getComputedStyle = () => subject.classList.computedStyle
-  
+
   subject.tween = {}
-  
+
   subject.eventListeners = {}
   subject.addEventListener = addEventListener.bind(subject)
   subject.removeEventListener = removeEventListener.bind(subject)
@@ -92,17 +92,18 @@ function dispatchEvent({
 function handleClassListChange() {
   const styles = this.getComputedStyle()
   this.tween.updateTransitionParams(styles.transition)
-  
+
   this.setState(styles)
 
 }
 
 function tick(t) {
+  console.log(this.tween.k)
   if (this.tween.k > 1) {
     this.tween.reset(true)
     return
   }
-  
+
   if (this.tween.shouldTransition) {
     this.tween.update()
   }
@@ -111,13 +112,13 @@ function tick(t) {
     this.state.animation(this, t)
   }
   return
-} 
+}
 
 function reset(apply = false) {
   this.tween.shouldTransition = false
   this.tween.k = 0
   this.tween.stepsTaken = 0
-  
+
   if (apply) {
     applyStateToObj3D({
       obj3D: this,
@@ -161,7 +162,7 @@ function update() {
   return
 }
 
-function setState(update, cb) {  
+function setState(update, cb) {
   this.previousState = {
     ...this.state,
   }
@@ -181,7 +182,7 @@ function handleStateChange(state) {
   if (this.tween.hasTransition) {
     this.tween.updateTransitionParams(state.transition)
     this.tween.reset()
-    
+
     this.tween.targetState = this.state
 
     this.tween.currentState = clone3DAttr(this)

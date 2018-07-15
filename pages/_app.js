@@ -38,7 +38,7 @@ class LesCV extends App {
           classNames="page-transition"
         >
           <Provider store={store}>
-            <Component {...pageProps} />
+            <Component {...pageProps} store={store} />
           </Provider>
         </PageTransition>
       </Container>

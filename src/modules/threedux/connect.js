@@ -2,8 +2,9 @@ import withStateTransition from './withStateTransition'
 
 const threeConnect = store => (
   mapStateToObj3D,
-  mapDispatchToObj3D,
+  mapDispatchToObj3D = dispatch => dispatch,
 ) => (obj3D) => {
+
   const clonedObject = withStateTransition(obj3D)
 
   store.subscribe(() => {

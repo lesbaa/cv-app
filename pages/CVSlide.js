@@ -1,7 +1,7 @@
 /* global process */
 /* eslint-env browser */
 
-import React, { Component } from 'react'
+import React, { Component, createContext } from 'react'
 import PropTypes from 'proptypes'
 import PageWrapper from '~/components/PageWrapper'
 import Content from '~/components/Content'
@@ -13,7 +13,7 @@ class CVSlide extends Component {
 
   static pageTransitionDelayEnter = true
 
-  static getInitialProps = async ({ query, store }) => {
+  static getInitialProps = async ({ query }) => {
 
     const {
       slidename,
@@ -49,6 +49,7 @@ class CVSlide extends Component {
       palette,
       nextSlide,
       previousSlide,
+      store,
     } = this.props
 
     return (
@@ -57,6 +58,7 @@ class CVSlide extends Component {
         title={title}
       >
         <AnimatedScene
+          store={store}
           palette={palette}
           slidename={slidename}
         />

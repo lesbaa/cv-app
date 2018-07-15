@@ -48,5 +48,6 @@ export default function applyStateToObj3D({
       if (!obj3D[prop]) continue
       obj3D[prop][dimension] = state[prop][dimension]
     }
+    debugger
   }
 }
