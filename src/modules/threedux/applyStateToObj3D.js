@@ -31,11 +31,16 @@ applyStateToObj3D({
 })
 
  */
+
+/* eslint-disable guard-for-in */
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable no-continue */
 export default function applyStateToObj3D({
   obj3D,
   state,
 }) {
   for (const prop in state) {
+    // if (state.rotation) debugger
     if (prop === 'uniforms' && state.uniforms) {
       for (const uniformName in state.uniforms) {
         if (typeof obj3D.uniforms[uniformName].value !== 'number') continue
@@ -44,10 +49,14 @@ export default function applyStateToObj3D({
       continue
     }
 
+    if (prop === 'rotation' && typeof state.rotation === 'number') {
+      obj3D.rotation = state.rotation
+      continue
+    }
+
     for (const dimension in state[prop]) {
       if (!obj3D[prop]) continue
       obj3D[prop][dimension] = state[prop][dimension]
     }
-    debugger
   }
 }

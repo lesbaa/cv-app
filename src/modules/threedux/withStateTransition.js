@@ -24,7 +24,6 @@ const withStateTransition = (inputObj) => {
   subject.handleStateChange = handleStateChange.bind(subject)
   subject.setState = setState.bind(subject)
   subject.tick = tick.bind(subject)
-
   subject.classList = new Style3DList(subject.handleClassListChange, clone3DAttr(subject))
   subject.getComputedStyle = () => subject.classList.computedStyle
 
@@ -34,7 +33,6 @@ const withStateTransition = (inputObj) => {
   subject.addEventListener = addEventListener.bind(subject)
   subject.removeEventListener = removeEventListener.bind(subject)
   subject.dispatchEvent = dispatchEvent.bind(subject)
-
 
   const computedStyles = subject.getComputedStyle()
   subject.state = { ...computedStyles }
@@ -98,7 +96,6 @@ function handleClassListChange() {
 }
 
 function tick(t) {
-  console.log(this.tween.k)
   if (this.tween.k > 1) {
     this.tween.reset(true)
     return
@@ -186,7 +183,6 @@ function handleStateChange(state) {
     this.tween.targetState = this.state
 
     this.tween.currentState = clone3DAttr(this)
-
     this.tween.shouldTransition = true
     return
   }
@@ -204,7 +200,7 @@ function updateTransitionParams(transition = {}) {
     this.tween.hasTransition = false
     return
   }
-  
+
   this.tween.transitionParams = {
     ...this.tween.transitionParams,
     ...transition,
@@ -217,19 +213,19 @@ function updateTransitionParams(transition = {}) {
   } = this.tween.transitionParams
 
   this.tween.hasTransition = true
-  
+
   const totalSteps = 60 * (transitionDuration / 1000)
   const stepSize = 1 / totalSteps
-  
+
   this.tween.totalSteps = totalSteps || 1
   this.tween.stepSize = stepSize
   this.tween.transitionProperties = transitionProperties
-  
+
   if (typeof transitionEasingFunction === 'function') {
     this.tween.easingFunction = transitionEasingFunction
   } else {
     const func = EasingFunctions[transitionEasingFunction]
-    
+
     this.tween.easingFunction = func || EasingFunctions.linear
     if (!func) console.warn('No easing function found with that name, defaulting to \'linear\'')
   }

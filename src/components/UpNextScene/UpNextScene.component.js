@@ -50,7 +50,7 @@ class DevSkillsScene extends Component {
 
     const g = new PIXI.Graphics()
     g.beginFill(0xff4400, 1)
-    g.drawRect(this.app.screen.width * 0.66, this.app.screen.height / 2, 100, 100)
+    g.drawRect(0, 0, 100, 100)
     g.endFill()
 
     this.app.stage.addChild(g)
@@ -63,22 +63,19 @@ class DevSkillsScene extends Component {
     const pixiClass = new Style3D({
       transition: {
         transitionProperties: [
+          'rotation',
           'position',
         ],
         transitionEasingFunction: 'elasticOut',
-        transitionDuration: 1000,
+        transitionDuration: 500,
       },
-      position: {
-        x: 50,
-        y: 50,
-      },
+      rotation: 0.0,
+      position: { x: 0, y: 0 },
     })
 
     const movedClass = new Style3D({
-      position: {
-        x: this.app.screen.width * 0.66,
-        y: this.app.screen.height / 2,
-      },
+      rotation: 1.0,
+      position: { x: 100, y: 100 },
     })
 
     this.g.classList.add(pixiClass)
@@ -86,7 +83,7 @@ class DevSkillsScene extends Component {
     setInterval(() => {
       this.g.classList.toggle(movedClass)
       window.g = this.g
-    }, 1000)
+    }, 1400)
   
     this.animate(0)
   }

@@ -4,6 +4,11 @@
  * returns a function that either deep clones a tween-state object to a new object or
  * creates a tween-state object from a three.js object
  */
+
+/* eslint-disable guard-for-in */
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable no-continue */
+
 export default function clone3DAttributes(attrs = [
   'x',
   'y',
@@ -16,6 +21,7 @@ export default function clone3DAttributes(attrs = [
   return (obj) => {
     const newObj = {}
     for (let i = 0; i < attrs.length; i++) {
+
       const attr = attrs[i]
 
       if (attr === 'uniforms' && obj.uniforms) {
@@ -25,6 +31,10 @@ export default function clone3DAttributes(attrs = [
             ? obj.uniforms[uniformName].value
             : obj.uniforms[uniformName]
         }
+      }
+
+      if (attr === 'rotation') { // this should be if isScalar attr
+        newObj.rotation = obj.rotation
         continue
       }
 
@@ -34,7 +44,6 @@ export default function clone3DAttributes(attrs = [
         newObj[attr].y = obj[attr].y
       }
     }
-    debugger
     return newObj
   }
 }
