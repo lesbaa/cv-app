@@ -19,6 +19,5 @@ export default {
       type: 'f',
       value: 0,
     },
-    
   },
 }

@@ -76,8 +76,8 @@ function dispatchEvent({
   target,
 }) {
   try {
-    for (let i = 0; i < this.eventListeners[type]; i++) {
-      this.eventListeners[type]({
+    for (let i = 0; i < this.eventListeners[type].length; i++) {
+      this.eventListeners[type][i]({
         type,
         target,
       })

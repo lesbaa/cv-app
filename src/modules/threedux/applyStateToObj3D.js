@@ -40,16 +40,15 @@ export default function applyStateToObj3D({
   state,
 }) {
   for (const prop in state) {
-    // if (state.rotation) debugger
     if (prop === 'uniforms' && state.uniforms) {
       for (const uniformName in state.uniforms) {
-        if (typeof obj3D.uniforms[uniformName].value !== 'number') continue
-        obj3D.uniforms[uniformName].value = state.uniforms[uniformName]
+        if (typeof obj3D.uniforms[uniformName] !== 'number') continue
+        obj3D.uniforms[uniformName] = state.uniforms[uniformName]
       }
       continue
     }
 
-    if (prop === 'rotation' && typeof state.rotation === 'number') {
+    if (prop === 'rotation' && typeof state.rotation === 'number') { // todo this should test for isDimensionless
       obj3D.rotation = state.rotation
       continue
     }
