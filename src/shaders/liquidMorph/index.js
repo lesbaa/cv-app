@@ -13,7 +13,7 @@ export default {
     },
     uTransitionProgress: {
       type: 'v2',
-      value: 0,
+      value: -0.5,
     },
   },
 }

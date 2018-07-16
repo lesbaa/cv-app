@@ -9,6 +9,10 @@ let PIXI
 
 class DevSkillsScene extends Component {
 
+  skillsSprites = []
+
+  activeSkill = 0
+
   componentDidMount = async () => {
     PIXI = await import('pixi.js')
     await this.props.fetchSkills({ type: UP_NEXT })
@@ -48,94 +52,124 @@ class DevSkillsScene extends Component {
       hUnit: h / 6,
     }
 
-    const g = new PIXI.Graphics()
-    g.beginFill(0xff4400, 1)
-    g.drawRect(0, 0, 100, 100)
-    g.endFill()
+    await this.initFilter()
 
-    this.app.stage.addChild(g)
+    this.addSkillsText()
 
-    this.g = pixiConnect(
+    this.animate(0)
+  }
+
+  initFilter = async () => {
+    const { default: liquidShader } = await import('~/shaders/liquidMorph')
+    const { default: hatchShader } = await import('~/shaders/hatch')
+
+    this.liquidFilter = pixiConnect(
       s => s,
       d => d,
-    )(g)
-
-    const pixiClass = new Style3D({
-      transition: {
-        transitionProperties: [
-          'rotation',
-          'position',
-        ],
-        transitionEasingFunction: 'elasticOut',
-        transitionDuration: 1000,
-      },
-      rotation: 0.0,
-      position: { x: 0, y: 0 },
-    })
-
-    const movedClass = new Style3D({
-      rotation: 1.0,
-      position: { x: 500, y: 500 },
-    })
-
-    this.g.classList.add(pixiClass)
-    this.g.classList.add(movedClass)
-
-    // setInterval(() => {
-    //   this.g.classList.toggle(movedClass)
-    //   window.g = this.g
-    // }, 1400)
-
-    const { default: customShader } = await import('~/shaders/liquidMorph')
-
-    const f = new PIXI.Filter('', customShader.fragment, customShader.uniforms)
-
-    this.filter = pixiConnect(
-      s => s,
-      d => d,
-    )(f)
-
-    // this.filter = f
+    )(new PIXI.Filter('', liquidShader.fragment, liquidShader.uniforms))
 
     this.app.stage.filters = [
-      this.filter,
+      new PIXI.Filter(
+        '',
+        hatchShader.fragment,
+        {
+          ...hatchShader.uniforms,
+          uVisibility: { type: 'f', value: 0.0 },
+        },
+      ),
+      this.liquidFilter,
     ]
-
 
     const filterBaseClass = new Style3D({
       transition: {
         transitionProperties: [
           'uniforms',
         ],
-        transitionEasingFunction: 'easeInOutQuart',
-        transitionDuration: 3000,
+        transitionEasingFunction: 'easeInOutCubic',
+        transitionDuration: 1500,
       },
       uniforms: {
         uTransitionProgress: 1.0,
       },
     })
 
-    this.filter.classList.add(filterBaseClass)
-    this.filter.addEventListener('transitionEnd', console.log)
-    const filterTransClass = new Style3D({
+    this.liquidFilter.classList.add(filterBaseClass)
+
+    this.filterTransitionClass = new Style3D({
       uniforms: {
         uTransitionProgress: -0.5,
       },
     })
 
-    setInterval(() => {
-      this.filter.classList.toggle(filterTransClass)
-      window.filty = this.filter
-    }, 4000)
+    this.switchSkill()
 
-    this.animate(0)
+    setInterval(() => {
+      this.switchSkill()
+    }, 6000)
+  }
+
+  transitionFilterOut = () => {
+    return new Promise((resolve) => {
+      this.liquidFilter.classList.add(this.filterTransitionClass)
+      this.liquidFilter.addEventListener('transitionEnd', this.handleTransitionEnd(resolve))
+    })
+  }
+
+  transitionFilterIn = () => {
+    this.liquidFilter.classList.remove(this.filterTransitionClass)
+  }
+
+  handleTransitionEnd = resolve => () => {
+    this.liquidFilter.removeEventListener('transitionEnd', this.handleTransitionEnd(resolve))
+    resolve()
+  }
+
+  switchSkill = async () => {
+    await this.transitionFilterOut()
+
+    const currentSkill = this.skillsSprites[this.activeSkill]
+    currentSkill.visible = false
+
+    this.activeSkill = this.activeSkill + 1 === this.skillsSprites.length
+      ? 0
+      : this.activeSkill + 1
+
+    const nextSkill = this.skillsSprites[this.activeSkill]
+    nextSkill.visible = true
+    this.transitionFilterIn()
+  }
+
+  addSkillsText = () => {
+    // TODO abstract this out to a helper func this out to a function
+    const textStyle = new PIXI.TextStyle({
+      fontFamily: 'League Spartan',
+      fontSize: 60,
+      fill: '#555555',
+      padding: 200,
+      align: 'center',
+      wordWrap: true,
+      wordWrapWidth: this.dims.w * 0.33,
+    })
+
+    this.skillsSprites = this.props.skills.map(({ name }, i) => {
+      const text = new PIXI.Text(name, textStyle)
+
+      text.anchor.set(0.5)
+      text.visible = false
+      text.x = this.dims.w * 0.66
+      text.y = this.dims.h * 0.5
+
+      this.app.stage.addChild(text)
+      return text
+    })
   }
 
   animate = (t) => {
     this.frameId = requestAnimationFrame(this.animate)
-    this.g.tick(t)
-    this.filter.tick(t)
-    this.filter.uniforms.uTime += 0.01
+    for (let i = 0; i < this.app.stage.filters.length; i++) {
+      if (this.app.stage.filters[i].tick) this.app.stage.filters[i].tick(t)
+      this.app.stage.filters[i].uniforms.uTime += 0.005
+    }
   }
 
   render = () => (

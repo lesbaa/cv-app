@@ -6,7 +6,7 @@ precision mediump float;
 varying vec2 vTextureCoord;
 uniform sampler2D uSampler;
 uniform float uTime;
-
+uniform float uVisibility;
 
 void main() {
   vec4 color = texture2D(uSampler, vTextureCoord);
@@ -20,10 +20,14 @@ void main() {
 
   float a = color.a * (sinCoord + r + g + b) / 1.5;
   
+  float visibility = bool(uVisibility)
+    ? uVisibility
+    : 0.5;
+
   gl_FragColor = vec4(
     r > 0.3 ? 0.4 : 0.0,
     g > 0.3 ? 0.4 : 0.0,
     b > 0.3 ? 0.4 : 0.0,
-    a > 0.4 ? 0.4 : 0.0
+    a > uVisibility ? 0.4 : 0.0
   );
 }

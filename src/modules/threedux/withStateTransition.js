@@ -66,7 +66,7 @@ function removeEventListener(eventType, callback) {
     this.eventListeners[eventType] = this.eventListeners[eventType].filter(value => value !== callback)
     return
   } catch (e) {
-    console.error('withStateTransition:removeEventListener: error removing listener')
+    console.error('withStateTransition:removeEventListener: error removing listener', '\n', e)
   }
   return
 }
@@ -76,14 +76,16 @@ function dispatchEvent({
   target,
 }) {
   try {
-    for (let i = 0; i < this.eventListeners[type].length; i++) {
-      this.eventListeners[type][i]({
-        type,
-        target,
-      })
+    if (this.eventListeners[type]) {
+      for (let i = 0; i < this.eventListeners[type].length; i++) {
+        this.eventListeners[type][i]({
+          type,
+          target,
+        })
+      }
     }
   } catch (e) {
-    console.error(`withStateTransition:dispatchEvent: error calling listener for type ${type}`)
+    console.error(`withStateTransition:dispatchEvent: error calling listener for type ${type}`, '\n', e)
   }
 }
 

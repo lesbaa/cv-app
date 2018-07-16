@@ -5,13 +5,9 @@ import { UP_NEXT } from '~/constants/skillTypes'
 import UpNextScene from './UpNextScene.component'
 
 const mapStateToProps = ({
-  detailsModal: {
-    modalIsVisible,
-  },
   skills,
 }) => ({
-  modalIsVisible,
-  skills: skills[UP_NEXT],
+  skills: Object.values(skills[UP_NEXT] || {}),
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

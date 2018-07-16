@@ -20,5 +20,4 @@ export const getSkills = async ({ params = {} }) => {
 export const getSkill = async ({ params, id }) =>
   data.skills.filter(skill => skill.id === id)
 
-
 // TODO tests for this
