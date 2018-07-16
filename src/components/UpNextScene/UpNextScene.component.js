@@ -86,8 +86,8 @@ class DevSkillsScene extends Component {
     //   window.g = this.g
     // }, 1400)
 
-    const { default: customShader } = await import('~/shaders/pixelate')
-    console.log(customShader)
+    const { default: customShader } = await import('~/shaders/liquidMorph')
+
     const f = new PIXI.Filter('', customShader.fragment, customShader.uniforms)
 
     this.filter = pixiConnect(
@@ -111,7 +111,7 @@ class DevSkillsScene extends Component {
         transitionDuration: 3000,
       },
       uniforms: {
-        uTransitionProgress: 0.999999,
+        uTransitionProgress: 1.0,
       },
     })
 
@@ -119,7 +119,7 @@ class DevSkillsScene extends Component {
     this.filter.addEventListener('transitionEnd', console.log)
     const filterTransClass = new Style3D({
       uniforms: {
-        uTransitionProgress: 0.00001,
+        uTransitionProgress: -0.5,
       },
     })
 
@@ -135,6 +135,7 @@ class DevSkillsScene extends Component {
     this.frameId = requestAnimationFrame(this.animate)
     this.g.tick(t)
     this.filter.tick(t)
+    this.filter.uniforms.uTime += 0.01
   }
 
   render = () => (
