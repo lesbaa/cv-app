@@ -108,12 +108,10 @@ class DevSkillsScene extends Component {
     }, 6000)
   }
 
-  transitionFilterOut = () => {
-    return new Promise((resolve) => {
-      this.liquidFilter.classList.add(this.filterTransitionClass)
-      this.liquidFilter.addEventListener('transitionEnd', this.handleTransitionEnd(resolve))
-    })
-  }
+  transitionFilterOut = () => new Promise((resolve) => {
+    this.liquidFilter.classList.add(this.filterTransitionClass)
+    this.liquidFilter.addEventListener('transitionEnd', this.handleTransitionEnd(resolve))
+  })
 
   transitionFilterIn = () => {
     this.liquidFilter.classList.remove(this.filterTransitionClass)
