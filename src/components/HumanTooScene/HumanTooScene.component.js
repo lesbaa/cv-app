@@ -79,7 +79,7 @@ class HumanTooScene extends Component {
     this.filters.push(new Filter('', gloopFilter.fragment, gloopFilter.uniforms))
     this.app.stage.filters = this.filters
 
-    window.addEventListener('mousemove', ({ clientX, clientY }) => {
+    window.addEventListener('mousemove', () => {
       for (let i = 0; i < this.filters.length; i++) {
         this.filters[i].uniforms.uMouseSpeed += 0.03
       }
@@ -91,7 +91,9 @@ class HumanTooScene extends Component {
     for (let i = 0; i < this.filters.length; i++) {
       this.filters[i].uniforms.uTime += 0.01
       const filterMouseVelocity = this.filters[i].uniforms.uMouseVelocity
-      if (filterMouseVelocity && filterMouseVelocity > 0) this.filters[i].uniforms.uMouseSpeed -= 0.01
+      if (filterMouseVelocity && filterMouseVelocity > 0) {
+        this.filters[i].uniforms.uMouseSpeed -= 0.01
+      }
     }
   }
 

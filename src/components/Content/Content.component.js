@@ -17,6 +17,7 @@ const Content = ({
     <Title title={title} opacity={palette.offsetOpacity} />
     <Main>
       <span
+        className="content-blurb"
         dangerouslySetInnerHTML={{ __html: blurbMarkup }} // eslint-disable-line
         opacity={palette.offsetOpacity}
       />
