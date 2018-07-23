@@ -13,7 +13,7 @@ uniform float uMouseSpeed;
 
 void main() {
   // TODO this could maybe optimised to not call the noise function if not needed
-  float normalisedTime = uTime / 5.0 + uMouseSpeed;
+  float normalisedTime = uTime / 4.0 + uMouseSpeed;
 
   vec4 videoColor = texture2D(uSamplerTwo, vTextureCoord.xy);
   vec4 color = texture2D(uSampler, vTextureCoord.xy);
