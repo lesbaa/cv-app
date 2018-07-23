@@ -1,7 +1,7 @@
 {
   "slides": {
     "hello": {
-      "title": "Hi, I'm <strong><x-lesanim offsetY=40>Les.</x-lesanim></strong>",
+      "title": "Hi, I'm <strong class='title-les'>Les.</strong>",
       "previousSlide": null,
       "nextSlide": "dev-skills",
       "blurbMarkup": "<p>I’m a human based in Glasgow, Scotland. I have experience <em><strong>solving</strong></em> a wide variety of <em><strong>problems</strong></em> in both front-end and back-end domains.</p><p>Day to day, I’m a <em><strong>JavaScript Developer.</strong></em></p><p>But really, I just like making cool stuff with just about anything.</p><p>Let me show you what I do and why I do it.</p>",
