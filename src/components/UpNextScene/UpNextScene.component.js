@@ -21,6 +21,15 @@ class DevSkillsScene extends Component {
 
   componentWillUnmount = () => {
     cancelAnimationFrame(this.frameId)
+    clearInterval(this.interval)
+
+    this.app.ticker.stop()
+
+    this.app.destroy({
+      children: true,
+      texture: true,
+      baseTexture: true,
+    })
   }
 
   setCanvasRef = (ref) => {
@@ -103,7 +112,7 @@ class DevSkillsScene extends Component {
 
     this.switchSkill()
 
-    setInterval(() => {
+    this.interval = setInterval(() => {
       this.switchSkill()
     }, 6000)
   }

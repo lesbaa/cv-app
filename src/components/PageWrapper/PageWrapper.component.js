@@ -19,7 +19,7 @@ const PageWrapper = ({
     <PageHead
       title={`Les Moffat | ${title}`}
     />
-    {children}    
+    {children}
     <style jsx>{styles}</style>
   </div>
 )

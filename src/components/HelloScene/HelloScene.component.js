@@ -17,9 +17,15 @@ class HelloScene extends Component {
 
   componentWillUnmount = () => {
     cancelAnimationFrame(this.frameId)
-    this.ctx = null
+  
     this.canvasRef = null
+
     this.app.ticker.stop()
+    this.app.destroy({
+      children: true,
+      texture: true,
+      baseTexture: true,
+    })
   }
 
   setCanvasRef = (ref) => {

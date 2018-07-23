@@ -19,6 +19,16 @@ class HumanTooScene extends Component {
 
   componentWillUnmount = async () => {
     cancelAnimationFrame(this.frameId)
+
+    this.app.ticker.stop()
+    this.app.destroy({
+      children: true,
+      texture: true,
+      baseTexture: true,
+    })
+
+    window.removeEventListener('mousemove', this.handleMouseMove)
+
     this.ctx = null
     this.canvasRef = null
   }
@@ -79,11 +89,13 @@ class HumanTooScene extends Component {
     this.filters.push(new Filter('', gloopFilter.fragment, gloopFilter.uniforms))
     this.app.stage.filters = this.filters
 
-    window.addEventListener('mousemove', () => {
-      for (let i = 0; i < this.filters.length; i++) {
-        this.filters[i].uniforms.uMouseSpeed += 0.03
-      }
-    })
+    window.addEventListener('mousemove', this.handleMouseMove)
+  }
+
+  handleMouseMove = () => {
+    for (let i = 0; i < this.filters.length; i++) {
+      this.filters[i].uniforms.uMouseSpeed += 0.03
+    }
   }
 
   animate = (t) => {

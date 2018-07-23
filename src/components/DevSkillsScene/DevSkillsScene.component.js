@@ -19,7 +19,6 @@ Matter.use(MatterAttractors)
 let PIXI
 
 class DevSkillsScene extends Component {
-  state = { ready: false }
   componentDidMount = async () => {
     PIXI = await import('pixi.js')
     await this.props.fetchSkills({ type: DEV_SKILLS })
@@ -35,8 +34,17 @@ class DevSkillsScene extends Component {
 
   componentWillUnmount = async () => {
     cancelAnimationFrame(this.frameId)
+
+    this.app.ticker.stop()
+    this.app.destroy({
+      children: true,
+      texture: true,
+      baseTexture: true,
+    })
+
+    Events.off(this.mouseConstraint)
+
     Engine.clear(this.physicsEngine)
-    this.ctx = null
     this.canvasRef = null
   }
 
@@ -139,7 +147,7 @@ class DevSkillsScene extends Component {
       })
 
     const mouse = Mouse.create(this.canvasRef)
-    const mouseConstraint = MouseConstraint.create(this.physicsEngine, {
+    this.mouseConstraint = MouseConstraint.create(this.physicsEngine, {
       mouse,
       constraint: {
         stiffness: 0.2,
@@ -152,12 +160,12 @@ class DevSkillsScene extends Component {
     let lastClickedTime // TODO look into a way of doing this without let.
     let lastClickedBody
 
-    Events.on(mouseConstraint, 'mousedown', ({ source: { body } }) => {
+    Events.on(this.mouseConstraint, 'mousedown', ({ source: { body } }) => {
       lastClickedTime = performance.now()
       lastClickedBody = body
     })
 
-    Events.on(mouseConstraint, 'mouseup', ({ mouse: { mousedownPosition } }) => {
+    Events.on(this.mouseConstraint, 'mouseup', ({ mouse: { mousedownPosition } }) => {
       try {
         if ((performance.now() - lastClickedTime) < 300) {
           this.props.showDetailModal({
@@ -171,7 +179,7 @@ class DevSkillsScene extends Component {
 
     World.add(this.physicsEngine.world, [
       this.centerOfGravity,
-      mouseConstraint,
+      this.mouseConstraint,
       ...bodies,
     ])
 

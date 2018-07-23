@@ -20,10 +20,12 @@ export default css`
     display: block;
   }
 
-  :global(strong) :global(x-lesanim) {
+  :global(strong.title-les) {
+    font-family: 'LeagueSpartan';
+    font-size: 3.6em;
     position: absolute;
     top: 0;
-    left: 0;
+    left: -0.036em;
     width: 100%;
     height: 100%;
   }
