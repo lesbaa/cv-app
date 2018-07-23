@@ -70,20 +70,6 @@
         ]
       }
     },
-    "social-proof": {
-      "title": "but don't take my word for it.",
-      "previousSlide": "human-too",
-      "nextSlide": "hire-me",
-      "blurbMarkup": "<p>See what the people I've worked with have to say.</p>",
-      "palette": {
-        "gradient": "to bottom right, #eee6ee, #d9d9d9",
-        "offsetOpacity": 0.3,
-        "colors": [
-          "#eee6ee",
-          "#d9d9d9"
-        ]
-      }
-    },
     "hire-me": {
       "title": "so, you should totally hire me.",
       "previousSlide": "social-proof",
