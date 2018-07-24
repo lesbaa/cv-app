@@ -14,6 +14,7 @@ import DevSkillsScene from '~/components/DevSkillsScene'
 import SoftSkillsScene from '~/components/SoftSkillsScene'
 import UpNextScene from '~/components/UpNextScene'
 import HumanTooScene from '~/components/HumanTooScene'
+import HireMeScene from '~/components/HireMeScene'
 
 const AnimatedScene = ({
   slidename,
@@ -36,10 +37,10 @@ const AnimatedScene = ({
       return <HumanTooScene colors={colors} />
     }
     case SOCIAL_PROOF: {
-      return <div className="SocialProofScene">SocialProof</div>
+      return <div className="SocialProofScene">SocialProof</div> // will be included post MVP
     }
     case HIRE_ME: {
-      return <div className="HireMesScene">hire me</div>
+      return <HireMeScene colors={colors} />
     }
     default: {
       return <HelloScene colors={colors} />

@@ -74,7 +74,7 @@ class HumanTooScene extends Component {
   createSprite = () => {
     const { Sprite } = PIXI
 
-    const sprite = Sprite.fromImage('/static/img/profile.svg')
+    const sprite = Sprite.fromImage('/static/img/profile_2.svg')
     sprite.anchor.set(0.5)
     sprite.x = this.dims.w * 0.66
     sprite.y = this.dims.h / 2
