@@ -100,7 +100,7 @@ class HireMeScene extends Component {
 
     const rocketGroup = new Container()
     rocketGroup.x = this.dims.w * 0.66
-    rocketGroup.y = this.dims.h * 0.66
+    rocketGroup.y = this.dims.h * 0.5
 
     rocketGroup.addChild(this.makeSprite({
       imageUrl: '/static/img/rocket.svg',
@@ -129,11 +129,10 @@ class HireMeScene extends Component {
       } = this.sprites.rocket
       this.rocketPos.set(x, y)
 
-      const directionalVector = this.mousePos
-        .sub(this.rocketPos)
+      const directionalVector = this.rocketPos
+        .sub(this.mousePos)
 
-      this.sprites.rocket.rotation = -directionalVector.angleBetween(new Vec2D(0, 1), true)
-      console.log(this.sprites.rocket.rotation)
+      this.sprites.rocket.rotation = directionalVector.heading() - Math.PI / 2
     })
   }
 
