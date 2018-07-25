@@ -58,6 +58,7 @@ export default class Cloud {
     this.lifespan = Math.random() * MAX_LIFE
     this.attrs.x = this.emitter.x + this.emitterOffset.x + (Math.random() - 0.5) * 50
     this.attrs.y = this.emitter.y + this.emitterOffset.y + (Math.random() - 0.5) * 50
+    this.v.set(this.emitterOffset.v.x, this.emitterOffset.v.y)
   }
 
   tick = () => {

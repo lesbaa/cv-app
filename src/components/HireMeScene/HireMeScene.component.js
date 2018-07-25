@@ -2,8 +2,8 @@
 import React, { Component } from 'react'
 import { geom } from 'toxiclibsjs'
 import crossHatchShader from '~/shaders/crossHatch'
+import shoogleShader from '~/shaders/shoogle'
 import styles from './HireMeScene.styles'
-import Cloud from './Cloud.class'
 
 const { Vec2D } = geom
 
@@ -16,9 +16,11 @@ class HireMeScene extends Component {
 
   sprites = {}
   filters = []
-  clouds = []
+  starfield = []
+
   mousePos = new Vec2D(0, 0)
   rocketPos = new Vec2D(0, 0)
+  sceneVelocity = new Vec2D(0, 0)
 
   // TODO refactor some of this out into a higher order component
   componentDidMount = async () => {
@@ -71,36 +73,49 @@ class HireMeScene extends Component {
       hUnit: h / 6,
     }
 
-    this.initSprites()
+    this.initRocket()
     this.initFilter()
 
     this.animate(0)
-
-    // for (let i = 0; i < 150; i++) {
-    //   this.clouds.push(new Cloud({
-    //     container: this.app.stage,
-    //     emitter: this.sprites.rocket,
-    //     emitterOffset: {
-    //       y: 130,
-    //       x: 0,
-    //     },
-    //   }))
-    // }
   }
 
 
-  initSprites = () => {
+  initRocket = () => {
     const {
       Filter,
       Container,
     } = PIXI
-    const crosshatch = new Filter('', crossHatchShader.fragment, crossHatchShader.uniforms)
 
+    const crosshatch = new Filter('', crossHatchShader.fragment, crossHatchShader.uniforms)
     this.filters.push(crosshatch)
+
+    const shoogle = new Filter('', shoogleShader.fragment, shoogleShader.uniforms)
+    this.filters.push(shoogle)
 
     const rocketGroup = new Container()
     rocketGroup.x = this.dims.w * 0.66
     rocketGroup.y = this.dims.h * 0.5
+
+    rocketGroup.addChild(this.makeSprite({
+      imageUrl: '/static/img/rocket_trail.svg',
+      attributes: {
+        y: 165,
+        filters: [
+          shoogle,
+          crosshatch,
+        ],
+      },
+    }))
+
+    rocketGroup.addChild(this.makeSprite({
+      imageUrl: '/static/img/rocket_trail_outline.svg',
+      attributes: {
+        y: 165,
+        filters: [
+          shoogle,
+        ],
+      },
+    }))
 
     rocketGroup.addChild(this.makeSprite({
       imageUrl: '/static/img/rocket.svg',
@@ -114,7 +129,8 @@ class HireMeScene extends Component {
     rocketGroup.addChild(this.makeSprite({
       imageUrl: '/static/img/rocket_outline.svg',
     }))
-    rocketGroup.v = 0
+
+
     this.app.stage.addChild(rocketGroup)
     this.sprites.rocket = rocketGroup
 
@@ -129,30 +145,32 @@ class HireMeScene extends Component {
       } = this.sprites.rocket
       this.rocketPos.set(x, y)
 
-      const directionalVector = this.rocketPos
+      this.sceneVelocity = this.rocketPos
         .sub(this.mousePos)
 
-      this.sprites.rocket.rotation = directionalVector.heading() - Math.PI / 2
+      this.sprites.rocket.rotation = this.sceneVelocity.heading() - Math.PI / 2
     })
   }
 
-  createRocket = () => {
+  initStarfield = () => {
+    const { Graphics } = PIXI
+    for (let i = 0; i < 20; i++) {
+      const x = Math.random() * this.dims.w
+      const y = Math.random() * this.dims.h
+      const z = Math.random() * 5
 
-  }
+      const g = new Graphics()
+      g.beginFill(0x333333, 0)
+      g.drawCircle(0, 0, z)
+      g.endFill()
 
-  initFilter = () => {
-    // const { Filter } = PIXI
-    // // because we can't evaluate window on the server
-    // const thickness = {
-    //   type: '2v',
-    //   value: [0.01, 0.01],
-    // }
-
-    // const outline = new Filter('', outlineShader.fragment, { ...outlineShader.uniforms, thickness })
-
-    // this.app.stage.filters = [
-    //   outline,
-    // ]
+      this.starfield.push({
+        x,
+        y,
+        z,
+        g,
+      })
+    }
   }
 
   makeSprite = ({
@@ -175,11 +193,9 @@ class HireMeScene extends Component {
 
   animate = (t) => {
     requestAnimationFrame(this.animate)
-    // this.sprites.rocket.v += 0.1
-    // this.sprites.rocket.y -= this.sprites.rocket.v
-    // for (let i = 0; i < this.clouds.length; i++) {
-    //   this.clouds[i].tick()
-    // }
+    for (let i = 0; i < this.filters.length; i++) {
+      if (this.filters[i].uniforms.uTime !== undefined) this.filters[i].uniforms.uTime += 0.1
+    }
   }
 
   render = () => (
