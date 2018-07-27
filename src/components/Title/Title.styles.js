@@ -14,7 +14,7 @@ export default css`
 
   .Title :global(strong) {
     position: relative;
-    padding-bottom: 50%;
+    padding-bottom: 1em;
     height: 0;
     overflow: hidden;
     display: block;
