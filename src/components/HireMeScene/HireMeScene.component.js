@@ -4,6 +4,7 @@ import { geom } from 'toxiclibsjs'
 import crossHatchShader from '~/shaders/crossHatch'
 import shoogleShader from '~/shaders/shoogle'
 import styles from './HireMeScene.styles'
+import Star from './Star.class'
 
 const { Vec2D } = geom
 
@@ -20,7 +21,7 @@ class HireMeScene extends Component {
 
   mousePos = new Vec2D(0, 0)
   rocketPos = new Vec2D(0, 0)
-  sceneVelocity = new Vec2D(0, 0)
+  sceneVelocity = new Vec2D(0, 1)
 
   // TODO refactor some of this out into a higher order component
   componentDidMount = async () => {
@@ -74,8 +75,7 @@ class HireMeScene extends Component {
     }
 
     this.initRocket()
-    this.initFilter()
-
+    this.initStarfield()
     this.animate(0)
   }
 
@@ -95,6 +95,8 @@ class HireMeScene extends Component {
     const rocketGroup = new Container()
     rocketGroup.x = this.dims.w * 0.66
     rocketGroup.y = this.dims.h * 0.5
+
+    this.rocketPos.set(rocketGroup.x, rocketGroup.y)
 
     rocketGroup.addChild(this.makeSprite({
       imageUrl: '/static/img/rocket_trail.svg',
@@ -145,31 +147,33 @@ class HireMeScene extends Component {
       } = this.sprites.rocket
       this.rocketPos.set(x, y)
 
-      this.sceneVelocity = this.rocketPos
+      const newVelocity = this.rocketPos
         .sub(this.mousePos)
+
+      this.sceneVelocity.set(newVelocity.x, newVelocity.y)
 
       this.sprites.rocket.rotation = this.sceneVelocity.heading() - Math.PI / 2
     })
   }
 
+  makeStar = () => {
+    const coords = this.rocketPos
+  }
+
   initStarfield = () => {
-    const { Graphics } = PIXI
     for (let i = 0; i < 20; i++) {
       const x = Math.random() * this.dims.w
       const y = Math.random() * this.dims.h
-      const z = Math.random() * 5
+      const z = Math.random()
 
-      const g = new Graphics()
-      g.beginFill(0x333333, 0)
-      g.drawCircle(0, 0, z)
-      g.endFill()
-
-      this.starfield.push({
+      this.starfield.push(new Star({
         x,
         y,
         z,
-        g,
-      })
+        vDirection: this.sceneVelocity,
+        container: this.app.stage,
+        vCenterOfUniverse: this.rocketPos,
+      }))
     }
   }
 
@@ -195,6 +199,10 @@ class HireMeScene extends Component {
     requestAnimationFrame(this.animate)
     for (let i = 0; i < this.filters.length; i++) {
       if (this.filters[i].uniforms.uTime !== undefined) this.filters[i].uniforms.uTime += 0.1
+    }
+
+    for (let i = 0; i < this.starfield.length; i++) {
+      this.starfield[i].tick()
     }
   }
 
