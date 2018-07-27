@@ -13,7 +13,7 @@ const { Vec2D } = geom
 // Also look at porting the filters to your own shader code
 let PIXI
 
-const STAR_RESPAWN_RADIUS = 200
+const STAR_RESPAWN_RADIUS = 500
 
 class HireMeScene extends Component {
 
@@ -23,7 +23,7 @@ class HireMeScene extends Component {
 
   mousePos = new Vec2D(0, 0)
   rocketPos = new Vec2D(0, 0)
-  sceneVelocity = new Vec2D(0, 1)
+  sceneVelocity = new Vec2D(0, 3)
 
   // TODO refactor some of this out into a higher order component
   componentDidMount = async () => {
@@ -94,11 +94,11 @@ class HireMeScene extends Component {
     const shoogle = new Filter('', shoogleShader.fragment, shoogleShader.uniforms)
     this.filters.push(shoogle)
 
-    const rocketGroup = new Container()
-    rocketGroup.x = this.dims.w * 0.66
-    rocketGroup.y = this.dims.h * 0.5
+    this.rocketPos.set(this.dims.w * 0.66, this.dims.h * 0.5)
 
-    this.rocketPos.set(rocketGroup.x, rocketGroup.y)
+    const rocketGroup = new Container()
+    rocketGroup.x = this.rocketPos.x
+    rocketGroup.y = this.rocketPos.y
 
     rocketGroup.addChild(this.makeSprite({
       imageUrl: '/static/img/rocket_trail.svg',
@@ -158,15 +158,11 @@ class HireMeScene extends Component {
     })
   }
 
-  makeStar = () => {
-    const coords = this.rocketPos
-  }
-
   initStarfield = () => {
     while (this.starfield.length < 20) {
       const x = Math.random() * this.dims.w
       const y = Math.random() * this.dims.h
-      const z = Math.random()
+      const z = Math.random() + 0.4
       if (new Vec2D(x, y).distanceTo(this.rocketPos) < STAR_RESPAWN_RADIUS) {
         this.starfield.push(new Star({
           x,

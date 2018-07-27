@@ -28,7 +28,7 @@ export default class Star {
       .then(({ Graphics }) => {
         const g = new Graphics()
         g.beginFill(0x333333, 1)
-        g.drawCircle(0, 0, 1)
+        g.drawStar(0, 0, 4, 5 * z, z, 0)
         g.endFill()
         g.x = x
         g.y = y
@@ -43,6 +43,8 @@ export default class Star {
       y,
     } = this.pos
 
+    this.g.rotation += 0.1
+
     const isOutOfBounds = this.pos
       .distanceTo(this.vCenterOfUniverse) > this.respawnRadius
 
@@ -54,8 +56,8 @@ export default class Star {
     this.g.x = x
     this.g.y = y
 
-    const sceneVelocity = this.vDirection.normalize()
-    this.v.set(sceneVelocity.x * this.pos.z * 3, sceneVelocity.y * this.pos.z * 3)
+    const sceneVelocity = this.vDirection.copy()
+    this.v.set(sceneVelocity.x * this.pos.z / 20, sceneVelocity.y * this.pos.z / 20)
 
     this.pos.set(
       x + this.v.x,
@@ -64,14 +66,10 @@ export default class Star {
   }
 
   reset = () => {
-    // this.g.scale.x = 20
-    // this.g.scale.y = 20
-
-    const newPos = new Vec2D()
+    const newPos = new Vec2D(0, 0)
       .add(0, this.respawnRadius - 10)
-      .rotate(this.vDirection.heading())
+      .rotate(this.vDirection.heading() + (Math.random() - 0.5) * 2.0 + Math.PI / 2)
       .add(this.vCenterOfUniverse.x, this.vCenterOfUniverse.y)
-      .normalize()
 
     this.pos.set(newPos.x, newPos.y)
   }
