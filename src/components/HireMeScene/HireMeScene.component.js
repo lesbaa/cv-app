@@ -13,6 +13,8 @@ const { Vec2D } = geom
 // Also look at porting the filters to your own shader code
 let PIXI
 
+const STAR_RESPAWN_RADIUS = 200
+
 class HireMeScene extends Component {
 
   sprites = {}
@@ -161,19 +163,21 @@ class HireMeScene extends Component {
   }
 
   initStarfield = () => {
-    for (let i = 0; i < 20; i++) {
+    while (this.starfield.length < 20) {
       const x = Math.random() * this.dims.w
       const y = Math.random() * this.dims.h
       const z = Math.random()
-
-      this.starfield.push(new Star({
-        x,
-        y,
-        z,
-        vDirection: this.sceneVelocity,
-        container: this.app.stage,
-        vCenterOfUniverse: this.rocketPos,
-      }))
+      if (new Vec2D(x, y).distanceTo(this.rocketPos) < STAR_RESPAWN_RADIUS) {
+        this.starfield.push(new Star({
+          x,
+          y,
+          z,
+          vDirection: this.sceneVelocity,
+          container: this.app.stage,
+          vCenterOfUniverse: this.rocketPos,
+          respawnRadius: STAR_RESPAWN_RADIUS,
+        }))
+      }
     }
   }
 

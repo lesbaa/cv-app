@@ -13,6 +13,7 @@ export default class Star {
     container,
     vDirection,
     vCenterOfUniverse,
+    respawnRadius,
   }) {
     this.pos.set(x, y)
     this.pos.z = z
@@ -21,6 +22,7 @@ export default class Star {
 
     this.vDirection = vDirection
     this.vCenterOfUniverse = vCenterOfUniverse
+    this.respawnRadius = respawnRadius
 
     import('pixi.js')
       .then(({ Graphics }) => {
@@ -42,9 +44,12 @@ export default class Star {
     } = this.pos
 
     const isOutOfBounds = this.pos
-      .distanceTo(this.vCenterOfUniverse) > 500
+      .distanceTo(this.vCenterOfUniverse) > this.respawnRadius
 
-    if (isOutOfBounds) this.reset()
+    if (isOutOfBounds) {
+      this.reset()
+      return
+    }
 
     this.g.x = x
     this.g.y = y
@@ -59,9 +64,15 @@ export default class Star {
   }
 
   reset = () => {
-    this.pos = this.vCenterOfUniverse
-      .add(0, 499)
-      .rotate(Math.random() * Math.PI * 2)
+    // this.g.scale.x = 20
+    // this.g.scale.y = 20
 
+    const newPos = new Vec2D()
+      .add(0, this.respawnRadius - 10)
+      .rotate(this.vDirection.heading())
+      .add(this.vCenterOfUniverse.x, this.vCenterOfUniverse.y)
+      .normalize()
+
+    this.pos.set(newPos.x, newPos.y)
   }
 }
