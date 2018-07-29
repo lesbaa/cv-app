@@ -9,6 +9,7 @@ const DetailModal = ({
   modalContent,
   modalIsVisible,
   hideSkillDetailModal,
+  palette,
 }) => {
   const detailModalClassNames = [
     'DetailModal',
@@ -21,6 +22,7 @@ const DetailModal = ({
     <aside
       key={skillId}
       className={detailModalClassNames}
+      style={{ background: `linear-gradient(${palette.gradient})` }}
     >
       <div className="content">
         <Title title={modalTitle} />

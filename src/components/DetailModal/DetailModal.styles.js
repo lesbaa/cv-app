@@ -11,7 +11,6 @@ export default css`
     height: 100%;
     transition: clip-path 1s;
     clip-path: circle(150% at bottom right);
-    background: linear-gradient(to bottom right, #eee6ee, #d9d9d9);
     font-size: 0.8em;
   }
   

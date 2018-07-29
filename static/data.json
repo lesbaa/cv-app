@@ -18,13 +18,13 @@
       "title": "show me what you got.",
       "previousSlide": "hello",
       "nextSlide": "soft-skills",
-      "blurbMarkup": "<p>I would describe myself as a jack of all trades, master of some.</p><p>Whilst I mostly work day to day in <em><strong>JavaScript</strong></em> / <em><strong>React</strong></em> / <em><strong>Redux</strong></em> / <em><strong>CSS</strong></em> / <em><strong>HTML5</strong></em>, I have also gained some experience in other languages, frameworks and tech.</p><p>My real passion is the <em><strong>web as a platform</strong></em> and all the cool APIs that come along with it such as WebGL, WebAudio, WebMIDI, PWAs, and how they can all be tied together into new and awesome things.</p><p>Click on a skill for more info or click-drag to move around.</p>",
+      "blurbMarkup": "<p>I like making things.</p><p>Whilst I mostly work day to day in <em><strong>JavaScript</strong></em> / <em><strong>React</strong></em> / <em><strong>Redux</strong></em> / <em><strong>CSS</strong></em> / <em><strong>HTML5</strong></em>, I have also gained some experience in other languages, frameworks and tech.</p><p>My real passion is the <em><strong>web as a platform</strong></em> and all the cool APIs that come along with it such as WebGL, WebAudio, WebMIDI, PWAs, and how they can all be tied together into new and awesome things.</p><p>Click on a skill for more info or click-drag to move around.</p>",
       "palette": {
-        "gradient": "to bottom right, #eee6ee, #d9d9d9",
+        "gradient": "to bottom right, #e1eec3, #f05053",
         "offsetOpacity": 0.3,
         "colors": [
-          "#eee6ee",
-          "#d9d9d9"
+          "#e1eec3",
+          "#f05053"
         ]
       }
     },
@@ -32,9 +32,9 @@
       "title": "I wear many hats, though.",
       "previousSlide": "dev-skills",
       "nextSlide": "up-next",
-      "blurbMarkup": "<p>Through work, travelling and education. I’ve accrued a variety of non-dev skills too.</p><p>Click on a skill for more info or click-drag to move around.</p><p>On a MacBook? try tilting to the left or right</p>",
+      "blurbMarkup": "<p>Through work, travelling and education. I’ve accrued a variety of non-dev skills too.</p><p>Click on a skill for more info or click-drag to move around.</p><p>On a MacBook? try tilting to the left or right.</p>",
       "palette": {
-        "gradient": "to bottom right, #eee6ee, #d9d9d9",
+        "gradient": "to bottom right, #a6c0fe 0%, #f68084 100%",
         "offsetOpacity": 0.3,
         "colors": [
           "#eee6ee",
@@ -48,7 +48,7 @@
       "nextSlide": "human-too",
       "blurbMarkup": "<p>It’s a big ‘ol internet out there. There’s still so much more I want to learn, contribute to and build upon.</p><p>Learning is a journey, not a destination, you can never know everything.  But I want to give it a damn good shot.</p>",
       "palette": {
-        "gradient": "to bottom right, #eee6ee, #d9d9d9",
+        "gradient": "to bottom right, #b1f4cf 0%, #9890e3 100%",
         "offsetOpacity": 0.3,
         "colors": [
           "#eee6ee",
@@ -62,7 +62,7 @@
       "nextSlide": "hire-me",
       "blurbMarkup": "<p class='human-too'>As an important aside, I’m also <span>a person,</span><span>a user,</span><span>a vegetable grower,</span><span>a tinkerer,</span><span>a builder of things,</span><span>a jack of all trades,</span><span>a master of some,</span><span>an idealist,</span><span>a realist,</span><span>a lifelong learner,</span><span>a dog dad,</span><span>a hillwalker,</span><span>a nature enthusiast,</span><span>uma aluna de Português,</span><span>a big Led Zep Fan,</span><span>an okay musician,</span><span>a book lover,</span><span>a wannabe stoic,</span><span>a Trekkie/er,</span><span>a (mostly) good guy,</span><span>a damn good cook,</span><span>an enthusiastic, but terrible, dancer</span> and <span>maker of the best god damn hot sauce in Scotland, possibly Europe. (yeah, you heard me).</span></p>",
       "palette": {
-        "gradient": "to bottom right, #eee6ee, #d9d9d9",
+        "gradient": "to bottom right, #a6c0fe 0%, #f68084 100%",
         "offsetOpacity": 0.3,
         "colors": [
           "#eee6ee",
@@ -76,7 +76,7 @@
       "nextSlide": null,
       "blurbMarkup": "<p>And so, we reach the end of our journey together for now. It’s been fun.</p><p>If you’re contemplating hiring me, or just want to leave some (constructive) feedback, don’t hesitate to contact me through any of the channels below.</p>",
       "palette": {
-        "gradient": "to bottom right, #eee6ee, #d9d9d9",
+        "gradient": "-60deg, #16a085 0%, #f4d03f 100%",
         "offsetOpacity": 0.3,
         "colors": [
           "#eee6ee",

@@ -69,7 +69,7 @@ class CVSlide extends Component {
           previousSlide={previousSlide}
           palette={palette}
         />
-        <DetailModal />
+        <DetailModal palette={palette} />
       </PageWrapper>
     )
   }

@@ -33,9 +33,7 @@ const Nav = ({
           as={`/cv/${previousSlide}`}
           prefetch
         >
-          <a
-            className="nav-item"
-          >
+          <a className="nav-item">
             <ArrowLeftIcon size="1em" />
           </a>
         </Link>
@@ -49,9 +47,7 @@ const Nav = ({
           as={`/cv/${nextSlide}`}
           prefetch
         >
-          <a
-            className="nav-item"
-          >
+          <a className="nav-item">
             <ArrowRightIcon size="1em" />
           </a>
         </Link>

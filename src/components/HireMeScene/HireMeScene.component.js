@@ -210,14 +210,23 @@ class HireMeScene extends Component {
     }
   }
 
-  render = () => (
-    <canvas
-      className="HireMeScene"
-      ref={this.setCanvasRef}
-    >
-      <style jsx>{styles}</style>
-    </canvas>
-  )
+  render = () => {
+    const canvasClassName = [
+      'HireMeScene',
+      'anim-scene',
+    ]
+      .filter(Boolean)
+      .join(' ')
+
+    return (
+      <canvas
+        className={canvasClassName}
+        ref={this.setCanvasRef}
+      >
+        <style jsx>{styles}</style>
+      </canvas>
+    )
+  }
 
 }
 

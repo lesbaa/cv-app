@@ -179,14 +179,23 @@ class DevSkillsScene extends Component {
     }
   }
 
-  render = () => (
-    <canvas
-      className="UpNextScene"
-      ref={this.setCanvasRef}
-    >
-      <style jsx>{styles}</style>
-    </canvas>
-  )
+  render = () => {
+    const canvasClassName = [
+      'UpNextScene',
+      'anim-scene',
+    ]
+      .filter(Boolean)
+      .join(' ')
+
+    return (
+      <canvas
+        className={canvasClassName}
+        ref={this.setCanvasRef}
+      >
+        <style jsx>{styles}</style>
+      </canvas>
+    )
+  }
   // TODO proptypes
 }
 

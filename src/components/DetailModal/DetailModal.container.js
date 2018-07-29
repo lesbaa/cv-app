@@ -15,13 +15,12 @@ const mapStateToProps = ({
     originX,
     originY,
   },
-}, ownProps) => ({
+}) => ({
   modalIsVisible,
   modalTitle,
   modalContent,
   originX,
   originY,
-  ...ownProps,
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

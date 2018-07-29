@@ -99,3 +99,6 @@ export const fetchSkills = ({
     }))
   }
 }
+
+export const onRouteChangeStart = () => ({})
+export const onRouteChangeComplete = () => ({})

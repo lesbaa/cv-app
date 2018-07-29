@@ -3,6 +3,11 @@ import React from 'react'
 import withReduxStore from '~/HOCs/withReduxStore'
 import { PageTransition } from 'next-page-transitions'
 import { Provider } from 'react-redux'
+import Router from 'next/router'
+import {
+  onRouteChangeStart,
+  onRouteChangeComplete,
+} from '~/actionCreators'
 
 class LesCV extends App {
   static async getInitialProps({ Component, router, ctx }) {
@@ -20,6 +25,15 @@ class LesCV extends App {
     return {
       pageProps: {},
       store,
+    }
+  }
+
+  componentDidMount = () => {
+    Router.onRouteChangeStart = () => {
+      this.props.store.dispatch(onRouteChangeStart())
+    }
+    Router.onRouteChangeComplete = () => {
+      this.props.store.dispatch(onRouteChangeComplete())
     }
   }
 
