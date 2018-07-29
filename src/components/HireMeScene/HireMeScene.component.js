@@ -13,7 +13,7 @@ const { Vec2D } = geom
 // Also look at porting the filters to your own shader code
 let PIXI
 
-const STAR_RESPAWN_RADIUS = 500
+const STAR_RESPAWN_RADIUS = 800
 
 class HireMeScene extends Component {
 
@@ -23,7 +23,7 @@ class HireMeScene extends Component {
 
   mousePos = new Vec2D(0, 0)
   rocketPos = new Vec2D(0, 0)
-  sceneVelocity = new Vec2D(0, 3)
+  sceneVelocity = new Vec2D(0, 100)
 
   // TODO refactor some of this out into a higher order component
   componentDidMount = async () => {
@@ -33,6 +33,8 @@ class HireMeScene extends Component {
 
   componentWillUnmount = async () => {
     cancelAnimationFrame(this.frameId)
+
+    window.removeEventListener('mousemove', this.handleMousMove)
 
     this.app.ticker.stop()
     this.app.destroy({
@@ -95,7 +97,7 @@ class HireMeScene extends Component {
     this.filters.push(shoogle)
 
     this.rocketPos.set(this.dims.w * 0.66, this.dims.h * 0.5)
-
+  
     const rocketGroup = new Container()
     rocketGroup.x = this.rocketPos.x
     rocketGroup.y = this.rocketPos.y
@@ -138,24 +140,26 @@ class HireMeScene extends Component {
     this.app.stage.addChild(rocketGroup)
     this.sprites.rocket = rocketGroup
 
-    window.addEventListener('mousemove', ({
-      clientX,
-      clientY,
-    }) => {
-      this.mousePos.set(clientX, clientY)
-      const {
-        x,
-        y,
-      } = this.sprites.rocket
-      this.rocketPos.set(x, y)
+    window.addEventListener('mousemove', this.handleMousMove)
+  }
 
-      const newVelocity = this.rocketPos
-        .sub(this.mousePos)
+  handleMousMove = ({
+    clientX,
+    clientY,
+  }) => {
+    this.mousePos.set(clientX, clientY)
+    const {
+      x,
+      y,
+    } = this.sprites.rocket
+    this.rocketPos.set(x, y)
 
-      this.sceneVelocity.set(newVelocity.x, newVelocity.y)
+    const newVelocity = this.rocketPos
+      .sub(this.mousePos)
 
-      this.sprites.rocket.rotation = this.sceneVelocity.heading() - Math.PI / 2
-    })
+    this.sceneVelocity.set(newVelocity.x, newVelocity.y)
+
+    this.sprites.rocket.rotation = this.sceneVelocity.heading() - Math.PI / 2
   }
 
   initStarfield = () => {

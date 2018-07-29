@@ -45,8 +45,10 @@ export default class Star {
 
     this.g.rotation += 0.1
 
-    const isOutOfBounds = this.pos
-      .distanceTo(this.vCenterOfUniverse) > this.respawnRadius
+    const distanceToCenter = this.pos
+      .distanceTo(this.vCenterOfUniverse)
+
+    const isOutOfBounds = distanceToCenter > this.respawnRadius
 
     if (isOutOfBounds) {
       this.reset()
@@ -55,6 +57,10 @@ export default class Star {
 
     this.g.x = x
     this.g.y = y
+
+    const normalisedAlphaFromCenter = 1 - distanceToCenter / this.respawnRadius
+
+    this.g.alpha = normalisedAlphaFromCenter ** 2
 
     const sceneVelocity = this.vDirection.copy()
     this.v.set(sceneVelocity.x * this.pos.z / 20, sceneVelocity.y * this.pos.z / 20)
