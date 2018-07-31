@@ -37,8 +37,8 @@
         "gradient": "to bottom right, #a6c0fe 0%, #f68084 100%",
         "offsetOpacity": 0.3,
         "colors": [
-          "#eee6ee",
-          "#d9d9d9"
+          "#a6c0fe",
+          "#f68084"
         ]
       }
     },
@@ -51,8 +51,8 @@
         "gradient": "to bottom right, #b1f4cf 0%, #9890e3 100%",
         "offsetOpacity": 0.3,
         "colors": [
-          "#eee6ee",
-          "#d9d9d9"
+          "#b1f4cf",
+          "#9890e3"
         ]
       }
     },
@@ -65,8 +65,8 @@
         "gradient": "to bottom right, #a6c0fe 0%, #f68084 100%",
         "offsetOpacity": 0.3,
         "colors": [
-          "#eee6ee",
-          "#d9d9d9"
+          "#a6c0fe",
+          "#f68084"
         ]
       }
     },
@@ -79,8 +79,8 @@
         "gradient": "-60deg, #16a085 0%, #f4d03f 100%",
         "offsetOpacity": 0.3,
         "colors": [
-          "#eee6ee",
-          "#d9d9d9"
+          "#16a085",
+          "#f4d03f"
         ]
       }
     }
