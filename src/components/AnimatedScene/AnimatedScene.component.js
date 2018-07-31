@@ -8,7 +8,6 @@ import {
   SOCIAL_PROOF,
   HIRE_ME,
 } from '~/constants/slideNames'
-
 import HelloScene from '~/components/HelloScene'
 import DevSkillsScene from '~/components/DevSkillsScene'
 import SoftSkillsScene from '~/components/SoftSkillsScene'

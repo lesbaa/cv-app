@@ -163,7 +163,7 @@ class HireMeScene extends Component {
   }
 
   initStarfield = () => {
-    while (this.starfield.length < 20) {
+    while (this.starfield.length < 30) {
       const x = Math.random() * this.dims.w
       const y = Math.random() * this.dims.h
       const z = Math.random() + 0.4

@@ -60,9 +60,47 @@ export default css`
     0% { opacity: 0 }
     100% { opacity: 1 }
   }
-
+  
   .fade-in {
     animation: .3s .25s fade backwards ease-out;
+  }
+
+  @keyframes tadaa {
+    0%, 20% {
+      transform: scale(1);} 
+    35% {
+      transform: scale(0.9) rotate(-4deg);} 
+    40%, 50%, 60%, 70% {
+      transform: scale(1.5) rotate(4deg);
+    }
+    45%, 55%, 65% {
+      transform: scale(1.5) rotate(-4deg);
+    }
+    75%, 100% {
+      transform: scale(1) rotate(0);
+    }
+  }
+
+  .tadaa-anim {
+    animation: 3s tadaa linear infinite;
+    transition: transform 0.5s;
+  }
+
+  .tadaa-anim:hover {
+    animation: none;
+  }
+
+  @keyframes pulse {
+    0%, 10%, 20% {
+      transform: scale(1)
+    }
+    5%, 15%, 25% {
+      transform: scale(1.5)
+    }
+  }
+
+  .pulse-anim {
+    animation: 3s pulse linear infinite;
   }
   
   * {

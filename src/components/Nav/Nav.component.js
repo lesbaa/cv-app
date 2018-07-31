@@ -10,51 +10,60 @@ import styles from './Nav.styles'
 const Nav = ({
   previousSlide,
   nextSlide,
-}) => (
-  <nav
-    className="Nav"
-  >
-    <div
-      className="actions"
+}) => {
+  const mailIconClassName = [
+    'nav-item',
+    !nextSlide && 'tadaa-anim',
+  ]
+    .filter(Boolean)
+    .join(' ')
+
+  return (
+    <nav
+      className="Nav"
     >
-      <span className="nav-item"><InfoIcon size="1em" /></span>
-      <span className="nav-item"><ShareIcon size="1em" /></span>
-      <span className="nav-item"><MailIcon size="1em" /></span>
-    </div>
-    <div
-      className="next-prev"
-    >
-      {previousSlide &&
-        <Link
-          href={{
-            pathname: '/CVSlide',
-            query: { slidename: previousSlide },
-          }}
-          as={`/cv/${previousSlide}`}
-          prefetch
-        >
-          <a className="nav-item">
-            <ArrowLeftIcon size="1em" />
-          </a>
-        </Link>
-      }
-      {nextSlide &&
-        <Link
-          href={{
-            pathname: '/CVSlide',
-            query: { slidename: nextSlide },
-          }}
-          as={`/cv/${nextSlide}`}
-          prefetch
-        >
-          <a className="nav-item">
-            <ArrowRightIcon size="1em" />
-          </a>
-        </Link>
-      }
-    </div>
-    <style jsx>{styles}</style>
-  </nav>
-)
+      <div
+        className="actions"
+      >
+        <span className="nav-item"><InfoIcon size="1em" /></span>
+        <span className="nav-item"><ShareIcon size="1em" /></span>
+        <span className={mailIconClassName}><MailIcon size="1em" /></span>
+      </div>
+      <div
+        className="next-prev"
+      >
+        {previousSlide &&
+          <Link
+            href={{
+              pathname: '/CVSlide',
+              query: { slidename: previousSlide },
+            }}
+            as={`/cv/${previousSlide}`}
+            prefetch
+          >
+            <a className="nav-item">
+              <ArrowLeftIcon size="1em" />
+            </a>
+          </Link>
+        }
+        {nextSlide &&
+          <Link
+            href={{
+              pathname: '/CVSlide',
+              query: { slidename: nextSlide },
+            }}
+            as={`/cv/${nextSlide}`}
+            prefetch
+          >
+            <a className="nav-item">
+              <ArrowRightIcon size="1em" />
+            </a>
+          </Link>
+        }
+      </div>
+      <style jsx>{styles}</style>
+    </nav>
+  )
+}
 
 export default Nav
