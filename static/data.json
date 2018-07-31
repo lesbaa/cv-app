@@ -76,11 +76,11 @@
       "nextSlide": null,
       "blurbMarkup": "<p>And so, we reach the end of our journey together for now. It’s been fun.</p><p>If you’re contemplating hiring me, or just want to leave some (constructive) feedback, don’t hesitate to contact me through any of the channels below.</p>",
       "palette": {
-        "gradient": "-60deg, #16a085 0%, #f4d03f 100%",
+        "gradient": "-60deg, #7028e4 0%, #e5b2ca 100%",
         "offsetOpacity": 0.3,
         "colors": [
-          "#16a085",
-          "#f4d03f"
+          "#7028e4",
+          "#e5b2ca"
         ]
       }
     }
