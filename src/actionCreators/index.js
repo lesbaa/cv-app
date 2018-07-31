@@ -33,13 +33,18 @@ export const hideSkillDetailModal = () => ({ type: HIDE_SKILL_DETAIL_MODAL })
 
 export const hideInfoModal = () => ({ type: HIDE_INFO_MODAL })
 
+export const closeAllModals = () => (dispatch) => {
+  dispatch(hideSkillDetailModal())
+  dispatch(hideInfoModal())
+}
+
 export const showSkillDetailModal = ({
   id,
   skillType,
 }) => async (dispatch, getState) => {
 
-  dispatch(hideSkillDetailModal())
-  dispatch(hideInfoModal())
+  dispatch(closeAllModals())
+
   const {
     name: modalTitle,
     desc: modalContent,
@@ -55,22 +60,19 @@ export const showSkillDetailModal = ({
     },
   })
 }
-
+// TODO this might need removed
 export const showInfoModal = ({
   title,
   content,
 }) => (dispatch) => {
 
-  dispatch(hideSkillDetailModal())
-  dispatch(hideInfoModal())
+  dispatch(closeAllModals())
 
   dispatch({
     type: SHOW_INFO_MODAL,
     payload: {
       title,
       content,
-      originX: x,
-      originY: y,
     },
   })
 }
@@ -100,5 +102,10 @@ export const fetchSkills = ({
   }
 }
 
-export const onRouteChangeStart = () => ({})
-export const onRouteChangeComplete = () => ({})
+export const onRouteChangeStart = () => (dispatch) => {
+  dispatch(closeAllModals())
+}
+
+export const onRouteChangeComplete = () => (dispatch) => {
+
+}
