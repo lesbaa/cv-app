@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import {
   HELLO,
   DEV_SKILLS,
@@ -44,6 +45,25 @@ const AnimatedScene = ({
     default: {
       return <HelloScene colors={colors} />
     }
+  }
+}
+
+AnimatedScene.propTypes = {
+  slidename: PropTypes.string,
+  palette: PropTypes.shape({
+    gradient: PropTypes.string,
+    colors: PropTypes.arrayOf(PropTypes.string),
+  }),
+}
+
+AnimatedScene.defaultProps = {
+  slidename: 'HELLO',
+  palette: {
+    gradient: 'to bottom right, #eee6ee, #d9d9d9',
+    colors: [
+      '#eee6ee',
+      '#d9d9d9',
+    ],
   }
 }
 

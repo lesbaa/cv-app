@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Title from '~/components/Title'
 import CloseIcon from 'react-feather/dist/icons/x'
 import styles from './DetailModal.styles'
@@ -41,5 +42,31 @@ const DetailModal = ({
   )
 }
 
+DetailModal.propTypes = {
+  skillId: PropTypes.string,
+  modalTitle: PropTypes.string,
+  modalContent: PropTypes.string,
+  modalIsVisible: PropTypes.bool,
+  hideSkillDetailModal: PropTypes.func,
+  palette: PropTypes.shape({
+    gradient: PropTypes.string,
+    colors: PropTypes.arrayOf(PropTypes.string),
+  }),
+}
+
+DetailModal.defaultProps = {
+  skillId: '',
+  modalTitle: '',
+  modalContent: '',
+  modalIsVisible: false,
+  hideSkillDetailModal: () => console.log('DetailModal: no hideSkillDetailModal prop passed'),
+  palette: {
+    gradient: 'to bottom right, #eee6ee, #d9d9d9',
+    colors: [
+      '#eee6ee',
+      '#d9d9d9',
+    ],
+  },
+}
+
 export default DetailModal
-// TODO proptypes
