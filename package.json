@@ -9,7 +9,8 @@
     "build": "next build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "https:gen-dev-conf": "cd ~/Sites/cv-v2/app/; chmod 777 bin/get-https; bin/get-https",
-    "https:gen-dev-cert": "cd ~/Sites/cv-v2/app/server/dev-https; openssl req -config lescv.dev.conf -new -sha256 -newkey rsa:2048 -nodes -keyout lescv.dev.key -x509 -days 365 -out lescv.dev.crt"
+    "https:gen-dev-cert": "cd ~/Sites/cv-v2/app/server/dev-https; openssl req -config lescv.dev.conf -new -sha256 -newkey rsa:2048 -nodes -keyout lescv.dev.key -x509 -days 365 -out lescv.dev.crt",
+    "todo": "grep -r --exclude='*.snap' --exclude='*.json' --exclude='README.md' --exclude-dir={.git,node_modules,.next,coverage,build} TODO ."
   },
   "repository": {
     "type": "git",
