@@ -86,22 +86,22 @@ app.prepare().then(() => {
   // TODO, this stuff could be a bit DRYer
   server.get('/', async (req, res, next) => {
     const cached = cache.get(req.originalUrl)
-    if (cached) {
-      res.set('X-lru', 'hit')
+    if (cached && req.query.nocache !== 'true' && !dev) {
+      res.set('X-cache', 'hit')
       res.send(cached)
       return
     }
 
     const markup = await app.renderToHTML(req, res, '/index', { ...req.query })
-    console.log(markup)
     cache.set(req.originalUrl, markup)
     res.send(markup)
   })
 
   server.get('/cv', async (req, res, next) => {
     const cached = cache.get(req.originalUrl)
-    if (cached) {
-      res.set('X-lru', 'hit')
+
+    if (cached && req.query.nocache !== 'true' && !dev) {
+      res.set('X-cache', 'hit')
       res.send(cached)
       return
     }
@@ -114,8 +114,8 @@ app.prepare().then(() => {
 
   server.get('/cv/:slidename', async (req, res, next) => {
     const cached = cache.get(req.originalUrl)
-    if (cached) {
-      res.set('X-lru', 'hit')
+    if (cached && req.query.nocache !== 'true' && !dev) {
+      res.set('X-cache', 'hit')
       res.send(cached)
       return
     }
@@ -124,6 +124,7 @@ app.prepare().then(() => {
     const markup = await app.renderToHTML(req, res, '/CVSlide', { ...req.query, slidename })
 
     cache.set(req.originalUrl, markup)
+    res.send(markup)
   })
 
   console.log(`Server running on ** ${process.env.NODE_ENV} ** environment and on port: ${PORT}`)
