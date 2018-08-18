@@ -1,3 +1,3 @@
-import Nav from './Nav.component'
+import Nav from './Nav.container'
 
 export default Nav
