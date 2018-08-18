@@ -1,12 +1,13 @@
 /* global process */
 /* eslint-env browser */
 
-import React, { Component, createContext } from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'proptypes'
 import PageWrapper from '~/components/PageWrapper'
 import Content from '~/components/Content'
 import AnimatedScene from '~/components/AnimatedScene'
 import DetailModal from '~/components/DetailModal'
+import InfoDialog from '~/components/InfoDialog'
 import { getSlide } from '~/utils/api'
 
 class CVSlide extends Component {
@@ -51,7 +52,6 @@ class CVSlide extends Component {
       previousSlide,
       store,
     } = this.props
-
     return (
       <PageWrapper
         palette={palette}
@@ -69,6 +69,7 @@ class CVSlide extends Component {
           previousSlide={previousSlide}
           palette={palette}
         />
+        <InfoDialog />
         <DetailModal palette={palette} />
       </PageWrapper>
     )
