@@ -1,4 +1,12 @@
 /* global window */
+
+/* In production sites this would be more accessible, but for the sake of
+ * quickly adding on a redux action, we'll just disable the linter for now,
+ * yes, bad Les, bad Les.
+ *
+ * TODO: make the share icon element a bit more accessible to appease the lint gods.
+ */
+
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 
@@ -35,7 +43,6 @@ const Nav = ({
         className="actions"
       >
         <span className="nav-item"><InfoIcon size="1em" /></span>
-        {/* in production sites this would be more accessible */}
         <span
           className="nav-item"
           onClick={handleClick(showInfoDialog)}
