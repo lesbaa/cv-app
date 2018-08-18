@@ -1,6 +1,6 @@
 import {
-  SHOW_INFO_MODAL,
-  HIDE_INFO_MODAL,
+  SHOW_INFO_DIALOG,
+  HIDE_INFO_DIALOG,
   SHOW_SKILL_DETAIL_MODAL,
   HIDE_SKILL_DETAIL_MODAL,
   FETCH_SKILLS,
@@ -31,7 +31,7 @@ export const reportFetchError = ({
 
 export const hideSkillDetailModal = () => ({ type: HIDE_SKILL_DETAIL_MODAL })
 
-export const hideInfoModal = () => ({ type: HIDE_INFO_MODAL })
+export const hideInfoModal = () => ({ type: HIDE_INFO_DIALOG })
 
 export const closeAllModals = () => (dispatch) => {
   dispatch(hideSkillDetailModal())
@@ -60,21 +60,26 @@ export const showSkillDetailModal = ({
     },
   })
 }
-// TODO this might need removed
-export const showInfoModal = ({
-  title,
-  content,
+
+export const showInfoDialog = ({
+  message,
+  timeout = 1000,
 }) => (dispatch) => {
-
-  dispatch(closeAllModals())
-
   dispatch({
-    type: SHOW_INFO_MODAL,
+    type: SHOW_INFO_DIALOG,
     payload: {
-      title,
-      content,
+      message,
     },
   })
+  const t = setTimeout(() => {
+    dispatch({
+      type: HIDE_INFO_DIALOG,
+      payload: {
+        message,
+      },
+    })
+    clearTimeout(t)
+  }, timeout)
 }
 
 export const fetchSkills = ({
