@@ -21,6 +21,7 @@ import MailIcon from 'react-feather/dist/icons/mail'
 import copyToClipboard from '~/utils/clipboard'
 import styles from './Nav.styles'
 
+// TODO obfuscate / client side only this to avoid bots
 const mailtoLink = 'mailto:les@lesmoffat.co.uk?subject=Whassssssssuuuuppppp&body=Hey%20Les%2C%20I\'ve%20just%20had%20a%20look%20at%20your%20CV%20and%20I\'d%20love%20to%20find%20out%20more%20about%20your%20gif%20prowess.%20Could%20we%20organise%20a%20chat%20and%20find%20out%20more%20about%20how%20your%20gifs%20could%20improve%20my%20organisation%3F'
 
 const Nav = ({
