@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import {
   HELLO,
@@ -9,41 +9,64 @@ import {
   SOCIAL_PROOF,
   HIRE_ME,
 } from '~/constants/slideNames'
-import HelloScene from '~/components/HelloScene'
-import DevSkillsScene from '~/components/DevSkillsScene'
-import SoftSkillsScene from '~/components/SoftSkillsScene'
-import UpNextScene from '~/components/UpNextScene'
-import HumanTooScene from '~/components/HumanTooScene'
-import HireMeScene from '~/components/HireMeScene'
 
-const AnimatedScene = ({
-  slidename,
-  palette: { colors },
-}) => {
+class AnimatedScene extends Component {
+
+  state = {
+    componentLoaded: false,
+  }
+
+  componentDidMount = async () => {
+    // TODO this could def be abstracted out to a HOC withCodeSplit or similar
+    const module = await getSceneComponent(this.props.slidename)
+
+    this.Component = module.default
+    this.setState({
+      componentLoaded: true,
+    })
+  }
+
+  render = () => {
+
+    const {
+      palette: { colors },
+    } = this.props
+
+    return this.state.componentLoaded
+      ? (
+        <this.Component
+          colors={colors}
+          {...this.props}
+        />
+      ) : null
+  }
+}
+
+function getSceneComponent(slidename) {
   switch (slidename) {
     case HELLO: {
-      return <HelloScene colors={colors} />
+      return import('~/components/HelloScene')
     }
     case DEV_SKILLS: {
-      return <DevSkillsScene colors={colors} />
+      return import('~/components/DevSkillsScene')
     }
     case SOFT_SKILLS: {
-      return <SoftSkillsScene colors={colors} />
+      return import('~/components/SoftSkillsScene')
     }
     case UP_NEXT: {
-      return <UpNextScene colors={colors} />
+      return import('~/components/UpNextScene')
     }
     case HUMAN_TOO: {
-      return <HumanTooScene colors={colors} />
+      return import('~/components/HumanTooScene')
     }
     case SOCIAL_PROOF: {
-      return <div className="SocialProofScene">SocialProof</div> // will be included post MVP
+      return () => <div className="SocialProofScene">SocialProof</div> // will be included post MVP
     }
     case HIRE_ME: {
-      return <HireMeScene colors={colors} />
+      return import('~/components/HireMeScene')
     }
     default: {
-      return <HelloScene colors={colors} />
+      return import('~/components/HelloScene')
     }
   }
 }
@@ -64,7 +87,7 @@ AnimatedScene.defaultProps = {
       '#eee6ee',
       '#d9d9d9',
     ],
-  }
+  },
 }
 
 export default AnimatedScene
