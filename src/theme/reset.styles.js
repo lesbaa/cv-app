@@ -139,6 +139,7 @@ export default css`
     margin: 0;
     padding: 0;
   }
+
   button {
     background: none repeat scroll 0 0 transparent;
     border: medium none;
