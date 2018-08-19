@@ -1,7 +1,7 @@
 import css from 'styled-jsx/css'
 
 export default css`
-  .DevSkillsScene {
+  .BlankScene {
     width: 100%;
     height: 100%;
     mix-blend-mode: color-burn;

@@ -1,7 +1,8 @@
 /* eslint-env browser */
+/* this is just boilerplate for animated scenes */
 import React, { Component } from 'react'
 
-import styles from './DevSkillsScene.styles'
+import styles from './BlankScene.styles'
 
 class DevSkillsScene extends Component {
 

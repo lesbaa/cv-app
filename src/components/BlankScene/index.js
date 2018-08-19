@@ -1,3 +1,3 @@
-import HelloScene from './HelloScene.component'
+import BlankScene from './BlankScene.component'
 
-export default HelloScene
+export default BlankScene
