@@ -120,6 +120,4 @@ class HumanTooScene extends Component {
 
 }
 
-// TODO proptypes / default props tests
-
 export default HumanTooScene

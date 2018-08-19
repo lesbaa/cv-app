@@ -1,5 +1,6 @@
 /* eslint-env browser */
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import {
   Engine,
   World,
@@ -16,7 +17,7 @@ import styles from './SoftSkillsScene.styles'
 
 let PIXI
 
-class DevSkillsScene extends Component {
+class SoftSkillsScene extends Component {
   // TODO refactor some of this out into a higher order component
   componentDidMount = async () => {
     PIXI = await import('pixi.js')
@@ -55,7 +56,7 @@ class DevSkillsScene extends Component {
     const images = await Promise.all(sprites.sprites)
 
     return sprites.keys.reduce((acc, key, i) => {
-      acc[key] = images[i]
+      acc[key] = images[i] // eslint-disable-line
       return acc
     }, {})
   }
@@ -111,7 +112,7 @@ class DevSkillsScene extends Component {
 
     const bodies = Object
       .entries(this.props.skills)
-      .filter(([ , { type }]) => type === SOFT_SKILLS)
+      .filter(([, { type }]) => type === SOFT_SKILLS)
       .map(([key, { points }], i) => {
         loadImg(`/static/img/soft-skills/${key}.svg`)
         const mass = points * 15
@@ -123,7 +124,7 @@ class DevSkillsScene extends Component {
         container.x = x
         container.y = y
 
-        const sides = ~~(Math.random() * 7) + 3 // eslint-disable-line
+        const sides = ~~(Math.random() * 7) + 3
 
         const sprite = new Sprite.fromImage(`/static/img/soft-skills/${key}.svg`)
         const imageScaleAmount = mass / 170
@@ -294,6 +295,16 @@ class DevSkillsScene extends Component {
 
 }
 
-// TODO proptypes / default props tests
+SoftSkillsScene.propTypes = {
+  skills: PropTypes.array,
+  showDetailModal: PropTypes.func,
+  fetchSkills: PropTypes.func,
+}
 
-export default DevSkillsScene
+SoftSkillsScene.defaultProps = {
+  skills: [],
+  showDetailModal: () => console.log('DevSkillsScene: no "showDetailModal" action passed'),
+  fetchSkills: () => console.log('DevSkillsScene: no "fetchSkills" action passed'),
+}
+
+export default SoftSkillsScene

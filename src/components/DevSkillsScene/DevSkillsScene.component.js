@@ -1,5 +1,6 @@
 /* eslint-env browser */
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import Matter, {
   Engine,
   World,
@@ -222,7 +223,18 @@ class DevSkillsScene extends Component {
       </canvas>
     )
   }
+}
 
+DevSkillsScene.propTypes = {
+  skills: PropTypes.array,
+  showDetailModal: PropTypes.func,
+  fetchSkills: PropTypes.func,
+}
+
+DevSkillsScene.defaultProps = {
+  skills: [],
+  showDetailModal: () => console.log('DevSkillsScene: no "showDetailModal" action passed'),
+  fetchSkills: () => console.log('DevSkillsScene: no "fetchSkills" action passed'),
 }
 
 export default DevSkillsScene

@@ -26,15 +26,23 @@ const PageWrapper = ({
 
 PageWrapper.propTypes = {
   children: PropTypes.arrayOf(PropTypes.element),
+  palette: PropTypes.shape({
+    gradient: PropTypes.string,
+    colors: PropTypes.arrayOf(PropTypes.string),
+  }),
+  title: PropTypes.string,
 }
 
 PageWrapper.defaultProps = {
   children: null,
   palette: {
     gradient: 'to bottom right, #eee6ee, #d9d9d9',
-  }
+    colors: [
+      '#eee6ee',
+      '#d9d9d9',
+    ],
+  },
+  title: 'Les Moffat | Level 25 Dwarven Code Smith',
 }
-
-// TODO proptypes in here
 
 export default PageWrapper

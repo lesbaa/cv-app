@@ -17,7 +17,7 @@ class HelloScene extends Component {
 
   componentWillUnmount = () => {
     cancelAnimationFrame(this.frameId)
-  
+
     this.canvasRef = null
 
     this.app.ticker.stop()
@@ -67,7 +67,7 @@ class HelloScene extends Component {
   }
 
   initSprite = () => {
-    const sprite = new PIXI.Sprite.fromImage('/static/img/hello.png')
+    const sprite = new PIXI.Sprite.fromImage('/static/img/hello.png') // eslint-disable-line
 
     sprite.anchor.set(0.5)
 

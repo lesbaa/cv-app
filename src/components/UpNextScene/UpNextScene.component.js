@@ -1,5 +1,6 @@
 /* eslint-env browser */
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { UP_NEXT } from '~/constants/skillTypes'
 import { pixiConnect } from '~/HOCs/withReduxStore'
 import { Style3D } from '~/modules/threedux/Style3D'
@@ -7,7 +8,7 @@ import styles from './UpNextScene.styles'
 
 let PIXI
 
-class DevSkillsScene extends Component {
+class UpNextScene extends Component {
 
   skillsSprites = []
 
@@ -196,7 +197,17 @@ class DevSkillsScene extends Component {
       </canvas>
     )
   }
-  // TODO proptypes
 }
 
-export default DevSkillsScene
+UpNextScene.propTypes = {
+  skills: PropTypes.array,
+  fetchSkills: PropTypes.func,
+}
+
+UpNextScene.defaultProps = {
+  skills: [],
+  fetchSkills: () => console.log('DevSkillsScene: no "fetchSkills" action passed'),
+}
+
+
+export default UpNextScene

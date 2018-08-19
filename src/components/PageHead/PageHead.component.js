@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Head from 'next/head'
 import reset from '~/theme/reset.styles'
 import transitionStyles from '~/theme/page-transitions.styles'
@@ -73,6 +74,12 @@ const PageHead = ({
   </div>
 )
 
-// TODO default props etc
+PageHead.propTypes = {
+  title: PropTypes.string,
+}
+
+PageHead.defaultProps = {
+  title: 'Hi, I\'m Les',
+}
 
 export default PageHead

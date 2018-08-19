@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styles from './Main.styles'
 
 const Main = ({ children }) => (
@@ -10,6 +11,12 @@ const Main = ({ children }) => (
   </main>
 )
 
-// TODO proptypes
+Main.propTypes = {
+  children: PropTypes.arrayOf(PropTypes.element),
+}
+
+Main.defaultProps = {
+  children: null,
+}
 
 export default Main

@@ -97,7 +97,7 @@ class HireMeScene extends Component {
     this.filters.push(shoogle)
 
     this.rocketPos.set(this.dims.w * 0.66, this.dims.h * 0.5)
-  
+
     const rocketGroup = new Container()
     rocketGroup.x = this.rocketPos.x
     rocketGroup.y = this.rocketPos.y
@@ -186,7 +186,7 @@ class HireMeScene extends Component {
     attributes = {},
   }) => {
     const { Sprite } = PIXI
-    const sprite = new Sprite.fromImage(imageUrl)
+    const sprite = new Sprite.fromImage(imageUrl) // eslint-disable-line
 
     sprite.anchor.set(0.5)
 
