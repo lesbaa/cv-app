@@ -56,7 +56,10 @@
       "no-mixed-operators": 0,
       "padded-blocks": 0,
       "react/sort-comp": 0,
-      "no-plusplus": 0
+      "no-plusplus": 0,
+      "no-bitwise": 0,
+      "new-cap": 0,
+      "no-continue": 0
     },
     "settings": {
       "import/resolver": {
