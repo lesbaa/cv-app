@@ -20,8 +20,6 @@ const dev =
   process.env.LES_ENV === 'dev' ||
   process.env.LES_ENV !== 'live'
 
-
-const useReduxDevTools = process.env.USE_REDUX_DEVTOOLS === '1'
 const app = nextApp({ dev })
 
 const handle = app.getRequestHandler()
