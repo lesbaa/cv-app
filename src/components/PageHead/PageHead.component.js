@@ -9,7 +9,7 @@ const PageHead = ({
 }) => (
   <div className="PageHead">
     <Head>
-      <title>{title}</title>
+      <title>{title.replace(/(<([^>]+)>)/ig, '')}</title>
       <link
         rel="preload"
         href="/static/fonts/LeagueSpartan-Bold.subset.woff"
