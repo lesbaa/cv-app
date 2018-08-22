@@ -113,7 +113,7 @@ export default css`
     height: auto;
     color: #555;
     font-family: 'Roboto Mono', sans-serif;
-    font-size: 2.2vh;
+    font-size: 2vh;
     background-image: linear-gradient(to bottom right, #eee6ee, #d9d9d9);
   }
 
