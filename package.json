@@ -22,7 +22,6 @@
   "homepage": "https://bitbucket.org/lesbaa/les-cv#readme",
   "devDependencies": {
     "babel-eslint": "8.2.3",
-    "babel-plugin-module-resolver": "^3.1.1",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-import-resolver-babel-module": "^4.0.0",
@@ -31,10 +30,10 @@
     "eslint-plugin-react": "^7.8.2",
     "nodemon": "^1.17.5",
     "prop-types": "^15.6.2",
-    "proptypes": "^1.1.0",
     "spdy-keys": "0.0.0"
   },
   "dependencies": {
+    "babel-plugin-module-resolver": "^3.1.1",
     "compression": "1.7.2",
     "core-js": "^2.5.7",
     "express": "^4.16.3",
