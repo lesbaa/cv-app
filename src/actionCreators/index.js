@@ -8,8 +8,13 @@ import {
   IS_NOT_FETCHING,
   FETCH_ERROR,
   RECEIVE_SKILLS,
+  FETCH_SLIDES,
+  RECEIVE_SLIDES,
 } from '~/constants/actionTypes'
-import { getSkills } from '~/utils/api'
+import {
+  getSkills,
+  getSlides,
+} from '~/utils/api'
 
 export const setIsFetching = () => ({
   type: IS_FETCHING,
@@ -82,12 +87,34 @@ export const showInfoDialog = ({
   }, timeout)
 }
 
+export const fetchSlides = ({ slidename } = {}) => async (dispatch) => {
+  dispatch({ type: FETCH_SLIDES })
+  dispatch(setIsFetching())
+  try {
+    const { results } = await getSlides({
+      params: {
+        ...(slidename && { id: slidename }),
+      },
+    })
+    dispatch({
+      type: RECEIVE_SLIDES,
+      payload: {
+        slides: results,
+      },
+    })
+    dispatch(setIsNotFetching())
+  } catch (error) {
+    dispatch(reportFetchError({
+      error,
+    }))
+  }
+}
+
 export const fetchSkills = ({
   type,
 }) => async (dispatch) => {
   dispatch({ type: FETCH_SKILLS })
   dispatch(setIsFetching())
-
   try {
     const skills = await getSkills({
       params: { type },

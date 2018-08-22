@@ -87,7 +87,7 @@ class HelloScene extends Component {
 
   render = () => (
     <canvas
-      className="HelloScene anim-scene"
+      className="HelloScene anim-scene fade-in"
       ref={this.setCanvasRef}
     >
       <style jsx>{styles}</style>

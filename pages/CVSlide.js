@@ -8,17 +8,18 @@ import Content from '~/components/Content'
 import AnimatedScene from '~/components/AnimatedScene'
 import DetailModal from '~/components/DetailModal'
 import InfoDialog from '~/components/InfoDialog'
-import { getSlide } from '~/utils/api'
+import { fetchSlides } from '~/actionCreators'
 
 class CVSlide extends Component {
 
   static pageTransitionDelayEnter = true
 
-  static getInitialProps = async ({ query }) => {
-
+  static getInitialProps = async ({ query, store }) => {
     const {
       slidename,
     } = query
+    // TODO you can probably "containerize" this.
+    await store.dispatch(fetchSlides({ slidename }))
 
     const {
       blurbMarkup,
@@ -26,7 +27,7 @@ class CVSlide extends Component {
       palette,
       nextSlide,
       previousSlide,
-    } = await getSlide({ slidename })
+    } = store.getState().slides[slidename]
 
     return {
       slidename,
@@ -40,6 +41,7 @@ class CVSlide extends Component {
 
   componentDidMount = () => {
     this.props.pageTransitionReadyToEnter()
+    this.props.store.dispatch(fetchSlides())
   }
 
   render = () => {
@@ -79,12 +81,24 @@ class CVSlide extends Component {
 
 CVSlide.propTypes = {
   pageTransitionReadyToEnter: PropTypes.func,
+  slidename: PropTypes.string,
+  blurbMarkup: PropTypes.string,
+  title: PropTypes.string,
+  palette: PropTypes.string,
+  nextSlide: PropTypes.string,
+  previousSlide: PropTypes.string,
+  store: PropTypes.object,
 }
 
 CVSlide.defaultProps = {
   pageTransitionReadyToEnter: () => {},
+  slidename: null,
+  blurbMarkup: null,
+  title: null,
+  palette: null,
+  nextSlide: null,
+  previousSlide: null,
+  store: PropTypes.object,
 }
-
-// TODO more proptypes!
 
 export default CVSlide

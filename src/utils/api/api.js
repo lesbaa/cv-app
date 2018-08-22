@@ -1,23 +1,56 @@
 import fetch from 'isomorphic-fetch'
 import buildQueryString from '~/utils/buildQueryString'
-import data from '~/../static/data.json'
-// TODO this will need changed once the API is built
+import { API_BASE_URL } from '~/../les.config'
 
-export const getSlides = async ({ params }) => {
-  return data.slides
+export const buildUrl = ({ model, params }) =>
+  `//${API_BASE_URL}/${model}${buildQueryString(params)}`
+
+export const getSlides = async ({ params } = {}) => {
+  const url = buildUrl({
+    model: 'slides',
+    params,
+  })
+  const request = await fetch(url)
+  const json = await request.json()
+  return json
 }
 
 export const getSlide = async ({ params, slidename }) => {
-  return data.slides[slidename]
+  const url = buildUrl({
+    model: 'slides',
+    params: {
+      id: slidename,
+      ...params,
+    },
+  })
+  const request = await fetch(url)
+  const json = await request.json()
+  return json.results[0]
 }
 
 export const getSkills = async ({ params = {} }) => {
-  return params.type
-    ? data.skills.filter(skill => skill.type === params.type)
-    : data.skills
+  const url = buildUrl({
+    model: 'skills',
+    params: {
+      ...params,
+    },
+  })
+  const request = await fetch(url)
+  const json = await request.json()
+  return json.results
 }
 
-export const getSkill = async ({ params, id }) =>
-  data.skills.filter(skill => skill.id === id)
+export const getSkill = async ({ params, id }) => {
+  const url = buildUrl({
+    model: 'skills',
+    params: {
+      id,
+      ...params,
+    },
+  })
+  const request = await fetch(url)
+  const json = await request.json()
+  return json.results
+}
 
 // TODO tests for this

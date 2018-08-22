@@ -62,7 +62,7 @@ export default css`
   }
   
   .fade-in {
-    animation: .3s .25s fade backwards ease-out;
+    animation: 0.3s 0.5s fade backwards ease-out;
   }
 
   @keyframes tadaa {
