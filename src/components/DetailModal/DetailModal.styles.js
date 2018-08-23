@@ -26,7 +26,7 @@ export default css`
     border-style: solid;
     color: #333;
     font-weight: lighter;
-    line-height: 1.8;
+    line-height: 2;
     letter-spacing: 0.1em;
   }
   

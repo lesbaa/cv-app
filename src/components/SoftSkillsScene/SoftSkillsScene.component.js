@@ -224,6 +224,7 @@ class SoftSkillsScene extends Component {
       isStatic: true,
       plugin: { isBounds: true },
       parts: [
+        // top
         Bodies.rectangle(
           this.dims.w / 3 * 2,
           boundsMargin,
@@ -233,15 +234,17 @@ class SoftSkillsScene extends Component {
             isStatic: true,
           }
         ),
+        // bottom
         Bodies.rectangle(
           this.dims.w / 3 * 2,
-          this.dims.h - boundsMargin,
+          this.dims.h + boundsMargin,
           this.dims.h,
           boundsMargin,
           {
             isStatic: true,
           }
         ),
+        // left
         Bodies.rectangle(
           (this.dims.w / 2) - boundsMargin,
           this.dims.h / 2,
@@ -251,6 +254,7 @@ class SoftSkillsScene extends Component {
             isStatic: true,
           }
         ),
+        // right
         Bodies.rectangle(
           this.dims.w - boundsMargin / 2,
           this.dims.h / 2,

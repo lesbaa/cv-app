@@ -7,7 +7,7 @@ export default css`
     align-items: center;
     justify-content: space-between;
     font-size: 1.6em;
-    margin-top: 0.5em;
+    margin-top: 0.25em;
     mix-blend-mode: color-burn;
     z-index: 1;
   }
