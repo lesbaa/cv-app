@@ -102,7 +102,7 @@ class DevSkillsScene extends Component {
 
     const bodies = Object
       .entries(this.props.skills)
-      .filter(([ , { type }]) => type === DEV_SKILLS)
+      .filter(([, { type }]) => type === DEV_SKILLS)
       .map(([key, { points }], i) => {
         loadImg(`/static/img/skill-icons/${key}.svg`)
         const mass = points * 10
