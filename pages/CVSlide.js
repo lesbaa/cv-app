@@ -2,12 +2,11 @@
 /* eslint-env browser */
 
 import React, { Component } from 'react'
-import PropTypes from 'proptypes'
+import PropTypes from 'prop-types'
 import PageWrapper from '~/components/PageWrapper'
 import Content from '~/components/Content'
 import AnimatedScene from '~/components/AnimatedScene'
 import DetailModal from '~/components/DetailModal'
-import InfoDialog from '~/components/InfoDialog'
 import { fetchSlides } from '~/actionCreators'
 
 class CVSlide extends Component {
@@ -71,7 +70,6 @@ class CVSlide extends Component {
           previousSlide={previousSlide}
           palette={palette}
         />
-        <InfoDialog />
         <DetailModal palette={palette} />
       </PageWrapper>
     )
