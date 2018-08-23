@@ -71,7 +71,7 @@ class UpNextScene extends Component {
 
   initFilter = async () => {
     const { default: liquidShader } = await import('~/shaders/liquidMorph')
-    const { default: hatchShader } = await import('~/shaders/hatch')
+    const { default: hatchShader } = await import('~/shaders/hatch_2')
 
     this.liquidFilter = pixiConnect(
       s => s,
@@ -79,6 +79,7 @@ class UpNextScene extends Component {
     )(new PIXI.Filter('', liquidShader.fragment, liquidShader.uniforms))
 
     this.app.stage.filters = [
+      this.liquidFilter,
       new PIXI.Filter(
         '',
         hatchShader.fragment,
@@ -87,7 +88,6 @@ class UpNextScene extends Component {
           uVisibility: { type: 'f', value: 0.0 },
         },
       ),
-      this.liquidFilter,
     ]
 
     const filterBaseClass = new Style3D({

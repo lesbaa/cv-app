@@ -20,7 +20,7 @@ export default css`
           url('/static/fonts/RobotoMono-Thin.subset.ttf') format('truetype'),
           url('/static/fonts/RobotoMono-Thin.subset.svg') format('svg');
     font-weight: 200;
-    font-style: normal;
+    font-style: lighter;
   }
 
   @font-face {
@@ -99,21 +99,18 @@ export default css`
     }
   }
 
-  .pulse-anim {
-    animation: 3s pulse linear infinite;
-  }
-  
   * {
-    font-weight: 200;
+    font-weight: bold;
     font-family: 'RobotoMono', sans-serif;
   }
 
   body {
     width: 100%;
     height: auto;
-    color: #555;
+    color: #353535;
     font-family: 'Roboto Mono', sans-serif;
-    font-size: 2vh;
+    font-smoothing: subpixel-antialiased;
+    font-size: 1.07em;
     background-image: linear-gradient(to bottom right, #eee6ee, #d9d9d9);
   }
 
@@ -122,7 +119,7 @@ export default css`
   }
 
   strong {
-    font-weight: 400;
+    font-weight: 700;
   }
 
   a {

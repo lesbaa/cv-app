@@ -9,7 +9,7 @@ export default css`
     font-weight: bold;
     mix-blend-mode: color-burn;
     letter-spacing: -0.02em;
-    font-family: 'LeagueSpartan'
+    font-family: 'LeagueSpartan';
   }
 
   .Title :global(strong) {

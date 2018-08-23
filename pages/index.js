@@ -3,7 +3,7 @@
 
 import React, { Component } from 'react'
 import Link from 'next/link'
-import PropTypes from 'proptypes'
+import PropTypes from 'prop-types'
 import GitHubIcon from 'react-feather/dist/icons/github'
 import CodePenIcon from 'react-feather/dist/icons/codepen'
 import LinkedInIcon from 'react-feather/dist/icons/linkedin'
@@ -108,7 +108,7 @@ class IndexPage extends Component {
           </a>
           <a
             title="message me on linkedIn..."
-            href="//" // this will need entered
+            href="//www.linkedin.com/in/lesmoffat/" // this will need entered
           >
             <LinkedInIcon />
           </a>
@@ -172,11 +172,9 @@ class IndexPage extends Component {
 }
 
 IndexPage.propTypes = {
-  pageTransitionReadyToEnter: PropTypes.func,
 }
 
 IndexPage.defaultProps = {
-  pageTransitionReadyToEnter: () => {},
 }
 
 // TODO more proptypes!

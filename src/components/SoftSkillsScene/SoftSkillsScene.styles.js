@@ -6,7 +6,7 @@ export default css`
     height: 100%;
     mix-blend-mode: color-burn;
     position: absolute;
-    z-index: 0;
+    z-index: 1;
     top: 0;
     left: 0;
   }

@@ -28,7 +28,7 @@ export default class Star {
       .then(({ Graphics }) => {
         const g = new Graphics()
         g.beginFill(0x333333, 1)
-        g.drawStar(0, 0, 4, 5 * z, z, 0)
+        g.drawStar(0, 0, 4, 6 * z, z + 1, 0)
         g.endFill()
         g.x = x
         g.y = y

@@ -22,6 +22,7 @@
   "license": "ISC",
   "homepage": "https://bitbucket.org/lesbaa/les-cv#readme",
   "devDependencies": {
+    "babel-core": "^6.26.3",
     "babel-eslint": "8.2.3",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
@@ -34,7 +35,6 @@
     "spdy-keys": "0.0.0"
   },
   "dependencies": {
-    "@babel/core": "^7.0.0-rc.2",
     "babel-plugin-module-resolver": "^3.1.1",
     "compression": "1.7.2",
     "core-js": "^2.5.7",

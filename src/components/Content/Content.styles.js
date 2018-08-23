@@ -3,10 +3,12 @@ import css from 'styled-jsx/css'
 export default css`
   .Content {
     display: inline-block;
+    margin: 7.5vh;
+    align-items: center;
     position: relative;
-    margin: 7.5vw;
     width: 30%;
     font-size: 0.8em;
+    user-select: none;
   }
 
   .content-blurb :global(.human-too) > :global(span) {

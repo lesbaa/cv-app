@@ -1,29 +1,39 @@
 import css from 'styled-jsx/css'
+import { DIALOG_TIMEOUT } from '~/../les.config'
 
 export default css`
-  @keyframes fade-out {
-    from {
-      opacity: 1;
-      transform: translateY(0)
+  @keyframes notify {
+    0%, 100% {
+      transform: translateY(-200%);
     }
-    to {
-      opacity: 0;
-      transform: translateY(-200%)
+    20%, 80% {
+      transform: translateY(0);
     }
   }
 
   .InfoDialog {
     position: absolute;
-    bottom: 0;
-    height: 1.5em;
-    width: auto;
-    display: flex;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    transform: translateY(-200%);
+  }
+
+  .active {
+    animation: notify ${DIALOG_TIMEOUT}ms ease-in-out 1;
+  }
+
+  .dialog-content {
+    display: inline-flex;
     justify-content: center;
     align-items: center;
-    margin: 1em;
+    width: auto;
+    padding: 1.0em 4.0em;
+    margin-top: 1.0em;
     mix-blend-mode: color-burn;
-    animation: fade-out 1s linear 1;
-    opacity: 0;
+    border: 1px solid #000;
+    color: #000;
+    border-radius: 0.25em;
   }
 
   .message {

@@ -6,18 +6,28 @@ import styles from './InfoDialog.styles'
 const InfoDialog = ({
   message,
   isVisible,
-}) => (
-  isVisible
-    ? (
+}) => {
+  const className = [
+    'InfoDialog',
+    isVisible && 'active',
+  ]
+    .filter(Boolean)
+    .join(' ')
+
+  return (
+    <div
+      className={className}
+    >
       <div
-        className="InfoDialog"
+        className="dialog-content"
       >
         <InfoIcon size="1em" />
         <span className="message">{message}</span>
-        <style jsx>{styles}</style>
       </div>
-    ) : null
-)
+      <style jsx>{styles}</style>
+    </div>
+  )
+}
 
 InfoDialog.propTypes = {
   isVisible: PropTypes.bool,

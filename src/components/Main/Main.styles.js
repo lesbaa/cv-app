@@ -8,7 +8,7 @@ export default css`
     color: #333;
     border-style: solid;
     font-weight: lighter;
-    line-height: 2;
+    line-height: 1.8;
     letter-spacing: 0.1em;
   }
 `

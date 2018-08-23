@@ -12,10 +12,11 @@ export default css`
     transition: clip-path 1s;
     clip-path: circle(150% at bottom right);
     font-size: 0.8em;
+    z-index: 2;
   }
   
   .content {
-    margin: 7.5vw;
+    margin: 7.5vh;
     mix-blend-mode: color-burn;
   }
   
@@ -25,7 +26,7 @@ export default css`
     border-style: solid;
     color: #333;
     font-weight: lighter;
-    line-height: 2;
+    line-height: 1.8;
     letter-spacing: 0.1em;
   }
   

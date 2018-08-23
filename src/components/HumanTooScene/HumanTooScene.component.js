@@ -1,5 +1,6 @@
 /* eslint-env browser */
 import React, { Component } from 'react'
+import { throttle } from 'lodash'
 import gloopFilter from '~/shaders/profileFilter'
 import styles from './HumanTooScene.styles'
 
@@ -15,6 +16,7 @@ class HumanTooScene extends Component {
   componentDidMount = async () => {
     PIXI = await import('pixi.js')
     await this.init()
+    console.log(__dirname, __filename)
   }
 
   componentWillUnmount = async () => {
@@ -92,11 +94,11 @@ class HumanTooScene extends Component {
     window.addEventListener('mousemove', this.handleMouseMove)
   }
 
-  handleMouseMove = () => {
+  handleMouseMove = throttle(() => {
     for (let i = 0; i < this.filters.length; i++) {
       this.filters[i].uniforms.uMouseSpeed += 0.03
     }
-  }
+  }, 10)
 
   animate = (t) => {
     this.frameId = requestAnimationFrame(this.animate)

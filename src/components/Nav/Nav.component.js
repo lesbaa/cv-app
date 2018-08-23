@@ -1,24 +1,15 @@
 /* global window */
 
-/* In production sites this would be more accessible, but for the sake of
- * quickly adding on a redux action, we'll just disable the linter for now,
- * yes, bad Les, bad Les.
- *
- * TODO: make the share icon element a bit more accessible to appease the lint gods.
- */
-
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-
 import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
 import ArrowLeftIcon from 'react-feather/dist/icons/arrow-left'
 import ArrowRightIcon from 'react-feather/dist/icons/arrow-right'
-import InfoIcon from 'react-feather/dist/icons/info'
+import CodeIcon from 'react-feather/dist/icons/code'
 import ShareIcon from 'react-feather/dist/icons/share-2'
 import MailIcon from 'react-feather/dist/icons/mail'
 import copyToClipboard from '~/utils/clipboard'
+import { DIALOG_TIMEOUT } from '~/../les.config'
 import styles from './Nav.styles'
 
 // TODO obfuscate / client side only this to avoid bots
@@ -43,14 +34,34 @@ const Nav = ({
       <div
         className="actions"
       >
-        <span className="nav-item"><InfoIcon size="1em" /></span>
+        <span className="nav-item">
+          <a
+            href="/_src"
+            target="_blank"
+            title="view the source for this app"
+          >
+            <CodeIcon size="1em" />
+          </a>
+        </span>
         <span
           className="nav-item"
-          onClick={handleClick(showInfoDialog)}
         >
-          <ShareIcon size="1em" />
+          <a
+            href="#"
+            onClick={handleClick(showInfoDialog)}
+            title="copy the url of this page to"
+          >
+            <ShareIcon size="1em" />
+          </a>
         </span>
-        <span className={mailIconClassName}><a href={mailtoLink}><MailIcon size="1em" /></a></span>
+        <span className={mailIconClassName}>
+          <a
+            href={mailtoLink}
+            title="send me a message!"
+          >
+            <MailIcon size="1em" />
+          </a>
+        </span>
       </div>
       <div
         className="next-prev"
@@ -107,12 +118,12 @@ function handleClick(showInfoDialog) {
     if (copySuccess) {
       showInfoDialog({
         message: 'Url copied to clipboard!',
-        timeout: 1000,
+        timeout: DIALOG_TIMEOUT,
       })
     } else {
       showInfoDialog({
         message: 'Oops! Unable to copy to clipboard!',
-        timeout: 1000,
+        timeout: DIALOG_TIMEOUT,
       })
     }
   }

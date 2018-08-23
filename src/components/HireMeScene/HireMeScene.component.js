@@ -102,10 +102,15 @@ class HireMeScene extends Component {
     rocketGroup.x = this.rocketPos.x
     rocketGroup.y = this.rocketPos.y
 
-    rocketGroup.addChild(this.makeSprite({
+    const exhaustGroup = new Container()
+    exhaustGroup.y = 82.5
+    exhaustGroup.pivot = new PIXI.Point(0, -82.5)
+
+    this.exhaustGroup = exhaustGroup
+
+    exhaustGroup.addChild(this.makeSprite({
       imageUrl: '/static/img/rocket_trail.svg',
       attributes: {
-        y: 165,
         filters: [
           shoogle,
           crosshatch,
@@ -113,15 +118,16 @@ class HireMeScene extends Component {
       },
     }))
 
-    rocketGroup.addChild(this.makeSprite({
+    exhaustGroup.addChild(this.makeSprite({
       imageUrl: '/static/img/rocket_trail_outline.svg',
       attributes: {
-        y: 165,
         filters: [
           shoogle,
         ],
       },
     }))
+
+    rocketGroup.addChild(exhaustGroup)
 
     rocketGroup.addChild(this.makeSprite({
       imageUrl: '/static/img/rocket.svg',
@@ -141,6 +147,10 @@ class HireMeScene extends Component {
     this.sprites.rocket = rocketGroup
 
     window.addEventListener('mousemove', this.handleMousMove)
+    this.handleMousMove({
+      clientX: window.innerWidth / 2,
+      clientY: 0,
+    })
   }
 
   handleMousMove = ({
@@ -158,7 +168,7 @@ class HireMeScene extends Component {
       .sub(this.mousePos)
 
     this.sceneVelocity.set(newVelocity.x, newVelocity.y)
-
+    this.exhaustGroup.scale.y = (200 + this.sceneVelocity.magnitude()) / window.innerHeight
     this.sprites.rocket.rotation = this.sceneVelocity.heading() - Math.PI / 2
   }
 
