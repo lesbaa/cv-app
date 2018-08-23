@@ -13,7 +13,7 @@ const cache = lru({
   length: (entry, key) => entry.length,
 })
 
-const PORT = process.env.PORT || 8080
+const PORT = process.env.PORT || 3000
 process.env.PORT = PORT
 
 const dev =
@@ -139,7 +139,11 @@ app.prepare().then(() => {
 
   server.get('*', handle)
 
-  http2
-    .createServer(options, server)
-    .listen(PORT, logListener('HTTP/2'))
+  if (dev) {
+    http2
+      .createServer(options, server)
+      .listen(PORT, logListener('HTTP/2'))
+  } else {
+    server.listen(PORT, logListener('HTTP'))
+  }
 })
