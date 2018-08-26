@@ -11,6 +11,8 @@ const Content = ({
   nextSlide,
   previousSlide,
   palette,
+  hasNav,
+  children,
 }) => (
   <div
     className="Content"
@@ -22,11 +24,14 @@ const Content = ({
         dangerouslySetInnerHTML={{ __html: blurbMarkup }} // eslint-disable-line
         opacity={palette.offsetOpacity}
       />
+      {children}
     </Main>
-    <Nav
-      nextSlide={nextSlide}
-      previousSlide={previousSlide}
-    />
+    {hasNav &&
+      <Nav
+        nextSlide={nextSlide}
+        previousSlide={previousSlide}
+      />
+    }
     <style jsx>{styles}</style>
   </div>
 )
@@ -36,6 +41,8 @@ Content.propTypes = {
   title: PropTypes.string,
   nextSlide: PropTypes.string,
   previousSlide: PropTypes.string,
+  hasNav: PropTypes.bool,
+  children: PropTypes.arrayOf(PropTypes.element),
   palette: PropTypes.shape({
     gradient: PropTypes.string,
     colors: PropTypes.arrayOf(PropTypes.string),
@@ -45,8 +52,10 @@ Content.propTypes = {
 Content.defaultProps = {
   blurbMarkup: '<p>Oops! No markup!</p>',
   title: '<h2>Somethings gone awry...</h2>',
-  nextSlide: 'DEV_SKILLS',
+  nextSlide: null,
   previousSlide: null,
+  hasNav: true,
+  children: null,
   palette: {
     gradient: 'to bottom right, #eee6ee, #d9d9d9',
     colors: [
