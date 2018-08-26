@@ -3,10 +3,10 @@ import css from 'styled-jsx/css'
 export default css`
   .Content {
     display: inline-block;
+    box-sizing: border-box;
     margin: 7.5vh;
     align-items: center;
     position: relative;
-    width: 30%;
     font-size: 0.8em;
     user-select: none;
   }
@@ -37,5 +37,11 @@ export default css`
 
   .content-blurb :global(.human-too) > :global(span:nth-of-type(5n)) {
     color: inherit;
+  }
+
+  @media screen and (min-width: 500px) {
+    .Content {
+      width: 30%;
+    }
   }
 `
