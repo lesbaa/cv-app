@@ -5,7 +5,8 @@ const serveStatic = require('serve-static')
 const nextApp = require('next')
 const http2 = require('spdy')
 const compression = require('compression')
-
+const isMobile = require('is-mobile')
+const handleCalender = require('./server/handleCalender')
 const logListener = require('./server/logListener')
 
 const cache = lru({
@@ -13,7 +14,7 @@ const cache = lru({
   length: (entry, key) => entry.length,
 })
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 8080
 process.env.PORT = PORT
 
 const dev =
@@ -46,42 +47,26 @@ server.use(
   })
 )
 
-// const docHead = `
-// <!DOCTYPE html>
-// <html>
-// <head>
-// </head>
-// <body>
-// <h1>Hiya!</h1>
-// `
-// TODO push fonts, main.js, commons.js etc
-// server.get('*', (req, res, nxt) => {
-//   res.on('push', console.log)
-//   res.write(docHead)
-//   const stream = res.push('static/test.js', {
-//     status: 200, // optional
-//     method: 'GET', // optional
-//     request: {
-//       accept: '*/*',
-//     },
-//     response: {
-//       'content-type': 'application/javascript',
-//     },
-//   })
-
-//   stream.on('error', (err) => {
-//     console.log('push error!')
-//   })
-  
-//   const data = fs.readFileSync('static/test.js', 'utf-8')
-//   stream.end(data)
-
-//   res.end('<script src="static/test.js"></script>')
-
-// })
+server.get('/calender', handleCalender)
 
 app.prepare().then(() => {
   // TODO, this stuff could be a bit DRYer
+  server.get('*', async (req, res, next) => {
+    if (isMobile(req) && !req.path.includes('_next')) {
+      const cached = cache.get(req.originalUrl)
+      if (cached && req.query.nocache !== 'true' && !dev) {
+        res.set('X-cache', 'hit')
+        res.send(cached)
+        return
+      }
+
+      const markup = await app.renderToHTML(req, res, '/mobile', { ...req.query })
+      cache.set(req.originalUrl, markup)
+      res.send(markup)
+    }
+    next()
+  })
+
   server.get('/', async (req, res, next) => {
     const cached = cache.get(req.originalUrl)
     if (cached && req.query.nocache !== 'true' && !dev) {
