@@ -8,6 +8,7 @@ import {
   onRouteChangeStart,
   onRouteChangeComplete,
 } from '~/actionCreators'
+import drawConsoleFiglet from '~/utils/drawConsoleFiglet'
 
 class LesCV extends App {
   static async getInitialProps({ Component, router, ctx }) {
@@ -35,6 +36,7 @@ class LesCV extends App {
     Router.onRouteChangeComplete = () => {
       this.props.store.dispatch(onRouteChangeComplete())
     }
+    drawConsoleFiglet()
   }
 
   render() {
