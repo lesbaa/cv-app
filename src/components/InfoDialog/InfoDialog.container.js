@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import InfoDialog from './InfoDialog.component'
+import Dialog from '~/components/Dialog'
 
 const mapStateToProps = ({
   infoDialog: {
@@ -11,4 +11,4 @@ const mapStateToProps = ({
   message,
 })
 
-export default connect(mapStateToProps)(InfoDialog)
+export default connect(mapStateToProps)(Dialog)

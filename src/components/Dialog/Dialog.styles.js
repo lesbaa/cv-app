@@ -2,43 +2,44 @@ import css from 'styled-jsx/css'
 import { DIALOG_TIMEOUT } from '~/../les.config'
 
 export default css`
-  @keyframes notify {
-    0%, 100% {
-      transform: translateY(-200%);
-    }
-    20%, 80% {
-      transform: translateY(0);
-    }
-  }
-
-  .InfoDialog {
+  .Dialog {
+    z-index: 999;
     position: absolute;
     text-align: center;
     top: 0;
     width: 100%;
+    transition: transform ${DIALOG_TIMEOUT / 2}ms;
     transform: translateY(-200%);
   }
 
   .active {
-    animation: notify ${DIALOG_TIMEOUT}ms ease-in-out 1;
+    transform: translateY(0);
+  }
+
+  .Dialog :global(svg) {
+    min-width: 1em;
   }
 
   .dialog-content {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: auto;
+    min-width: 40%;
+    max-width: 60%;
     padding: 1.0em 4.0em;
-    margin-top: 1.0em;
-    mix-blend-mode: color-burn;
-    border: 1px solid #000;
-    color: #000;
+    margin: 1.0em;
+    mix-blend-mode: color-dodge;
+    border: 1px solid #444;
+    color: #444;
+    background-color: rgba(255,250,250,0.1);
     border-radius: 0.25em;
   }
 
   .message {
+    max-width: 60%;
     font-size: 1em;
-    margin-left: 0.5em;
+    margin-left: 1em;
     display: inline-block;
+    text-align: left;
   }
 `

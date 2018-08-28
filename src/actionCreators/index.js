@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie'
 import {
   SHOW_INFO_DIALOG,
   HIDE_INFO_DIALOG,
@@ -10,6 +11,9 @@ import {
   RECEIVE_SKILLS,
   FETCH_SLIDES,
   RECEIVE_SLIDES,
+  REQUEST_TRACKING,
+  ACCEPT_TRACKING,
+  DENY_TRACKING,
 } from '~/constants/actionTypes'
 import {
   getSkills,
@@ -140,4 +144,36 @@ export const onRouteChangeStart = () => (dispatch) => {
 
 export const onRouteChangeComplete = () => (dispatch) => {
 
+}
+
+export const checkTracking = () => (dispatch) => {
+  const canTrack = Cookies.get('LES_CANTRACK')
+  if (!canTrack) {
+    dispatch(requestTracking())
+    return
+  }
+  dispatch(acceptTracking())
+}
+
+export const setTrackingData = data => ({
+  ok: true,
+})
+
+export const requestTracking = () => ({
+  type: REQUEST_TRACKING,
+})
+
+export const acceptTracking = () => (dispatch) => {
+  Cookies.set('LES_CANTRACK', '1', { expires: 365 })
+  dispatch({ type: ACCEPT_TRACKING })
+}
+
+export const denyTracking = () => (dispatch) => {
+  Cookies.remove('LES_CANTRACK')
+  Cookies.remove('LES_REF')
+  dispatch(showInfoDialog({
+    message: 'No problem, you won\'t be tracked!',
+    timeout: 2000,
+  }))
+  dispatch({ type: DENY_TRACKING })
 }

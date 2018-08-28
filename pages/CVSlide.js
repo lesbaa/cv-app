@@ -9,6 +9,7 @@ import AnimatedScene from '~/components/AnimatedScene'
 import DetailModal from '~/components/DetailModal'
 import { fetchSlides } from '~/actionCreators'
 import InfoDialog from '~/components/InfoDialog'
+import TrackingDialog from '~/components/TrackingDialog'
 
 class CVSlide extends Component {
 
@@ -60,6 +61,7 @@ class CVSlide extends Component {
         title={title}
       >
         <InfoDialog />
+        <TrackingDialog />
         <AnimatedScene
           store={store}
           palette={palette}

@@ -1,14 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import InfoIcon from 'react-feather/dist/icons/info'
-import styles from './InfoDialog.styles'
+import styles from './Dialog.styles'
 
-const InfoDialog = ({
+const Dialog = ({
   message,
   isVisible,
+  children,
 }) => {
   const className = [
-    'InfoDialog',
+    'Dialog',
     isVisible && 'active',
   ]
     .filter(Boolean)
@@ -23,20 +24,23 @@ const InfoDialog = ({
       >
         <InfoIcon size="1em" />
         <span className="message">{message}</span>
+        {children}
       </div>
       <style jsx>{styles}</style>
     </div>
   )
 }
 
-InfoDialog.propTypes = {
+Dialog.propTypes = {
   isVisible: PropTypes.bool,
   message: PropTypes.string,
+  children: PropTypes.arrayOf(PropTypes.element),
 }
 
-InfoDialog.defaultProps = {
+Dialog.defaultProps = {
   isVisible: false,
   message: null,
+  children: PropTypes.arrayOf(PropTypes.element),
 }
 
-export default InfoDialog
+export default Dialog

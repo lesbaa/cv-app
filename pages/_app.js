@@ -7,6 +7,8 @@ import Router from 'next/router'
 import {
   onRouteChangeStart,
   onRouteChangeComplete,
+  requestTracking,
+  checkTracking,
 } from '~/actionCreators'
 import drawConsoleFiglet from '~/utils/drawConsoleFiglet'
 
@@ -20,7 +22,6 @@ class LesCV extends App {
         pageProps,
         store,
       }
-
     }
 
     return {
@@ -30,6 +31,7 @@ class LesCV extends App {
   }
 
   componentDidMount = () => {
+    this.props.store.dispatch(checkTracking())
     Router.onRouteChangeStart = () => {
       this.props.store.dispatch(onRouteChangeStart())
     }
