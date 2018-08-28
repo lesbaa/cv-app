@@ -1,3 +1,4 @@
+/* global window navigator */
 import Cookies from 'js-cookie'
 import {
   SHOW_INFO_DIALOG,
@@ -18,6 +19,7 @@ import {
 import {
   getSkills,
   getSlides,
+  reportLesalytics,
 } from '~/utils/api'
 
 export const setIsFetching = () => ({
@@ -139,20 +141,45 @@ export const fetchSkills = ({
 }
 
 export const onRouteChangeStart = () => (dispatch) => {
+  dispatch({ type: 'ROUTE_CHANGE_START' })
   dispatch(closeAllModals())
 }
 
 export const onRouteChangeComplete = () => (dispatch) => {
-
+  dispatch({ type: 'ROUTE_CHANGE_COMPLETE' })
 }
 
-export const checkTracking = () => (dispatch) => {
-  const canTrack = Cookies.get('LES_CANTRACK')
-  if (!canTrack) {
-    dispatch(requestTracking())
+export const track = () => (dispatch, getState) => {
+  reportLesalytics({
+    ref: Cookies.get('LES_REF') || 'unknown user',
+    platform: navigator.userAgent,
+    page: window.location,
+  })
+}
+
+export const checkTracking = () => (dispatch, getState) => {
+  const {
+    tracking: {
+      trackingRequested,
+      canTrack,
+    },
+  } = getState()
+
+  const canTrackCookie = Cookies.get('LES_CANTRACK')
+
+  if (canTrackCookie === 'true') {
+    dispatch(acceptTracking())
     return
   }
-  dispatch(acceptTracking())
+
+  if (canTrack) {
+    dispatch(track())
+    return
+  }
+
+  if (!trackingRequested) {
+    dispatch(requestTracking())
+  }
 }
 
 export const setTrackingData = data => ({
@@ -163,13 +190,14 @@ export const requestTracking = () => ({
   type: REQUEST_TRACKING,
 })
 
-export const acceptTracking = () => (dispatch) => {
-  Cookies.set('LES_CANTRACK', '1', { expires: 365 })
+export const acceptTracking = () => (dispatch, getState) => {
+  Cookies.set('LES_CANTRACK', 'true', { expires: 30 })
+  dispatch(track())
   dispatch({ type: ACCEPT_TRACKING })
 }
 
 export const denyTracking = () => (dispatch) => {
-  Cookies.remove('LES_CANTRACK')
+  Cookies.set('LES_CANTRACK', 'false', { expires: 30 })
   Cookies.remove('LES_REF')
   dispatch(showInfoDialog({
     message: 'No problem, you won\'t be tracked!',

@@ -3,7 +3,6 @@
 
 import React, { Component } from 'react'
 import Link from 'next/link'
-import PropTypes from 'prop-types'
 import GitHubIcon from 'react-feather/dist/icons/github'
 import CodePenIcon from 'react-feather/dist/icons/codepen'
 import LinkedInIcon from 'react-feather/dist/icons/linkedin'
@@ -12,6 +11,8 @@ import MailIcon from 'react-feather/dist/icons/mail'
 import PhoneIcon from 'react-feather/dist/icons/phone'
 import GiftIcon from 'react-feather/dist/icons/gift'
 import PageWrapper from '~/components/PageWrapper'
+import TrackingDialog from '~/components/TrackingDialog'
+import InfoDialog from '~/components/InfoDialog'
 import { chooseRandom, random } from '~/utils/rndm'
 
 const unjumble = string =>
@@ -55,6 +56,8 @@ class IndexPage extends Component {
       <main
         className="main"
       >
+        <InfoDialog />
+        <TrackingDialog />
         <h1 className="les-anim">
           <strong><x-lesanim offsetY="20">LesMoffat.</x-lesanim></strong>
         </h1>
