@@ -45,7 +45,8 @@ const Nav = ({
       >
         <span className={codeIconClassName}>
           <a
-            href="/_src"
+            href="https://github.com/lesbaa/cv-app"
+            rel="noopener noreferrer"
             target="_blank"
             title="view the source for this app"
           >
