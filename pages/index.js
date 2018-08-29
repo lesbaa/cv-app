@@ -111,7 +111,7 @@ class IndexPage extends Component {
           </a>
           <a
             title="message me on linkedIn..."
-            href="//www.linkedin.com/in/lesmoffat/" // this will need entered
+            href="//www.linkedin.com/in/lesmoffat/"
           >
             <LinkedInIcon />
           </a>

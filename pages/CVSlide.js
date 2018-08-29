@@ -10,17 +10,33 @@ import DetailModal from '~/components/DetailModal'
 import { fetchSlides } from '~/actionCreators'
 import InfoDialog from '~/components/InfoDialog'
 import TrackingDialog from '~/components/TrackingDialog'
+import Error from './_error'
 
 class CVSlide extends Component {
 
   static pageTransitionDelayEnter = true
 
-  static getInitialProps = async ({ query, store }) => {
+  static getInitialProps = async ({ req, query, store }) => {
     const {
       slidename,
     } = query
     // TODO you can probably "containerize" this.
     await store.dispatch(fetchSlides({ slidename }))
+
+    const slideData = store.getState().slides[slidename]
+
+    if (!slideData) {
+      const url = req
+        ? req.originalUrl
+        : window.location
+
+      return {
+        err: {
+          statusCode: 404,
+          message: `Page ${url} not found.`,
+        },
+      }
+    }
 
     const {
       blurbMarkup,
@@ -28,7 +44,7 @@ class CVSlide extends Component {
       palette,
       nextSlide,
       previousSlide,
-    } = store.getState().slides[slidename]
+    } = slideData
 
     return {
       slidename,
@@ -54,7 +70,11 @@ class CVSlide extends Component {
       nextSlide,
       previousSlide,
       store,
+      err,
     } = this.props
+
+    if (err) return <Error statusCode={err.statusCode} />
+
     return (
       <PageWrapper
         palette={palette}
@@ -90,6 +110,13 @@ CVSlide.propTypes = {
   nextSlide: PropTypes.string,
   previousSlide: PropTypes.string,
   store: PropTypes.object,
+  err: PropTypes.oneOf(
+    PropTypes.shape({
+      statusCode: PropTypes.number,
+      message: PropTypes.string,
+    }),
+    PropTypes.bool
+  ),
 }
 
 CVSlide.defaultProps = {
@@ -101,6 +128,7 @@ CVSlide.defaultProps = {
   nextSlide: null,
   previousSlide: null,
   store: PropTypes.object,
+  err: false,
 }
 
 export default CVSlide

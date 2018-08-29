@@ -107,8 +107,8 @@ Nav.propTypes = {
 }
 
 Nav.defaultProps = {
-  previousSlide: 'HELLO',
-  nextSlide: 'HELLO',
+  previousSlide: 'hello',
+  nextSlide: 'hello',
   showInfoDialog: false,
 }
 
