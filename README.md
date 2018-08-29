@@ -3,6 +3,8 @@ LesMoffat Dev CV
 
 This App is an isomorphic JavaScript app built to explain an showcase my skills, personality and beliefs as a JS / FE / mid-end dev (and human being).
 
+It's an ongoing project. I intend to keep at it to perfect skills, learn new ones etc.
+
 The [app itself](https://cv.lesmoffat.co.uk/cv) is built with the follow tech: 
 - React, for rendering.
 - Next.JS to help with the isomorphic stuff, bundling.
