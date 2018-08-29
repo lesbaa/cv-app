@@ -1,7 +1,7 @@
 LesMoffat Dev CV
 ================
 
-This App is an isomorphic JavaScript app built to explain an showcase my skills, personality and beliefs as a JS / FE / mid-end dev (and human being).
+This App is an isomorphic JavaScript app built to explain and showcase my skills, personality and beliefs as a JS / FE / mid-end dev (and human being).
 
 It's an ongoing project. I intend to keep at it to perfect skills, learn new ones etc.
 
@@ -46,3 +46,4 @@ The [API](https://github.com/lesbaa/cv-api) is a REST JSON microservice. Tech us
 - [x] Me as a person scene
 - [ ] References scene
 - [x] Outro / bye
+- [ ] Breadcrumbs / progress nav
