@@ -110,13 +110,13 @@ CVSlide.propTypes = {
   nextSlide: PropTypes.string,
   previousSlide: PropTypes.string,
   store: PropTypes.object,
-  err: PropTypes.oneOf(
+  err: PropTypes.oneOf([
     PropTypes.shape({
       statusCode: PropTypes.number,
       message: PropTypes.string,
     }),
-    PropTypes.bool
-  ),
+    PropTypes.bool,
+  ]),
 }
 
 CVSlide.defaultProps = {
