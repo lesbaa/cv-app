@@ -8,6 +8,7 @@ import ArrowRightIcon from 'react-feather/dist/icons/arrow-right'
 import CodeIcon from 'react-feather/dist/icons/code'
 import ShareIcon from 'react-feather/dist/icons/share-2'
 import MailIcon from 'react-feather/dist/icons/mail'
+import LinkedInIcon from 'react-feather/dist/icons/linkedin'
 import copyToClipboard from '~/utils/clipboard'
 import { DIALOG_TIMEOUT } from '~/../les.config'
 import styles from './Nav.styles'
@@ -52,6 +53,14 @@ const Nav = ({
             title="copy the url of this page to"
           >
             <ShareIcon size="1em" />
+          </a>
+        </span>
+        <span className="nav-item">
+          <a
+            href="//www.linkedin.com/in/lesmoffat/"
+            title="find me on linked in!"
+          >
+            <LinkedInIcon size="1em" />
           </a>
         </span>
         <span className={mailIconClassName}>
