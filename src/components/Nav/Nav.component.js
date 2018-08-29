@@ -21,9 +21,17 @@ const Nav = ({
   nextSlide,
   showInfoDialog,
 }) => {
+
   const mailIconClassName = [
     'nav-item',
     !nextSlide && 'tadaa-anim',
+  ]
+    .filter(Boolean)
+    .join(' ')
+
+  const codeIconClassName = [
+    'nav-item',
+    !previousSlide && 'tadaa-anim',
   ]
     .filter(Boolean)
     .join(' ')
@@ -35,7 +43,7 @@ const Nav = ({
       <div
         className="actions"
       >
-        <span className="nav-item">
+        <span className={codeIconClassName}>
           <a
             href="/_src"
             target="_blank"
@@ -50,7 +58,7 @@ const Nav = ({
           <a
             href="#"
             onClick={handleClick(showInfoDialog)}
-            title="copy the url of this page to"
+            title="copy the url of this page to the clipboard"
           >
             <ShareIcon size="1em" />
           </a>

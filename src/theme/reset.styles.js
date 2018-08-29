@@ -81,12 +81,12 @@ export default css`
     }
   }
 
-  .tadaa-anim {
+  .tadaa-anim > *{
     animation: 3s tadaa linear infinite;
     transition: transform 0.5s;
   }
 
-  .tadaa-anim:hover {
+  .tadaa-anim > *:hover {
     animation: none;
   }
 
