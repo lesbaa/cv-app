@@ -16,7 +16,6 @@ class HumanTooScene extends Component {
   componentDidMount = async () => {
     PIXI = await import('pixi.js')
     await this.init()
-    console.log(__dirname, __filename)
   }
 
   componentWillUnmount = async () => {
