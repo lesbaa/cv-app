@@ -37,6 +37,11 @@ export const reportFetchError = ({
     type: FETCH_ERROR,
     payload: error,
   })
+  console.error(error)
+  dispatch(showInfoDialog({
+    message: 'Error attempting to fetch!',
+    timeout: 2000,
+  }))
   dispatch(setIsNotFetching())
 }
 

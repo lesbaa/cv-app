@@ -4,6 +4,7 @@ import detailsModalReducer from './detailsModal.reducer'
 import skillsReducer from './skills.reducer'
 import slidesReducer from './slides.reducer'
 import trackingReducer from './tracking.reducer'
+import networkReducer from './network.reducer'
 
 const reducers = {
   detailsModal: detailsModalReducer,
@@ -11,6 +12,7 @@ const reducers = {
   skills: skillsReducer,
   slides: slidesReducer,
   tracking: trackingReducer,
+  network: networkReducer,
 }
 
 

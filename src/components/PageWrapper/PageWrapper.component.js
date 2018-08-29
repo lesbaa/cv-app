@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import '~/utils/polyfills'
 import PageHead from '~/components/PageHead'
+import Loader from '~/components/Loader'
 import styles from './PageWrapper.styles'
 
 const PageWrapper = ({
@@ -16,6 +17,7 @@ const PageWrapper = ({
       className="gradient"
       style={{ background: `linear-gradient(${palette.gradient})` }}
     />
+    <Loader />
     <PageHead
       title={`Les Moffat | ${title}`}
     />
