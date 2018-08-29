@@ -4,6 +4,7 @@ import PageWrapper from '~/components/PageWrapper'
 import Title from '~/components/Title'
 import Main from '~/components/Main'
 import Nav from '~/components/Nav'
+import styles from '~/theme/error.styles'
 
 class Error extends React.Component {
   static pageTransitionDelayEnter = false
@@ -38,11 +39,7 @@ class Error extends React.Component {
             previousSlide="hello"
           />
         </div>
-        <style jsx>{`
-          .error-wrapper {
-            margin: 20% 30%;
-          }
-        `}</style>
+        <style jsx>{styles}</style>
       </PageWrapper>
     )
   }
