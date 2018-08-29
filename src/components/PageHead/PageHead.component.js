@@ -65,6 +65,12 @@ const PageHead = ({
       <meta name="msapplication-TileColor" content="#F7F7F7" />
       <meta name="msapplication-config" content="/static/favicons/browserconfig.xml" />
       <meta name="msapplication-TileImage" content="/static/favicons/ms-icon-144x144.png" />
+      <meta property="og:image" content="/static/og-image.jpg" />
+      <meta property="og:image:width" content="201" />
+      <meta property="og:image:height" content="201" />
+      <meta property="og:title" content="Les Moffat | Javascript Developer" />
+      <meta property="og:description" content="Purveyor of fine JavaScripts, gifs, memes, internets and other web wares." />
+      <meta property="og:url" content="http://cv.lesmoffat.co.uk" />
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
       <meta name="HandheldFriendly" content="True" />
       <meta name="MobileOptimized" content="320" />
