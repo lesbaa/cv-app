@@ -98,21 +98,23 @@ export const showInfoDialog = ({
   }, timeout)
 }
 
-export const fetchSlides = ({ slidename } = {}) => async (dispatch) => {
+export const fetchSlides = ({ slidename } = {}) => async (dispatch, getState) => {
   dispatch({ type: FETCH_SLIDES })
   dispatch(setIsFetching())
   try {
-    const { results } = await getSlides({
-      params: {
-        ...(slidename && { id: slidename }),
-      },
-    })
-    dispatch({
-      type: RECEIVE_SLIDES,
-      payload: {
-        slides: results,
-      },
-    })
+    if (!getState().slides[slidename]) {
+      const { results } = await getSlides({
+        params: {
+          ...(slidename && { id: slidename }),
+        },
+      })
+      dispatch({
+        type: RECEIVE_SLIDES,
+        payload: {
+          slides: results,
+        },
+      })
+    }
     dispatch(setIsNotFetching())
   } catch (error) {
     dispatch(reportFetchError({
@@ -155,6 +157,8 @@ export const onRouteChangeComplete = () => (dispatch) => {
 }
 
 export const track = () => (dispatch, getState) => {
+  if (process.env.NODE_ENV === 'development') return
+
   reportLesalytics({
     ref: Cookies.get('LES_REF') || 'unknown user',
     platform: navigator.userAgent,
