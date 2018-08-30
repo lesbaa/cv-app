@@ -33,9 +33,7 @@ export class Style3DList {
     }
   }
 
-  includes = (style3D) => {
-    return this.classList.includes(style3D)
-  }
+  includes = style3D => this.classList.includes(style3D)
 
   computeStyle = () => {
     this.computedStyle = {
