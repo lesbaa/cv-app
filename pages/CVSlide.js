@@ -7,7 +7,6 @@ import PageWrapper from '~/components/PageWrapper'
 import Content from '~/components/Content'
 import AnimatedScene from '~/components/AnimatedScene'
 import DetailModal from '~/components/DetailModal'
-import PageNav from '~/components/PageNav'
 import { fetchSlides } from '~/actionCreators'
 import InfoDialog from '~/components/InfoDialog'
 import TrackingDialog from '~/components/TrackingDialog'
@@ -94,7 +93,6 @@ class CVSlide extends Component {
           previousSlide={previousSlide}
           palette={palette}
         />
-        <PageNav />
         <DetailModal palette={palette} />
       </PageWrapper>
     )

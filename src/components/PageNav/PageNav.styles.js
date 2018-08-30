@@ -1,44 +1,70 @@
 import css from 'styled-jsx/css'
 
 export default css`
-  .Nav {
-    position: relative;
+  .PageNav {
+    position: absolute;
+    right: -4em;
+    top: 0;
+    bottom: 0;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    font-size: 1.6em;
-    margin-top: 0.25em;
+    justify-content: center;
+    transform: translateX(0);
     mix-blend-mode: color-burn;
-    z-index: 1;
+    z-index: 2;
   }
 
-  .nav-item:hover :global(svg) {
-    opacity: 0.5;
-    transition: 0.5s;
-    cursor: pointer;
+  .nav-links {
+    display: inline-block;
+    margin: auto 0;
+    padding: 0;
   }
 
-  .nav-item :global(svg) {
-    stroke: #333;
-    stroke-width: 1.5;
+  .chevron {
+    vertical-align: middle;
+    line-height: 100%;
+    padding: 0.5em 0;
+    border: 1px solid #444;
+    border-right-width: 0;
+    border-radius: 100% 0 0 100%;
+  }
+
+  .PageNav,
+  .chevron,
+  .nav-item,
+  .nav-item a {
+    transition: 0.25s opacity, 0.5s transform;
   }
 
   .nav-item {
-    text-decoration: none;
+    margin: 0.5em;
+    display: block;
   }
 
-  .nav-item:after {
-    content: '/';
-    margin: 0.2em;
+  .nav-item:hover {
+    opacity: 0.6;
   }
 
-  .nav-item:last-of-type:after {
-    content: none;
+  .nav-item.active {
+    transform: scale(1.4);
+    opacity: 0.6;
   }
 
-  .next-prev,
-  .actions, {
-    display: inline-flex;
-    align-items: center;    
+  .nav-item.active a {
+    cursor: default;
+  }
+
+  .nav-item > :global(svg) {
+    height: 2.5em;
+    width: 2.5em;
+  }
+
+  .PageNav:hover {
+    transform: translateX(-70%);
+  }
+
+
+  .PageNav:hover .chevron {
+    opacity: 0;
   }
 `

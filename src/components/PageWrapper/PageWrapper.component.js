@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import '~/utils/polyfills'
 import PageHead from '~/components/PageHead'
 import Loader from '~/components/Loader'
+import PageNav from '~/components/PageNav'
+
 import styles from './PageWrapper.styles'
 
 const PageWrapper = ({
@@ -22,6 +24,7 @@ const PageWrapper = ({
       title={`Les Moffat | ${title}`}
     />
     {children}
+    <PageNav />
     <style jsx>{styles}</style>
   </div>
 )

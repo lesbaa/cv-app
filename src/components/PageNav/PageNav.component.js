@@ -3,23 +3,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
-import ArrowLeftIcon from 'react-feather/dist/icons/arrow-left'
-import ArrowRightIcon from 'react-feather/dist/icons/arrow-right'
-import CodeIcon from 'react-feather/dist/icons/code'
-import ShareIcon from 'react-feather/dist/icons/share-2'
-import MailIcon from 'react-feather/dist/icons/mail'
-import LinkedInIcon from 'react-feather/dist/icons/linkedin'
-import copyToClipboard from '~/utils/clipboard'
+import ChevronLeftIcon from 'react-feather/dist/icons/chevron-left'
 import styles from './PageNav.styles'
 
 const PageNav = ({
   router,
   slides,
 }) => {
-  // console.log(slides)
+  console.log(slides)
   return (
     <div className="PageNav">
-      {mapSlides(slides)}
+      <span className="chevron">
+        <ChevronLeftIcon
+          strokeWidth="1px"
+          size="2em"
+        />
+      </span>
+      <ul className="nav-links">
+        {mapSlides(slides, router)}
+      </ul>
+      <style jsx>{styles}</style>
     </div>
   )
 }
@@ -32,15 +35,38 @@ PageNav.defaultProps = {
 
 }
 
-function mapSlides (slides) {
+function mapSlides(slides, router) {
   return Object.keys(slides)
-    .map((slide) => (
-      <Link
-        href={{}}
-      >
-        <a>{slide}</a>
-      </Link>
-    ))
+    .map((slide) => {
+      const isActiveLink = router.query.slidename === slide
+      const navItemClassnames = [
+        'nav-item',
+        isActiveLink && 'active',
+      ]
+        .filter(Boolean)
+        .join(' ')
+
+      const Element = isActiveLink
+        ? props => <span {...props} />
+        : Link
+
+      return (
+        <li className={navItemClassnames}>
+          <Element
+            href={`/CVSlide?slidename=${slide}`}
+            as={`/cv/${slide}`}
+          >
+            <a>
+              <img
+                src={`/static/img/nav-icons/${slide}.svg`}
+                alt={`An icon for the ${slide} page`}
+              />
+            </a>
+          </Element>
+          <style jsx>{styles}</style>
+        </li>
+      )
+    })
 }
 
 export default PageNav
