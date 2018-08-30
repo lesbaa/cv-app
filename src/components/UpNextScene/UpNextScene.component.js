@@ -2,8 +2,10 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { UP_NEXT } from '~/constants/skillTypes'
-import { pixiConnect } from '~/HOCs/withReduxStore'
-import { Style3D } from '~/modules/threedux/Style3D'
+import {
+  withStateTransition,
+  Style3D,
+} from '~/lib/threedux'
 import styles from './UpNextScene.styles'
 
 let PIXI
@@ -15,8 +17,9 @@ class UpNextScene extends Component {
   activeSkill = 0
 
   componentDidMount = async () => {
-    PIXI = await import('pixi.js')
     await this.props.fetchSkills({ type: UP_NEXT })
+    PIXI = await import('pixi.js')
+    // TODO would a promise.all do in here?
     this.init()
   }
 
@@ -73,10 +76,7 @@ class UpNextScene extends Component {
     const { default: liquidShader } = await import('~/shaders/liquidMorph')
     const { default: hatchShader } = await import('~/shaders/hatch_2')
 
-    this.liquidFilter = pixiConnect(
-      s => s,
-      d => d,
-    )(new PIXI.Filter('', liquidShader.fragment, liquidShader.uniforms))
+    this.liquidFilter = withStateTransition(new PIXI.Filter('', liquidShader.fragment, liquidShader.uniforms))
 
     this.app.stage.filters = [
       this.liquidFilter,

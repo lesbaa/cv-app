@@ -3,7 +3,6 @@
 
 import React from 'react'
 import configureStore from '~/store'
-import connect from '~/modules/threedux/connect'
 
 const isServer = typeof window === 'undefined'
 const __NEXT_REDUX_STORE__ = '__NEXT_REDUX_STORE__'
@@ -21,10 +20,10 @@ function getOrCreateStore(initialState) {
   return window[__NEXT_REDUX_STORE__]
 }
 
-const store = getOrCreateStore()
 
 export default App => class Redux extends React.Component {
   static async getInitialProps(appContext) {
+    const store = getOrCreateStore()
     // Provide the store to getInitialProps of pages
     appContext.ctx.store = store
 
@@ -48,5 +47,3 @@ export default App => class Redux extends React.Component {
     return <App {...this.props} store={this.store} />
   }
 }
-
-export const pixiConnect = connect(store)

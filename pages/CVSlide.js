@@ -7,6 +7,7 @@ import PageWrapper from '~/components/PageWrapper'
 import Content from '~/components/Content'
 import AnimatedScene from '~/components/AnimatedScene'
 import DetailModal from '~/components/DetailModal'
+import PageNav from '~/components/PageNav'
 import { fetchSlides } from '~/actionCreators'
 import InfoDialog from '~/components/InfoDialog'
 import TrackingDialog from '~/components/TrackingDialog'
@@ -21,7 +22,7 @@ class CVSlide extends Component {
       slidename,
     } = query
     // TODO you can probably "containerize" this.
-    await store.dispatch(fetchSlides({ slidename }))
+    await store.dispatch(fetchSlides())
 
     const slideData = store.getState().slides[slidename]
 
@@ -58,7 +59,6 @@ class CVSlide extends Component {
 
   componentDidMount = () => {
     this.props.pageTransitionReadyToEnter()
-    this.props.store.dispatch(fetchSlides())
   }
 
   render = () => {
@@ -94,6 +94,7 @@ class CVSlide extends Component {
           previousSlide={previousSlide}
           palette={palette}
         />
+        <PageNav />
         <DetailModal palette={palette} />
       </PageWrapper>
     )

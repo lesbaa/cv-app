@@ -4,6 +4,7 @@ export default css`
 
 .page-transition-enter .Title,
 .page-transition-enter .gradient,
+.page-transition-enter .PageNav,
 .page-transition-enter .anim-scene,
 .page-transition-enter .Main,
 .page-transition-enter .Nav {
@@ -12,6 +13,7 @@ export default css`
 }
 
 .page-transition-enter-active .Title,
+.page-transition-enter-active .PageNav,
 .page-transition-enter-active .gradient,
 .page-transition-enter-active .anim-scene,
 .page-transition-enter-active .Main,
@@ -22,6 +24,7 @@ export default css`
 }
 
 .page-transition-exit .Title,
+.page-transition-exit .PageNav,
 .page-transition-exit .gradient,
 .page-transition-exit .anim-scene,
 .page-transition-exit .Main,
@@ -31,6 +34,7 @@ export default css`
 }
 
 .page-transition-exit-active .Title,
+.page-transition-exit-active .PageNav,
 .page-transition-exit-active .gradient,
 .page-transition-exit-active .anim-scene,
 .page-transition-exit-active .Main,
