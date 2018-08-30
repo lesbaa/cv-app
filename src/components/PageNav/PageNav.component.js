@@ -9,30 +9,33 @@ import styles from './PageNav.styles'
 const PageNav = ({
   router,
   slides,
-}) => {
-  console.log(slides)
-  return (
-    <div className="PageNav">
-      <span className="chevron">
-        <ChevronLeftIcon
-          strokeWidth="1px"
-          size="2em"
-        />
-      </span>
-      <ul className="nav-links">
-        {mapSlides(slides, router)}
-      </ul>
-      <style jsx>{styles}</style>
-    </div>
-  )
-}
+}) => (
+  <div className="PageNav">
+    <span className="chevron">
+      <ChevronLeftIcon
+        strokeWidth="1px"
+        size="2em"
+      />
+    </span>
+    <ul className="nav-links">
+      {mapSlides(slides, router)}
+    </ul>
+    <style jsx>{styles}</style>
+  </div>
+)
 
 PageNav.propTypes = {
-
+  router: PropTypes.any,
+  slides: PropTypes.array,
 }
 
 PageNav.defaultProps = {
-
+  router: {},
+  slides: {
+    hello: {
+      altText: 'Oops, something seems to have gone awry in here!',
+    },
+  },
 }
 
 function mapSlides(slides, router) {
@@ -59,7 +62,7 @@ function mapSlides(slides, router) {
             <a title={altText}>
               <img
                 src={`/static/img/nav-icons/${slidename}.svg`}
-                alt={`An icon for the ${slidename} page`}
+                alt={`An icon for the ${slidename} page, ${altText}`}
               />
             </a>
           </Element>
