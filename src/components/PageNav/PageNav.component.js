@@ -36,9 +36,9 @@ PageNav.defaultProps = {
 }
 
 function mapSlides(slides, router) {
-  return Object.keys(slides)
-    .map((slide) => {
-      const isActiveLink = router.query.slidename === slide
+  return Object.entries(slides)
+    .map(([slidename, { altText }]) => {
+      const isActiveLink = router.query.slidename === slidename
       const navItemClassnames = [
         'nav-item',
         isActiveLink && 'active',
@@ -53,13 +53,13 @@ function mapSlides(slides, router) {
       return (
         <li className={navItemClassnames}>
           <Element
-            href={`/CVSlide?slidename=${slide}`}
-            as={`/cv/${slide}`}
+            href={`/CVSlide?slidename=${slidename}`}
+            as={`/cv/${slidename}`}
           >
-            <a>
+            <a title={altText}>
               <img
-                src={`/static/img/nav-icons/${slide}.svg`}
-                alt={`An icon for the ${slide} page`}
+                src={`/static/img/nav-icons/${slidename}.svg`}
+                alt={`An icon for the ${slidename} page`}
               />
             </a>
           </Element>
