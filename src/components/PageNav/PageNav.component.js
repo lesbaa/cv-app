@@ -40,6 +40,10 @@ PageNav.defaultProps = {
 
 function mapSlides(slides, router) {
   return Object.entries(slides)
+    .sort((
+      [, { order: a }],
+      [, { order: b }],
+    ) => a - b)
     .map(([slidename, { altText }]) => {
       const isActiveLink = router.query.slidename === slidename
       const navItemClassnames = [
