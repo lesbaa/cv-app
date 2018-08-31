@@ -14,34 +14,12 @@ export default css`
 
   @font-face {
     font-family: 'RobotoMono';
-    src: url('/static/fonts/RobotoMono-Thin.subset.eot');
-    src:  local('☺'),
-          url('/static/fonts/RobotoMono-Thin.subset.woff') format('woff'),
-          url('/static/fonts/RobotoMono-Thin.subset.ttf') format('truetype'),
-          url('/static/fonts/RobotoMono-Thin.subset.svg') format('svg');
-    font-weight: 200;
-    font-style: lighter;
-  }
-
-  @font-face {
-    font-family: 'RobotoMono';
-    src: url('/static/fonts/RobotoMono-ThinItalic.subset.eot');
-    src:  local('☺'),
-          url('/static/fonts/RobotoMono-ThinItalic.subset.woff') format('woff'),
-          url('/static/fonts/RobotoMono-ThinItalic.subset.ttf') format('truetype'),
-          url('/static/fonts/RobotoMono-ThinItalic.subset.svg') format('svg');
-    font-weight: 200;
-    font-style: italic;
-  }
-
-  @font-face {
-    font-family: 'RobotoMono';
     src: url('/static/fonts/RobotoMono-Light.subset.eot');
     src:  local('☺'),
           url('/static/fonts/RobotoMono-Light.subset.woff') format('woff'),
           url('/static/fonts/RobotoMono-Light.subset.ttf') format('truetype'),
           url('/static/fonts/RobotoMono-Light.subset.svg') format('svg');
-    font-weight: 400;
+    font-weight: 300;
     font-style: normal;
   }
 
@@ -52,6 +30,28 @@ export default css`
           url('/static/fonts/RobotoMono-LightItalic.subset.woff') format('woff'),
           url('/static/fonts/RobotoMono-LightItalic.subset.ttf') format('truetype'),
           url('/static/fonts/RobotoMono-LightItalic.subset.svg') format('svg');
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  @font-face {
+    font-family: 'RobotoMono';
+    src: url('/static/fonts/RobotoMono-Regular.subset.eot');
+    src:  local('☺'),
+          url('/static/fonts/RobotoMono-Regular.subset.woff') format('woff'),
+          url('/static/fonts/RobotoMono-Regular.subset.ttf') format('truetype'),
+          url('/static/fonts/RobotoMono-Regular.subset.svg') format('svg');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'RobotoMono';
+    src: url('/static/fonts/RobotoMono-Italic.subset.eot');
+    src:  local('☺'),
+          url('/static/fonts/RobotoMono-Italic.subset.woff') format('woff'),
+          url('/static/fonts/RobotoMono-Italic.subset.ttf') format('truetype'),
+          url('/static/fonts/RobotoMono-Italic.subset.svg') format('svg');
     font-weight: 400;
     font-style: italic;
   }
@@ -81,7 +81,7 @@ export default css`
     }
   }
 
-  .tadaa-anim > *{
+  .tadaa-anim > * {
     animation: 3s tadaa linear infinite;
     transition: transform 0.5s;
   }
@@ -100,7 +100,7 @@ export default css`
   }
 
   * {
-    font-weight: bold;
+    font-weight: 300;
     font-family: 'RobotoMono', sans-serif;
   }
 
@@ -119,7 +119,7 @@ export default css`
   }
 
   strong {
-    font-weight: 700;
+    font-weight: 400;
   }
 
   a {
