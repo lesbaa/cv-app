@@ -20,24 +20,13 @@ export default css`
   }
 
   .content-blurb :global(.human-too) > :global(span:nth-of-type(1n)) {
-    color: rgb(255, 50, 50);
+    color: inherit;
   }
 
   .content-blurb :global(.human-too) > :global(span:nth-of-type(2n)) {
-    color: #00f;
+    color: #554;
   }
 
-  .content-blurb :global(.human-too) > :global(span:nth-of-type(3n)) {
-    color: rgb(220, 100, 0);
-  }
-
-  .content-blurb :global(.human-too) > :global(span:nth-of-type(4n)) {
-    color: rgb(0, 90, 240);
-  }
-
-  .content-blurb :global(.human-too) > :global(span:nth-of-type(5n)) {
-    color: inherit;
-  }
 
   @media screen and (min-width: 500px) {
     .Content {
