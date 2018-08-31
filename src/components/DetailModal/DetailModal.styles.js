@@ -9,10 +9,11 @@ export default css`
     bottom: 0;
     left: calc(30% + 15vw);
     height: 100%;
-    transition: clip-path 1s;
+    transition: -webkit-clip-path 1s, clip-path 1s;
+    transform: translateX(0);
     clip-path: circle(150% at bottom right);
     font-size: 0.8em;
-    z-index: 2;
+    z-index: 3;
   }
   
   .content {
@@ -31,7 +32,9 @@ export default css`
   }
   
   .DetailModal.is-closed {
+    transform: translateX(100%);
     clip-path: circle(0px at bottom right);
+    transition: -webkit-clip-path 1s, clip-path 1s, transform 0.01s 1s;
   }
 
   .close-icon:hover > :global(svg) {
