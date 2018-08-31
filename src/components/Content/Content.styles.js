@@ -24,7 +24,7 @@ export default css`
   }
 
   .content-blurb :global(.human-too) > :global(span:nth-of-type(2n)) {
-    color: rgb(60, 255, 60);
+    color: #00f;
   }
 
   .content-blurb :global(.human-too) > :global(span:nth-of-type(3n)) {
