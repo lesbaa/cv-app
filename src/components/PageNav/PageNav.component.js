@@ -13,7 +13,7 @@ const PageNav = ({
   <div className="PageNav">
     <span className="chevron">
       <MoreVerticalIcon
-        strokeWidth="1px"
+        strokeWidth="0.5px"
         size="3em"
       />
     </span>
