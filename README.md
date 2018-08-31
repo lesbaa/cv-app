@@ -5,7 +5,7 @@ This App is an isomorphic JavaScript app built to explain and showcase my skills
 
 It's an ongoing project. I intend to keep at it to perfect skills, learn new ones etc.
 
-The [app itself](https://cv.lesmoffat.co.uk/cv) is built with the follow tech: 
+The [app itself](https://cv.lesmoffat.co.uk/cv?ref=github) is built with the follow tech: 
 - React, for rendering.
 - Next.JS to help with the isomorphic stuff, bundling.
 - Styled-jsx, for scoped styling of components.
