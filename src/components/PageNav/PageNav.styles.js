@@ -23,10 +23,8 @@ export default css`
   .chevron {
     vertical-align: middle;
     line-height: 100%;
-    padding: 0.5em 0;
-    border: 1px solid #444;
-    border-right-width: 0;
-    border-radius: 100% 0 0 100%;
+    padding: 0.5em;
+    padding-left: 0;
   }
 
   .PageNav,

@@ -3,7 +3,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
-import ChevronLeftIcon from 'react-feather/dist/icons/chevron-left'
+import MoreVerticalIcon from 'react-feather/dist/icons/more-vertical'
 import styles from './PageNav.styles'
 
 const PageNav = ({
@@ -12,9 +12,9 @@ const PageNav = ({
 }) => (
   <div className="PageNav">
     <span className="chevron">
-      <ChevronLeftIcon
+      <MoreVerticalIcon
         strokeWidth="1px"
-        size="2em"
+        size="3em"
       />
     </span>
     <ul className="nav-links">
