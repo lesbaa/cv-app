@@ -108,6 +108,7 @@ export default css`
     width: 100%;
     height: auto;
     color: #353535;
+    overflow-x: hidden;
     font-family: 'Roboto Mono', sans-serif;
     font-smoothing: subpixel-antialiased;
     font-size: 1.07em;
