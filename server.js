@@ -77,7 +77,7 @@ const nextAppHandler = pageComponent => async (req, res, next) => {
 app.prepare().then(() => {
   server.get('*', (req, res, next) => {
     if (isMobile(req) && !req.path.includes('_next')) {
-      return nextAppHandler('/mobile')
+      return nextAppHandler('/mobile')(req, res, next)
     }
     return next()
   })
