@@ -11,6 +11,7 @@ const PageWrapper = ({
   children,
   palette,
   title,
+  isMobile,
 }) => (
   <div
     className="PageWrapper"
@@ -24,13 +25,14 @@ const PageWrapper = ({
       title={`Les Moffat | ${title}`}
     />
     {children}
-    <PageNav />
+    { !isMobile && <PageNav /> }
     <style jsx>{styles}</style>
   </div>
 )
 
 PageWrapper.propTypes = {
   children: PropTypes.arrayOf(PropTypes.element),
+  isMobile: PropTypes.bool,
   palette: PropTypes.shape({
     gradient: PropTypes.string,
     colors: PropTypes.arrayOf(PropTypes.string),
@@ -39,6 +41,7 @@ PageWrapper.propTypes = {
 }
 
 PageWrapper.defaultProps = {
+  isMobile: false,
   children: null,
   palette: {
     gradient: 'to bottom right, #eee6ee, #d9d9d9',

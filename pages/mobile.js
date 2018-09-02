@@ -10,6 +10,7 @@ const blurbMarkup = `
 const Mobile = () => (
   <PageWrapper
     title="Gosh darn it!"
+    isMobile
   >
     <Content
       title="Gosh darn it!"
