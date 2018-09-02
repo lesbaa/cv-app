@@ -49,7 +49,7 @@ const PageHead = ({
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta name="theme-color" content="#F7F7F7" />
       <meta name="twitter:card" content="summary" />
-      <meta name="twitter:site" content="http://cv.lesmoffat.co.uk" />
+      <meta name="twitter:site" content="http://lesmoffat.co.uk/cv" />
       <meta name="twitter:image" content="/static/favicons/og-image.jpg" />
       <meta name="twitter:title" content="Purveyor of fine JavaScripts and other web wares." />
       <meta name="twitter:app:country" content="PT" />
@@ -75,7 +75,7 @@ const PageHead = ({
       <meta property="og:image:height" content="201" />
       <meta property="og:title" content="Les Moffat | Javascript Developer" />
       <meta property="og:description" content="Purveyor of fine JavaScripts and other web wares." />
-      <meta property="og:url" content="http://cv.lesmoffat.co.uk" />
+      <meta property="og:url" content="http://lesmoffat.co.uk/cv" />
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
       <meta name="HandheldFriendly" content="True" />
       <meta name="MobileOptimized" content="320" />
