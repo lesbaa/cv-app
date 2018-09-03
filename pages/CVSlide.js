@@ -3,6 +3,7 @@
 
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import TYPES from '~/constants/types'
 import PageWrapper from '~/components/PageWrapper'
 import Content from '~/components/Content'
 import AnimatedScene from '~/components/AnimatedScene'
@@ -105,17 +106,11 @@ CVSlide.propTypes = {
   slidename: PropTypes.string,
   blurbMarkup: PropTypes.string,
   title: PropTypes.string,
-  palette: PropTypes.string,
+  palette: TYPES.PALETTE,
   nextSlide: PropTypes.string,
   previousSlide: PropTypes.string,
   store: PropTypes.object,
-  err: PropTypes.oneOf([
-    PropTypes.shape({
-      statusCode: PropTypes.number,
-      message: PropTypes.string,
-    }),
-    PropTypes.bool,
-  ]),
+  err: TYPES.ERROR,
 }
 
 CVSlide.defaultProps = {
@@ -126,7 +121,7 @@ CVSlide.defaultProps = {
   palette: null,
   nextSlide: null,
   previousSlide: null,
-  store: PropTypes.object,
+  store: {},
   err: false,
 }
 

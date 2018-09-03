@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import TYPES from '~/constants/types'
 import Main from '~/components/Main'
 import Title from '~/components/Title'
 import Nav from '~/components/Nav'
@@ -43,10 +44,7 @@ Content.propTypes = {
   previousSlide: PropTypes.string,
   hasNav: PropTypes.bool,
   children: PropTypes.arrayOf(PropTypes.element),
-  palette: PropTypes.shape({
-    gradient: PropTypes.string,
-    colors: PropTypes.arrayOf(PropTypes.string),
-  }),
+  palette: TYPES.PALETTE,
 }
 
 Content.defaultProps = {

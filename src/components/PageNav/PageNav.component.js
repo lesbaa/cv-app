@@ -4,6 +4,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
 import MoreVerticalIcon from 'react-feather/dist/icons/more-vertical'
+import TYPES from '~/constants/types'
 import styles from './PageNav.styles'
 
 const PageNav = ({
@@ -26,7 +27,7 @@ const PageNav = ({
 
 PageNav.propTypes = {
   router: PropTypes.any,
-  slides: PropTypes.array,
+  slides: PropTypes.objectOf(TYPES.SLIDE),
 }
 
 PageNav.defaultProps = {
@@ -58,7 +59,10 @@ function mapSlides(slides, router) {
         : Link
 
       return (
-        <li className={navItemClassnames}>
+        <li
+          className={navItemClassnames}
+          key={slidename}
+        >
           <Element
             href={`/CVSlide?slidename=${slidename}`}
             as={`/cv/${slidename}`}

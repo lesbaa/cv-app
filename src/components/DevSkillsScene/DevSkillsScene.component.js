@@ -13,6 +13,7 @@ import Matter, {
 import MatterAttractors from 'matter-attractors'
 import { loadImg } from '~/utils/imgHelpers'
 import { DEV_SKILLS } from '~/constants/skillTypes'
+import TYPES from '~/constants/types'
 import styles from './DevSkillsScene.styles'
 
 Matter.use(MatterAttractors)
@@ -26,9 +27,8 @@ class DevSkillsScene extends Component {
 
     await Promise.all(Object
       .entries(this.props.skills)
-      .filter(([ , { type }]) => type === DEV_SKILLS)
-      .map(([key]) => loadImg(`/static/img/skill-icons/${key}.svg`))
-    )
+      .filter(([, { type }]) => type === DEV_SKILLS)
+      .map(([key]) => loadImg(`/static/img/skill-icons/${key}.svg`)))
 
     await this.init()
   }
@@ -226,13 +226,13 @@ class DevSkillsScene extends Component {
 }
 
 DevSkillsScene.propTypes = {
-  skills: PropTypes.array,
+  skills: PropTypes.objectOf(TYPES.SKILL),
   showDetailModal: PropTypes.func,
   fetchSkills: PropTypes.func,
 }
 
 DevSkillsScene.defaultProps = {
-  skills: [],
+  skills: {},
   showDetailModal: () => console.log('DevSkillsScene: no "showDetailModal" action passed'),
   fetchSkills: () => console.log('DevSkillsScene: no "fetchSkills" action passed'),
 }

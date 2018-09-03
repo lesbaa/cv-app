@@ -34,13 +34,16 @@ const Dialog = ({
 Dialog.propTypes = {
   isVisible: PropTypes.bool,
   message: PropTypes.string,
-  children: PropTypes.arrayOf(PropTypes.element),
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.element),
+    PropTypes.func,
+  ]),
 }
 
 Dialog.defaultProps = {
   isVisible: false,
   message: null,
-  children: PropTypes.arrayOf(PropTypes.element),
+  children: null
 }
 
 export default Dialog

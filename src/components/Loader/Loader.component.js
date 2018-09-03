@@ -21,11 +21,11 @@ const Loader = ({
   )
 }
 
-Loader.defaultProps = {
+Loader.propTypes = {
   isFetching: PropTypes.bool,
 }
 
-Loader.propTypes = {
+Loader.defaultProps = {
   isFetching: false,
 }
 

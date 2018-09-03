@@ -121,13 +121,13 @@ const Nav = ({
 Nav.propTypes = {
   previousSlide: PropTypes.string,
   nextSlide: PropTypes.string,
-  showInfoDialog: PropTypes.bool,
+  showInfoDialog: PropTypes.func,
 }
 
 Nav.defaultProps = {
   previousSlide: 'hello',
   nextSlide: 'hello',
-  showInfoDialog: false,
+  showInfoDialog: () => console.log('Nav.component: no showInfoDialog action passed to component'),
 }
 
 function handleClick(showInfoDialog) {
