@@ -8,6 +8,7 @@ import {
   HUMAN_TOO,
   SOCIAL_PROOF,
   HIRE_ME,
+  TIMELINE,
 } from '~/constants/slideNames'
 
 class AnimatedScene extends Component {
@@ -58,6 +59,9 @@ function getSceneComponent(slidename) {
     }
     case HUMAN_TOO: {
       return import('~/components/HumanTooScene')
+    }
+    case TIMELINE: {
+      return () => <div className="TimelineScene">Timeline</div> // will be included post MVP
     }
     case SOCIAL_PROOF: {
       return () => <div className="SocialProofScene">SocialProof</div> // will be included post MVP
