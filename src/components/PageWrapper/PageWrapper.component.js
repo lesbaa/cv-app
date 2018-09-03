@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import TYPES from '~/constants/types'
 import '~/utils/polyfills'
 import PageHead from '~/components/PageHead'
 import Loader from '~/components/Loader'
@@ -33,10 +34,7 @@ const PageWrapper = ({
 PageWrapper.propTypes = {
   children: PropTypes.arrayOf(PropTypes.element),
   isMobile: PropTypes.bool,
-  palette: PropTypes.shape({
-    gradient: PropTypes.string,
-    colors: PropTypes.arrayOf(PropTypes.string),
-  }),
+  palette: TYPES.PALETTE,
   title: PropTypes.string,
 }
 

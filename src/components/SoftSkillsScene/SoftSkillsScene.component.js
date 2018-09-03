@@ -13,6 +13,7 @@ import {
 } from 'matter-js'
 import { loadImg } from '~/utils/imgHelpers'
 import { SOFT_SKILLS } from '~/constants/skillTypes'
+import TYPES from '~/constants/types'
 import styles from './SoftSkillsScene.styles'
 
 let PIXI
@@ -300,13 +301,13 @@ class SoftSkillsScene extends Component {
 }
 
 SoftSkillsScene.propTypes = {
-  skills: PropTypes.array,
+  skills: PropTypes.objectOf(TYPES.SKILL),
   showDetailModal: PropTypes.func,
   fetchSkills: PropTypes.func,
 }
 
 SoftSkillsScene.defaultProps = {
-  skills: [],
+  skills: {},
   showDetailModal: () => console.log('DevSkillsScene: no "showDetailModal" action passed'),
   fetchSkills: () => console.log('DevSkillsScene: no "fetchSkills" action passed'),
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import TYPES from '~/constants/types'
 import {
   HELLO,
   DEV_SKILLS,
@@ -73,10 +74,7 @@ function getSceneComponent(slidename) {
 
 AnimatedScene.propTypes = {
   slidename: PropTypes.string,
-  palette: PropTypes.shape({
-    gradient: PropTypes.string,
-    colors: PropTypes.arrayOf(PropTypes.string),
-  }),
+  palette: TYPES.PALETTE,
 }
 
 AnimatedScene.defaultProps = {

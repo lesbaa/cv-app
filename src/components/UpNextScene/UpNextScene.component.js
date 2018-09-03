@@ -1,6 +1,7 @@
 /* eslint-env browser */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import TYPES from '~/constants/types'
 import { UP_NEXT } from '~/constants/skillTypes'
 import {
   withStateTransition,
@@ -200,7 +201,7 @@ class UpNextScene extends Component {
 }
 
 UpNextScene.propTypes = {
-  skills: PropTypes.array,
+  skills: PropTypes.arrayOf(TYPES.SKILL),
   fetchSkills: PropTypes.func,
 }
 
