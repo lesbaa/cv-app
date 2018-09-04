@@ -22,15 +22,12 @@
     }]
   ],
   "env": {
-    "development": {
-      "plugins": [
-        "styled-jsx/babel"
-      ]
+    "test": {
+      "presets": [["next/babel", {"preset-env": {"modules": "commonjs"}}]]
     },
     "live": {
       "plugins": [
-        "transform-react-remove-prop-types",
-        "styled-jsx/babel"
+        "transform-react-remove-prop-types"
       ]
     }
   }
