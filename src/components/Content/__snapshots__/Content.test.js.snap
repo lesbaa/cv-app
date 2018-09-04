@@ -1,17 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Content renders 1`] = `
+exports[`Content matches its snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Content
-    blurbMarkup=""
+    blurbMarkup="<p>Hiya this is a paragraph from backend!<p>"
     hasNav={true}
-    nextSlide=""
-    palette={Object {}}
-    previousSlide=""
+    nextSlide="dev-skills"
+    palette={
+      Object {
+        "colors": Array [
+          "#eee6ee",
+          "#d9d9d9",
+        ],
+        "gradient": "to bottom right, #eee6ee, #d9d9d9",
+      }
+    }
+    previousSlide="hello"
     store={Object {}}
-    title=""
-  />,
+    title="Hiya this is a title!"
+  >
+    <div
+      className="child-one"
+    >
+      Helooo!
+    </div>
+  </Content>,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -26,21 +40,21 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <Title
-          title=""
+          title="Hiya this is a title!"
         />,
         <Main>
           <span
             className="jsx-160578109 content-blurb"
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "",
-              }
-            }
           />
+          <div
+            className="child-one"
+          >
+            Helooo!
+          </div>
         </Main>,
         <Connect(Nav)
-          nextSlide=""
-          previousSlide=""
+          nextSlide="dev-skills"
+          previousSlide="hello"
         />,
         <JSXStyle
           css=".Content.jsx-160578109{display:inline-block;box-sizing:border-box;margin:7.5vh;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;position:relative;font-size:0.8em;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}.content-blurb.jsx-160578109 .human-too>span{margin-left:0.5em;}.content-blurb.jsx-160578109 .human-too>span:last-of-type{margin-left:0em;}.content-blurb.jsx-160578109 .human-too>span:nth-of-type(1n){color:inherit;}.content-blurb.jsx-160578109 .human-too>span:nth-of-type(2n){color:#554;}@media screen and (min-width:500px){.Content.jsx-160578109{width:30%;}}"
@@ -57,7 +71,7 @@ ShallowWrapper {
         "nodeType": "function",
         "props": Object {
           "opacity": undefined,
-          "title": "",
+          "title": "Hiya this is a title!",
         },
         "ref": null,
         "rendered": null,
@@ -71,13 +85,12 @@ ShallowWrapper {
           "children": Array [
             <span
               className="jsx-160578109 content-blurb"
-              dangerouslySetInnerHTML={
-                Object {
-                  "__html": "",
-                }
-              }
             />,
-            null,
+            <div
+              className="child-one"
+            >
+              Helooo!
+            </div>,
           ],
         },
         "ref": null,
@@ -87,17 +100,26 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
+              "children": undefined,
               "className": "jsx-160578109 content-blurb",
-              "dangerouslySetInnerHTML": Object {
-                "__html": "",
-              },
               "opacity": undefined,
             },
             "ref": null,
             "rendered": null,
             "type": "span",
           },
-          null,
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Helooo!",
+              "className": "child-one",
+            },
+            "ref": null,
+            "rendered": "Helooo!",
+            "type": "div",
+          },
         ],
         "type": [Function],
       },
@@ -106,8 +128,8 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "nextSlide": "",
-          "previousSlide": "",
+          "nextSlide": "dev-skills",
+          "previousSlide": "hello",
         },
         "ref": null,
         "rendered": null,
@@ -136,21 +158,21 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <Title
-            title=""
+            title="Hiya this is a title!"
           />,
           <Main>
             <span
               className="jsx-160578109 content-blurb"
-              dangerouslySetInnerHTML={
-                Object {
-                  "__html": "",
-                }
-              }
             />
+            <div
+              className="child-one"
+            >
+              Helooo!
+            </div>
           </Main>,
           <Connect(Nav)
-            nextSlide=""
-            previousSlide=""
+            nextSlide="dev-skills"
+            previousSlide="hello"
           />,
           <JSXStyle
             css=".Content.jsx-160578109{display:inline-block;box-sizing:border-box;margin:7.5vh;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;position:relative;font-size:0.8em;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}.content-blurb.jsx-160578109 .human-too>span{margin-left:0.5em;}.content-blurb.jsx-160578109 .human-too>span:last-of-type{margin-left:0em;}.content-blurb.jsx-160578109 .human-too>span:nth-of-type(1n){color:inherit;}.content-blurb.jsx-160578109 .human-too>span:nth-of-type(2n){color:#554;}@media screen and (min-width:500px){.Content.jsx-160578109{width:30%;}}"
@@ -167,7 +189,7 @@ ShallowWrapper {
           "nodeType": "function",
           "props": Object {
             "opacity": undefined,
-            "title": "",
+            "title": "Hiya this is a title!",
           },
           "ref": null,
           "rendered": null,
@@ -181,13 +203,12 @@ ShallowWrapper {
             "children": Array [
               <span
                 className="jsx-160578109 content-blurb"
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "",
-                  }
-                }
               />,
-              null,
+              <div
+                className="child-one"
+              >
+                Helooo!
+              </div>,
             ],
           },
           "ref": null,
@@ -197,17 +218,26 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
+                "children": undefined,
                 "className": "jsx-160578109 content-blurb",
-                "dangerouslySetInnerHTML": Object {
-                  "__html": "",
-                },
                 "opacity": undefined,
               },
               "ref": null,
               "rendered": null,
               "type": "span",
             },
-            null,
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Helooo!",
+                "className": "child-one",
+              },
+              "ref": null,
+              "rendered": "Helooo!",
+              "type": "div",
+            },
           ],
           "type": [Function],
         },
@@ -216,8 +246,8 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "nextSlide": "",
-            "previousSlide": "",
+            "nextSlide": "dev-skills",
+            "previousSlide": "hello",
           },
           "ref": null,
           "rendered": null,
