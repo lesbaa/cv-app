@@ -20,9 +20,15 @@
       "^.+\\.js?$": "babel-jest"
     },
     "setupTestFrameworkScriptFile": "<rootDir>/setUpTests.js",
+    "setupFiles": ["jest-canvas-mock"],
     "moduleNameMapper": {
       "^.+\\.glsl$": "<rootDir>/__mocks__/shader.mock.js"
     },
+    "coveragePathIgnorePatterns": [
+      "node_modules",
+      "package.json",
+      "^.+\\.snap$"
+    ],
     "coverageDirectory": "./lcov"
   },
   "repository": {
@@ -46,6 +52,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.8.2",
     "jest": "^23.5.0",
+    "jest-canvas-mock": "^1.1.0",
     "nodemon": "^1.17.5",
     "prop-types": "^15.6.2",
     "spdy-keys": "0.0.0"
