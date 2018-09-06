@@ -15,6 +15,26 @@ describe('Nav', () => {
     />
   )
 
+  const wrapperNoPrev = shallow(
+    <Nav
+      previousSlide="hello"
+      showInfoDialog={mockShowInfoAction}
+    />
+  )
+
+  const wrapperNoNext = shallow(
+    <Nav
+      previousSlide="hello"
+      showInfoDialog={mockShowInfoAction}
+    />
+  )
+
+  const wrapperNoSlides = shallow(
+    <Nav
+      showInfoDialog={mockShowInfoAction}
+    />
+  )
+
   it('matches its snapshots', () => {
     expect(wrapper).toMatchSnapshot()
   })
