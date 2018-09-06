@@ -20,7 +20,9 @@
       "^.+\\.js?$": "babel-jest"
     },
     "setupTestFrameworkScriptFile": "<rootDir>/setUpTests.js",
-    "setupFiles": ["jest-canvas-mock"],
+    "setupFiles": [
+      "jest-canvas-mock"
+    ],
     "moduleNameMapper": {
       "^.+\\.glsl$": "<rootDir>/__mocks__/shader.mock.js"
     },
@@ -82,7 +84,7 @@
     "ramda": "^0.25.0",
     "raw-loader": "^0.5.1",
     "react": "16.4.0",
-    "react-dom": "16.4.0",
+    "react-dom": "16.4.2",
     "react-feather": "^1.1.0",
     "react-html-parser": "^2.0.2",
     "react-redux": "^5.0.7",
@@ -92,7 +94,6 @@
     "redux-thunk": "^2.3.0",
     "serve-static": "1.13.2",
     "spdy": "3.4.7",
-    "styled-jsx": "^2.2.6",
     "toxiclibsjs": "^0.3.3",
     "webpack": "4.8.3"
   }
