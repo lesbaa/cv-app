@@ -6,7 +6,6 @@ import ArrowLeftIcon from 'react-feather/dist/icons/arrow-left'
 import ArrowRightIcon from 'react-feather/dist/icons/arrow-right'
 import { DIALOG_TIMEOUT } from '~/../les.config'
 import Nav, { handleClick } from './Nav.component'
-import copyToClipBoard from '~/utils/clipboard'
 
 jest.mock('~/utils/clipboard', () => jest.fn(e => e))
 
