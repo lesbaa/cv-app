@@ -10,9 +10,7 @@ describe('ICalLinkPicker', () => {
     <ICalLinkPicker
       message="message 1"
       isVisible
-    >
-      <div className="child" />
-    </ICalLinkPicker>
+    />
   )
 
   it('matches its snapshots', () => {

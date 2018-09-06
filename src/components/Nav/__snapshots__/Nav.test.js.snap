@@ -1,0 +1,1177 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nav matches its snapshots 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Nav
+    nextSlide="goodbye"
+    previousSlide="hello"
+    showInfoDialog={[MockFunction]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="jsx-3545264305 actions"
+        >
+          <span
+            className="jsx-3545264305 nav-item"
+          >
+            <a
+              className="jsx-3545264305"
+              href="https://github.com/lesbaa/cv-app"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="view the source for this app"
+            >
+              <Code
+                color="currentColor"
+                size="1em"
+              />
+            </a>
+          </span>
+          <span
+            className="jsx-3545264305 nav-item"
+          >
+            <a
+              className="jsx-3545264305"
+              href="#"
+              onClick={[Function]}
+              title="copy the url of this page to the clipboard"
+            >
+              <Share2
+                color="currentColor"
+                size="1em"
+              />
+            </a>
+          </span>
+          <span
+            className="jsx-3545264305 nav-item"
+          >
+            <a
+              className="jsx-3545264305"
+              href="//www.linkedin.com/in/lesmoffat/"
+              title="find me on linked in!"
+            >
+              <Linkedin
+                color="currentColor"
+                size="1em"
+              />
+            </a>
+          </span>
+          <span
+            className="jsx-3545264305 nav-item"
+          >
+            <a
+              className="jsx-3545264305"
+              href="mailto:les@lesmoffat.co.uk?subject=Whassssssssuuuuppppp&body=Hey%20Les%2C%20I've%20just%20had%20a%20look%20at%20your%20CV%20and%20I'd%20love%20to%20find%20out%20more%20about%20your%20gif%20prowess.%20Could%20we%20organise%20a%20chat%20and%20find%20out%20more%20about%20how%20your%20gifs%20could%20improve%20my%20organisation%3F"
+              title="send me a message!"
+            >
+              <Mail
+                color="currentColor"
+                size="1em"
+              />
+            </a>
+          </span>
+        </div>,
+        <div
+          className="jsx-3545264305 next-prev"
+        >
+          <Link
+            as="/cv/hello"
+            href={
+              Object {
+                "pathname": "/CVSlide",
+                "query": Object {
+                  "slidename": "hello",
+                },
+              }
+            }
+            prefetch={true}
+          >
+            <a
+              className="jsx-3545264305 nav-item"
+            >
+              <ArrowLeft
+                color="currentColor"
+                size="1em"
+              />
+            </a>
+          </Link>
+          <Link
+            as="/cv/goodbye"
+            href={
+              Object {
+                "pathname": "/CVSlide",
+                "query": Object {
+                  "slidename": "goodbye",
+                },
+              }
+            }
+            prefetch={true}
+          >
+            <a
+              className="jsx-3545264305 nav-item"
+            >
+              <ArrowRight
+                color="currentColor"
+                size="1em"
+              />
+            </a>
+          </Link>
+        </div>,
+        <JSXStyle
+          css=".Nav.jsx-3545264305{position:relative;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;font-size:1.6em;margin-top:0.25em;mix-blend-mode:color-burn;z-index:1;}.nav-item.jsx-3545264305:hover svg{opacity:0.5;-webkit-transition:0.5s;transition:0.5s;cursor:pointer;}.nav-item.jsx-3545264305 svg{stroke:#333;stroke-width:1.5;}.nav-item.jsx-3545264305{-webkit-text-decoration:none;text-decoration:none;}.nav-item.jsx-3545264305:after{content:'/';margin:0.2em;}.nav-item.jsx-3545264305:last-of-type.jsx-3545264305:after{content:none;}.next-prev.jsx-3545264305,.actions.jsx-3545264305,.jsx-3545264305{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}"
+          styleId="3545264305"
+        />,
+      ],
+      "className": "jsx-3545264305 Nav",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <span
+              className="jsx-3545264305 nav-item"
+            >
+              <a
+                className="jsx-3545264305"
+                href="https://github.com/lesbaa/cv-app"
+                rel="noopener noreferrer"
+                target="_blank"
+                title="view the source for this app"
+              >
+                <Code
+                  color="currentColor"
+                  size="1em"
+                />
+              </a>
+            </span>,
+            <span
+              className="jsx-3545264305 nav-item"
+            >
+              <a
+                className="jsx-3545264305"
+                href="#"
+                onClick={[Function]}
+                title="copy the url of this page to the clipboard"
+              >
+                <Share2
+                  color="currentColor"
+                  size="1em"
+                />
+              </a>
+            </span>,
+            <span
+              className="jsx-3545264305 nav-item"
+            >
+              <a
+                className="jsx-3545264305"
+                href="//www.linkedin.com/in/lesmoffat/"
+                title="find me on linked in!"
+              >
+                <Linkedin
+                  color="currentColor"
+                  size="1em"
+                />
+              </a>
+            </span>,
+            <span
+              className="jsx-3545264305 nav-item"
+            >
+              <a
+                className="jsx-3545264305"
+                href="mailto:les@lesmoffat.co.uk?subject=Whassssssssuuuuppppp&body=Hey%20Les%2C%20I've%20just%20had%20a%20look%20at%20your%20CV%20and%20I'd%20love%20to%20find%20out%20more%20about%20your%20gif%20prowess.%20Could%20we%20organise%20a%20chat%20and%20find%20out%20more%20about%20how%20your%20gifs%20could%20improve%20my%20organisation%3F"
+                title="send me a message!"
+              >
+                <Mail
+                  color="currentColor"
+                  size="1em"
+                />
+              </a>
+            </span>,
+          ],
+          "className": "jsx-3545264305 actions",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <a
+                className="jsx-3545264305"
+                href="https://github.com/lesbaa/cv-app"
+                rel="noopener noreferrer"
+                target="_blank"
+                title="view the source for this app"
+              >
+                <Code
+                  color="currentColor"
+                  size="1em"
+                />
+              </a>,
+              "className": "jsx-3545264305 nav-item",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <Code
+                  color="currentColor"
+                  size="1em"
+                />,
+                "className": "jsx-3545264305",
+                "href": "https://github.com/lesbaa/cv-app",
+                "rel": "noopener noreferrer",
+                "target": "_blank",
+                "title": "view the source for this app",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "color": "currentColor",
+                  "size": "1em",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": "a",
+            },
+            "type": "span",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <a
+                className="jsx-3545264305"
+                href="#"
+                onClick={[Function]}
+                title="copy the url of this page to the clipboard"
+              >
+                <Share2
+                  color="currentColor"
+                  size="1em"
+                />
+              </a>,
+              "className": "jsx-3545264305 nav-item",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <Share2
+                  color="currentColor"
+                  size="1em"
+                />,
+                "className": "jsx-3545264305",
+                "href": "#",
+                "onClick": [Function],
+                "title": "copy the url of this page to the clipboard",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "color": "currentColor",
+                  "size": "1em",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": "a",
+            },
+            "type": "span",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <a
+                className="jsx-3545264305"
+                href="//www.linkedin.com/in/lesmoffat/"
+                title="find me on linked in!"
+              >
+                <Linkedin
+                  color="currentColor"
+                  size="1em"
+                />
+              </a>,
+              "className": "jsx-3545264305 nav-item",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <Linkedin
+                  color="currentColor"
+                  size="1em"
+                />,
+                "className": "jsx-3545264305",
+                "href": "//www.linkedin.com/in/lesmoffat/",
+                "title": "find me on linked in!",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "color": "currentColor",
+                  "size": "1em",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": "a",
+            },
+            "type": "span",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <a
+                className="jsx-3545264305"
+                href="mailto:les@lesmoffat.co.uk?subject=Whassssssssuuuuppppp&body=Hey%20Les%2C%20I've%20just%20had%20a%20look%20at%20your%20CV%20and%20I'd%20love%20to%20find%20out%20more%20about%20your%20gif%20prowess.%20Could%20we%20organise%20a%20chat%20and%20find%20out%20more%20about%20how%20your%20gifs%20could%20improve%20my%20organisation%3F"
+                title="send me a message!"
+              >
+                <Mail
+                  color="currentColor"
+                  size="1em"
+                />
+              </a>,
+              "className": "jsx-3545264305 nav-item",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <Mail
+                  color="currentColor"
+                  size="1em"
+                />,
+                "className": "jsx-3545264305",
+                "href": "mailto:les@lesmoffat.co.uk?subject=Whassssssssuuuuppppp&body=Hey%20Les%2C%20I've%20just%20had%20a%20look%20at%20your%20CV%20and%20I'd%20love%20to%20find%20out%20more%20about%20your%20gif%20prowess.%20Could%20we%20organise%20a%20chat%20and%20find%20out%20more%20about%20how%20your%20gifs%20could%20improve%20my%20organisation%3F",
+                "title": "send me a message!",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "color": "currentColor",
+                  "size": "1em",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": "a",
+            },
+            "type": "span",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <Link
+              as="/cv/hello"
+              href={
+                Object {
+                  "pathname": "/CVSlide",
+                  "query": Object {
+                    "slidename": "hello",
+                  },
+                }
+              }
+              prefetch={true}
+            >
+              <a
+                className="jsx-3545264305 nav-item"
+              >
+                <ArrowLeft
+                  color="currentColor"
+                  size="1em"
+                />
+              </a>
+            </Link>,
+            <Link
+              as="/cv/goodbye"
+              href={
+                Object {
+                  "pathname": "/CVSlide",
+                  "query": Object {
+                    "slidename": "goodbye",
+                  },
+                }
+              }
+              prefetch={true}
+            >
+              <a
+                className="jsx-3545264305 nav-item"
+              >
+                <ArrowRight
+                  color="currentColor"
+                  size="1em"
+                />
+              </a>
+            </Link>,
+          ],
+          "className": "jsx-3545264305 next-prev",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "as": "/cv/hello",
+              "children": <a
+                className="jsx-3545264305 nav-item"
+              >
+                <ArrowLeft
+                  color="currentColor"
+                  size="1em"
+                />
+              </a>,
+              "href": Object {
+                "pathname": "/CVSlide",
+                "query": Object {
+                  "slidename": "hello",
+                },
+              },
+              "prefetch": true,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <ArrowLeft
+                  color="currentColor"
+                  size="1em"
+                />,
+                "className": "jsx-3545264305 nav-item",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "color": "currentColor",
+                  "size": "1em",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": "a",
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "as": "/cv/goodbye",
+              "children": <a
+                className="jsx-3545264305 nav-item"
+              >
+                <ArrowRight
+                  color="currentColor"
+                  size="1em"
+                />
+              </a>,
+              "href": Object {
+                "pathname": "/CVSlide",
+                "query": Object {
+                  "slidename": "goodbye",
+                },
+              },
+              "prefetch": true,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <ArrowRight
+                  color="currentColor"
+                  size="1em"
+                />,
+                "className": "jsx-3545264305 nav-item",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "color": "currentColor",
+                  "size": "1em",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": "a",
+            },
+            "type": [Function],
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "css": ".Nav.jsx-3545264305{position:relative;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;font-size:1.6em;margin-top:0.25em;mix-blend-mode:color-burn;z-index:1;}.nav-item.jsx-3545264305:hover svg{opacity:0.5;-webkit-transition:0.5s;transition:0.5s;cursor:pointer;}.nav-item.jsx-3545264305 svg{stroke:#333;stroke-width:1.5;}.nav-item.jsx-3545264305{-webkit-text-decoration:none;text-decoration:none;}.nav-item.jsx-3545264305:after{content:'/';margin:0.2em;}.nav-item.jsx-3545264305:last-of-type.jsx-3545264305:after{content:none;}.next-prev.jsx-3545264305,.actions.jsx-3545264305,.jsx-3545264305{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}",
+          "styleId": "3545264305",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "nav",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="jsx-3545264305 actions"
+          >
+            <span
+              className="jsx-3545264305 nav-item"
+            >
+              <a
+                className="jsx-3545264305"
+                href="https://github.com/lesbaa/cv-app"
+                rel="noopener noreferrer"
+                target="_blank"
+                title="view the source for this app"
+              >
+                <Code
+                  color="currentColor"
+                  size="1em"
+                />
+              </a>
+            </span>
+            <span
+              className="jsx-3545264305 nav-item"
+            >
+              <a
+                className="jsx-3545264305"
+                href="#"
+                onClick={[Function]}
+                title="copy the url of this page to the clipboard"
+              >
+                <Share2
+                  color="currentColor"
+                  size="1em"
+                />
+              </a>
+            </span>
+            <span
+              className="jsx-3545264305 nav-item"
+            >
+              <a
+                className="jsx-3545264305"
+                href="//www.linkedin.com/in/lesmoffat/"
+                title="find me on linked in!"
+              >
+                <Linkedin
+                  color="currentColor"
+                  size="1em"
+                />
+              </a>
+            </span>
+            <span
+              className="jsx-3545264305 nav-item"
+            >
+              <a
+                className="jsx-3545264305"
+                href="mailto:les@lesmoffat.co.uk?subject=Whassssssssuuuuppppp&body=Hey%20Les%2C%20I've%20just%20had%20a%20look%20at%20your%20CV%20and%20I'd%20love%20to%20find%20out%20more%20about%20your%20gif%20prowess.%20Could%20we%20organise%20a%20chat%20and%20find%20out%20more%20about%20how%20your%20gifs%20could%20improve%20my%20organisation%3F"
+                title="send me a message!"
+              >
+                <Mail
+                  color="currentColor"
+                  size="1em"
+                />
+              </a>
+            </span>
+          </div>,
+          <div
+            className="jsx-3545264305 next-prev"
+          >
+            <Link
+              as="/cv/hello"
+              href={
+                Object {
+                  "pathname": "/CVSlide",
+                  "query": Object {
+                    "slidename": "hello",
+                  },
+                }
+              }
+              prefetch={true}
+            >
+              <a
+                className="jsx-3545264305 nav-item"
+              >
+                <ArrowLeft
+                  color="currentColor"
+                  size="1em"
+                />
+              </a>
+            </Link>
+            <Link
+              as="/cv/goodbye"
+              href={
+                Object {
+                  "pathname": "/CVSlide",
+                  "query": Object {
+                    "slidename": "goodbye",
+                  },
+                }
+              }
+              prefetch={true}
+            >
+              <a
+                className="jsx-3545264305 nav-item"
+              >
+                <ArrowRight
+                  color="currentColor"
+                  size="1em"
+                />
+              </a>
+            </Link>
+          </div>,
+          <JSXStyle
+            css=".Nav.jsx-3545264305{position:relative;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;font-size:1.6em;margin-top:0.25em;mix-blend-mode:color-burn;z-index:1;}.nav-item.jsx-3545264305:hover svg{opacity:0.5;-webkit-transition:0.5s;transition:0.5s;cursor:pointer;}.nav-item.jsx-3545264305 svg{stroke:#333;stroke-width:1.5;}.nav-item.jsx-3545264305{-webkit-text-decoration:none;text-decoration:none;}.nav-item.jsx-3545264305:after{content:'/';margin:0.2em;}.nav-item.jsx-3545264305:last-of-type.jsx-3545264305:after{content:none;}.next-prev.jsx-3545264305,.actions.jsx-3545264305,.jsx-3545264305{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}"
+            styleId="3545264305"
+          />,
+        ],
+        "className": "jsx-3545264305 Nav",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <span
+                className="jsx-3545264305 nav-item"
+              >
+                <a
+                  className="jsx-3545264305"
+                  href="https://github.com/lesbaa/cv-app"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  title="view the source for this app"
+                >
+                  <Code
+                    color="currentColor"
+                    size="1em"
+                  />
+                </a>
+              </span>,
+              <span
+                className="jsx-3545264305 nav-item"
+              >
+                <a
+                  className="jsx-3545264305"
+                  href="#"
+                  onClick={[Function]}
+                  title="copy the url of this page to the clipboard"
+                >
+                  <Share2
+                    color="currentColor"
+                    size="1em"
+                  />
+                </a>
+              </span>,
+              <span
+                className="jsx-3545264305 nav-item"
+              >
+                <a
+                  className="jsx-3545264305"
+                  href="//www.linkedin.com/in/lesmoffat/"
+                  title="find me on linked in!"
+                >
+                  <Linkedin
+                    color="currentColor"
+                    size="1em"
+                  />
+                </a>
+              </span>,
+              <span
+                className="jsx-3545264305 nav-item"
+              >
+                <a
+                  className="jsx-3545264305"
+                  href="mailto:les@lesmoffat.co.uk?subject=Whassssssssuuuuppppp&body=Hey%20Les%2C%20I've%20just%20had%20a%20look%20at%20your%20CV%20and%20I'd%20love%20to%20find%20out%20more%20about%20your%20gif%20prowess.%20Could%20we%20organise%20a%20chat%20and%20find%20out%20more%20about%20how%20your%20gifs%20could%20improve%20my%20organisation%3F"
+                  title="send me a message!"
+                >
+                  <Mail
+                    color="currentColor"
+                    size="1em"
+                  />
+                </a>
+              </span>,
+            ],
+            "className": "jsx-3545264305 actions",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <a
+                  className="jsx-3545264305"
+                  href="https://github.com/lesbaa/cv-app"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  title="view the source for this app"
+                >
+                  <Code
+                    color="currentColor"
+                    size="1em"
+                  />
+                </a>,
+                "className": "jsx-3545264305 nav-item",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <Code
+                    color="currentColor"
+                    size="1em"
+                  />,
+                  "className": "jsx-3545264305",
+                  "href": "https://github.com/lesbaa/cv-app",
+                  "rel": "noopener noreferrer",
+                  "target": "_blank",
+                  "title": "view the source for this app",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "color": "currentColor",
+                    "size": "1em",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "type": "a",
+              },
+              "type": "span",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <a
+                  className="jsx-3545264305"
+                  href="#"
+                  onClick={[Function]}
+                  title="copy the url of this page to the clipboard"
+                >
+                  <Share2
+                    color="currentColor"
+                    size="1em"
+                  />
+                </a>,
+                "className": "jsx-3545264305 nav-item",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <Share2
+                    color="currentColor"
+                    size="1em"
+                  />,
+                  "className": "jsx-3545264305",
+                  "href": "#",
+                  "onClick": [Function],
+                  "title": "copy the url of this page to the clipboard",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "color": "currentColor",
+                    "size": "1em",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "type": "a",
+              },
+              "type": "span",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <a
+                  className="jsx-3545264305"
+                  href="//www.linkedin.com/in/lesmoffat/"
+                  title="find me on linked in!"
+                >
+                  <Linkedin
+                    color="currentColor"
+                    size="1em"
+                  />
+                </a>,
+                "className": "jsx-3545264305 nav-item",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <Linkedin
+                    color="currentColor"
+                    size="1em"
+                  />,
+                  "className": "jsx-3545264305",
+                  "href": "//www.linkedin.com/in/lesmoffat/",
+                  "title": "find me on linked in!",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "color": "currentColor",
+                    "size": "1em",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "type": "a",
+              },
+              "type": "span",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <a
+                  className="jsx-3545264305"
+                  href="mailto:les@lesmoffat.co.uk?subject=Whassssssssuuuuppppp&body=Hey%20Les%2C%20I've%20just%20had%20a%20look%20at%20your%20CV%20and%20I'd%20love%20to%20find%20out%20more%20about%20your%20gif%20prowess.%20Could%20we%20organise%20a%20chat%20and%20find%20out%20more%20about%20how%20your%20gifs%20could%20improve%20my%20organisation%3F"
+                  title="send me a message!"
+                >
+                  <Mail
+                    color="currentColor"
+                    size="1em"
+                  />
+                </a>,
+                "className": "jsx-3545264305 nav-item",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <Mail
+                    color="currentColor"
+                    size="1em"
+                  />,
+                  "className": "jsx-3545264305",
+                  "href": "mailto:les@lesmoffat.co.uk?subject=Whassssssssuuuuppppp&body=Hey%20Les%2C%20I've%20just%20had%20a%20look%20at%20your%20CV%20and%20I'd%20love%20to%20find%20out%20more%20about%20your%20gif%20prowess.%20Could%20we%20organise%20a%20chat%20and%20find%20out%20more%20about%20how%20your%20gifs%20could%20improve%20my%20organisation%3F",
+                  "title": "send me a message!",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "color": "currentColor",
+                    "size": "1em",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "type": "a",
+              },
+              "type": "span",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <Link
+                as="/cv/hello"
+                href={
+                  Object {
+                    "pathname": "/CVSlide",
+                    "query": Object {
+                      "slidename": "hello",
+                    },
+                  }
+                }
+                prefetch={true}
+              >
+                <a
+                  className="jsx-3545264305 nav-item"
+                >
+                  <ArrowLeft
+                    color="currentColor"
+                    size="1em"
+                  />
+                </a>
+              </Link>,
+              <Link
+                as="/cv/goodbye"
+                href={
+                  Object {
+                    "pathname": "/CVSlide",
+                    "query": Object {
+                      "slidename": "goodbye",
+                    },
+                  }
+                }
+                prefetch={true}
+              >
+                <a
+                  className="jsx-3545264305 nav-item"
+                >
+                  <ArrowRight
+                    color="currentColor"
+                    size="1em"
+                  />
+                </a>
+              </Link>,
+            ],
+            "className": "jsx-3545264305 next-prev",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "as": "/cv/hello",
+                "children": <a
+                  className="jsx-3545264305 nav-item"
+                >
+                  <ArrowLeft
+                    color="currentColor"
+                    size="1em"
+                  />
+                </a>,
+                "href": Object {
+                  "pathname": "/CVSlide",
+                  "query": Object {
+                    "slidename": "hello",
+                  },
+                },
+                "prefetch": true,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <ArrowLeft
+                    color="currentColor"
+                    size="1em"
+                  />,
+                  "className": "jsx-3545264305 nav-item",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "color": "currentColor",
+                    "size": "1em",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "type": "a",
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "as": "/cv/goodbye",
+                "children": <a
+                  className="jsx-3545264305 nav-item"
+                >
+                  <ArrowRight
+                    color="currentColor"
+                    size="1em"
+                  />
+                </a>,
+                "href": Object {
+                  "pathname": "/CVSlide",
+                  "query": Object {
+                    "slidename": "goodbye",
+                  },
+                },
+                "prefetch": true,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <ArrowRight
+                    color="currentColor"
+                    size="1em"
+                  />,
+                  "className": "jsx-3545264305 nav-item",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "color": "currentColor",
+                    "size": "1em",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "type": "a",
+              },
+              "type": [Function],
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "css": ".Nav.jsx-3545264305{position:relative;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;font-size:1.6em;margin-top:0.25em;mix-blend-mode:color-burn;z-index:1;}.nav-item.jsx-3545264305:hover svg{opacity:0.5;-webkit-transition:0.5s;transition:0.5s;cursor:pointer;}.nav-item.jsx-3545264305 svg{stroke:#333;stroke-width:1.5;}.nav-item.jsx-3545264305{-webkit-text-decoration:none;text-decoration:none;}.nav-item.jsx-3545264305:after{content:'/';margin:0.2em;}.nav-item.jsx-3545264305:last-of-type.jsx-3545264305:after{content:none;}.next-prev.jsx-3545264305,.actions.jsx-3545264305,.jsx-3545264305{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}",
+            "styleId": "3545264305",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "nav",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    "attachTo": undefined,
+    "hydrateIn": undefined,
+  },
+}
+`;

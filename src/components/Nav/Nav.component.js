@@ -130,7 +130,7 @@ Nav.defaultProps = {
   showInfoDialog: () => console.log('Nav.component: no showInfoDialog action passed to component'),
 }
 
-function handleClick(showInfoDialog) {
+export function handleClick(showInfoDialog) {
   return () => {
     const copySuccess = copyToClipboard(window.location.href)
     if (copySuccess) {
