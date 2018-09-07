@@ -1,0 +1,277 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Title matches its snapshots 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Title
+    title="<h2>this has some html in it</h2>"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        Array [
+          <h2>
+            this has some html in it
+          </h2>,
+        ],
+        <JSXStyle
+          css=".Title.jsx-3347625690{width:100%;padding:0;font-size:3.5em;margin:0 0 0.5em 0;font-weight:bold;mix-blend-mode:color-burn;-webkit-letter-spacing:-0.02em;-moz-letter-spacing:-0.02em;-ms-letter-spacing:-0.02em;letter-spacing:-0.02em;font-family:'LeagueSpartan';}.Title.jsx-3347625690 strong{position:relative;padding-bottom:1em;height:0;overflow:hidden;display:block;}strong.title-les{font-family:'LeagueSpartan';font-size:3.6em;position:absolute;top:0;left:-0.036em;width:100%;height:100%;}"
+          styleId="3347625690"
+        />,
+      ],
+      "className": "jsx-3347625690 Title",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "0",
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "this has some html in it",
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          "this has some html in it",
+        ],
+        "type": "h2",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "css": ".Title.jsx-3347625690{width:100%;padding:0;font-size:3.5em;margin:0 0 0.5em 0;font-weight:bold;mix-blend-mode:color-burn;-webkit-letter-spacing:-0.02em;-moz-letter-spacing:-0.02em;-ms-letter-spacing:-0.02em;letter-spacing:-0.02em;font-family:'LeagueSpartan';}.Title.jsx-3347625690 strong{position:relative;padding-bottom:1em;height:0;overflow:hidden;display:block;}strong.title-les{font-family:'LeagueSpartan';font-size:3.6em;position:absolute;top:0;left:-0.036em;width:100%;height:100%;}",
+          "styleId": "3347625690",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "h2",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          Array [
+            <h2>
+              this has some html in it
+            </h2>,
+          ],
+          <JSXStyle
+            css=".Title.jsx-3347625690{width:100%;padding:0;font-size:3.5em;margin:0 0 0.5em 0;font-weight:bold;mix-blend-mode:color-burn;-webkit-letter-spacing:-0.02em;-moz-letter-spacing:-0.02em;-ms-letter-spacing:-0.02em;letter-spacing:-0.02em;font-family:'LeagueSpartan';}.Title.jsx-3347625690 strong{position:relative;padding-bottom:1em;height:0;overflow:hidden;display:block;}strong.title-les{font-family:'LeagueSpartan';font-size:3.6em;position:absolute;top:0;left:-0.036em;width:100%;height:100%;}"
+            styleId="3347625690"
+          />,
+        ],
+        "className": "jsx-3347625690 Title",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "0",
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "this has some html in it",
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "this has some html in it",
+          ],
+          "type": "h2",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "css": ".Title.jsx-3347625690{width:100%;padding:0;font-size:3.5em;margin:0 0 0.5em 0;font-weight:bold;mix-blend-mode:color-burn;-webkit-letter-spacing:-0.02em;-moz-letter-spacing:-0.02em;-ms-letter-spacing:-0.02em;letter-spacing:-0.02em;font-family:'LeagueSpartan';}.Title.jsx-3347625690 strong{position:relative;padding-bottom:1em;height:0;overflow:hidden;display:block;}strong.title-les{font-family:'LeagueSpartan';font-size:3.6em;position:absolute;top:0;left:-0.036em;width:100%;height:100%;}",
+            "styleId": "3347625690",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "h2",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    "attachTo": undefined,
+    "hydrateIn": undefined,
+  },
+}
+`;
+
+exports[`Title matches its snapshots 2`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Title
+    title="<h2>this has some html in it</h2>"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        Array [
+          <h2>
+            this has some html in it
+          </h2>,
+        ],
+        <JSXStyle
+          css=".Title.jsx-3347625690{width:100%;padding:0;font-size:3.5em;margin:0 0 0.5em 0;font-weight:bold;mix-blend-mode:color-burn;-webkit-letter-spacing:-0.02em;-moz-letter-spacing:-0.02em;-ms-letter-spacing:-0.02em;letter-spacing:-0.02em;font-family:'LeagueSpartan';}.Title.jsx-3347625690 strong{position:relative;padding-bottom:1em;height:0;overflow:hidden;display:block;}strong.title-les{font-family:'LeagueSpartan';font-size:3.6em;position:absolute;top:0;left:-0.036em;width:100%;height:100%;}"
+          styleId="3347625690"
+        />,
+      ],
+      "className": "jsx-3347625690 Title",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "0",
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "this has some html in it",
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          "this has some html in it",
+        ],
+        "type": "h2",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "css": ".Title.jsx-3347625690{width:100%;padding:0;font-size:3.5em;margin:0 0 0.5em 0;font-weight:bold;mix-blend-mode:color-burn;-webkit-letter-spacing:-0.02em;-moz-letter-spacing:-0.02em;-ms-letter-spacing:-0.02em;letter-spacing:-0.02em;font-family:'LeagueSpartan';}.Title.jsx-3347625690 strong{position:relative;padding-bottom:1em;height:0;overflow:hidden;display:block;}strong.title-les{font-family:'LeagueSpartan';font-size:3.6em;position:absolute;top:0;left:-0.036em;width:100%;height:100%;}",
+          "styleId": "3347625690",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "h2",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          Array [
+            <h2>
+              this has some html in it
+            </h2>,
+          ],
+          <JSXStyle
+            css=".Title.jsx-3347625690{width:100%;padding:0;font-size:3.5em;margin:0 0 0.5em 0;font-weight:bold;mix-blend-mode:color-burn;-webkit-letter-spacing:-0.02em;-moz-letter-spacing:-0.02em;-ms-letter-spacing:-0.02em;letter-spacing:-0.02em;font-family:'LeagueSpartan';}.Title.jsx-3347625690 strong{position:relative;padding-bottom:1em;height:0;overflow:hidden;display:block;}strong.title-les{font-family:'LeagueSpartan';font-size:3.6em;position:absolute;top:0;left:-0.036em;width:100%;height:100%;}"
+            styleId="3347625690"
+          />,
+        ],
+        "className": "jsx-3347625690 Title",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "0",
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "this has some html in it",
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "this has some html in it",
+          ],
+          "type": "h2",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "css": ".Title.jsx-3347625690{width:100%;padding:0;font-size:3.5em;margin:0 0 0.5em 0;font-weight:bold;mix-blend-mode:color-burn;-webkit-letter-spacing:-0.02em;-moz-letter-spacing:-0.02em;-ms-letter-spacing:-0.02em;letter-spacing:-0.02em;font-family:'LeagueSpartan';}.Title.jsx-3347625690 strong{position:relative;padding-bottom:1em;height:0;overflow:hidden;display:block;}strong.title-les{font-family:'LeagueSpartan';font-size:3.6em;position:absolute;top:0;left:-0.036em;width:100%;height:100%;}",
+            "styleId": "3347625690",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "h2",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    "attachTo": undefined,
+    "hydrateIn": undefined,
+  },
+}
+`;
