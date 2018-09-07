@@ -45,7 +45,11 @@ Content.propTypes = {
   nextSlide: PropTypes.string,
   previousSlide: PropTypes.string,
   hasNav: PropTypes.bool,
-  children: PropTypes.arrayOf(PropTypes.element),
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+    PropTypes.func,
+  ]),
   palette: TYPES.PALETTE,
 }
 

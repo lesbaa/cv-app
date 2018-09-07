@@ -32,7 +32,11 @@ const PageWrapper = ({
 )
 
 PageWrapper.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.element),
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+    PropTypes.func,
+  ]),
   isMobile: PropTypes.bool,
   palette: TYPES.PALETTE,
   title: PropTypes.string,
