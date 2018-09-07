@@ -39,6 +39,15 @@ describe('Title', () => {
     expect(mockAcceptTracking).toHaveBeenCalledWith(mockEventData)
   })
 
+  it('calls denyTracking on click of deny', () => {
+    const mockEventData = '😦'
+    wrapper
+      .find('.button')
+      .at(1)
+      .simulate('click', mockEventData)
+    expect(mockDenyTracking).toHaveBeenCalledWith(mockEventData)
+  })
+
   it('passes the dialogVisible prop to the isVisible prop of Dialog', () => {
     const dialogIsVisibleProp = wrapper
       .find(Dialog)
@@ -53,15 +62,6 @@ describe('Title', () => {
       .isVisible
 
     expect(dialogIsNotVisible).toBe(false)
-  })
-
-  it('calls denyTracking on click of deny', () => {
-    const mockEventData = '😦'
-    wrapper
-      .find('.button')
-      .at(1)
-      .simulate('click', mockEventData)
-    expect(mockDenyTracking).toHaveBeenCalledWith(mockEventData)
   })
 
   it('calls console.log if no actions are passed', () => {
