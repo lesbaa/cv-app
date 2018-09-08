@@ -15,7 +15,7 @@ const initState = {
 export default function (state = initState, {
   type,
   payload = {},
-}) {
+} = {}) {
   switch (type) {
     case IS_FETCHING: {
       return {

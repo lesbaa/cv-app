@@ -7,12 +7,13 @@ const defaultState = {
   modalIsVisible: false,
   modalTitle: null,
   modalContent: null,
+  id: null,
 }
 
 export default function (state = defaultState, {
   type,
   payload = {},
-}) {
+} = {}) {
 
   const {
     modalTitle,

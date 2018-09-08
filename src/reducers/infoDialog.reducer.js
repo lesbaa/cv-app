@@ -11,7 +11,7 @@ const defaultState = {
 export default function (state = defaultState, {
   type,
   payload = {},
-}) {
+} = {}) {
 
   const {
     message,

@@ -2,8 +2,8 @@
 /* global window */
 import React from 'react'
 import { shallow } from 'enzyme'
-import TrackingDialog from './TrackingDialog.component'
 import Dialog from '~/components/Dialog'
+import TrackingDialog from './TrackingDialog.component'
 
 jest.mock('~/components/Dialog', () => props => <div className="Dialog" />)
 

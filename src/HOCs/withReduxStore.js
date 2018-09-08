@@ -1,13 +1,13 @@
 /* eslint-disable no-underscore-dangle */
+/* eslint-disable no-param-reassign */
 /* global window */
 
 import React from 'react'
 import configureStore from '~/store'
 
-const isServer = typeof window === 'undefined'
 const __NEXT_REDUX_STORE__ = '__NEXT_REDUX_STORE__'
-
-function getOrCreateStore(initialState) {
+export function getOrCreateStore(initialState) {
+  const isServer = !process.browser
   // Always make a new store if server, otherwise state is shared between requests
   if (isServer) {
     return configureStore(initialState)
@@ -31,7 +31,6 @@ export default App => class Redux extends React.Component {
     if (App.getInitialProps) {
       appProps = await App.getInitialProps(appContext)
     }
-
     return {
       ...appProps,
       initialReduxState: store.getState(),
