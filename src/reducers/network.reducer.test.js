@@ -20,12 +20,6 @@ const randomState = {
   foo: true,
 }
 
-const mockPayload = {
-  modalTitle: 'MOCK_TITLE',
-  modalContent: 'MOCK_CONTENT',
-  id: 'MOCK_ID',
-}
-
 describe('detailsModal reducer', () => {
   it('returns the default state if no action nor state is passed', () => {
     const initState = reducer()
