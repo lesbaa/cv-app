@@ -129,13 +129,13 @@ export const fetchSkills = ({
   dispatch({ type: FETCH_SKILLS })
   dispatch(setIsFetching())
   try {
-    const skills = await getSkills({
+    const { results } = await getSkills({
       params: { type },
     })
     dispatch({
       type: RECEIVE_SKILLS,
       payload: {
-        skills,
+        skills: results,
         skillType: type,
       },
     })

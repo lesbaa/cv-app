@@ -2,8 +2,8 @@ import fetch from 'isomorphic-fetch'
 import buildQueryString from '~/utils/buildQueryString'
 import { API_BASE_URL } from '~/../les.config'
 
-export const buildUrl = ({ model, params }) =>
-  `//${API_BASE_URL}/${model}${buildQueryString(params)}`
+export const buildUrl = ({ path, params }) =>
+  `//${API_BASE_URL}/${path}${buildQueryString(params)}`
 
 export const reportLesalytics = async ({
   ref,
@@ -11,7 +11,7 @@ export const reportLesalytics = async ({
   platform,
 }) => {
   const url = buildUrl({
-    model: 'lesalytics',
+    path: 'lesalytics',
     params: {
       ref,
       page,
@@ -25,7 +25,7 @@ export const reportLesalytics = async ({
 
 export const getSlides = async ({ params } = {}) => {
   const url = buildUrl({
-    model: 'slides',
+    path: 'slides',
     params,
   })
   const response = await fetch(url)
@@ -35,7 +35,7 @@ export const getSlides = async ({ params } = {}) => {
 
 export const getSlide = async ({ params, slidename }) => {
   const url = buildUrl({
-    model: 'slides',
+    path: 'slides',
     params: {
       id: slidename,
       ...params,
@@ -43,24 +43,24 @@ export const getSlide = async ({ params, slidename }) => {
   })
   const response = await fetch(url)
   const json = await response.json()
-  return json.results[0]
+  return json
 }
 
 export const getSkills = async ({ params = {} }) => {
   const url = buildUrl({
-    model: 'skills',
+    path: 'skills',
     params: {
       ...params,
     },
   })
   const response = await fetch(url)
   const json = await response.json()
-  return json.results
+  return json
 }
 
 export const getSkill = async ({ params, id }) => {
   const url = buildUrl({
-    model: 'skills',
+    path: 'skills',
     params: {
       id,
       ...params,
@@ -68,7 +68,6 @@ export const getSkill = async ({ params, id }) => {
   })
   const response = await fetch(url)
   const json = await response.json()
-  return json.results
+  return json
 }
 
-// TODO tests for this
