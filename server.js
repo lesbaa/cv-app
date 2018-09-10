@@ -49,7 +49,7 @@ server.use(
 
 server.get('/calender', handleCalender)
 
-const nextAppHandler = pageComponent => async (req, res, next) => {
+const nextAppHandler = pageComponentPath => async (req, res, next, UAIsMobile = false) => {
   const cached = cache.get(req.originalUrl)
   if (cached && req.query.nocache !== 'true' && !dev) {
     res.set('X-cache', 'hit')
@@ -61,14 +61,14 @@ const nextAppHandler = pageComponent => async (req, res, next) => {
   const markup = await app.renderToHTML(
     req,
     res,
-    pageComponent,
+    pageComponentPath,
     {
       ...req.query,
       slidename,
     }
   )
 
-  cache.set(req.originalUrl, markup)
+  cache.set(req.originalUrl + UAIsMobile, markup)
   if (req.query && req.query.ref && !req.cookies) res.cookie('LES_REF', req.query.ref)
   res.send(markup)
 }
@@ -77,7 +77,7 @@ const nextAppHandler = pageComponent => async (req, res, next) => {
 app.prepare().then(() => {
   server.get('*', (req, res, next) => {
     if (isMobile(req) && !req.path.includes('_next')) {
-      return nextAppHandler('/mobile')(req, res, next)
+      return nextAppHandler('/mobile')(req, res, next, true)
     }
     return next()
   })
