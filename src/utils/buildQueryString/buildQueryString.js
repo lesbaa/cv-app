@@ -1,5 +1,12 @@
-const buildQueryString = (paramsObj = {}) =>
-  Object.entries(paramsObj)
+const buildQueryString = (paramsObj = '') => {
+  const isFunc = (typeof paramsObj === 'function')
+  const isString = (typeof paramsObj === 'string')
+  const isNum = (typeof paramsObj === 'number')
+  const isArray = (Array.isArray(paramsObj))
+
+  if (isFunc || isString || isNum || isArray) return ''
+
+  return Object.entries(paramsObj)
     .map(entry => entry.map(encodeURIComponent))
     .reduce(
       (queryString, [key, value], i) => [
@@ -11,5 +18,6 @@ const buildQueryString = (paramsObj = {}) =>
         .join(''),
       '?'
     )
+}
 
 module.exports = buildQueryString
