@@ -5,7 +5,6 @@ import loadImg from './loadImg'
 import parseImgDataToPixels from './parseImgDataToPixels'
 import scalePixels from './scalePixels'
 
-
 const createGridLoader = ({
   scale = 1,
   position = { x: 0, y: 0 },

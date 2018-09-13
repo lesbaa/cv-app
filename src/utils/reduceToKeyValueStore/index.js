@@ -7,10 +7,8 @@ export default ({
     console.trace()
     return {}
   }
-  return array.reduce((keyValueStore, arrayItem) => {
-    return {
-      ...keyValueStore,
-      [arrayItem[key]]: arrayItem,
-    }
-  }, {})
+  return array.reduce((keyValueStore, arrayItem) => ({
+    ...keyValueStore,
+    [arrayItem[key]]: arrayItem,
+  }), {})
 }
