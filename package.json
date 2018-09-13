@@ -56,8 +56,7 @@
     "jest": "^23.5.0",
     "jest-canvas-mock": "^1.1.0",
     "nodemon": "^1.17.5",
-    "prop-types": "^15.6.2",
-    "spdy-keys": "0.0.0"
+    "prop-types": "^15.6.2"
   },
   "dependencies": {
     "@babel/core": "^7.0.0",
@@ -93,7 +92,6 @@
     "redux-devtools-extension": "^2.13.2",
     "redux-thunk": "^2.3.0",
     "serve-static": "1.13.2",
-    "spdy": "3.4.7",
     "toxiclibsjs": "^0.3.3",
     "webpack": "4.8.3"
   }

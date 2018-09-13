@@ -3,7 +3,7 @@ const express = require('express')
 const lru = require('lru-cache')
 const serveStatic = require('serve-static')
 const nextApp = require('next')
-const http2 = require('spdy')
+const https = require('https')
 const compression = require('compression')
 const isMobile = require('is-mobile')
 const handleCalender = require('./server/handleCalender')
@@ -99,10 +99,10 @@ app.prepare().then(() => {
     const options = {
       key,
       cert,
-      protocols: ['http/1.1'],
+      // protocols: ['http/1.1'],
     }
 
-    http2
+    https
       .createServer(options, server)
       .listen(PORT, logListener('HTTP/2'))
   } else {
