@@ -1,0 +1,481 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dialog matches its snapshots: visible with children 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Dialog
+    isVisible={true}
+    message="message 1"
+  >
+    <div
+      className="child"
+    />
+  </Dialog>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="jsx-596478585 dialog-content"
+        >
+          <Info
+            color="currentColor"
+            size="1em"
+          />
+          <span
+            className="jsx-596478585 message"
+          >
+            message 1
+          </span>
+          <div
+            className="child"
+          />
+        </div>,
+        <JSXStyle
+          css=".Dialog.jsx-596478585{z-index:999;position:absolute;text-align:center;top:0;width:100%;-webkit-transition:-webkit-transform 1500ms;-webkit-transition:transform 1500ms;transition:transform 1500ms;-webkit-transform:translateY(-200%);-ms-transform:translateY(-200%);transform:translateY(-200%);}.active.jsx-596478585{-webkit-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0);}.Dialog.jsx-596478585 svg{min-width:1em;}.dialog-content.jsx-596478585{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;min-width:40%;max-width:60%;padding:1.0em 4.0em;margin:1.0em;mix-blend-mode:color-dodge;border:1px solid #444;color:#444;background-color:rgba(255,250,250,0.1);border-radius:0.25em;}.message.jsx-596478585{max-width:60%;font-size:1em;margin-left:1em;display:inline-block;text-align:left;}"
+          styleId="596478585"
+        />,
+      ],
+      "className": "jsx-596478585 Dialog active",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <Info
+              color="currentColor"
+              size="1em"
+            />,
+            <span
+              className="jsx-596478585 message"
+            >
+              message 1
+            </span>,
+            <div
+              className="child"
+            />,
+          ],
+          "className": "jsx-596478585 dialog-content",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "color": "currentColor",
+              "size": "1em",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "message 1",
+              "className": "jsx-596478585 message",
+            },
+            "ref": null,
+            "rendered": "message 1",
+            "type": "span",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "child",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "css": ".Dialog.jsx-596478585{z-index:999;position:absolute;text-align:center;top:0;width:100%;-webkit-transition:-webkit-transform 1500ms;-webkit-transition:transform 1500ms;transition:transform 1500ms;-webkit-transform:translateY(-200%);-ms-transform:translateY(-200%);transform:translateY(-200%);}.active.jsx-596478585{-webkit-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0);}.Dialog.jsx-596478585 svg{min-width:1em;}.dialog-content.jsx-596478585{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;min-width:40%;max-width:60%;padding:1.0em 4.0em;margin:1.0em;mix-blend-mode:color-dodge;border:1px solid #444;color:#444;background-color:rgba(255,250,250,0.1);border-radius:0.25em;}.message.jsx-596478585{max-width:60%;font-size:1em;margin-left:1em;display:inline-block;text-align:left;}",
+          "styleId": "596478585",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="jsx-596478585 dialog-content"
+          >
+            <Info
+              color="currentColor"
+              size="1em"
+            />
+            <span
+              className="jsx-596478585 message"
+            >
+              message 1
+            </span>
+            <div
+              className="child"
+            />
+          </div>,
+          <JSXStyle
+            css=".Dialog.jsx-596478585{z-index:999;position:absolute;text-align:center;top:0;width:100%;-webkit-transition:-webkit-transform 1500ms;-webkit-transition:transform 1500ms;transition:transform 1500ms;-webkit-transform:translateY(-200%);-ms-transform:translateY(-200%);transform:translateY(-200%);}.active.jsx-596478585{-webkit-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0);}.Dialog.jsx-596478585 svg{min-width:1em;}.dialog-content.jsx-596478585{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;min-width:40%;max-width:60%;padding:1.0em 4.0em;margin:1.0em;mix-blend-mode:color-dodge;border:1px solid #444;color:#444;background-color:rgba(255,250,250,0.1);border-radius:0.25em;}.message.jsx-596478585{max-width:60%;font-size:1em;margin-left:1em;display:inline-block;text-align:left;}"
+            styleId="596478585"
+          />,
+        ],
+        "className": "jsx-596478585 Dialog active",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <Info
+                color="currentColor"
+                size="1em"
+              />,
+              <span
+                className="jsx-596478585 message"
+              >
+                message 1
+              </span>,
+              <div
+                className="child"
+              />,
+            ],
+            "className": "jsx-596478585 dialog-content",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "color": "currentColor",
+                "size": "1em",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "message 1",
+                "className": "jsx-596478585 message",
+              },
+              "ref": null,
+              "rendered": "message 1",
+              "type": "span",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "child",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "css": ".Dialog.jsx-596478585{z-index:999;position:absolute;text-align:center;top:0;width:100%;-webkit-transition:-webkit-transform 1500ms;-webkit-transition:transform 1500ms;transition:transform 1500ms;-webkit-transform:translateY(-200%);-ms-transform:translateY(-200%);transform:translateY(-200%);}.active.jsx-596478585{-webkit-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0);}.Dialog.jsx-596478585 svg{min-width:1em;}.dialog-content.jsx-596478585{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;min-width:40%;max-width:60%;padding:1.0em 4.0em;margin:1.0em;mix-blend-mode:color-dodge;border:1px solid #444;color:#444;background-color:rgba(255,250,250,0.1);border-radius:0.25em;}.message.jsx-596478585{max-width:60%;font-size:1em;margin-left:1em;display:inline-block;text-align:left;}",
+            "styleId": "596478585",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    "attachTo": undefined,
+    "hydrateIn": undefined,
+  },
+}
+`;
+
+exports[`Dialog matches its snapshots: visible with children 2`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Dialog
+    isVisible={false}
+    message="message 2"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="jsx-596478585 dialog-content"
+        >
+          <Info
+            color="currentColor"
+            size="1em"
+          />
+          <span
+            className="jsx-596478585 message"
+          >
+            message 2
+          </span>
+        </div>,
+        <JSXStyle
+          css=".Dialog.jsx-596478585{z-index:999;position:absolute;text-align:center;top:0;width:100%;-webkit-transition:-webkit-transform 1500ms;-webkit-transition:transform 1500ms;transition:transform 1500ms;-webkit-transform:translateY(-200%);-ms-transform:translateY(-200%);transform:translateY(-200%);}.active.jsx-596478585{-webkit-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0);}.Dialog.jsx-596478585 svg{min-width:1em;}.dialog-content.jsx-596478585{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;min-width:40%;max-width:60%;padding:1.0em 4.0em;margin:1.0em;mix-blend-mode:color-dodge;border:1px solid #444;color:#444;background-color:rgba(255,250,250,0.1);border-radius:0.25em;}.message.jsx-596478585{max-width:60%;font-size:1em;margin-left:1em;display:inline-block;text-align:left;}"
+          styleId="596478585"
+        />,
+      ],
+      "className": "jsx-596478585 Dialog",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <Info
+              color="currentColor"
+              size="1em"
+            />,
+            <span
+              className="jsx-596478585 message"
+            >
+              message 2
+            </span>,
+            null,
+          ],
+          "className": "jsx-596478585 dialog-content",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "color": "currentColor",
+              "size": "1em",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "message 2",
+              "className": "jsx-596478585 message",
+            },
+            "ref": null,
+            "rendered": "message 2",
+            "type": "span",
+          },
+          null,
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "css": ".Dialog.jsx-596478585{z-index:999;position:absolute;text-align:center;top:0;width:100%;-webkit-transition:-webkit-transform 1500ms;-webkit-transition:transform 1500ms;transition:transform 1500ms;-webkit-transform:translateY(-200%);-ms-transform:translateY(-200%);transform:translateY(-200%);}.active.jsx-596478585{-webkit-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0);}.Dialog.jsx-596478585 svg{min-width:1em;}.dialog-content.jsx-596478585{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;min-width:40%;max-width:60%;padding:1.0em 4.0em;margin:1.0em;mix-blend-mode:color-dodge;border:1px solid #444;color:#444;background-color:rgba(255,250,250,0.1);border-radius:0.25em;}.message.jsx-596478585{max-width:60%;font-size:1em;margin-left:1em;display:inline-block;text-align:left;}",
+          "styleId": "596478585",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="jsx-596478585 dialog-content"
+          >
+            <Info
+              color="currentColor"
+              size="1em"
+            />
+            <span
+              className="jsx-596478585 message"
+            >
+              message 2
+            </span>
+          </div>,
+          <JSXStyle
+            css=".Dialog.jsx-596478585{z-index:999;position:absolute;text-align:center;top:0;width:100%;-webkit-transition:-webkit-transform 1500ms;-webkit-transition:transform 1500ms;transition:transform 1500ms;-webkit-transform:translateY(-200%);-ms-transform:translateY(-200%);transform:translateY(-200%);}.active.jsx-596478585{-webkit-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0);}.Dialog.jsx-596478585 svg{min-width:1em;}.dialog-content.jsx-596478585{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;min-width:40%;max-width:60%;padding:1.0em 4.0em;margin:1.0em;mix-blend-mode:color-dodge;border:1px solid #444;color:#444;background-color:rgba(255,250,250,0.1);border-radius:0.25em;}.message.jsx-596478585{max-width:60%;font-size:1em;margin-left:1em;display:inline-block;text-align:left;}"
+            styleId="596478585"
+          />,
+        ],
+        "className": "jsx-596478585 Dialog",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <Info
+                color="currentColor"
+                size="1em"
+              />,
+              <span
+                className="jsx-596478585 message"
+              >
+                message 2
+              </span>,
+              null,
+            ],
+            "className": "jsx-596478585 dialog-content",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "color": "currentColor",
+                "size": "1em",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "message 2",
+                "className": "jsx-596478585 message",
+              },
+              "ref": null,
+              "rendered": "message 2",
+              "type": "span",
+            },
+            null,
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "css": ".Dialog.jsx-596478585{z-index:999;position:absolute;text-align:center;top:0;width:100%;-webkit-transition:-webkit-transform 1500ms;-webkit-transition:transform 1500ms;transition:transform 1500ms;-webkit-transform:translateY(-200%);-ms-transform:translateY(-200%);transform:translateY(-200%);}.active.jsx-596478585{-webkit-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0);}.Dialog.jsx-596478585 svg{min-width:1em;}.dialog-content.jsx-596478585{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;min-width:40%;max-width:60%;padding:1.0em 4.0em;margin:1.0em;mix-blend-mode:color-dodge;border:1px solid #444;color:#444;background-color:rgba(255,250,250,0.1);border-radius:0.25em;}.message.jsx-596478585{max-width:60%;font-size:1em;margin-left:1em;display:inline-block;text-align:left;}",
+            "styleId": "596478585",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    "attachTo": undefined,
+    "hydrateIn": undefined,
+  },
+}
+`;

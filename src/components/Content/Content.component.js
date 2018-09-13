@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import ReactHTMLParser from 'react-html-parser'
 import TYPES from '~/constants/types'
 import Main from '~/components/Main'
 import Title from '~/components/Title'
@@ -22,9 +23,10 @@ const Content = ({
     <Main>
       <span
         className="content-blurb"
-        dangerouslySetInnerHTML={{ __html: blurbMarkup }} // eslint-disable-line
         opacity={palette.offsetOpacity}
-      />
+      >
+        {ReactHTMLParser(blurbMarkup)}
+      </span>
       {children}
     </Main>
     {hasNav &&
@@ -43,7 +45,11 @@ Content.propTypes = {
   nextSlide: PropTypes.string,
   previousSlide: PropTypes.string,
   hasNav: PropTypes.bool,
-  children: PropTypes.arrayOf(PropTypes.element),
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+    PropTypes.func,
+  ]),
   palette: TYPES.PALETTE,
 }
 

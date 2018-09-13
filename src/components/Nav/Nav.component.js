@@ -58,7 +58,11 @@ const Nav = ({
         >
           <a
             href="#"
-            onClick={handleClick(showInfoDialog)}
+            className="share-link"
+            onClick={() => handleClick({
+              action: showInfoDialog,
+              href: window.location.href,
+            })}
             title="copy the url of this page to the clipboard"
           >
             <ShareIcon size="1em" />
@@ -125,25 +129,26 @@ Nav.propTypes = {
 }
 
 Nav.defaultProps = {
-  previousSlide: 'hello',
-  nextSlide: 'hello',
+  previousSlide: null,
+  nextSlide: null,
   showInfoDialog: () => console.log('Nav.component: no showInfoDialog action passed to component'),
 }
 
-function handleClick(showInfoDialog) {
-  return () => {
-    const copySuccess = copyToClipboard(window.location.href)
-    if (copySuccess) {
-      showInfoDialog({
-        message: 'Url copied to clipboard!',
-        timeout: DIALOG_TIMEOUT,
-      })
-    } else {
-      showInfoDialog({
-        message: 'Oops! Unable to copy to clipboard!',
-        timeout: DIALOG_TIMEOUT,
-      })
-    }
+export function handleClick({
+  action: showInfoDialog,
+  href,
+}) {
+  const copySuccess = copyToClipboard(href)
+  if (copySuccess) {
+    showInfoDialog({
+      message: 'Url copied to clipboard!',
+      timeout: DIALOG_TIMEOUT,
+    })
+  } else {
+    showInfoDialog({
+      message: 'Oops! Unable to copy to clipboard!',
+      timeout: DIALOG_TIMEOUT,
+    })
   }
 }
 

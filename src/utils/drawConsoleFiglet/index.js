@@ -2,6 +2,7 @@
 /* eslint-disable no-console */
 
 // just a bit of fun :-)
+// hence no tests
 
 const figlet = `
 %c 888                       e   e                dP,e,  dP,e,           d8   

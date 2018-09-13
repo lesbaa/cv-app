@@ -1,30 +1,18 @@
 /* global alert */
 import React, { Component } from 'react'
-import format from 'date-fns/format'
-import addDays from 'date-fns/add_days'
-import { compose } from 'ramda'
 import styles from './ICalLinkPicker.styles'
+
+export const buildUrl = datetime => `/calender?datetime=${datetime}`
 
 class ICalLinkPicker extends Component {
   state = {
     url: null,
-    datetime: null,
     hasError: false,
   }
 
   handleChange = ({ target: { value } }) => {
     this.setState({
-      datetime: value,
-    }, this.buildUrl)
-  }
-
-  buildUrl = () => {
-    const {
-      datetime,
-    } = this.state
-
-    this.setState({
-      url: `/calender?datetime=${datetime}`,
+      url: buildUrl(value),
     })
   }
 
@@ -37,11 +25,6 @@ class ICalLinkPicker extends Component {
       alert('Please enter a valid date / time')
     }
   }
-
-  getTomorrow = () => compose(
-    datetime => format(datetime, 'YYYY-MM-DD'),
-    datetime => addDays(datetime, 1),
-  )(new Date())
 
   render = () => {
     const inputClassNames = [
@@ -64,6 +47,7 @@ class ICalLinkPicker extends Component {
           className="submit"
           href={this.state.url}
           target="_blank"
+          rel="noopener noreferrer"
           onClick={this.handleSubmit}
         >
           Remind me!

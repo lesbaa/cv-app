@@ -99,6 +99,7 @@ app.prepare().then(() => {
     const options = {
       key,
       cert,
+      protocols: ['http/1.1'],
     }
 
     http2

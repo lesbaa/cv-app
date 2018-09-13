@@ -8,6 +8,7 @@ export default function tweenState({
   /* eslint-disable no-restricted-syntax */
   /* eslint-disable no-continue */
   const newState = {}
+  // TODO you should probably look at using an object pool to improve perf
   for (const prop in to) {
     if (prop === 'transition' || prop === 'animation') continue
     if (properties && !properties.includes(prop)) continue

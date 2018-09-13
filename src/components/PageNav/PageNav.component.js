@@ -45,7 +45,7 @@ function mapSlides(slides, router) {
       [, { order: a }],
       [, { order: b }],
     ) => a - b)
-    .map(([slidename, { altText }]) => {
+    .map(([slidename, { altText, order }]) => {
       const isActiveLink = router.query.slidename === slidename
       const navItemClassnames = [
         'nav-item',
@@ -58,15 +58,20 @@ function mapSlides(slides, router) {
         ? props => <span {...props} />
         : Link
 
+      const liInternalElementProps = {
+        ...(isActiveLink && { className: 'active-nav-option' }),
+        ...(!isActiveLink && {
+          href: `/CVSlide?slidename=${slidename}`,
+          as: `/cv/${slidename}`,
+        }),
+      }
+
       return (
         <li
           className={navItemClassnames}
-          key={slidename}
+          key={order}
         >
-          <Element
-            href={`/CVSlide?slidename=${slidename}`}
-            as={`/cv/${slidename}`}
-          >
+          <Element {...liInternalElementProps}>
             <a title={altText}>
               <img
                 src={`/static/img/nav-icons/${slidename}.svg`}

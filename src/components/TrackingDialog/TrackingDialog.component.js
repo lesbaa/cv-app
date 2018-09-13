@@ -30,12 +30,17 @@ const TrackingDialog = ({
   </Dialog>
 )
 
-TrackingDialog.defaultProps = {
-
-}
-
 TrackingDialog.propTypes = {
-
+  dialogVisible: PropTypes.bool,
+  acceptTracking: PropTypes.func,
+  denyTracking: PropTypes.func,
 }
+
+TrackingDialog.defaultProps = {
+  dialogVisible: false,
+  acceptTracking: () => console.log('TrackingDialog: no acceptTracking action passed as prop'),
+  denyTracking: () => console.log('TrackingDialog: no denyTracking action passed as prop'),
+}
+
 
 export default TrackingDialog
