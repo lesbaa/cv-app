@@ -3,6 +3,7 @@
 
 import React, { Component } from 'react'
 import Link from 'next/link'
+import PropTypes from 'prop-types'
 import GitHubIcon from 'react-feather/dist/icons/github'
 import CodePenIcon from 'react-feather/dist/icons/codepen'
 import LinkedInIcon from 'react-feather/dist/icons/linkedin'
@@ -13,6 +14,7 @@ import GiftIcon from 'react-feather/dist/icons/gift'
 import PageWrapper from '~/components/PageWrapper'
 import TrackingDialog from '~/components/TrackingDialog'
 import InfoDialog from '~/components/InfoDialog'
+import LesLogo from '~/components/LesLogo'
 import styles from '~/theme/index.styles'
 import { chooseRandom, random } from '~/utils/rndm'
 
@@ -24,10 +26,21 @@ const unjumble = string =>
 class IndexPage extends Component {
   static pageTransitionDelayEnter = true
 
+  static getInitialProps = () => {
+    const classes = [
+      'Dwarven Codesmith',
+      'Mage of ECMA',
+      'Wise-cracking Code Smuggler',
+      'Elven Code Rogue',
+    ]
+    return {
+      characterClass: `Level ${random(20, 30)} ${chooseRandom(classes)}`,
+    }
+  }
+
   state = {
     phoneNumber: '-539-213-599-447-+',
     mailto: 'uk-co.-at.-off-les-es@-l',
-    characterClass: '',
   }
 
   componentDidMount = () => {
@@ -36,17 +49,9 @@ class IndexPage extends Component {
       mailto,
     } = this.state
 
-    const classes = [
-      'Dwarven Codesmith',
-      'Mage of ECMA',
-      'Wise-cracking Code Smuggler',
-      'Elven Code Rogue',
-    ]
-
     this.setState({
       phoneNumber: `tel:${unjumble(phoneNumber)}`,
       mailto: `mailto:${unjumble(mailto)}`,
-      characterClass: `Level ${random(20, 30)} ${chooseRandom(classes)}`,
     })
   }
 
@@ -59,11 +64,19 @@ class IndexPage extends Component {
       >
         <InfoDialog />
         <TrackingDialog />
-        <h1 className="les-anim">
-          <strong><x-lesanim offsetY="20">LesMoffat.</x-lesanim></strong>
-        </h1>
+        <span
+          className="les-svg"
+        >
+          <LesLogo
+            width="20em"
+            height="20em"
+          />
+        </span>
+        <h2 className="les-title fade-in">
+          LesMoffat.
+        </h2>
         <div className="job-title fade-in">
-          {this.state.characterClass}
+          {this.props.characterClass}
         </div>
         <div className="index-links">
           <Link
@@ -124,11 +137,11 @@ class IndexPage extends Component {
 }
 
 IndexPage.propTypes = {
+  characterClass: PropTypes.string,
 }
 
 IndexPage.defaultProps = {
+  characterClass: 'Level 24 Dwarven Codesmith',
 }
-
-// TODO more proptypes!
 
 export default IndexPage

@@ -14,7 +14,6 @@ export default class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <script src="/static/customElements/index.js" />
         </body>
       </html>
     )

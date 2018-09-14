@@ -109,7 +109,7 @@ export default css`
     height: auto;
     color: #353535;
     overflow-x: hidden;
-    font-family: 'Roboto Mono', sans-serif;
+    font-family: 'RobotoMono', sans-serif;
     font-smoothing: subpixel-antialiased;
     font-size: 1.07em;
     background-image: linear-gradient(to bottom right, #eee6ee, #d9d9d9);

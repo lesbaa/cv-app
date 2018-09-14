@@ -23,8 +23,16 @@ export default css`
     font-weight: bolder;
   }
 
-  .les-anim {
-    width: 45%;
+  .les-title,
+  .les-svg {
+    z-index: 99;
+    text-align: center;
+  }
+
+  .les-title {
+    margin: 0;
+    font-size: 3em;
+    font-family: 'League Spartan', sans-serif;
   }
 
   .job-title {
@@ -32,7 +40,7 @@ export default css`
     z-index: 1;
     font-size: 1.5em;
     text-align: center;
-    width: 30%;
+    width: 100%;
   }
 
   .main :global(strong) {
