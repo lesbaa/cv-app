@@ -3,15 +3,11 @@ import React, { Component } from 'react'
 import { geom } from 'toxiclibsjs'
 import crossHatchShader from '~/shaders/crossHatch'
 import shoogleShader from '~/shaders/shoogle'
+import withPixi from '~/HOCs/withPixi'
 import styles from './HireMeScene.styles'
 import Star from './Star.class'
 
 const { Vec2D } = geom
-
-// PIXI can't be imported on the server due to window polyfills
-// TODO try using your SSRSwitch component further up the line instead of dynamic importing
-// Also look at porting the filters to your own shader code
-let PIXI
 
 const STAR_RESPAWN_RADIUS = 800
 
@@ -27,7 +23,6 @@ class HireMeScene extends Component {
 
   // TODO refactor some of this out into a higher order component
   componentDidMount = async () => {
-    PIXI = await import('pixi.js')
     await this.init()
   }
 
@@ -51,7 +46,7 @@ class HireMeScene extends Component {
   }
 
   init = async () => {
-    const { Application } = PIXI
+    const { Application } = this.props.PIXI
 
     this.canvasRef.width = window.innerWidth
     this.canvasRef.height = window.innerHeight
@@ -88,7 +83,7 @@ class HireMeScene extends Component {
     const {
       Filter,
       Container,
-    } = PIXI
+    } = this.props.PIXI
 
     const crosshatch = new Filter('', crossHatchShader.fragment, crossHatchShader.uniforms)
     this.filters.push(crosshatch)
@@ -104,7 +99,7 @@ class HireMeScene extends Component {
 
     const exhaustGroup = new Container()
     exhaustGroup.y = 82.5
-    exhaustGroup.pivot = new PIXI.Point(0, -82.5)
+    exhaustGroup.pivot = new this.props.PIXI.Point(0, -82.5)
 
     this.exhaustGroup = exhaustGroup
 
@@ -195,7 +190,7 @@ class HireMeScene extends Component {
     imageUrl,
     attributes = {},
   }) => {
-    const { Sprite } = PIXI
+    const { Sprite } = this.props.PIXI
     const sprite = new Sprite.fromImage(imageUrl) // eslint-disable-line
 
     sprite.anchor.set(0.5)
@@ -240,4 +235,4 @@ class HireMeScene extends Component {
 
 }
 
-export default HireMeScene
+export default withPixi(HireMeScene)

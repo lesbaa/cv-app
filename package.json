@@ -76,7 +76,7 @@
     "matter-wrap": "^0.2.0",
     "micro": "9.3.1",
     "micro-route": "2.5.0",
-    "next": "6.1.1",
+    "next": "6.1.2",
     "next-connect-redux": "^0.1.5",
     "next-page-transitions": "^1.0.0-alpha.3",
     "pixi.js": "^4.8.1",

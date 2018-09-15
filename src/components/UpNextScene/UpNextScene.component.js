@@ -9,8 +9,6 @@ import {
 } from '~/lib/threedux'
 import styles from './UpNextScene.styles'
 
-let PIXI
-
 class UpNextScene extends Component {
 
   skillsSprites = []
@@ -19,8 +17,6 @@ class UpNextScene extends Component {
 
   componentDidMount = async () => {
     await this.props.fetchSkills({ type: UP_NEXT })
-    PIXI = await import('pixi.js')
-    // TODO would a promise.all do in here?
     this.init()
   }
 
@@ -44,7 +40,7 @@ class UpNextScene extends Component {
   init = async () => {
     this.canvasRef.width = window.innerWidth
     this.canvasRef.height = window.innerHeight
-    this.app = new PIXI.Application({
+    this.app = new this.props.PIXI.Application({
       view: this.canvasRef,
       width: this.canvasRef.width,
       height: this.canvasRef.height,
@@ -77,11 +73,13 @@ class UpNextScene extends Component {
     const { default: liquidShader } = await import('~/shaders/liquidMorph')
     const { default: hatchShader } = await import('~/shaders/hatch_2')
 
-    this.liquidFilter = withStateTransition(new PIXI.Filter('', liquidShader.fragment, liquidShader.uniforms))
+    this.liquidFilter = withStateTransition(
+      new this.props.PIXI.Filter('', liquidShader.fragment, liquidShader.uniforms)
+    )
 
     this.app.stage.filters = [
       this.liquidFilter,
-      new PIXI.Filter(
+      new this.props.PIXI.Filter(
         '',
         hatchShader.fragment,
         {
@@ -150,7 +148,7 @@ class UpNextScene extends Component {
 
   addSkillsText = () => {
     // TODO abstract this out to a helper func this out to a function
-    const textStyle = new PIXI.TextStyle({
+    const textStyle = new this.props.PIXI.TextStyle({
       fontFamily: 'League Spartan',
       fontSize: 60,
       fill: '#555555',
@@ -161,7 +159,7 @@ class UpNextScene extends Component {
     })
 
     this.skillsSprites = this.props.skills.map(({ name }, i) => {
-      const text = new PIXI.Text(name, textStyle)
+      const text = new this.props.PIXI.Text(name, textStyle)
 
       text.anchor.set(0.5)
       text.visible = false

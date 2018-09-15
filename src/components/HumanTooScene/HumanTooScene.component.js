@@ -2,9 +2,8 @@
 import React, { Component } from 'react'
 import { throttle } from 'lodash'
 import gloopFilter from '~/shaders/profileFilter'
+import withPixi from '~/HOCs/withPixi'
 import styles from './HumanTooScene.styles'
-
-let PIXI
 
 class HumanTooScene extends Component {
 
@@ -14,7 +13,6 @@ class HumanTooScene extends Component {
 
   // TODO refactor some of this out into a higher order component
   componentDidMount = async () => {
-    PIXI = await import('pixi.js')
     await this.init()
   }
 
@@ -39,7 +37,7 @@ class HumanTooScene extends Component {
   }
 
   init = async () => {
-    const { Application } = PIXI
+    const { Application } = this.props.PIXI
 
     this.canvasRef.width = window.innerWidth
     this.canvasRef.height = window.innerHeight
@@ -73,7 +71,7 @@ class HumanTooScene extends Component {
   }
 
   createSprite = () => {
-    const { Sprite } = PIXI
+    const { Sprite } = this.props.PIXI
 
     const sprite = Sprite.fromImage('/static/img/profile_2.svg')
     sprite.anchor.set(0.5)
@@ -85,7 +83,7 @@ class HumanTooScene extends Component {
   }
 
   initFilter = () => {
-    const { Filter } = PIXI
+    const { Filter } = this.props.PIXI
 
     this.filters.push(new Filter('', gloopFilter.fragment, gloopFilter.uniforms))
     this.app.stage.filters = this.filters
@@ -121,4 +119,4 @@ class HumanTooScene extends Component {
 
 }
 
-export default HumanTooScene
+export default withPixi(HumanTooScene)

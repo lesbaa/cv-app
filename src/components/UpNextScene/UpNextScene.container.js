@@ -1,7 +1,9 @@
 import { connect } from 'react-redux'
+import { compose } from 'ramda'
 import { bindActionCreators } from 'redux'
 import { fetchSkills } from '~/actionCreators'
 import { UP_NEXT } from '~/constants/skillTypes'
+import withPixi from '~/HOCs/withPixi'
 import UpNextScene from './UpNextScene.component'
 
 const mapStateToProps = ({
@@ -14,7 +16,12 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   fetchSkills,
 }, dispatch)
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(UpNextScene)
+const enhance = compose(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  ),
+  withPixi,
+)
+
+export default enhance(UpNextScene)

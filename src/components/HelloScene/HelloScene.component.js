@@ -1,17 +1,12 @@
 /* eslint-env browser */
 import React, { Component } from 'react'
 import customShader from '~/shaders/hatch'
-
+import withPixi from '~/HOCs/withPixi'
 import styles from './HelloScene.styles'
-
-let PIXI
 
 class HelloScene extends Component {
 
   componentDidMount = async () => {
-    // this is because PIXI contains polyfills that crash in node
-    // TODO wrap this in a try catch
-    PIXI = await import('pixi.js')
     this.init()
   }
 
@@ -35,7 +30,7 @@ class HelloScene extends Component {
   init = async () => {
     this.canvasRef.width = window.innerWidth
     this.canvasRef.height = window.innerHeight
-    this.app = new PIXI.Application({
+    this.app = new this.props.PIXI.Application({
       view: this.canvasRef,
       width: this.canvasRef.width,
       height: this.canvasRef.height,
@@ -60,14 +55,14 @@ class HelloScene extends Component {
   }
 
   initFilter = () => {
-    this.filter = new PIXI.Filter('', customShader.fragment, customShader.uniforms)
+    this.filter = new this.props.PIXI.Filter('', customShader.fragment, customShader.uniforms)
     this.app.stage.filters = [
       this.filter,
     ]
   }
 
   initSprite = () => {
-    const sprite = new PIXI.Sprite.fromImage('/static/img/hello.png') // eslint-disable-line
+    const sprite = new this.props.PIXI.Sprite.fromImage('/static/img/hello.png') // eslint-disable-line
 
     sprite.anchor.set(0.5)
 
@@ -96,4 +91,4 @@ class HelloScene extends Component {
 
 }
 
-export default HelloScene
+export default withPixi(HelloScene)

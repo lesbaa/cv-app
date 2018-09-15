@@ -16,12 +16,8 @@ import { SOFT_SKILLS } from '~/constants/skillTypes'
 import TYPES from '~/constants/types'
 import styles from './SoftSkillsScene.styles'
 
-let PIXI
-
 class SoftSkillsScene extends Component {
-  // TODO refactor some of this out into a higher order component
   componentDidMount = async () => {
-    PIXI = await import('pixi.js')
     await this.props.fetchSkills({ type: SOFT_SKILLS })
     await this.init()
   }
@@ -72,7 +68,7 @@ class SoftSkillsScene extends Component {
       Application,
       Sprite,
       Container,
-    } = PIXI
+    } = this.props.PIXI
 
     this.canvasRef.width = window.innerWidth
     this.canvasRef.height = window.innerHeight

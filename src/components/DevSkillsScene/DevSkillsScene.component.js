@@ -11,6 +11,8 @@ import Matter, {
   MouseConstraint,
 } from 'matter-js'
 import MatterAttractors from 'matter-attractors'
+// code split this
+// withMatterJS HOC
 import { loadImg } from '~/utils/imgHelpers'
 import { DEV_SKILLS } from '~/constants/skillTypes'
 import TYPES from '~/constants/types'
@@ -18,13 +20,9 @@ import styles from './DevSkillsScene.styles'
 
 Matter.use(MatterAttractors)
 
-let PIXI
-
 class DevSkillsScene extends Component {
   componentDidMount = async () => {
-    PIXI = await import('pixi.js')
     await this.props.fetchSkills({ type: DEV_SKILLS })
-
     await Promise.all(Object
       .entries(this.props.skills)
       .filter(([, { type }]) => type === DEV_SKILLS)
@@ -52,7 +50,7 @@ class DevSkillsScene extends Component {
   init = async () => {
     this.canvasRef.width = window.innerWidth
     this.canvasRef.height = window.innerHeight
-    this.app = new PIXI.Application({
+    this.app = new this.props.PIXI.Application({
       view: this.canvasRef,
       width: this.canvasRef.width,
       height: this.canvasRef.height,
@@ -98,7 +96,7 @@ class DevSkillsScene extends Component {
       Sprite,
       Graphics,
       Container,
-    } = PIXI
+    } = this.props.PIXI
 
     const bodies = Object
       .entries(this.props.skills)
