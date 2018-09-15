@@ -92,6 +92,7 @@
     "redux-devtools-extension": "^2.13.2",
     "redux-thunk": "^2.3.0",
     "serve-static": "1.13.2",
+    "sw-precache-webpack-plugin": "^0.11.5",
     "toxiclibsjs": "^0.3.3",
     "webpack": "4.8.3"
   }
