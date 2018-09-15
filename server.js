@@ -76,13 +76,12 @@ const nextAppHandler = pageComponentPath => async (req, res, next, UAIsMobile = 
 
 
 app.prepare().then(() => {
-  server.use('/sw.js', (req, res) => {
-    const path = join(__dirname, '.next', 'sw.js')
-    return serveStatic(path, {
-      fallthrough: true,
+  server.use('/sw.js',
+    serveStatic('.next/sw.js', {
+      fallthrough: false,
       maxAge: 86400,
     })
-  })
+  )
 
   server.get('*', (req, res, next) => {
     if (isMobile(req) && !req.path.includes('_next')) {
