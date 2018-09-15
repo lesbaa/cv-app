@@ -1,5 +1,6 @@
 /* eslint-env node */
 const express = require('express')
+const { join } = require('path')
 const lru = require('lru-cache')
 const serveStatic = require('serve-static')
 const nextApp = require('next')
@@ -75,6 +76,14 @@ const nextAppHandler = pageComponentPath => async (req, res, next, UAIsMobile = 
 
 
 app.prepare().then(() => {
+  server.use('/sw.js', (req, res) => {
+    const path = join(__dirname, '.next', 'sw.js')
+    return serveStatic(path, {
+      fallthrough: true,
+      maxAge: 86400,
+    })
+  })
+
   server.get('*', (req, res, next) => {
     if (isMobile(req) && !req.path.includes('_next')) {
       return nextAppHandler('/mobile')(req, res, next, true)
