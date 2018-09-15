@@ -9,6 +9,7 @@ import {
   onRouteChangeComplete,
   checkTracking,
 } from '~/actionCreators'
+import registerServiceWorker from '~/utils/registerServiceWorker'
 import drawConsoleFiglet from '~/utils/drawConsoleFiglet'
 
 class LesCV extends App {
@@ -30,6 +31,8 @@ class LesCV extends App {
   }
 
   componentDidMount = () => {
+    registerServiceWorker()
+
     const { store } = this.props
     Router.onRouteChangeStart = () => {
       store.dispatch(onRouteChangeStart())
