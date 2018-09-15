@@ -11,55 +11,52 @@ import {
   HIRE_ME,
   TIMELINE,
 } from '~/constants/slideNames'
+import HelloScene from '~/components/HelloScene'
+import DevSkillsScene from '~/components/DevSkillsScene'
+import SoftSkillsScene from '~/components/SoftSkillsScene'
+import UpNextScene from '~/components/UpNextScene'
+import HumanTooScene from '~/components/HumanTooScene'
+import HireMeScene from '~/components/HireMeScene'
 
-class AnimatedScene extends Component {
+if (!HelloScene) console.log(HelloScene)
+if (!DevSkillsScene) console.log(DevSkillsScene)
+if (!SoftSkillsScene) console.log(SoftSkillsScene)
+if (!UpNextScene) console.log(UpNextScene)
+if (!HumanTooScene) console.log(HumanTooScene)
+if (!HireMeScene) console.log(HireMeScene)
 
-  state = {
-    componentLoaded: false,
-  }
+const AnimatedScene = (props) => {
+  const {
+    palette: { colors },
+    slidename,
+  } = props
 
-  componentDidMount = async () => {
-    // TODO this could def be abstracted out to a HOC withCodeSplit or similar
-    const module = await getSceneComponent(this.props.slidename)
+  const SceneComponent = getSceneComponent(slidename)
 
-    this.Component = module.default
-    this.setState({
-      componentLoaded: true,
-    })
-  }
-
-  render = () => {
-
-    const {
-      palette: { colors },
-    } = this.props
-
-    return this.state.componentLoaded
-      ? (
-        <this.Component
-          colors={colors}
-          {...this.props}
-        />
-      ) : null
-  }
+  return (
+    <SceneComponent
+      colors={colors}
+      {...props}
+    />
+  )
 }
 
 function getSceneComponent(slidename) {
   switch (slidename) {
     case HELLO: {
-      return import('~/components/HelloScene')
+      return HelloScene
     }
     case DEV_SKILLS: {
-      return import('~/components/DevSkillsScene')
+      return DevSkillsScene
     }
     case SOFT_SKILLS: {
-      return import('~/components/SoftSkillsScene')
+      return SoftSkillsScene
     }
     case UP_NEXT: {
-      return import('~/components/UpNextScene')
+      return UpNextScene
     }
     case HUMAN_TOO: {
-      return import('~/components/HumanTooScene')
+      return HumanTooScene
     }
     case TIMELINE: {
       return () => <div className="TimelineScene">Timeline</div> // will be included post MVP
@@ -68,10 +65,10 @@ function getSceneComponent(slidename) {
       return () => <div className="SocialProofScene">SocialProof</div> // will be included post MVP
     }
     case HIRE_ME: {
-      return import('~/components/HireMeScene')
+      return HireMeScene
     }
     default: {
-      return import('~/components/HelloScene')
+      return HelloScene
     }
   }
 }
