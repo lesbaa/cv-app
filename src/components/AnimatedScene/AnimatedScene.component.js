@@ -18,13 +18,6 @@ import UpNextScene from '~/components/UpNextScene'
 import HumanTooScene from '~/components/HumanTooScene'
 import HireMeScene from '~/components/HireMeScene'
 
-if (!HelloScene) console.log(HelloScene)
-if (!DevSkillsScene) console.log(DevSkillsScene)
-if (!SoftSkillsScene) console.log(SoftSkillsScene)
-if (!UpNextScene) console.log(UpNextScene)
-if (!HumanTooScene) console.log(HumanTooScene)
-if (!HireMeScene) console.log(HireMeScene)
-
 const AnimatedScene = (props) => {
   const {
     palette: { colors },
