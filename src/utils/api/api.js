@@ -58,6 +58,18 @@ export const getSkills = async ({ params = {} }) => {
   return json
 }
 
+export const getReferences = async ({ params = {} }) => {
+  const url = buildUrl({
+    path: 'references',
+    params: {
+      ...params,
+    },
+  })
+  const response = await fetch(url)
+  const json = await response.json()
+  return json
+}
+
 export const getSkill = async ({ params, id }) => {
   const url = buildUrl({
     path: 'skills',
