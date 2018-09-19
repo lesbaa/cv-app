@@ -16,6 +16,7 @@ import DevSkillsScene from '~/components/DevSkillsScene'
 import SoftSkillsScene from '~/components/SoftSkillsScene'
 import UpNextScene from '~/components/UpNextScene'
 import HumanTooScene from '~/components/HumanTooScene'
+import SocialProofScene from '~/components/SocialProofScene'
 import HireMeScene from '~/components/HireMeScene'
 
 const AnimatedScene = (props) => {
@@ -55,7 +56,7 @@ function getSceneComponent(slidename) {
       return () => <div className="TimelineScene">Timeline</div> // will be included post MVP
     }
     case SOCIAL_PROOF: {
-      return () => <div className="SocialProofScene">SocialProof</div> // will be included post MVP
+      return () => SocialProofScene
     }
     case HIRE_ME: {
       return HireMeScene
