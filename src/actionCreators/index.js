@@ -101,7 +101,10 @@ export const showInfoDialog = ({
   }, timeout)
 }
 
-export const fetchSlides = ({ slidename, isActive = true } = {}) => async (dispatch, getState) => {
+export const fetchSlides = ({
+  slidename,
+  isActive = true,
+} = {}) => async (dispatch, getState) => {
   dispatch({ type: FETCH_SLIDES })
   dispatch(setIsFetching())
   try {
