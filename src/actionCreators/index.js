@@ -12,6 +12,8 @@ import {
   RECEIVE_SKILLS,
   FETCH_SLIDES,
   RECEIVE_SLIDES,
+  FETCH_REFERENCES,
+  RECEIVE_REFERENCES,
   REQUEST_TRACKING,
   ACCEPT_TRACKING,
   DENY_TRACKING,
@@ -20,6 +22,7 @@ import {
   getSkills,
   getSlides,
   reportLesalytics,
+  getReferences,
 } from '~/utils/api'
 
 export const setIsFetching = () => ({
@@ -98,7 +101,10 @@ export const showInfoDialog = ({
   }, timeout)
 }
 
-export const fetchSlides = ({ slidename, isActive = true } = {}) => async (dispatch, getState) => {
+export const fetchSlides = ({
+  slidename,
+  isActive = true,
+} = {}) => async (dispatch, getState) => {
   dispatch({ type: FETCH_SLIDES })
   dispatch(setIsFetching())
   try {
@@ -138,6 +144,25 @@ export const fetchSkills = ({
       payload: {
         skills: results,
         skillType: type,
+      },
+    })
+    dispatch(setIsNotFetching())
+  } catch (error) {
+    dispatch(reportFetchError({
+      error,
+    }))
+  }
+}
+
+export const fetchReferences = () => async (dispatch) => {
+  dispatch({ type: FETCH_REFERENCES })
+  dispatch(setIsFetching())
+  try {
+    const { results } = await getReferences()
+    dispatch({
+      type: RECEIVE_REFERENCES,
+      payload: {
+        references: results,
       },
     })
     dispatch(setIsNotFetching())
