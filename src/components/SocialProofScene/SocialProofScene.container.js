@@ -16,7 +16,7 @@ const mapStateToProps = ({
   references,
 }) => ({
   modalIsVisible,
-  references,
+  references: references.sort(({ order: a }, { order: b }) => a - b),
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

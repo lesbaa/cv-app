@@ -8,6 +8,9 @@ import {
 } from '~/lib/threedux'
 import styles from './SocialProofScene.styles'
 
+// TODO this is a rather large component
+// it needs a good refactor Les
+
 class SocialProofScene extends Component {
 
   activeReference = 0
@@ -98,10 +101,10 @@ class SocialProofScene extends Component {
       },
     })
 
-    this.switchSkill()
+    this.switchReference(false)
 
     this.interval = setInterval(() => {
-      this.switchSkill()
+      this.switchReference()
     }, 15000)
   }
 
@@ -119,18 +122,20 @@ class SocialProofScene extends Component {
     resolve()
   }
 
-  switchSkill = async () => {
+  switchReference = async (shouldIncrement = true) => {
     await this.transitionFilterOut()
 
-    const currentSkill = this.referencesSprites[this.activeReference]
-    currentSkill.visible = false
+    const currentReference = this.referencesSprites[this.activeReference]
+    currentReference.visible = false
 
-    this.activeReference = this.activeReference + 1 === this.referencesSprites.length
-      ? 0
-      : this.activeReference + 1
+    if (shouldIncrement) {
+      this.activeReference = this.activeReference + 1 === this.referencesSprites.length
+        ? 0
+        : this.activeReference + 1
+    }
 
-    const nextSkill = this.referencesSprites[this.activeReference]
-    nextSkill.visible = true
+    const nextReference = this.referencesSprites[this.activeReference]
+    nextReference.visible = true
     this.transitionFilterIn()
   }
 
