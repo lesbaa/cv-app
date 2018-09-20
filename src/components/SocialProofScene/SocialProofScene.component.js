@@ -234,7 +234,7 @@ class SocialProofScene extends Component {
       createTextObject({
         text: '”',
         x: referenceText.width + 10,
-        y: referenceText.height + 40,
+        y: referenceText.height + 60,
         style: quoteMarkStyle,
       })
 
