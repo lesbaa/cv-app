@@ -61,7 +61,7 @@ class SocialProofScene extends Component {
 
     await this.initFilter()
 
-    this.addSkillsText()
+    this.addReferencesText()
 
     this.animate(0)
   }
@@ -134,17 +134,17 @@ class SocialProofScene extends Component {
     this.transitionFilterIn()
   }
 
-  addSkillsText = () => {
-    const fontSize = this.dims.h * 0.02
+  addReferencesText = () => {
+    const fontSize = this.dims.h * 0.018
 
-    const quoteTextStyle = new this.props.PIXI.TextStyle({
+    const referenceTextStyle = new this.props.PIXI.TextStyle({
       fontFamily: 'RobotoMono',
       fontWeight: '300',
       fontSize,
       lineHeight: fontSize * 1.5,
       align: 'left',
-      fill: '#555555',
-      padding: 50,
+      fill: '#3d3d3d',
+      padding: 100,
       wordWrap: true,
       wordWrapWidth: this.dims.w * 0.40,
     })
@@ -154,7 +154,7 @@ class SocialProofScene extends Component {
       padding: 20,
       lineHeight: fontSize,
       align: 'right',
-      fill: '#555555',
+      fill: '#3d3d3d',
     }
 
     const personNameTextStyle = new this.props.PIXI.TextStyle({
@@ -178,32 +178,72 @@ class SocialProofScene extends Component {
       const textContainer = new this.props.PIXI.Container()
       textContainer.visible = false
 
-      const quoteText = new this.props.PIXI.Text(`"${reference}"`, quoteTextStyle)
-      quoteText.x = 0
-      quoteText.y = 0
-      textContainer.addChild(quoteText)
+      const createTextObject = this.createPixiTextCreator(textContainer)
 
-      const personNameText = new this.props.PIXI.Text(`- ${name}`, personNameTextStyle)
-      personNameText.y = quoteText.height
-      personNameText.x = quoteText.width - personNameText.width
-      textContainer.addChild(personNameText)
+      const referenceText = createTextObject({
+        text: reference,
+        style: referenceTextStyle,
+      })
 
-      const relationshipText = new this.props.PIXI.Text(relationship, relationshipTextStyle)
-      relationshipText.y = quoteText.height + personNameText.height
-      relationshipText.x = quoteText.width - relationshipText.width
-      textContainer.addChild(relationshipText)
+      const personNameText = createTextObject({
+        text: `- ${name}`,
+        style: personNameTextStyle,
+        y: referenceText.height + fontSize,
+      })
+
+      personNameText.x = referenceText.width - personNameText.width
+
+      const relationshipText = createTextObject({
+        text: relationship,
+        style: relationshipTextStyle,
+        y: referenceText.height + personNameText.height + fontSize,
+      })
+
+      relationshipText.x = referenceText.width - relationshipText.width
 
       textContainer.pivot = new this.props.PIXI.Point(
-        textContainer.width / 2,
-        quoteText.height / 2,
+        referenceText.width / 2,
+        referenceText.height / 2,
       )
 
-      textContainer.x = this.dims.w * 0.7
+      textContainer.x = this.dims.w * 0.66
       textContainer.y = this.dims.h * 0.5
+
+      const quoteMarkStyle = {
+        ...personNameTextStyle,
+        fontSize: 50,
+      }
+
+      createTextObject({
+        text: '“',
+        x: -35,
+        y: -35,
+        style: quoteMarkStyle,
+      })
+
+      createTextObject({
+        text: '”',
+        x: referenceText.width + 10,
+        y: referenceText.height + 35,
+        style: quoteMarkStyle,
+      })
 
       this.app.stage.addChild(textContainer)
       return textContainer
     })
+  }
+
+  createPixiTextCreator = container => ({
+    text,
+    style,
+    x = 0,
+    y = 0,
+  }) => {
+    const textObject = new this.props.PIXI.Text(text, style)
+    textObject.x = x
+    textObject.y = y
+    if (container) container.addChild(textObject)
+    return textObject
   }
 
   animate = (t) => {
