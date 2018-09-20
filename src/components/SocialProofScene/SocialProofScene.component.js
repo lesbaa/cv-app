@@ -223,17 +223,20 @@ class SocialProofScene extends Component {
         fontSize: 50,
       }
 
-      createTextObject({
+      const openingQuote = createTextObject({
         text: '“',
-        x: -fontSize * 2.5,
-        y: -fontSize * 2.5,
+        x: 0,
+        y: 0,
         style: quoteMarkStyle,
       })
 
+      openingQuote.x = -10 - openingQuote.width
+      openingQuote.y = -10 - openingQuote.height / 2
+
       createTextObject({
         text: '”',
-        x: referenceText.width + fontSize / 2,
-        y: referenceText.height + fontSize * 3,
+        x: referenceText.width + 10,
+        y: referenceText.height + personNameText.height + relationshipText.height + 10,
         style: quoteMarkStyle,
       })
 
