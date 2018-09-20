@@ -170,7 +170,6 @@ class SocialProofScene extends Component {
       ...baseTextStyle,
       fontSize: fontSize * 1.5,
       fontFamily: 'League Spartan',
-
     })
 
     const relationshipTextStyle = new PIXI.TextStyle({
@@ -226,15 +225,15 @@ class SocialProofScene extends Component {
 
       createTextObject({
         text: '“',
-        x: -40,
-        y: -40,
+        x: -fontSize * 2.5,
+        y: -fontSize * 2.5,
         style: quoteMarkStyle,
       })
 
       createTextObject({
         text: '”',
-        x: referenceText.width + 10,
-        y: referenceText.height + 60,
+        x: referenceText.width + fontSize / 2,
+        y: referenceText.height + fontSize * 3,
         style: quoteMarkStyle,
       })
 
