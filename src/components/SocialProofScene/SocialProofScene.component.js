@@ -174,7 +174,7 @@ class SocialProofScene extends Component {
     const relationshipTextStyle = new PIXI.TextStyle({
       ...baseTextStyle,
       fontFamily: 'RobotoMono',
-      fontSize: 0.7 * fontSize,
+      fontSize: 0.9 * fontSize,
     })
 
     this.referencesSprites = this.props.references.map(({
