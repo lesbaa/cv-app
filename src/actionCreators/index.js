@@ -152,7 +152,6 @@ export const fetchSkills = ({
 }
 
 export const fetchReferences = () => async (dispatch) => {
-  console.log('******** fetchReferences')
   dispatch({ type: FETCH_REFERENCES })
   dispatch(setIsFetching())
   try {
