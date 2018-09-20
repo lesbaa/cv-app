@@ -56,7 +56,7 @@ function getSceneComponent(slidename) {
       return () => <div className="TimelineScene">Timeline</div> // will be included post MVP
     }
     case SOCIAL_PROOF: {
-      return () => SocialProofScene
+      return SocialProofScene
     }
     case HIRE_ME: {
       return HireMeScene

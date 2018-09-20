@@ -58,7 +58,7 @@ export const getSkills = async ({ params = {} }) => {
   return json
 }
 
-export const getReferences = async ({ params = {} }) => {
+export const getReferences = async ({ params = {} } = {}) => {
   const url = buildUrl({
     path: 'references',
     params: {

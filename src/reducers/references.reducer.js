@@ -1,7 +1,6 @@
-import reduceToKeyValueStore from '~/utils/reduceToKeyValueStore'
 import { RECEIVE_REFERENCES } from '~/constants/actionTypes'
 
-const defaultState = {}
+const defaultState = []
 
 export default function (state = defaultState, {
   type,
@@ -9,13 +8,10 @@ export default function (state = defaultState, {
 } = {}) {
   switch (type) {
     case RECEIVE_REFERENCES: {
-      return {
+      return [
         ...state,
-        ...reduceToKeyValueStore({
-          key: 'id',
-          array: payload.references,
-        }),
-      }
+        ...payload.references,
+      ]
     }
 
     default: {

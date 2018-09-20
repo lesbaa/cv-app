@@ -100,8 +100,8 @@ export const showInfoDialog = ({
     clearTimeout(t)
   }, timeout)
 }
-
-export const fetchSlides = ({ slidename, isActive = true } = {}) => async (dispatch, getState) => {
+// turn is active back to false
+export const fetchSlides = ({ slidename, isActive = false } = {}) => async (dispatch, getState) => {
   dispatch({ type: FETCH_SLIDES })
   dispatch(setIsFetching())
   try {
@@ -151,9 +151,8 @@ export const fetchSkills = ({
   }
 }
 
-export const fetchReferences = ({
-  type,
-}) => async (dispatch) => {
+export const fetchReferences = () => async (dispatch) => {
+  console.log('******** fetchReferences')
   dispatch({ type: FETCH_REFERENCES })
   dispatch(setIsFetching())
   try {
@@ -162,7 +161,6 @@ export const fetchReferences = ({
       type: RECEIVE_REFERENCES,
       payload: {
         references: results,
-        skillType: type,
       },
     })
     dispatch(setIsNotFetching())

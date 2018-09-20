@@ -23,6 +23,16 @@ const SKILL = PropTypes.shape({
   desc: PropTypes.string,
 })
 
+const REFERENCE = PropTypes.shape({
+  _id: PropTypes.string,
+  id: PropTypes.string,
+  type: PropTypes.string,
+  name: PropTypes.string,
+  currentPosition: PropTypes.string,
+  relationship: PropTypes.string,
+  reference: PropTypes.string,
+})
+
 const SLIDE = PropTypes.shape({
   palette: PALETTE,
   _id: PropTypes.string,
@@ -40,4 +50,5 @@ export default {
   SLIDE,
   PALETTE,
   ERROR,
+  REFERENCE,
 }

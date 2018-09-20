@@ -2,34 +2,26 @@ import { connect } from 'react-redux'
 import { compose } from 'ramda'
 import { bindActionCreators } from 'redux'
 import {
-  hideSkillDetailModal,
-  showSkillDetailModal,
   fetchReferences,
   setIsFetching,
   setIsNotFetching,
 } from '~/actionCreators'
-import { SOFT_SKILLS } from '~/constants/skillTypes'
 import withPixi from '~/HOCs/withPixi'
-import DevSkillsScene from './SocialProofScene.component'
+import SocialProofScene from './SocialProofScene.component'
 
 const mapStateToProps = ({
   detailsModal: {
     modalIsVisible,
   },
-  skills,
+  references,
 }) => ({
   modalIsVisible,
-  skills: skills[SOFT_SKILLS],
+  references,
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  hideSkillDetailModal,
   setIsFetching,
   setIsNotFetching,
-  showDetailModal: ({ id }) => showSkillDetailModal({
-    id,
-    skillType: SOFT_SKILLS,
-  }),
   fetchReferences,
 }, dispatch)
 
@@ -41,4 +33,4 @@ const enhance = compose(
   withPixi,
 )
 
-export default enhance(DevSkillsScene)
+export default enhance(SocialProofScene)
