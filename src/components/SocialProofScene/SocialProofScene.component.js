@@ -143,17 +143,18 @@ class SocialProofScene extends Component {
     // TODO refactor this, could be a bit dryer
     const { PIXI } = this.props
 
-    const fontSize = this.dims.h * 0.018
+    const fontSize = this.dims.h * 0.02
 
     const referenceTextStyle = new PIXI.TextStyle({
       fontFamily: 'RobotoMono',
       fontWeight: '300',
       fontSize,
-      lineHeight: fontSize * 1.5,
+      lineHeight: fontSize * 1.75,
       align: 'left',
       fill: '#3d3d3d',
       padding: 100,
       wordWrap: true,
+      letterSpacing: 1,
       wordWrapWidth: this.dims.w * 0.40,
     })
 
@@ -167,6 +168,7 @@ class SocialProofScene extends Component {
 
     const personNameTextStyle = new PIXI.TextStyle({
       ...baseTextStyle,
+      fontSize: fontSize * 1.5,
       fontFamily: 'League Spartan',
 
     })
@@ -224,15 +226,15 @@ class SocialProofScene extends Component {
 
       createTextObject({
         text: '“',
-        x: -35,
-        y: -35,
+        x: -40,
+        y: -40,
         style: quoteMarkStyle,
       })
 
       createTextObject({
         text: '”',
         x: referenceText.width + 10,
-        y: referenceText.height + 35,
+        y: referenceText.height + 40,
         style: quoteMarkStyle,
       })
 
