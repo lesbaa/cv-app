@@ -100,8 +100,8 @@ export const showInfoDialog = ({
     clearTimeout(t)
   }, timeout)
 }
-// turn is active back to false
-export const fetchSlides = ({ slidename, isActive = false } = {}) => async (dispatch, getState) => {
+
+export const fetchSlides = ({ slidename, isActive = true } = {}) => async (dispatch, getState) => {
   dispatch({ type: FETCH_SLIDES })
   dispatch(setIsFetching())
   try {
