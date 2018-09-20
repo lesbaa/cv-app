@@ -135,9 +135,12 @@ class SocialProofScene extends Component {
   }
 
   addReferencesText = () => {
+    // TODO refactor this, could be a bit dryer
+    const { PIXI } = this.props
+
     const fontSize = this.dims.h * 0.018
 
-    const referenceTextStyle = new this.props.PIXI.TextStyle({
+    const referenceTextStyle = new PIXI.TextStyle({
       fontFamily: 'RobotoMono',
       fontWeight: '300',
       fontSize,
@@ -157,13 +160,13 @@ class SocialProofScene extends Component {
       fill: '#3d3d3d',
     }
 
-    const personNameTextStyle = new this.props.PIXI.TextStyle({
+    const personNameTextStyle = new PIXI.TextStyle({
       ...baseTextStyle,
       fontFamily: 'League Spartan',
 
     })
 
-    const relationshipTextStyle = new this.props.PIXI.TextStyle({
+    const relationshipTextStyle = new PIXI.TextStyle({
       ...baseTextStyle,
       fontFamily: 'RobotoMono',
       fontSize: 0.7 * fontSize,
@@ -175,7 +178,7 @@ class SocialProofScene extends Component {
       currentPosition,
       relationship,
     }) => {
-      const textContainer = new this.props.PIXI.Container()
+      const textContainer = new PIXI.Container()
       textContainer.visible = false
 
       const createTextObject = this.createPixiTextCreator(textContainer)
@@ -201,7 +204,7 @@ class SocialProofScene extends Component {
 
       relationshipText.x = referenceText.width - relationshipText.width
 
-      textContainer.pivot = new this.props.PIXI.Point(
+      textContainer.pivot = new PIXI.Point(
         referenceText.width / 2,
         referenceText.height / 2,
       )
@@ -239,7 +242,8 @@ class SocialProofScene extends Component {
     x = 0,
     y = 0,
   }) => {
-    const textObject = new this.props.PIXI.Text(text, style)
+    const { PIXI } = this.props
+    const textObject = new PIXI.Text(text, style)
     textObject.x = x
     textObject.y = y
     if (container) container.addChild(textObject)
