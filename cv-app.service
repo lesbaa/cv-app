@@ -3,13 +3,12 @@ Description=CV API Universal JS App
 
 [Service]
 Type=simple
-WorkingDirectory=/root/cv-app/bin/
-ExecStart=/startup.sh
+WorkingDirectory=/root/cv-app
+ExecStart=/root/cv-app/start.sh
 Restart=always
-User=nogroup
-Group=nogroup
 Environment=PATH=/usr/bin:/usr/local/bin
 Environment=NODE_ENV=production
 
 [Install]
 WantedBy=multi-user.target
+
