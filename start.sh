@@ -1,3 +1,3 @@
 #!/bin/bash
-
-yarn build && yarn start
+cd ~/cv-app;
+yarn build && yarn start;

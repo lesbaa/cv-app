@@ -6,10 +6,11 @@ Type=simple
 WorkingDirectory=/root/cv-app
 ExecStart=/root/cv-app/start.sh
 Restart=always
-Environment=PATH=/usr/bin:/usr/local/bin
+Environment=PATH=/usr/bin:/usr/local/bin:/bin
 Environment=NODE_ENV=production
 Environment=LES_ENV=live
 
 [Install]
 WantedBy=multi-user.target
+
 
