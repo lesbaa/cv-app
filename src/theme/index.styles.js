@@ -32,7 +32,7 @@ export default css`
   .les-title {
     margin: 0;
     font-size: 3em;
-    font-family: 'League Spartan', sans-serif;
+    font-family: 'LeagueSpartan', sans-serif;
   }
 
   .job-title {
