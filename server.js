@@ -97,6 +97,7 @@ app.prepare().then(() => {
   console.log(`Server running on ** ${process.env.NODE_ENV} ** environment and on port: ${PORT}`)
 
   server.get('*', handle)
+  server.get('/_next', handle)
 
   if (dev) {
     const fs = require('fs')
