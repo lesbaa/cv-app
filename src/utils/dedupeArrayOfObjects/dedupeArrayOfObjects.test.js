@@ -37,12 +37,17 @@ describe('dedupeArrayOfObjects', () => {
       ],
       field: 'a',
     })
-    expect(received).toEqual([
+
+    const expected = [
       ...mockArray,
       {
         a: 2,
         b: 'cornocopia',
       },
-    ])
+    ]
+
+    received.forEach((el, i) => {
+      expect(el).toEqual(expected[i])
+    })
   })
 })
