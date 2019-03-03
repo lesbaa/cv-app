@@ -1,6 +1,6 @@
-import css from 'styled-jsx/css'
+import { global } from 'styled-jsx/css'
 
-export default css`
+export default global`
   @font-face {
     font-family: 'LeagueSpartan';
     src: url('/static/fonts/LeagueSpartan-Bold.subset.eot');
