@@ -1,7 +1,7 @@
 /* eslint-env node */
 const express = require('express')
 const { join } = require('path')
-const lru = require('lru-cache')
+const Lru = require('lru-cache')
 const serveStatic = require('serve-static')
 const nextApp = require('next')
 const https = require('https')
@@ -10,7 +10,7 @@ const isMobile = require('is-mobile')
 const handleCalender = require('./server/handleCalender')
 const logListener = require('./server/logListener')
 
-const cache = lru({
+const cache = new Lru({
   max: 1e10,
   length: (entry, key) => entry.length,
 })
@@ -51,7 +51,7 @@ server.use(
 server.get('/calender', handleCalender)
 
 const nextAppHandler = pageComponentPath => async (req, res, next, UAIsMobile = false) => {
-  const cached = cache.get(req.originalUrl)
+  const cached = cache.get(req.originalUrl + UAIsMobile)
   if (cached && req.query.nocache !== 'true' && !dev) {
     res.set('X-cache', 'hit')
     res.send(cached)
