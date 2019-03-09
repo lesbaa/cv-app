@@ -81,7 +81,7 @@ class IndexPage extends Component {
         <div className="index-links">
           <Link
             href={{
-              pathname: '/cv/hello',
+              pathname: '/CVSlide',
               query: { slidename: 'hello' },
             }}
             as="/cv/hello"

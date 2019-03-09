@@ -88,7 +88,7 @@ const Nav = ({
       <div
         className="next-prev"
       >
-        {previousSlide &&
+        {previousSlide && (
           <Link
             href={{
               pathname: '/CVSlide',
@@ -101,8 +101,8 @@ const Nav = ({
               <ArrowLeftIcon size="1em" />
             </a>
           </Link>
-        }
-        {nextSlide &&
+        )}
+        {nextSlide && (
           <Link
             href={{
               pathname: '/CVSlide',
@@ -115,7 +115,7 @@ const Nav = ({
               <ArrowRightIcon size="1em" />
             </a>
           </Link>
-        }
+        )}
       </div>
       <style jsx>{styles}</style>
     </nav>
