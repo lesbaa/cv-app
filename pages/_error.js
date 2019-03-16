@@ -47,12 +47,12 @@ class Error extends React.Component {
 
 Error.defaultProps = {
   pageTransitionReadyToEnter: () => {},
-  statusCode: PropTypes.number,
+  statusCode: 500,
 }
 
 Error.propTypes = {
   pageTransitionReadyToEnter: PropTypes.func,
-  statusCode: 500,
+  statusCode: PropTypes.number,
 }
 
 export default Error

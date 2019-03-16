@@ -52,13 +52,17 @@ server.get('/calender', handleCalender)
 
 const nextAppHandler = pageComponentPath => async (req, res, next, UAIsMobile = false) => {
   const cached = cache.get(req.originalUrl + UAIsMobile)
-  if (cached && req.query.nocache !== 'true' && !dev) {
+  const t = process.hrtime()
+
+
+  if (cached && req.query.nocache !== 'true') {
     res.set('X-cache', 'hit')
     res.send(cached)
     return
   }
 
   const { slidename = 'hello' } = req.params
+
   const markup = await app.renderToHTML(
     req,
     res,
@@ -70,7 +74,9 @@ const nextAppHandler = pageComponentPath => async (req, res, next, UAIsMobile = 
   )
 
   cache.set(req.originalUrl + UAIsMobile, markup)
+
   if (req.query && req.query.ref && !req.cookies) res.cookie('LES_REF', req.query.ref)
+
   res.send(markup)
 }
 
@@ -91,30 +97,13 @@ app.prepare().then(() => {
   })
 
   server.get('/', nextAppHandler('/index'))
-  server.get('/cv', nextAppHandler('/CVSlide'))
   server.get('/cv/:slidename', nextAppHandler('/CVSlide'))
+  server.get('/cv/', nextAppHandler('/CVSlide'))
 
   console.log(`Server running on ** ${process.env.NODE_ENV} ** environment and on port: ${PORT}`)
 
   server.get('*', handle)
   server.get('/_next', handle)
 
-  if (dev) {
-    const fs = require('fs')
-
-    const cert = fs.readFileSync('server/dev-https/lescv.dev.crt', 'utf-8')
-    const key = fs.readFileSync('server/dev-https/lescv.dev.key', 'utf-8')
-
-    const options = {
-      key,
-      cert,
-      // protocols: ['http/1.1'],
-    }
-
-    https
-      .createServer(options, server)
-      .listen(PORT, logListener('HTTP/2'))
-  } else {
-    server.listen(PORT, logListener('HTTP'))
-  }
+  server.listen(PORT, logListener('HTTP'))
 })
