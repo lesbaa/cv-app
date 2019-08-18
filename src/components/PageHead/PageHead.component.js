@@ -53,7 +53,6 @@ const PageHead = ({
       <meta name="twitter:image" content="/static/favicons/og-image.jpg" />
       <meta name="twitter:title" content="Purveyor of fine JavaScripts and other web wares." />
       <meta name="twitter:app:country" content="PT" />
-      <link rel="manifest" href="/static/manifest.json" />
       <link rel="apple-touch-icon" sizes="57x57" href="/static/favicons/apple-icon-57x57.png" />
       <link rel="apple-touch-icon" sizes="60x60" href="/static/favicons/apple-icon-60x60.png" />
       <link rel="apple-touch-icon" sizes="72x72" href="/static/favicons/apple-icon-72x72.png" />
