@@ -22,6 +22,7 @@ class CVSlide extends Component {
       slidename,
     } = query
     // TODO you can probably "containerize" this.
+    console.log('hiya', slidename)
     await store.dispatch(fetchSlides())
 
     const slideData = store.getState().slides[slidename]

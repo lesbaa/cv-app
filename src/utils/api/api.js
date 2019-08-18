@@ -3,7 +3,7 @@ import buildQueryString from '~/utils/buildQueryString'
 import { API_BASE_URL } from '~/../les.config'
 
 export const buildUrl = ({ path, params }) =>
-  `//${API_BASE_URL}/${path}${buildQueryString(params)}`
+  `${API_BASE_URL}/${path}${buildQueryString(params)}`
 
 export const reportLesalytics = async ({
   ref,
@@ -24,6 +24,7 @@ export const reportLesalytics = async ({
 }
 
 export const getSlides = async ({ params } = {}) => {
+  console.log('getSlides', params)
   const url = buildUrl({
     path: 'slides',
     params,
@@ -34,6 +35,7 @@ export const getSlides = async ({ params } = {}) => {
 }
 
 export const getSlide = async ({ params, slidename }) => {
+  console.log('getSlide', params, slidename)
   const url = buildUrl({
     path: 'slides',
     params: {

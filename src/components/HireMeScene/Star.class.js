@@ -42,7 +42,7 @@ export default class Star {
       x,
       y,
     } = this.pos
-
+    if (!this.g) return
     this.g.rotation += 0.1
 
     const distanceToCenter = this.pos
