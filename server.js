@@ -52,8 +52,6 @@ server.get('/calender', handleCalender)
 
 const nextAppHandler = pageComponentPath => async (req, res, next, UAIsMobile = false) => {
   const cached = cache.get(req.originalUrl + UAIsMobile)
-  const t = process.hrtime()
-
 
   if (cached && req.query.nocache !== 'true') {
     res.set('X-cache', 'hit')
