@@ -27,7 +27,7 @@ describe('Title', () => {
   )
 
   const wrapperDesktop = shallow(
-    <PageWrapper {...baseProps} >
+    <PageWrapper {...baseProps}>
       <div className="child-two" />
     </PageWrapper>
   )
