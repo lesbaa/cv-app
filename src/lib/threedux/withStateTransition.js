@@ -18,7 +18,7 @@ const clone3DAttr = clone3DAttributes([
 
 const withStateTransition = (inputObj) => {
 
-  const subject = inputObj.clone()
+  const subject = inputObj
 
   subject.handleClassListChange = handleClassListChange.bind(subject)
   subject.handleStateChange = handleStateChange.bind(subject)

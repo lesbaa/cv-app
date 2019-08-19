@@ -1,9 +1,9 @@
 import fetch from 'isomorphic-fetch'
 import buildQueryString from '~/utils/buildQueryString'
-import { API_BASE_URL } from '~/../les.config'
+import getConfig from '~/../les.config'
 
 export const buildUrl = ({ path, params }) =>
-  `${API_BASE_URL}/${path}${buildQueryString(params)}`
+  `${getConfig().API_BASE_URL}/${path}${buildQueryString(params)}`
 
 export const reportLesalytics = async ({
   ref,
