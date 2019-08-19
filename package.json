@@ -64,7 +64,7 @@
     "@babel/core": "^7.0.0",
     "babel-plugin-module-resolver": "^3.1.1",
     "compression": "1.7.3",
-    "core-js": "^2.5.7",
+    "core-js": "^3.2.1",
     "date-fns": "^1.29.0",
     "express": "^4.16.3",
     "glsl-noise": "^0.0.0",
