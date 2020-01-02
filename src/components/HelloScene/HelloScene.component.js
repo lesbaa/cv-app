@@ -28,7 +28,6 @@ class HelloScene extends Component {
   }
 
   init = async () => {
-    debugger
     this.canvasRef.width = window.innerWidth
     this.canvasRef.height = window.innerHeight
 
@@ -42,11 +41,9 @@ class HelloScene extends Component {
       height: this.canvasRef.height,
       transparent: true,
     })
-    debugger
 
     this.app.renderer.autoResize = true
     this.app.renderer.resize(window.innerWidth, window.innerHeight)
-    debugger
 
     const w = this.app.screen.width
     const h = this.app.screen.height
@@ -57,14 +54,9 @@ class HelloScene extends Component {
       wUnit: w / 6,
       hUnit: h / 6,
     }
-    debugger
 
     this.initFilter()
-    debugger
-
     this.initSprite()
-    debugger
-
     this.animate()
   }
 
