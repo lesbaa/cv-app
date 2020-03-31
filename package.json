@@ -76,7 +76,7 @@
     "matter-attractors": "^0.1.6",
     "matter-js": "^0.14.1",
     "matter-wrap": "^0.2.0",
-    "next": "8.0.3",
+    "next": "9.3.2",
     "next-connect-redux": "^0.1.5",
     "next-page-transitions": "^1.0.0-alpha.3",
     "pixi.js": "^4.8.1",
